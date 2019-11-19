@@ -53,17 +53,21 @@ const orangeJuice = [
     'Add water and/or surger until tastes good.'
 ]
 
-function makeFood(steps){
+/** DO NOT ALTER **/
+function makeFood(steps, id){
     steps.forEach(step => {
     setTimeout(() => {
       console.log(step);
-    }, Math.floor(Math.random() * 2000));
+      document.querySelector(id).innerHTML += (`<li>${step}</li`)
+    }, Math.floor(Math.random() * 5000));
   })
 }
 
-makeFood(eggs)
-makeFood(bacon)
-makeFood(orangeJuice)
+
+
+makeFood(eggs, '#eggs')
+makeFood(bacon, '#bacon')
+makeFood(orangeJuice, '#orangeJuice')
 
 
 

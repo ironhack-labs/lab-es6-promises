@@ -62,7 +62,7 @@ function printString(str){
     .then(() => printStringWithPromises("C"))
     .catch(() => console.log("Something bad happened!"));
   }
-  printAllWithPromises()
+  //printAllWithPromises()
   
 
   // ASYNC/AWAIT
@@ -80,7 +80,7 @@ function printString(str){
     await printStringWithPromises("C");
   }
   
-  //printAllWithAsync()
+  printAllWithAsync()
   
   // The printString function doesn’t return anything and is independent, all we cared about was the order. 
   // Take the output of the first function, do Something with it in the second function, and then pass it to the third function.
@@ -134,6 +134,6 @@ function printString(str){
     toPrint = await addStringWithPromises(toPrint, 'C');
     console.log(toPrint); // Prints out " A B C"
   }
-  //addAllWithPromise();
+  addAllWithPromise();
 
 // Additional read: https://medium.com/javascript-in-plain-english/a-guide-to-javascript-promises-da50eff327d7
