@@ -28,12 +28,15 @@ $ git push origin master
 
 Create Pull Request so your TAs can check up your work.  Write your JavaScript in the provided `script.js` file.
 
+##Out of Sync 
+**Notice how the steps to cooking the food are out of order, and all the images are already on the table**
+![](images/OutofSync.gif)
+
 ## Deliverables
 
 ** First construct three arrays that place the following steps in the correct order: **
 
 
-![](images/OutofSync.gif)
 
 **Steak**
 1. Season steak generously with salt, pepper and garlic powder
@@ -82,8 +85,15 @@ Using promises and the `then` statement print the directions to make Mash Potato
 Using promises with the `async` and `await` syntax print the directions to make Brussel Sprouts in the correct order 
 `makeFood(brusselSprouts)`
 
-## Iteration #4 
+## BONUS 1
 
-Using `promise.all` when Steak, Mash Potatoes, and Brussel Sprouts are all finished being made, alert ***Dinner is Served! ***
+When each food item's steps such as `steak` is complete then add that specific food to the `#table` div.
+
+## BONUS 2
+
+Using `promise.all` when Steak, Mash Potatoes, and Brussel Sprouts are all finished being made and added to the table, alert ***Dinner is Served! ***
 
 
+##Final should look like this 
+**All the steps in the correct order**
+![](images/inSync.gif)
