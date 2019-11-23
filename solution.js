@@ -1,7 +1,5 @@
 
 
-
-
 async function makeFood(steps, id){
     let promises = []
     for(const step of steps){

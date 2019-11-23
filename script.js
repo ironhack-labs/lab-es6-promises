@@ -33,36 +33,26 @@ const mashPotatoes = [
 
 
 
-/** DO NOT ALTER **/
 
-function addFood(step, id){
-  return new Promise((resolve, reject)=>{
-    setTimeout(() => {
-      console.log(step);
-      document.querySelector(id).innerHTML += (`<li>${step}</li`)
-      resolve(step)
-    }, Math.floor(Math.random() * 1000));
-  })
-}
+
+
   
+// function makeFood(steps, id){
+//   for(const step of steps){
+//     //This function adds food to the list ==>  addFood('take steak from fridge', #steak)
+//     addFood(step,id) 
+//   }
+//   document.querySelector('#table').innerHTML += (`<img src="images/${id.replace('#','')}.jpg" />`)
+
+//   //Use below once all food is made 
+//   //document.body.innerHTML += `<button onclick="new Audio('dinnerIsServed.mp3').play()">Dinner is Served!</button>`
   
-function makeFood(steps, id){
-  for(const step of steps){
-    addFood(step,id)
-  }
-  document.querySelector('#table').innerHTML += (`<img src="images/${id.replace('#','')}.jpg" />`)
-
-  //USE AFTER EVERYTHING IS COMPLETE
-  //document.body.innerHTML += `<button onclick="new Audio('dinnerIsServed.mp3').play()">Dinner is Served!</button>`
-  
-}
+// }
 
 
-makeFood(steak, '#steak')
-makeFood(mashPotatoes, '#mashPotatoes')
-makeFood(brusselSprouts, '#brusselSprouts')
-
-
+// makeFood(steak, '#steak')
+// makeFood(mashPotatoes, '#mashPotatoes')
+// makeFood(brusselSprouts, '#brusselSprouts')
 
 
 

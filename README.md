@@ -4,7 +4,7 @@
 
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | #Promise Me Breakfast
+# LAB | #Promise Me Dinner
 
 
 ## Introduction
@@ -33,6 +33,8 @@ Create Pull Request so your TAs can check up your work.  Write your JavaScript i
 ** First construct three arrays that place the following steps in the correct order: **
 
 
+![](images/OutofSync.gif)
+
 **Steak**
 1. Season steak generously with salt, pepper and garlic powder
 2. Place in ziplock bag
@@ -42,6 +44,15 @@ Create Pull Request so your TAs can check up your work.  Write your JavaScript i
 6. Cook steak for 30-60 seconds per side using a spoon to baste with butter
 7. Rest for 10 mintutes
 8. Enjoy
+
+
+**Mash Potatoes**
+1.  Boil water
+2.  Tear open bag of of instant potato mix and pour into bowl
+3.  Pour in water
+4.  Mix  
+5.  Enjoy 
+
 
 **Brussel Sprouts**
 1. Wash burussel srouts
@@ -55,32 +66,24 @@ Create Pull Request so your TAs can check up your work.  Write your JavaScript i
 9. Enjoy
 
 
-**Mash Potatoes**
-1.  Boil water
-2.  Tear open bag of of instant potato mix and pour into bowl
-3.  Pour in water
-4.  Mix  
-5.  Enjoy 
-
-
 ## Iteration #1: 
 
-Using callbacks print the directions to make eggs in the console in the correct order as shown above.  
+Using callbacks print the directions to make Steak in the console in the correct order as shown above.  
 
-`makeFood(eggs)` 
+`makeFood(steak)` 
 ## Iteration #2: 
 
-Using promises and the `then` statement print the directions to make bacon in the correct order
+Using promises and the `then` statement print the directions to make Mash Potatoes in the correct order
 
-`makeFood(bacon)`
+`makeFood(mashPotatoes)`
 
 ## Iteration #3 
 
-Using promises with the `async` and `await` syntax print the directions to make orange juice in the correct order 
-`makeFood(orangeJuice)`
+Using promises with the `async` and `await` syntax print the directions to make Brussel Sprouts in the correct order 
+`makeFood(brusselSprouts)`
 
 ## Iteration #4 
 
-Using `promise.all` when bacon, eggs, and orange juice are all finished being made, log ***Breakfast is made! ***
+Using `promise.all` when Steak, Mash Potatoes, and Brussel Sprouts are all finished being made, alert ***Dinner is Served! ***
 
 
