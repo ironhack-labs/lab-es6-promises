@@ -28,7 +28,7 @@ $ git push origin master
 
 Create Pull Request so your TAs can check up your work.  Write your JavaScript in the provided `script.js` file.
 
-##Out of Sync 
+## Out of Sync 
 **Notice how the steps to cooking the food are out of order, and all the images are already on the table**
 ![](images/OutofSync.gif)
 
@@ -91,9 +91,9 @@ When each food item's steps such as `steak` is complete then add that specific f
 
 ## BONUS 2
 
-Using `promise.all` when Steak, Mash Potatoes, and Brussel Sprouts are all finished being made and added to the table, alert ***Dinner is Served! ***
+Using `promise.all` when Steak, Mash Potatoes, and Brussel Sprouts are all finished being made and added to the table, alert ***Dinner is Served!***
 
 
-##Final should look like this 
+## Final should look like this 
 **All the steps in the correct order**
 ![](images/inSync.gif)
