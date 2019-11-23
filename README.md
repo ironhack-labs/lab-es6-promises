@@ -96,4 +96,5 @@ Using `promise.all` when Steak, Mash Potatoes, and Brussel Sprouts are all finis
 
 ## Final should look like this 
 **All the steps in the correct order**
+
 ![](images/inSync.gif)
