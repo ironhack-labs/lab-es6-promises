@@ -9,7 +9,6 @@ function printString(str){
     printString("B");
     printString("C");
   }
-
   
 //printAll();
   
@@ -29,14 +28,18 @@ function printString(str){
     setTimeout(() => {
       console.log(str);
       callback();
-    }, Math.floor(Math.random() * 100));
+    }, Math.floor(Math.random() * 2000));
   }
-  function printAllWithCallbacks(){
-    printStringWithCallbacks("A", () => {
-      printStringWithCallbacks("B", () => {
-        printStringWithCallbacks("C", () => {
+  function printAllWithCallbacks(){ //callbacks 
+
+    printStringWithCallbacks("A", function(){
+
+      printStringWithCallbacks("B", function(){
+
+        printStringWithCallbacks("C", function(){
           console.log("hello");
         })
+
       })
     })
   }
@@ -52,14 +55,16 @@ function printString(str){
       setTimeout(() => {
         console.log(str);
         resolve();
-      }, Math.floor(Math.random() * 100));
+      }, Math.floor(Math.random() * 2000));
     });
   }
   
   function printAllWithPromises(){
     printStringWithPromises("A")
+    .then(()=>console.log('get'))
     .then(() => printStringWithPromises("B"))
     .then(() => printStringWithPromises("C"))
+    .then(() => console.log('almost there'))
     .catch(() => console.log("Something bad happened!"));
   }
   //printAllWithPromises()
@@ -80,7 +85,30 @@ function printString(str){
     await printStringWithPromises("C");
   }
   
-  printAllWithAsync()
+
+  async function useAxios() {
+    let vitalii = await axios.get('https://ironrest.herokuapp.com/vitalii')
+    let pradeepa = await axios.get('https://ironrest.herokuapp.com/pradeepa')
+    let everybody = await axios.get('https://ironrest.herokuapp.com')
+    let promise = new Promise((resolve, reject)=>{
+      setTimeout(()=>{
+        resolve('horrayyyYY!')
+      },5000)
+    })
+
+    Promise.all([vitalii, pradeepa, everybody, promise]).then(data=>{
+      console.log('in here',data)
+    })
+  }
+
+  //useAxios()
+
+
+  axios.get('https://ironrest.herokuapp.com/vitalii').then(data=>{
+    console.log(data)
+  })
+
+  //printAllWithAsync()
   
   // The printString function doesn’t return anything and is independent, all we cared about was the order. 
   // Take the output of the first function, do Something with it in the second function, and then pass it to the third function.
@@ -134,6 +162,6 @@ function printString(str){
     toPrint = await addStringWithPromises(toPrint, 'C');
     console.log(toPrint); // Prints out " A B C"
   }
-  addAllWithPromise();
+  //addAllWithPromise();
 
 // Additional read: https://medium.com/javascript-in-plain-english/a-guide-to-javascript-promises-da50eff327d7
