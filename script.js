@@ -37,22 +37,26 @@ const mashPotatoes = [
 
 
   
-// function makeFood(steps, id){
-//   for(const step of steps){
-//     //This function adds food to the list ==>  addFood('take steak from fridge', #steak)
-//     addFood(step,id) 
-//   }
-//   document.querySelector('#table').innerHTML += (`<img src="images/${id.replace('#','')}.jpg" />`)
+function makeFood(steps, id){
+  for(const step of steps){
 
-//   //Use below once all food is made 
-//   //document.body.innerHTML += `<button onclick="new Audio('dinnerIsServed.mp3').play()">Dinner is Served!</button>`
+    //This function adds food to the list ==>  addFood('take steak from fridge', #steak)
+    addFood(step,id) 
+
+  }
+
+  //Adds image to the table div
+  document.querySelector('#table').innerHTML += (`<img src="images/${id.replace('#','')}.jpg" />`)
+
+  //Use once all food is made 
+  //document.body.innerHTML += `<button onclick="new Audio('dinnerIsServed.mp3').play()">Dinner is Served!</button>`
   
-// }
+}
 
 
-// makeFood(steak, '#steak')
-// makeFood(mashPotatoes, '#mashPotatoes')
-// makeFood(brusselSprouts, '#brusselSprouts')
+makeFood(steak, '#steak')
+makeFood(mashPotatoes, '#mashPotatoes')
+makeFood(brusselSprouts, '#brusselSprouts')
 
 
 
