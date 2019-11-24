@@ -71,7 +71,7 @@ Create Pull Request so your TAs can check up your work.  Write your JavaScript i
 
 ## Iteration #1: 
 
-Using callbacks print the directions to make Steak in the console in the correct order as shown above.  
+Using callbacks print the directions to make Steak in the correct order as shown above.  
 
 `makeFood(steak)` 
 ## Iteration #2: 
