@@ -7,12 +7,13 @@
 
 
 /****** DO NOT TOUCH *****/
-function addFood(step, id){
+function addFood(step, id, callback){
     return new Promise((resolve, reject)=>{
       setTimeout(() => {
         console.log(step);
         document.querySelector(id).innerHTML += (`<li>${step}</li`)
         resolve(step)
+        callback ? callback() : '' //For iteration one
       }, Math.floor(Math.random() * 1000));
     })
   }

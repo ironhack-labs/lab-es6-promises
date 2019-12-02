@@ -1,5 +1,7 @@
 
 
+
+
 const steak = [
   'season steak generously with salt, pepper and garlic powder',
   'place in ziplock bag',
@@ -20,7 +22,7 @@ const brusselSprouts = [
   'place in flat side down',
   'cook for 20 minutes',
   'place back in bowl and add salt and pepper',
-  'enjoy'
+  'enjoy',
 ]
 
 const mashPotatoes = [
@@ -29,38 +31,15 @@ const mashPotatoes = [
   'pour in water',
   'mix',
   'enjoy'
-]
-
-
-
-
-
+] 
 
   
 function makeFood(steps, id){
-  for(const step of steps){
-
-    //This function adds food to the list ==>  addFood('take steak from fridge', #steak)
-    addFood(step,id) 
-
-  }
-
-  //Adds image to the table div
-  document.querySelector('#table').innerHTML += (`<img src="images/${id.replace('#','')}.jpg" />`)
-
-  //Use once all food is made 
-  //document.body.innerHTML += `<button onclick="new Audio('dinnerIsServed.mp3').play()">Dinner is Served!</button>`
-  
+  console.log('start here', steps, id)
 }
 
 
+
 makeFood(steak, '#steak')
-makeFood(mashPotatoes, '#mashPotatoes')
-makeFood(brusselSprouts, '#brusselSprouts')
-
-
-
-
-
 
 
