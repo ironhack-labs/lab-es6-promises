@@ -39,7 +39,7 @@ const mashPotatoes = [
 //   addFood(steak[i], '#steak') 
 // }
 
-//Iteration 1 using callbacks  -- Try to streamline with for loops 
+//Iteration 1 using callbacks -- Try to streamline with recursion 
 addFood(steak[0], '#steak', function(){
   addFood(steak[1], '#steak', function(){
 
@@ -47,9 +47,10 @@ addFood(steak[0], '#steak', function(){
 })
 
 
-//Iteration 2 using then
+//Iteration 2 using then -- Try to streamline with recursion
 addFood(mashPotatoes[0], '#mashPotatoes').then(res => {
   addFood(mashPotatoes[1], '#mashPotatoes').then(res => {
+    
   })
 })
 
