@@ -39,8 +39,7 @@ const mashPotatoes = [
 //   addFood(steak[i], '#steak') 
 // }
 
-//Iteration 1 use callbacks 
-
+//Iteration 1 using callbacks  -- Try to streamline with for loops 
 addFood(steak[0], '#steak', function(){
   addFood(steak[1], '#steak', function(){
 
@@ -48,10 +47,9 @@ addFood(steak[0], '#steak', function(){
 })
 
 
-//Iteration 2 use then 
-addFood(brusselSprouts[0], '#brusselSprouts').then(res => {
-  addFood(brusselSprouts[1], '#brusselSprouts').then(res => {
-  
+//Iteration 2 using then
+addFood(mashPotatoes[0], '#mashPotatoes').then(res => {
+  addFood(mashPotatoes[1], '#mashPotatoes').then(res => {
   })
 })
 
