@@ -34,12 +34,16 @@ const mashPotatoes = [
 ] 
 
   
-function makeFood(steps, id){
-  console.log('start here', steps, id)
-}
+// function makeFood(steps, id){
+//   console.log('start here', steps, id)
+// }
 
 
 
-makeFood(steak, '#steak')
+addFood(steak[0], '#steak', function(){
+  addFood(steak[1], '#steak', function(){
+  
+  })
+})
 
 
