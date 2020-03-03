@@ -33,15 +33,24 @@ const mashPotatoes = [
   'enjoy'
 ] 
 
-  
-// function makeFood(steps, id){
-//   console.log('start here', steps, id)
+
+
+// for(let i=0; i<steak.length; i++){ //This will print in the wrong order 
+//   addFood(steak[i], '#steak') 
 // }
 
-
+//Iteration 1 use callbacks 
 
 addFood(steak[0], '#steak', function(){
   addFood(steak[1], '#steak', function(){
+
+  })
+})
+
+
+//Iteration 2 use then 
+addFood(brusselSprouts[0], '#brusselSprouts').then(res => {
+  addFood(brusselSprouts[1], '#brusselSprouts').then(res => {
   
   })
 })
