@@ -26,7 +26,7 @@ $ git commit -m "done"
 $ git push origin master
 ```
 
-Create Pull Request so your TAs can check up your work.  Write your JavaScript in the provided `script.js` file.  You'll be calling the `addFood()` function from script.js, but do not alter it. 
+Create Pull Request so your TAs can check up your work.  Write your JavaScript in the provided `script.js` file.  You'll be calling the `addFood()` function from script.js, but do not alter addFood.js. 
 
 ## Out of Sync 
 **Notice how the steps to cooking the food are out of order, and all the images are already on the table**
@@ -71,7 +71,7 @@ Create Pull Request so your TAs can check up your work.  Write your JavaScript i
 
 ## Iteration #1: 
 
-Using callbacks print the directions to make Steak in the correct order as shown above.  Write your JavaScript in the provided `script.js` file.  You'll be calling the `addFood()` function from script.js, but do not alter it. 
+Using callbacks print the directions to make Steak in the correct order as shown above.  Write your JavaScript in the provided `script.js` file.  You'll be calling the `addFood()` function from script.js, but do not alter addFood.js. 
 
 `makeFood(steak)` 
 ## Iteration #2: 
