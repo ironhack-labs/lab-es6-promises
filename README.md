@@ -29,9 +29,9 @@ Create Pull Request so your TAs can check up your work.
 
 We provided you with some starter code:
 
-- in the `data.js` we provided you with the arrays of steps to preparing 3 different foods: _steak_, _brussels sprouts_ and _mash potatoes_.
+- in the `data.js` we provided you with the arrays of steps to preparing 3 different foods: _steak_, _brussels sprouts_, and _mash potatoes_.
 - in the `public/javascripts/addFood.js` file there is a function `addFood(step, id, callback)` that mimics the asynchronous nature of JavaScript. **You should not make any changes in this file.**
-- in the `public/javascripts/script.js` file, we gave you a simple `for` loop to show you how the code should execute, but in the provided code there is no any callbacks nor promises to handle the asynchronicity, so the steps won't print in the correct order.
+- in the `public/javascripts/script.js` file, we gave you a simple `for` loop to show you how the code should execute, but in the provided code there are no callbacks nor promises to handle the asynchronicity, so the steps won't print in the correct order.
 - in the `index.html` file, there is base HTML structure needed so no need to add any code there. All already mentioned JavaScript files are already linked to the `index.html`. The `data.js` loads first to make sure variables that hold instructions to preparing food are already loaded and can be used in other files, where we need them.
 
 ### Out of sync
@@ -46,7 +46,7 @@ Notice how the steps to cooking the food are out of order, and all the images ar
 
 ## Iteration 1 | Make the steak with callbacks
 
-Using callbacks print the directions to make Steak in the correct order. Write your JavaScript in the provided `public/javascripts/script.js` file. Once again, reminder not to alter `addFood.js` file.
+Using callbacks print the directions to make Steak in the correct order. Write your JavaScript in the provided `public/javascripts/script.js` file. Once again, a reminder not to alter the `addFood.js` file.
 
 ```javascript
 addFood(steak[0], '#steak', () => {
