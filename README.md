@@ -1,15 +1,10 @@
-
-
-
-
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | #Promise Me Dinner
-
+# LAB | #Promise me a dinner
 
 ## Introduction
 
-Due to the asynchronous nature of Javascript promises & callbacks are very important.
+Due to the asynchronous nature of Javascript promises & callbacks are very important. Both allow us to control the flow of the operations, meaning its sequence.
 
 ## Requirements
 
@@ -26,75 +21,71 @@ $ git commit -m "done"
 $ git push origin master
 ```
 
-Create Pull Request so your TAs can check up your work.  Write your JavaScript in the provided `script.js` file.  You'll be calling the `addFood()` function from script.js, but do not alter addFood.js. 
+Create Pull Request so your TAs can check up your work.
 
-## Out of Sync 
-**Notice how the steps to cooking the food are out of order, and all the images are already on the table**
-![](images/OutofSync.gif)
+## Instructions
 
-## Deliverables
+### Iteration 0 | The starter code
 
-** First construct three arrays that place the following steps in the correct order: **
+We provided you with some starter code:
 
+- in the `data.js` we provided you with the arrays of steps to preparing 3 different foods: _steak_, _brussels sprouts_ and _mash potatoes_.
+- in the `public/javascripts/addFood.js` file there is a function `addFood(step, id, callback)` that mimics the asynchronous nature of JavaScript. **You should not make any changes in this file.**
+- in the `public/javascripts/script.js` file, we gave you a simple `for` loop to show you how the code should execute, but in the provided code there is no any callbacks nor promises to handle the asynchronicity, so the steps won't print in the correct order.
+- in the `index.html` file, there is base HTML structure needed so no need to add any code there. All already mentioned JavaScript files are already linked to the `index.html`. The `data.js` loads first to make sure variables that hold instructions to preparing food are already loaded and can be used in other files, where we need them.
 
+### Out of sync
 
-**Steak**
-1. Season steak generously with salt, pepper and garlic powder
-2. Place in ziplock bag
-3. Cook in sous vide at 120 F for 1-2 hours
-4. Remove from bag and pat dry
-5. Heat pan with grapeseed oil and a quarter stick of butter
-6. Cook steak for 30-60 seconds per side using a spoon to baste with butter
-7. Rest for 10 mintutes
-8. Enjoy
+Notice how the steps to cooking the food are out of order, and all the images are already on the table.s
 
+<!-- ![](images/OutofSync.gif) -->
 
-**Mash Potatoes**
-1.  Boil water
-2.  Tear open bag of of instant potato mix and pour into bowl
-3.  Pour in water
-4.  Mix  
-5.  Enjoy 
+![OutofSync](https://user-images.githubusercontent.com/25275745/82280691-6f81b080-995d-11ea-9181-a3ec7fff7ff0.gif)
 
+**You should write your solution in the `public/javascripts/script.js` file.**
 
-**Brussel Sprouts**
-1. Wash burussel srouts
-2. Cut off base and chop in half
-3. Toss in bowl with olive oil, balsamic vinger and salt
-4. Preheat oven to 500
-5. Coat baking sheet with olive oil
-6. Place in flat side down
-7. Cook for 20 minutes
-8. Place back in bowl and add salt and pepper
-9. Enjoy
+## Iteration 1 | Make the steak with callbacks
 
+Using callbacks print the directions to make Steak in the correct order. Write your JavaScript in the provided `public/javascripts/script.js` file. Once again, reminder not to alter `addFood.js` file.
 
-## Iteration #1: 
+```javascript
+addFood(steak[0], '#steak', () => {
+  // ... your code here
+});
+```
 
-Using callbacks print the directions to make Steak in the correct order as shown above.  Write your JavaScript in the provided `script.js` file.  You'll be calling the `addFood()` function from script.js, but do not alter addFood.js. 
+## Iteration 2 | Make the mash potatoes with promises
 
-`makeFood(steak)` 
-## Iteration #2: 
+Using promises and the `then` statement print the directions to make Mash Potatoes in the correct order.
 
-Using promises and the `then` statement print the directions to make Mash Potatoes in the correct order
+```javascript
+addFood(mashPotatoes[0], '#mashPotatoes').then(res => {
+  // ... your code here
+});
+```
 
-`makeFood(mashPotatoes)`
+## Iteration 3 | Make the brussels sprouts with async/await
 
-## Iteration #3 
+Using promises with the `async` and `await` syntax print the directions to make Brussels Sprouts in the correct order
 
-Using promises with the `async` and `await` syntax print the directions to make Brussel Sprouts in the correct order 
-`makeFood(brusselSprouts)`
+```javascript
+async function makeFood(steps, id) {
+  // ... your code here
+}
+```
 
 ## BONUS 1
 
-When each food item's steps such as `steak` is complete then add that specific food to the `#table` div.
+When the specific food is ready to be served (all steps are listed), add the image that represents that food to the `#table` div.
 
 ## BONUS 2
 
-Using `promise.all` when Steak, Mash Potatoes, and Brussel Sprouts are all finished being made and added to the table, alert ***Dinner is Served!***
+Using `promise.all` when all dinner items (Steak, Mash Potatoes, and Brussels Sprouts) are all done and added to the table, alert **_Dinner is Served!_**
 
+**Final should look like this - all the steps are in the correct orders**:
 
-## Final should look like this 
-**All the steps in the correct order**
+![promiseme](https://user-images.githubusercontent.com/25275745/82280586-2df10580-995d-11ea-982f-e9650cb9bfb2.gif)
 
-![](images/inSync.gif)
+<!-- ![](images/inSync.gif) -->
+
+**Happy coding!** :heart:
