@@ -80,7 +80,7 @@ When the specific food is ready to be served (all steps are listed), add the ima
 
 ## BONUS 2
 
-Using `promise.all` when all dinner items (Steak, Mash Potatoes, and Brussels Sprouts) are all done and added to the table, alert **_Dinner is Served!_**
+Using `promise.all` when all dinner items (Steak, Mash Potatoes, and Brussels Sprouts) are all done and added to the table, alert **_Dinner is served!_**
 
 **Final should look like this - all the steps are in the correct orders**:
 
