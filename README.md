@@ -36,7 +36,7 @@ We provided you with some starter code:
 
 ### Out of sync
 
-Notice how the steps to cooking the food are out of order, and all the images are already on the table.s
+Notice how the steps to cooking the food are out of order, and all the images are already displayed on the table.
 
 <!-- ![](images/OutofSync.gif) -->
 
