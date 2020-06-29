@@ -44,9 +44,9 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
     for (let i = 0; i < brusselSprouts.length; i++) {
       try {
          await addFood(brusselSprouts[i], "#brusselSprouts");
-        console.log("async works");
+        //console.log("async works");
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     }
   };
