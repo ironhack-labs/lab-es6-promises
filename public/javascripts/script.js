@@ -55,9 +55,7 @@ async function bsLoop() {
   table.innerHTML += `<img src="../public/images/brusselSprouts.png" alt="brussel sprout">`;
 };
 //bsLoop();
-//addSteak(), addPotatoes(), bsLoop()
-Promise.all([bsLoop()]).then(() => {
-  console.log("promiseall");
-  //console.log(Promise.all([addSteak, addPotatoes, bsLoop]));
-  alert("Dinner is served!");
+
+Promise.all([addSteak(), addPotatoes(), bsLoop()]).then(() => {
+  document.getElementById("steps").innerHTML += `<button>Dinner is served!</button>`;
 });
