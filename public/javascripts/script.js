@@ -9,35 +9,51 @@ const table = document.getElementById("table");
 
 // Iteration 1 using callbacks
 function addSteak() {
-  addFood(steak[0], '#steak', () => {
-    addFood(steak[1], '#steak', () => {
-      addFood(steak[2], '#steak', () => {
-        addFood(steak[3], '#steak', () => {
-          addFood(steak[4], '#steak', () => {
-            addFood(steak[5], '#steak', () => {
-              addFood(steak[6], '#steak', () => {
-                addFood(steak[7], '#steak', () => {
+  addFood(steak[0], "#steak", () => {
+    addFood(steak[1], "#steak", () => {
+      addFood(steak[2], "#steak", () => {
+        addFood(steak[3], "#steak", () => {
+          addFood(steak[4], "#steak", () => {
+            addFood(steak[5], "#steak", () => {
+              addFood(steak[6], "#steak", () => {
+                addFood(steak[7], "#steak", () => {
                   table.innerHTML += `<img src="../public/images/steak.jpg" alt="steak">`;
-  })})})})})})})})
-};
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+}
 //addSteak();
 
 // Iteration 2 using `.then()`
 function addPotatoes() {
-  addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
-    addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
-      addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
-        addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
-          addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
-            table.innerHTML += `<img src="../public/images/mashPotatoes.jpg" alt="mashed potatoes">`;
-          })
+  addFood(mashPotatoes[0], "#mashPotatoes")
+    .then(() => {
+      addFood(mashPotatoes[1], "#mashPotatoes")
+        .then(() => {
+          addFood(mashPotatoes[2], "#mashPotatoes")
+            .then(() => {
+              addFood(mashPotatoes[3], "#mashPotatoes")
+                .then(() => {
+                  addFood(mashPotatoes[4], "#mashPotatoes")
+                    .then(() => {
+                      table.innerHTML += `<img src="../public/images/mashPotatoes.jpg" alt="mashed potatoes">`;
+                    })
+                    .catch((err) => console.log(err));
+                })
+                .catch((err) => console.log(err));
+            })
+            .catch((err) => console.log(err));
         })
-      })
+        .catch((err) => console.log(err));
     })
-  })
-};
+    .catch((err) => console.log(err));
+}
 //addPotatoes();
-
 
 // Iteration 3 using async and await
 // brusselSprouts.forEach(eachStep => {
@@ -50,12 +66,16 @@ function addPotatoes() {
 async function bsLoop() {
   for (let index = 0; index < brusselSprouts.length; index++) {
     const step = brusselSprouts[index];
-    const print = await addFood(step, '#brusselSprouts');
+    const print = await addFood(step, "#brusselSprouts");
   }
   table.innerHTML += `<img src="../public/images/brusselSprouts.png" alt="brussel sprout">`;
-};
+}
 //bsLoop();
 
-Promise.all([addSteak(), addPotatoes(), bsLoop()]).then(() => {
-  document.getElementById("steps").innerHTML += `<button>Dinner is served!</button>`;
-});
+Promise.all([addSteak(), addPotatoes(), bsLoop()])
+  .then(() => {
+    document.getElementById(
+      "steps"
+    ).innerHTML += `<button>Dinner is served!</button>`;
+  })
+  .catch((err) => console.log(err));
