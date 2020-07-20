@@ -6,7 +6,7 @@
 // }
 
 // Iteration 1 using callbacks
-addFood(steak[0], "#steak", () => {
+let p1 = addFood(steak[0], "#steak", () => {
   addFood(steak[1], "#steak", () => {
     addFood(steak[2], "#steak", () => {
       addFood(steak[3], "#steak", () => {
@@ -17,8 +17,6 @@ addFood(steak[0], "#steak", () => {
                 addFood(steak[7], "#steak", () => {
                   document.querySelector("#table").innerHTML +=
                     '<img alt="steak" src="./public/images/steak.jpg "/>';
-                  document.querySelector("#table").innerHTML +=
-                    '<img alt="sprouts" src="./public/images/brusselSprouts.jpg"/>';
                 });
               });
             });
@@ -30,7 +28,7 @@ addFood(steak[0], "#steak", () => {
 });
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
+let p2 = addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
@@ -45,13 +43,15 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 
 // Iteration 3 using async and await
 
-brusselSprouts.forEach(eachStep => {
-  async function makeFood(step) {
-    let promise = new Promise((resolve, reject) => {
-      setTimeout(() => resolve(step), 1000);
-    });
-    let result = await promise;
-    addFood(result, "#brusselSprouts");
+async function makeFood() {
+  for (eachStep in brusselSprouts) {
+    await addFood(brusselSprouts[eachStep], "#brusselSprouts");
   }
-  makeFood(eachStep);
-});
+  document.querySelector("#table").innerHTML +=
+    '<img alt="mashedPotato" src="./public/images/brusselSprouts.jpg "/>';
+}
+let p3 = makeFood();
+
+Promise.all([p1, p2, p3]).then(
+  () => (document.querySelector("#sec2").innerHTML += "<p>Dinner served</p>")
+);
