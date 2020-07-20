@@ -14,10 +14,8 @@ let p1 = addFood(steak[0], "#steak", () => {
           addFood(steak[5], "#steak", () => {
             addFood(steak[6], "#steak", () => {
               addFood(steak[7], "#steak", () => {
-                addFood(steak[7], "#steak", () => {
-                  document.querySelector("#table").innerHTML +=
-                    '<img alt="steak" src="./public/images/steak.jpg "/>';
-                });
+                document.querySelector("#table").innerHTML +=
+                  '<img alt="steak" src="./public/images/steak.jpg "/>';
               });
             });
           });
@@ -52,6 +50,9 @@ async function makeFood() {
 }
 let p3 = makeFood();
 
-Promise.all([p1, p2, p3]).then(
-  () => (document.querySelector("#sec2").innerHTML += "<p>Dinner served</p>")
+setInterval(
+  Promise.all([p1, p2, p3]).then(
+    () => (document.querySelector("#sec2").innerHTML += "<p>Dinner served</p>")
+  ),
+  10000
 );
