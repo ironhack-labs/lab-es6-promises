@@ -34,9 +34,15 @@ addFood(mashPotatoes[0], "#mashPotatoes")
 
 // Iteration 3 using async and await
 
-brusselSprouts.forEach((step) => {
-	async function makeFood(step) {
-		await addFood(step, '#brusselSprouts')
+addBrusselsImg = () => {
+	document.getElementById("table").innerHTML +='<img src="./public/images/brusselSprouts.jpg">';
+};
+
+async function makeFood() {
+	for (let i = 0; i < brusselSprouts.length; i++) {
+		await addFood(brusselSprouts[i], "#brusselSprouts");
 	}
-	makeFood(step);
-});
+	await addBrusselsImg();
+}
+
+makeFood();
