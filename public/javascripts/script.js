@@ -43,6 +43,8 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 //   }
 //   makeFood(eachStep);
 // });
+
+//changed to a "for of" loop for the async/await methods
 const makeFood = async () =>{
   for (const eachStep of brusselSprouts) {
     await addFood(eachStep, '#brusselSprouts');
