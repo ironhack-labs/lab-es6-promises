@@ -45,13 +45,36 @@
 // });
 
 //changed to a "for of" loop for the async/await methods
-const makeFood = async (food, id) =>{
+const makeFood = async (food, id, image) =>{
+  let img = document.createElement("img");
+  img.src = `./public/images/${image}`;
   for (const eachStep of food) {
     await addFood(eachStep, id);
   }
+  document.getElementById('table').appendChild(img)
 }
-makeFood(steak, '#steak');
-makeFood(mashPotatoes, '#mashPotatoes');
-makeFood(brusselSprouts, '#brusselSprouts');
 
+const steakPromise = new Promise((resolve, reject) => {
+  const task = async () => {
+    await makeFood(steak, '#steak', 'steak.jpg');
+    resolve();
+  }
+  task();   
+});
+const mashPromise = new Promise((resolve, reject) => {
+  const task = async () => {
+    await makeFood(mashPotatoes, '#mashPotatoes', 'mashPotatoes.jpg');
+    resolve();
+  }
+  task();
+});
+const brusselPromise = new Promise((resolve, reject) => {
+  const task = async () => {
+    await makeFood(brusselSprouts, '#brusselSprouts', 'brusselSprouts.jpg');
+    resolve();
+  }
+  task();
+});
+
+Promise.all([steakPromise, mashPromise, brusselPromise]).then(() => console.log("dinner is done"))
 
