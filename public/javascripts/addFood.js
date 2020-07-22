@@ -5,7 +5,6 @@
 function addFood(step, id, callback) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      console.log('step ', step, 'id ', id);
       document.querySelector(id).innerHTML += `<li>${step}</li`;
       resolve(step);
       callback ? callback() : ''; // For iteration one
