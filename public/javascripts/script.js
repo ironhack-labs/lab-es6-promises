@@ -54,6 +54,7 @@ const makeFood = async (food, id, image) =>{
   document.getElementById('table').appendChild(img)
 }
 
+//wrapped makeFood function call in a new promise to call promise.all later
 const steakPromise = new Promise((resolve, reject) => {
   const task = async () => {
     await makeFood(steak, '#steak', 'steak.jpg');
@@ -76,5 +77,12 @@ const brusselPromise = new Promise((resolve, reject) => {
   task();
 });
 
-Promise.all([steakPromise, mashPromise, brusselPromise]).then(() => console.log("dinner is done"))
+const dinnerBell = new Audio('./public/media/dinnerIsServed.mp3');
 
+//when all promises are resolved the "dinner is served" button is added to the DOM"
+Promise.all([steakPromise, mashPromise, brusselPromise]).then(() => {
+  const btn = document.createElement('button');
+  btn.innerHTML = "Dinner is served!";
+  document.body.appendChild(btn);
+  btn.addEventListener('click', () => dinnerBell.play());
+})
