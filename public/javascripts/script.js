@@ -7,8 +7,8 @@ for (let i = 0; i < mashPotatoes.length; i++) {
 }
 
 // Iteration 1 using callbacks
+const steakImg = "<img src='./public/images/steak.jpg'>"
 addFood(steak[0], '#steak', () => {
-  // ... your code here
   addFood(steak[1], '#steak', () => {
     addFood(steak[2], '#steak', () => {
       addFood(steak[3], '#steak', () => {
@@ -16,6 +16,7 @@ addFood(steak[0], '#steak', () => {
           addFood(steak[5], '#steak', () => {
             addFood(steak[6], '#steak', () => {
               addFood(steak[7], '#steak', () => {
+                document.getElementById('table').innerHTML += steakImg;
               })    
             })
           })
@@ -28,12 +29,13 @@ addFood(steak[0], '#steak', () => {
 
 
 // Iteration 2 using `.then()`
+const mashPotImg = "<img src='./public/images/mashPotatoes.jpg'>"
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
-  // ... your code here
   addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
     addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
       addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
         addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
+          document.getElementById('table').innerHTML += mashPotImg;
         });
       });
     });
@@ -41,17 +43,21 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 });
 
 // Iteration 3 using async and await
+  let brusselSproutsImg = "<img src='./public/images/brusselSprouts.jpg'></img>"
+  let eachStep = 0;
+  addBrusselImg = () => {
+    document.getElementById('table').innerHTML += brusselSproutsImg;
+  };
 
   async function makeFood(step) {
-    // ... your code here
-    await addFood(brusselSprouts[step], '#brusselSprouts')
-    await addFood(brusselSprouts[step+1], '#brusselSprouts')
-    await addFood(brusselSprouts[step+2], '#brusselSprouts')
-    await addFood(brusselSprouts[step+3], '#brusselSprouts')
-    await addFood(brusselSprouts[step+4], '#brusselSprouts')
-    await addFood(brusselSprouts[step+5], '#brusselSprouts')
-    await addFood(brusselSprouts[step+6], '#brusselSprouts')
-    await addFood(brusselSprouts[step+7], '#brusselSprouts')
-    await addFood(brusselSprouts[step+8], '#brusselSprouts')
+    for (let i=0; i<8 ;i++){
+      await addFood(brusselSprouts[i], '#brusselSprouts')
+    }
+    await addBrusselImg();
   }
+
   makeFood(eachStep);
+
+  Promise.all([
+    
+  ])
