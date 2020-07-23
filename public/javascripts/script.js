@@ -17,7 +17,7 @@ addFood(steak[0], '#steak', () => {
           addFood(steak[5], '#steak', () =>{
             addFood(steak[2], '#steak', () =>{
               addFood(steak[2], '#steak', () =>{
-                document.getElementById('table').innerHTML += '<img src="./public/images/steak.jpg">'
+                document.getElementById('table').innerHTML 
               })
             })
           })
@@ -35,14 +35,31 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   .then(()=> addFood(mashPotatoes[2], '#mashPotatoes'))
   .then(()=> addFood(mashPotatoes[3], '#mashPotatoes'))
   .then(()=> addFood(mashPotatoes[4], '#mashPotatoes'))
-  .then(()=> document.getElementById('table').innerHTML+= '<img src="./public/images/mashPotatoes.jpg">')
+  .then(()=> document.getElementById('table').innerHTML)
   
 });
 
 // Iteration 3 using async and await
 
-  async function makeFood(step) {
-    // ... your code here
-    
-  }
-  makeFood(eachStep);
+addToTable = () => {
+	document.getElementById("table").innerHTML;
+};
+
+async function makeFood() {
+	for (let i = 0; i < brusselSprouts.length; i++) {
+		await addFood(brusselSprouts[i], "#brusselSprouts");
+	}
+	await addToTable();
+}
+
+makeFood();   
+
+
+// async function makeFood() {
+  //   // ... your code here
+  //   for(let i=0; i<brusselSprouts.length; i++){
+  //     await brusselSprouts[i], '#brusselSprouts';
+  //   }
+  //   await document.getElementById("table").innerHTML;
+  // }
+  // makeFood();
