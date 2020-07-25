@@ -42,9 +42,15 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 });
 
 // Iteration 3 using async and await
+tableAdd = () => {
+  document.getElementById("table").innerHTML;
+};
 
-async function makeFood(step) {
-  // ... your code here
+async function makeFood() {
+  for (let i = 0; i < brusselSprouts.length; i++) {
+    await addFood(brusselSprouts[i], "#brusselSprouts");
+  }
+  await tableAdd();
 
 }
-makeFood(eachStep);
+makeFood();
