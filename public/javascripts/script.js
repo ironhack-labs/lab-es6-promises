@@ -7,18 +7,22 @@ for (let i = 0; i < mashPotatoes.length; i++) {
 }
 
 // Iteration 1 using callbacks
-addFood(steak[0], '#steak', () => {
-  // ... your code here
-  addFood(steak[1], '#steak', () => {
-    addFood(steak[2], '#steak', () => {
-      addFood(steak[3], '#steak', () => {
-        addFood(steak[4], '#steak', () => {
-          addFood(steak[5], '#steak', () => {
-            addFood(steak[6], '#steak', () => { 
-              addFood(steak[7], '#steak', () => {
-                //console.log('Steak cooked');
-                document.getElementById('table').innerHTML+='<img src=\"public/images/steak.jpg\">';
-                const steakCooked = Promise.resolve(1);
+
+const steakCooked = new Promise((resolve, reject) => {
+  addFood(steak[0], '#steak', () => {
+    // ... your code here
+    addFood(steak[1], '#steak', () => {
+      addFood(steak[2], '#steak', () => {
+        addFood(steak[3], '#steak', () => {
+          addFood(steak[4], '#steak', () => {
+            addFood(steak[5], '#steak', () => {
+              addFood(steak[6], '#steak', () => { 
+                addFood(steak[7], '#steak', () => {
+                  //console.log('Steak cooked');
+                  document.getElementById('table').innerHTML+='<img src=\"public/images/steak.jpg\">';
+                  resolve();
+                  console.log(steakCooked);
+                  });
                 });
               });
             });
@@ -26,29 +30,29 @@ addFood(steak[0], '#steak', () => {
         });
       });
     });
-  });
+});
 
 
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
-  // ... your code here
-  addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
-    addFood(mashPotatoes[2], '#mashPotatoes').then(()=>{
-      addFood(mashPotatoes[3], '#mashPotatoes').then(()=>{
-        addFood(mashPotatoes[4], '#mashPotatoes').then(()=>{
-          document.getElementById('table').innerHTML+='<img src=\"public/images/mashPotatoes.jpg\">';
-          const potatoesCooked = Promise.resolve(2);
+const potatoesCooked = new Promise ((resolve, reject) => {
+  addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
+    // ... your code here
+    addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
+      addFood(mashPotatoes[2], '#mashPotatoes').then(()=>{
+        addFood(mashPotatoes[3], '#mashPotatoes').then(()=>{
+          addFood(mashPotatoes[4], '#mashPotatoes').then(()=>{
+            document.getElementById('table').innerHTML+='<img src=\"public/images/mashPotatoes.jpg\">';
+            resolve();
+            console.log(potatoesCooked);
+          })
         })
-      })
+      });
     });
-  }
-    
-  )
+  });
 });
-
 // Iteration 3 using async and await
-
+const sproutsCooked = new Promise ((resolve, reject) => {
   async function makeFood() {
     await addFood(brusselSprouts[1], "#brusselSprouts");
     await addFood(brusselSprouts[2], "#brusselSprouts");
@@ -60,9 +64,14 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     await addFood(brusselSprouts[8], "#brusselSprouts")
     .then((result) => {
       document.getElementById('table').innerHTML+='<img src=\"public/images/brusselSprouts.jpg\">';
-      const brusselCooked = Promise.resolve(3);
+      resolve();
+      console.log(sproutsCooked);
     });
   }  
   makeFood();
-
+});
+  
+  Promise.all([steakCooked, potatoesCooked, sproutsCooked]).then((resolve) => {
+    alert("done");
+  }) 
 
