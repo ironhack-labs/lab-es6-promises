@@ -72,6 +72,6 @@ const sproutsCooked = new Promise ((resolve, reject) => {
 });
   
   Promise.all([steakCooked, potatoesCooked, sproutsCooked]).then((resolve) => {
-    alert("done");
+    alert("Dinner is served!");
   }) 
 
