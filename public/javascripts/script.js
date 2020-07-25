@@ -24,8 +24,21 @@ const steakSteps = setInterval(() => {
 
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
-  // ... your code here
-  addFood(mashPotatoes[1], '#mashPotatoes')
+  console.log(mashPotatoes[0]);
+  return addFood(mashPotatoes[1], '#mashPotatoes');
+}).then(() => {
+  console.log(mashPotatoes[1]);
+  return addFood(mashPotatoes[2], '#mashPotatoes');
+}).then(() => {
+  console.log(mashPotatoes[2]);
+  return addFood(mashPotatoes[3], '#mashPotatoes');
+}).then(() => {
+  console.log(mashPotatoes[3]);
+  return addFood(mashPotatoes[4], '#mashPotatoes');
+}).then(() => {
+  console.log(mashPotatoes[4]);
+}).catch((error) => {
+  console.log(error);
 });
 
 // Iteration 3 using async and await
