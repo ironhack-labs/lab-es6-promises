@@ -19,6 +19,8 @@ addFood(steak[0], "#steak", () => {
   });
 });
 
+
+
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
@@ -35,6 +37,7 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 });
 
 // Iteration 3 using async and await
+
 
 async function makeFood(steps, id) {
   for (let step of steps) {
