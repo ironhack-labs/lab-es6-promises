@@ -5,7 +5,6 @@
   //addFood(steak[i], '#steak');
   console.log(mashPotatoes[i])
 } */
-
 // Iteration 1 using callbacks
 addFood(steak[0], '#steak', () => {
   addFood(steak[1], '#steak', () => {
@@ -25,11 +24,8 @@ addFood(steak[0], '#steak', () => {
   })
 });
 
-
-
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
-  // ... your code here
   addFood(mashPotatoes[1], '#mashPotatoes').then(() => { 
     addFood(mashPotatoes[2], '#mashPotatoes').then(() => { 
       addFood(mashPotatoes[3], '#mashPotatoes').then(() => { 
@@ -44,8 +40,10 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
 // Iteration 3 using async and await
 
-  async function makeFood(step) {
-    // ... your code here
-    
+  async function makeFood(step, id) {
+    for(let i = 0; i < brusselSprouts.length; i++) {
+      await addFood(brusselSprouts[i], '#brusselSprouts')
+    }
+
   }
-  makeFood(eachStep);
+  makeFood();
