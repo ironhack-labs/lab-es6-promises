@@ -6,7 +6,7 @@ const steak = [
   'heat pan with grapeseed oil and a quarter stick of butter',
   'cook steak for 30-60 seconds per side using a spoon to baste with butter',
   'rest for 10 minutes',
-  'enjoy'
+  'enjoy',
 ];
 
 const brusselSprouts = [
@@ -18,7 +18,7 @@ const brusselSprouts = [
   'place in flat side down',
   'cook for 20 minutes',
   'place back in bowl and add salt and pepper',
-  'enjoy'
+  'enjoy',
 ];
 
 const mashPotatoes = [
@@ -26,5 +26,7 @@ const mashPotatoes = [
   'tear open bag of of instant potato mix and pour into bowl',
   'pour in water',
   'mix',
-  'enjoy'
+  'enjoy',
 ];
+
+// module.exports = {mashPotatoes, brusselSprouts, steak};
