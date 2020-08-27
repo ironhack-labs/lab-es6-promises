@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable no-undef */
 
 // This will print in the wrong order
@@ -10,7 +11,7 @@
 } */
 
 // Iteration 1 using callbacks
-const steakP = addFood(steak[0], '#steak', () => {
+/* const steakP = addFood(steak[0], '#steak', () => {
     addFood(steak[1], '#steak', () => {
         addFood(steak[2], '#steak', () => {
             addFood(steak[3], '#steak', () => {
@@ -27,10 +28,10 @@ const steakP = addFood(steak[0], '#steak', () => {
             });
         });
     });
-});
+}); */
 
 // Iteration 2 using `.then()`
-const mashPotatoesP = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
+/* const mashPotatoesP = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
         addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
             addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
@@ -41,19 +42,40 @@ const mashPotatoesP = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
             });
         });
     });
-});
+}); */
 
 // Iteration 3 using async and await
 
-/* async function makeFood(step) {
-    // ... your code here
+function makeFood(step, id) {
+    const newArr = [];
+    console.log(step);
+    for (let i = 0; i < step.length; i += 1) {
+        newArr.push(addFood(step[i], id));
+    }
+    return newArr;
+}
 
+/* let brusselSproutsP;
+let steakP;
+let mashPotatoesP;
+
+async function makeArrays() {  // WORK IN PROGRESS
+    await brusselSproutsP = makeFood(brusselSprouts, '#brusselSprouts');
+    await steakP = makeFood(steak, '#steak');
+    await mashPotatoesP = makeFood(mashPotatoes, '#mashPotatoes'); // WORK IN PROGRESS
 } */
-/* makeFood(eachStep); */
+
 
 // Bonuns 2
 
-Promise.all([mashPotatoesP]).then((values) => {
-    console.log(values);
-    /* alert('Dinner is served!'); */
+Promise.all([...brusselSproutsP]).then(() => {
+    document.getElementById('table').innerHTML += '<img src="./public/images/brusselSprouts.jpg">'; // WORK IN PROGRESS
+});
+
+Promise.all([...steakP]).then(() => {
+    document.getElementById('table').innerHTML += '<img src="./public/images/steak.jpg">'; // WORK IN PROGRESS
+});
+
+Promise.all(mashPotatoesP).then(() => {
+    document.getElementById('table').innerHTML += '<img src="./public/images/mashPotatoes.jpg">'; // WORK IN PROGRESS
 });
