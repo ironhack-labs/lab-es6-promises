@@ -1,5 +1,6 @@
 // This will print in the wrong order
 // we added it for you to test to make sure data is loaded
+
 // 🚨🚨🚨 comment out the next 3 lines when you start working on the code
 for (let i = 0; i < mashPotatoes.length; i++) {
   //addFood(steak[i], '#steak');
@@ -49,8 +50,45 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
 // Iteration 3 using async and await
 
+
+
+// brusselSprouts.forEach(eachStep => {
+
+//   async function makeFood(step) {
+//   await addFood(step, '#brusselSprouts')
+// }	  }
+
+async function makeFood(step) {
+  
+
+
+
+
+  try {
+    const brussel0 = await addFood(brusselSprouts[0], '#brusselSprouts')
+    const brussel1 = await addFood(brusselSprouts[1], '#brusselSprouts')
+    const brussel2 = await addFood(brusselSprouts[2], '#brusselSprouts')
+    const brussel3 = await addFood(brusselSprouts[3], '#brusselSprouts')
+    const brussel4 = await addFood(brusselSprouts[4], '#brusselSprouts')
+    const brussel5 = await addFood(brusselSprouts[5], '#brusselSprouts')
+    const brussel6 = await addFood(brusselSprouts[6], '#brusselSprouts')
+    const brussel7 = await addFood(brusselSprouts[7], '#brusselSprouts')
+    const brussel8 = await addFood(brusselSprouts[8], '#brusselSprouts')
+  } catch (error) {
+  }
+}
+
+
   // async function makeFood(step) {
-  //   await 
     
-  // }
-  // makeFood(eachStep);
+    
+  //    for (let i = 0; i < step; i++){
+  //      await addFood(step[i], '#brusselSprouts')
+  //    }
+//}
+    // for await (){
+
+    // }
+
+
+  makeFood();
