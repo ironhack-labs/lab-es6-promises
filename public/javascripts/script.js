@@ -34,24 +34,10 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   });
 });
 
-// Iteration 3 using async and await
-
-// First Attempt
-
-// async function makeFood(step) {
-//   await addFood(step, "#brusselSprouts");
-//   // console.log(step);
-// }
-
-// for (let eachStep of brusselSprouts) {
-//   makeFood(eachStep);
-//   console.log(eachStep);
-// }
-
-async function makeFood(step) {
-  for (let i = 0; i < step.length; i++) {
-    await addFood(brusselSprouts[i], "#brusselSprouts");
+async function makeFood() {
+  for (let step of brusselSprouts) {
+    await addFood(step, "#brusselSprouts");
   }
 }
 
-makeFood(brusselSprouts);
+makeFood();
