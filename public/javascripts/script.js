@@ -39,11 +39,9 @@ const promise = addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 });
 
 // Iteration 3 using async and await
-//falta finalizar
 async function makeFood(steps, id) {
   for (let step of steps) {
     await addFood(step, id);
   }
 }
-
-//makeFood(eachStep);
+makeFood(brusselSprouts, "#brusselSprouts");
