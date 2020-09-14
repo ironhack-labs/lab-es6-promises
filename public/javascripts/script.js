@@ -39,7 +39,23 @@ addFood(steak[0], '#steak', () => {
 // Iteration 3 using async and await
 
   async function makeFood(step) {
-    const stepOne = await addFood()
-    
+    const stepOne = await addFood(step[0], '#brusselSprouts');
+    stepOne;
+    const stepTwo = await addFood(step[1], '#brusselSprouts');
+    stepTwo;
+    const stepThree = await addFood(step[2], '#brusselSprouts');
+    stepThree;
+    const stepFour = await addFood(step[3], '#brusselSprouts');
+    stepFour;
+    const stepFive = await addFood(step[4], '#brusselSprouts');
+    stepFive;
+    const stepSix = await addFood(step[5], '#brusselSprouts');
+    stepSix;
+    const stepSeven = await addFood(step[6], '#brusselSprouts');
+    stepSeven;
+    const stepEight = await addFood(step[7], '#brusselSprouts');
+    stepEight;
+    const stepNine = await addFood(step[8], '#brusselSprouts');
+    stepNine;
   }
-  makeFood(eachStep);
+  makeFood(brusselSprouts);
