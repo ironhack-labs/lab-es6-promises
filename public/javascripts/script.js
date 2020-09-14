@@ -15,7 +15,7 @@ addFood(steak[0], "#steak", () => {
           addFood(steak[5], "#steak", () => {
             addFood(steak[6], "#steak", () => {
               addFood(steak[7], "#steak", () => {
-
+                addFoodImage("steak");
               });
             });
           });
@@ -31,7 +31,7 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
         addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
-
+          addFoodImage('mashPotatoes');
         });
       });
     });
@@ -51,6 +51,16 @@ async function makeFood(steps, id) {
   await addFood(brusselSprouts[6], "#brusselSprouts");
   await addFood(brusselSprouts[7], "#brusselSprouts");
   await addFood(brusselSprouts[8], "#brusselSprouts");
+  addFoodImage("brusselSprouts");
 }
 
 makeFood();
+
+// BONUS 1
+function addFoodImage(foodId) {
+  const table = document.getElementById("table");
+  table.innerHTML += `<img src="./public/images/${foodId}.jpg" alt="food">`;
+  console.log(table);
+}
+
+// BONUS 2
