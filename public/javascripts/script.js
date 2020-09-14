@@ -7,7 +7,7 @@
 // }
 
 // Iteration 1 using callbacks
-addFood(steak[0], "#steak", () => {
+const promiseSteak = addFood(steak[0], "#steak", () => {
   addFood(steak[1], "#steak", () => {
     addFood(steak[2], "#steak", () => {
       addFood(steak[3], "#steak", () => {
@@ -25,22 +25,26 @@ addFood(steak[0], "#steak", () => {
   });
 });
 
+
+
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
-  addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
-    addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
-      addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
-        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
-          addFoodImage('mashPotatoes');
+const promiseMashPotatoes = addFood(mashPotatoes[0], "#mashPotatoes").then(
+  () => {
+    addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
+      addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
+        addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
+          addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
+            addFoodImage("mashPotatoes");
+          });
         });
       });
     });
-  });
-});
+  }
+);
 
 // Iteration 3 using async and await
 
-async function makeFood(steps, id) {
+async function makeFood() {
   // ... your code here
   await addFood(brusselSprouts[0], "#brusselSprouts");
   await addFood(brusselSprouts[1], "#brusselSprouts");
@@ -52,9 +56,10 @@ async function makeFood(steps, id) {
   await addFood(brusselSprouts[7], "#brusselSprouts");
   await addFood(brusselSprouts[8], "#brusselSprouts");
   addFoodImage("brusselSprouts");
-}
+};
 
-makeFood();
+const promiseBrusselsSprout = makeFood();
+
 
 // BONUS 1
 function addFoodImage(foodId) {
@@ -64,3 +69,7 @@ function addFoodImage(foodId) {
 }
 
 // BONUS 2
+Promise.all([promiseSteak, promiseMashPotatoes, promiseBrusselsSprout]).then(() => {
+  document.body.innerHTML += `<button>Dinner is served!</button>`
+}
+);
