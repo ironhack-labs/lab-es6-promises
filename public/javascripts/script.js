@@ -25,7 +25,6 @@ addFood(steak[0], '#steak', () => {
 });
 
 
-
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
@@ -37,23 +36,24 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   })
 }).catch(() => console.log(err))
 
-// Iteration 3 using async and await
+
+// // Iteration 3 using async and await
 
 async function makeFood(step) {
-    try {
-      await addFood(step[0], '#brusselSprouts')
-      await addFood(step[1], '#brusselSprouts')
-      await addFood(step[2], '#brusselSprouts')
-      await addFood(step[3], '#brusselSprouts')
-      await addFood(step[4], '#brusselSprouts')
-      await addFood(step[5], '#brusselSprouts')
-      await addFood(step[6], '#brusselSprouts')
-      await addFood(step[7], '#brusselSprouts')
-      await addFood(step[8], '#brusselSprouts')
-    } catch (error) {
-      console.error(error)
-    }
-    addImg('broccoli')
+  try {
+    await addFood(step[0], '#brusselSprouts')
+    await addFood(step[1], '#brusselSprouts')
+    await addFood(step[2], '#brusselSprouts')
+    await addFood(step[3], '#brusselSprouts')
+    await addFood(step[4], '#brusselSprouts')
+    await addFood(step[5], '#brusselSprouts')
+    await addFood(step[6], '#brusselSprouts')
+    await addFood(step[7], '#brusselSprouts')
+    await addFood(step[8], '#brusselSprouts')
+  } catch (error) {
+    console.error(error)
   }
+  addImg('broccoli')
+}
 
 makeFood(brusselSprouts)
