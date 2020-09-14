@@ -31,7 +31,7 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
         addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
-          
+
         });
       });
     });
@@ -40,7 +40,17 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 
 // Iteration 3 using async and await
 
-async function makeFood(step) {
+async function makeFood(steps, id) {
   // ... your code here
+  await addFood(brusselSprouts[0], "#brusselSprouts");
+  await addFood(brusselSprouts[1], "#brusselSprouts");
+  await addFood(brusselSprouts[2], "#brusselSprouts");
+  await addFood(brusselSprouts[3], "#brusselSprouts");
+  await addFood(brusselSprouts[4], "#brusselSprouts");
+  await addFood(brusselSprouts[5], "#brusselSprouts");
+  await addFood(brusselSprouts[6], "#brusselSprouts");
+  await addFood(brusselSprouts[7], "#brusselSprouts");
+  await addFood(brusselSprouts[8], "#brusselSprouts");
 }
-// makeFood(eachStep);
+
+makeFood();
