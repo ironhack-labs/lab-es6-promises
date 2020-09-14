@@ -4,6 +4,8 @@
 
 img {
   width: 200px;
+  display: block;
+  visibility: hidden;
 }
 
 li {
@@ -24,9 +26,11 @@ label {
 
 #table {
   height: 200px;
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
 }
+
 ol {
   width: 33%;
   position: relative;
