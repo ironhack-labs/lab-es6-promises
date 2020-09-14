@@ -1,6 +1,3 @@
-const tableImg = document.getElementById("table");
-
-
 /*
 // Iteration 1 using callbacks
 addFood(steak[0], "#steak", () => {
@@ -53,22 +50,29 @@ async function makeFood(step) {
 makeFood(brusselSprouts)
 */
 
+// BONUS
 
-// BONUS 
+const tableImg = document.getElementById("table");
+const stepsSection = document.getElementById("steps");
 
 
-async function makeFood(steps , id) {
-  for (const step of steps) await addFood(step, id)
-  document.querySelector("#table").innerHTML += `<img src="public/images/${id.replace("#", "")}.jpg" />`;
+async function makeFood(steps, id) {
+  for (const step of steps) await addFood(step, id);
+  document.querySelector(
+    "#table"
+  ).innerHTML += `<img src="public/images/${id.replace("#", "")}.jpg" />`;
 }
 
 Promise.all([
   makeFood(steak, "#steak"),
   makeFood(brusselSprouts, "#brusselSprouts"),
-  makeFood(mashPotatoes, "#mashPotatoes")
-])
-.then((res) => {
-  document.body.innerHTML += `<button onclick="new Audio('public/media/dinnerIsServed.mp3').play()">Dinner is served`
-
-})
-.catch((err) => console.error(err));
+  makeFood(mashPotatoes, "#mashPotatoes"),
+]).then((res) => {
+  const servedBtn = document.createElement("button");
+  servedBtn.innerHTML = "Diner is served!";
+  stepsSection.appendChild(servedBtn);
+  servedBtn.onclick = () => {
+    const servedSound = new Audio("../../public/media/dinnerIsServed.mp3");
+    servedSound.play();
+  };
+});
