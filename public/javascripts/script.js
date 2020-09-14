@@ -7,7 +7,7 @@
 //}
 
 // Iteration 1 using callbacks
-addFood(steak[0], '#steak', () => {
+const p1 = new Promise((resolve, reject) => {resolve (addFood(steak[0], '#steak', () => {
   addFood(steak[1], '#steak', () => {
     addFood(steak[2], '#steak', () => {
       addFood(steak[3], '#steak', () => {
@@ -15,34 +15,35 @@ addFood(steak[0], '#steak', () => {
           addFood(steak[5], '#steak', () => {
             addFood(steak[6], '#steak', () => {
               addFood(steak[7], '#steak', () => {const newImg = document.createElement("img");
-              newImg.innerHTML = `<img src="./public/images/steak.jpg" alt"food drawing">`;
+              newImg.src = "public/images/steak.jpg";
               table.appendChild(newImg);
-            })
+              })
             })
           })
         })
       })
     })
   })
-});
+}))});
 
 
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
-  addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
-    addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
-      addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
-        addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
+const p2 = new Promise((resolve, reject) => {resolve(
+  addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
+    addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
+      addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
+        addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
+          addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
           const newImg = document.createElement("img");
-          newImg.innerHTML = `<img src="./public/images/mashPotatoes.jpg" alt"food drawing">`;
+          newImg.src = "public/images/mashPotatoes.jpg";
           table.appendChild(newImg);
+        })
         })
       })
     })
   })
-})
-; 
+)}); 
 
 // Iteration 3 using async and await
 
@@ -66,19 +67,25 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     const stepNine = await addFood(step[8], '#brusselSprouts');
     stepNine;
     const newImg = document.createElement("img");
-    newImg.innerHTML = `<img src="./public/images/brusselSprouts.jpg" alt"food drawing">`;
+    newImg.src = "public/images/brusselSprouts.jpg";
     table.appendChild(newImg);
   }
 
-makeFood(brusselSprouts);
 
 const table = document.getElementById("table")
 
   function addImageInTable(step) {
     const newImg = document.createElement("img");
-    newImg.innerHTML = `<img src="./public/images/${step}.jpg" alt"food drawing">`;
+    newImg.innerHTML = `<img src="public/images/${step}.jpg" alt"food drawing">`;
     table.appendChild(newImg);
   }
+
+Promise.all([p1, p2, makeFood(brusselSprouts)]).then(() => {
+  const newDiv = document.createElement("div");
+    newDiv.innerHTML = `<button>Dinner is served !</button>`;
+    table.appendChild(newDiv);
+})
+
 
 
 
