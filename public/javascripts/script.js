@@ -46,18 +46,19 @@ const promisePotatoes = addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 
 async function makeFood(step) {
   // ... your code here
-  const imgBrusselSprout = document.createElement("img");
-  imgBrusselSprout.src = "./public/images/bursselSprouts.jpg";
-  document.getElementById("table").appendChild(imgBrusselSprout);
-
-  const promiseBrusselSprout = makeFood(brusselSprouts, "#brusselSprouts");
-
-  Promise.all([promiseSteack, promisePotatoes, promiseBrusselSprout]).then(
-    () => {
-      const dinner = document.createElement("button");
-      dinner.innerHTML = "Dinner is served.";
-      document.getElementById("steps").appendChild(dinner);
+  console.log("ii");
+  for (let i = 0; i < brusselSprouts.length; i++) {
+    await addFood(brusselSprouts[i], "#brusselSprouts");
+    if (i === 8) {
+      const imgBrusselSprout = document.createElement("img");
+      imgBrusselSprout.src = "./public/images/brusselSprouts.jpg";
+      document.getElementById("table").appendChild(imgBrusselSprout);
     }
-  );
+  }
 }
-makeFood(eachStep);
+
+Promise.all([promiseSteack, promisePotatoes, makeFood()]).then(() => {
+  const dinner = document.createElement("button");
+  dinner.innerHTML = "Dinner is served.";
+  document.getElementById("steps").appendChild(dinner);
+});
