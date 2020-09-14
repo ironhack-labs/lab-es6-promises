@@ -1,12 +1,4 @@
-// This will print in the wrong order
-// we added it for you to test to make sure data is loaded
-// 🚨🚨🚨 comment out the next 3 lines when you start working on the code
-/*
-for (let i = 0; i < mashPotatoes.length; i++) {
-  //addFood(steak[i], '#steak');
-  console.log(mashPotatoes[i])
-}
-*/
+let tableImg = document.getElementById("table");
 
 // Iteration 1 using callbacks
 addFood(steak[0], "#steak", () => {
@@ -16,7 +8,11 @@ addFood(steak[0], "#steak", () => {
         addFood(steak[4], "#steak", () => {
           addFood(steak[5], "#steak", () => {
             addFood(steak[6], "#steak", () => {
-              addFood(steak[7], "#steak", () => {});
+              addFood(steak[7], "#steak", () => {
+                const steakImg = document.createElement("img");
+                steakImg.src = "../../public/images/steak.jpg";
+                tableImg.appendChild(steakImg);
+              });
             });
           });
         });
@@ -30,7 +26,11 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
-        addFood(mashPotatoes[4], "#mashPotatoes");
+        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
+          const potatoesImg = document.createElement("img");
+          potatoesImg.src = "../../public/images/mashPotatoes.jpg";
+          tableImg.appendChild(potatoesImg);
+        });
       });
     });
   });
@@ -40,8 +40,13 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 
 async function makeFood(step) {
   for (let i = 0; i < brusselSprouts.length; i++) {
-    const recipe = await addFood(brusselSprouts[i], "#brusselSprouts").then(() => {});
+    const recipe = await addFood(brusselSprouts[i], "#brusselSprouts").then(
+      () => {}
+    );
   }
+  const sproutsImg = document.createElement("img");
+  sproutsImg.src = "../../public/images/brusselSprouts.jpg";
+  tableImg.appendChild(sproutsImg);
 }
 
 makeFood(brusselSprouts);
