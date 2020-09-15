@@ -7,7 +7,7 @@ for (let i = 0; i < mashPotatoes.length; i++) {
 }
 
 // Iteration 1 using callbacks
-addFood(steak[0], '#steak', () => {
+const steakList = addFood(steak[0], '#steak', () => {
   // ... your code here
   addFood(steak[1], '#steak', () => {
     addFood(steak[2], '#steak', () => {
@@ -16,6 +16,10 @@ addFood(steak[0], '#steak', () => {
           addFood(steak[5], '#steak', () => {
             addFood(steak[6], '#steak', () => {
               addFood(steak[7], '#steak', () => {
+                return new Promise((resolve, reject) => {
+                  resolve(document.getElementById('steak-img').style.display = "inline");
+
+                })
 
               })
             })
@@ -29,12 +33,15 @@ addFood(steak[0], '#steak', () => {
 
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
+const mash = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   // ... your code here
   addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
     addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
       addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
         addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
+          return new Promise((resolve, reject) => {
+            resolve(document.getElementById('mash-img').style.display="inline");
+          })
 
         })
       })
@@ -49,5 +56,18 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     for(let i = 0; i < brusselSprouts.length; i++) {
       await addFood(brusselSprouts[i], '#brusselSprouts')
     }
+    return new Promise((resolve, reject) => {
+        resolve(document.getElementById('sprouts-img').style.display = "inline");
+     
+    })
   }
-  makeFood();
+const cookSprouts = makeFood();
+
+
+  Promise.all([mash, steakList, cookSprouts]).then(() => {
+    const dinnerServed = document.createElement('button');
+    dinnerServed.textContent = 'Dinner is served!';
+    document.getElementById('steps').appendChild(dinnerServed);
+    document.getElementById('dinnerAudio').play();
+    
+  })

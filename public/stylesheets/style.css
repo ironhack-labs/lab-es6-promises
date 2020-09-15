@@ -67,6 +67,18 @@ button:hover {
   background: #333;
 }
 
+#mash-img {
+  display: none;
+}
+
+#steak-img {
+  display: none;
+}
+
+#sprouts-img {
+  display: none;
+}
+
 @keyframes enter {
   from {
     transform: rotateX(3000deg) translate(-50%, -50%) scale(0);
