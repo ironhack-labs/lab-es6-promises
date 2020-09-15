@@ -8,7 +8,6 @@
 
 
 const imgContent = document.getElementById('table')
-const btnContent = document.getElementById('table')
 // Iteration 1 using callbacks
 
  const p1 = addFood(steak[0], '#steak', () => {
@@ -106,7 +105,6 @@ const p2 =  addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
 const p3 = makeFood();
 
-//const arr = [p1, p2, p3]
 const arr = [p1,p2,p3]
 
 console.log(arr)
@@ -115,7 +113,7 @@ console.log(arr)
 function createBtn() {
   var btn = document.createElement('BUTTON'); 
   btn.textContent = "DINNER IS SERVED.";
-  btnContent.appendChild(btn);
+  imgContent.appendChild(btn);
 }
 
 
