@@ -11,7 +11,7 @@ const imgContent = document.getElementById('table')
 const btnContent = document.getElementById('table')
 // Iteration 1 using callbacks
 
-  addFood(steak[0], '#steak', () => {
+ const p1 = addFood(steak[0], '#steak', () => {
     addFood(steak[1], '#steak', () => {
       addFood(steak[2], '#steak', () => {
         addFood(steak[3], '#steak', () => {
@@ -33,7 +33,7 @@ const btnContent = document.getElementById('table')
     })
   });
 
-//   async function makeFood0() {
+//   async function makeFood1() {
 //     await addFood(steak[0], '#steak');
 //     await addFood(steak[1], '#steak');
 //     await addFood(steak[2], '#steak');
@@ -48,13 +48,13 @@ const btnContent = document.getElementById('table')
 //     imgContent.appendChild(img);
 //   }
 
-// const p0 = makeFood0();
+// const p1 = makeFood1();
 
 
   // Iteration 2 using `.then()`
 
 
-  addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
+const p2 =  addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
       addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
         addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
@@ -106,7 +106,8 @@ const btnContent = document.getElementById('table')
 
 const p3 = makeFood();
 
-const arr = [p3]
+//const arr = [p1, p2, p3]
+const arr = [p1,p2,p3]
 
 console.log(arr)
 
