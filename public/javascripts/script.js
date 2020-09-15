@@ -2,7 +2,7 @@
 // we added it for you to test to make sure data is loaded
 // 🚨🚨🚨 comment out the next 3 lines when you start working on the code
 // for (let i = 0; i < mashPotatoes.length; i++) {
-//   //addFood(steak[i], '#steak');
+//   addFood(steak[i], '#steak');
 //   console.log(mashPotatoes[i])
 // }
 
@@ -10,7 +10,7 @@
 
 
 addFood(steak[0], '#steak', () => {
-
+  
 
 
   // ... your code here
@@ -21,8 +21,9 @@ addFood(steak[0], '#steak', () => {
           addFood(steak[5], '#steak',() =>{
             addFood(steak[6], '#steak',() =>{
               addFood(steak[7], '#steak',() =>{
-      
-
+                const imgSteak = document.createElement("img");
+                imgSteak.src = "./public/images/steak.jpg";
+                document.getElementById("table").appendChild(imgSteak);
               })
       
 
@@ -55,7 +56,10 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
       addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
      
         addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
-         
+
+          const imgPotatoes = document.createElement("img");
+          imgPotatoes.src = "./public/images/mashPotatoes.jpg";
+          document.getElementById("table").appendChild(imgPotatoes);
 
         });
       });
@@ -67,6 +71,6 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
   async function makeFood(step) {
     // ... your code here
-    
+  
   }
-  makeFood(eachStep);
+  // makeFood(eachStep);
