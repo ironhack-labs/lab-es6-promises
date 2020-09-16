@@ -73,4 +73,4 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     // ... your code here
   
   }
-  // makeFood(eachStep);
+   makeFood(eachStep);
