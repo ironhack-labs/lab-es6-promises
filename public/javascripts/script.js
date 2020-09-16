@@ -1,4 +1,3 @@
-
 // This will print in the wrong order
 // we added it for you to test to make sure data is loaded
 // 🚨🚨🚨 comment out the next 3 lines when you start working on the code
@@ -67,25 +66,15 @@ console.log(makeMashPotatoes);
 
 //* Iteration 3 using async and await
 
-async function makeFood(step) {
-  const result1 = await addFood(brusselSprouts[step], "#brusselSprouts");
-  for (let i = 0; i < brusselSprouts.length; i++) {
-    const sprout = brusselSprouts[i];
-    addFood(brusselSprouts[i], "#brusselSprouts");
-    document.getElementById("table").appendChild(brusselImg);
-  }
-  addImg(brusselImg);
-}
-makeFood();
+const makeFood = async (step, id) => {
+  for (let i = 0; i < step.length; i++) await addFood(step[i], id);
+  appendPic(id);
+};
 
-function playSound() {
-  let sound = new Audio();
-  sound.src = "./public/media/dinnerIsServed.mp3";
-  return sound;
-}
+let foodMash = makeFood(mashPotatoes, "#mashPotatoes");
+let foodBrussel = makeFood(brusselSprouts, "#brusselSprouts");
+let foodPotatoe = makeFood(steak, "#steak");
 
-const button = document.createElement("button");
-document.getElementById("table").append(button);
-console.log(button);
-button.textContent = "Dinner is served";
-button.addEventListener("click", playSound);
+Promise.all([foodMash, foodBrussel, foodPotatoe]).then(
+  () => (document.body.innerHTML += "<button>Dinner is served!</button>")
+);
