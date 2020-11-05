@@ -8,38 +8,44 @@
 
 // Iteration 1 using callbacks
 
-function recursiveCallback(i) {
-  addFood(steak[i], '#steak', () => {
-    if (typeof steak[i+1] !== 'undefined') {
-      recursiveCallback(i+1);
-    } else {
-      setTimeout(() => showImage(), 200);
-      return;
-    }
+function recursivelyAddSteak(i, cb) {
+  return new Promise ((resolve, reject) => {
+    addFood(steak[i], '#steak', () => {
+      if (typeof steak[i+1] !== 'undefined') {
+        recursivelyAddSteak(i+1, cb).then(() => resolve("steak ready"));
+      } else {
+        cb();
+        resolve("steak ready"); 
+      }
+    });
   });
 }
-recursiveCallback(0);
 
-function showImage() {
-  const img = document.createElement('img');
-  img.setAttribute("src", "public/images/steak.jpg");
-  document.querySelector("#table").appendChild(img);
+function showImage(dish) {
+  document.querySelector("#table").innerHTML += `<img src = "public/images/${dish}.jpg"></img>`;
 }
 
+const steakReady = recursivelyAddSteak(0, () => showImage("steak"));
+//steakReady.then(() => console.log('seqck rdy'));
 
 // Iteration 2 using `.then()`
 
-function writeRecipe(i) {
-  addFood(mashPotatoes[i], '#mashPotatoes')
-  .then(() => {
-    if (typeof mashPotatoes[i+1] !== 'undefined') {
-      writeRecipe(i+1);
-    }
-  }); 
+function recursiveThen(i, cb) {
+  return new Promise ((resolve, reject) => {
+    addFood(mashPotatoes[i], '#mashPotatoes')
+    .then(() => {
+      if (typeof mashPotatoes[i+1] !== 'undefined') {
+        recursiveThen(i+1, cb).then(() => resolve("mash potatoes ready"));
+      } else {
+        cb();
+        resolve("mash potatoes ready");
+      }
+    }); 
+  });
 }
-writeRecipe(0);
 
-
+const mashPotatoesReady = recursiveThen(0, () => showImage("mashPotatoes"));
+//mashPotatoesReady.then(() => console.log('potato rdy'));
 
 // Iteration 3 using async and await
 
@@ -47,6 +53,21 @@ async function makeFood(steps) {
   for (let i = 0; i < steps.length; i++) {
     await addFood(steps[i], '#brusselSprouts');
   }
+  showImage("brusselSprouts");
+  return new Promise((resolve, reject) => {
+    resolve('brussel sprouts ready');
+  });
 }
-makeFood(brusselSprouts);
+
+const brusselSproutsReady = makeFood(brusselSprouts);
+//brusselSproutsReady.then(() => console.log("sprouts ready"));
+
+function serveDinner() {
+  document.querySelector("#button").innerHTML += `<button>Dinner is served.</button>`;
+}
+
+Promise.all([steakReady, mashPotatoesReady, brusselSproutsReady])
+.then(() => {
+  serveDinner();
+});
 
