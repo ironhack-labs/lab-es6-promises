@@ -7,6 +7,7 @@
 //}
 
 // Iteration 1 using callbacks
+let addSteak = 
 addFood(steak[0], '#steak', () => {
   addFood(steak[1], '#steak', () => {
     addFood(steak[2], '#steak', () => {
@@ -25,7 +26,9 @@ addFood(steak[0], '#steak', () => {
   })
 });
 
+
 // Iteration 2 using `.then()`
+let addMash =   
 addFood(mashPotatoes[0], '#mashPotatoes')
 .then(() => 
   addFood(mashPotatoes[1], '#mashPotatoes'))
@@ -41,16 +44,17 @@ addFood(mashPotatoes[0], '#mashPotatoes')
 async function makeFood(steps) {
  
     for (let i = 0; i < steps.length; i++) {
-      await addFood(steps[i], '#brusselSprouts');
+      await addFood(steps[i], '#brusselSprouts'); 
     }
-    table.innerHTML += `<img src="./public/images/brusselSprouts.jpg"  alt="brussel Sprouts"/>`;
+    table.innerHTML += `<img src="./public/images/brusselSprouts.jpg"  alt="Brussel Sprouts"/>`;
   }
 
-makeFood(brusselSprouts);
+//makeFood(brusselSprouts);
+
+let addBrussels =  makeFood(brusselSprouts)
 
 /*
-async function makeFood(step) {
-  // ... your code here
+async function makeFood(steps) {
     await addFood(brusselSprouts[0], '#brusselSprouts')
     await addFood(brusselSprouts[1], '#brusselSprouts')
     await addFood(brusselSprouts[2], '#brusselSprouts')
@@ -59,7 +63,15 @@ async function makeFood(step) {
     await addFood(brusselSprouts[5], '#brusselSprouts')
     await addFood(brusselSprouts[6], '#brusselSprouts')
     await addFood(brusselSprouts[7], '#brusselSprouts')
-    addFood(brusselSprouts[8], '#brusselSprouts')
+    await addFood(brusselSprouts[8], '#brusselSprouts')
+    table.innerHTML += `<img src="./public/images/brusselSprouts.jpg"  alt="brussel Sprouts"/>`;
   }
   makeFood(brusselSprouts);
   */
+
+ 
+Promise.all([addSteak,addMash,addBrussels]).then(() => {
+  
+  window.alert("Dinner is served!");
+
+});
