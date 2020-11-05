@@ -7,10 +7,14 @@
 }*/
 
 // Iteration 1 using callbacks
+
 function recursiveCallback(i) {
   addFood(steak[i], '#steak', () => {
     if (typeof steak[i+1] !== 'undefined') {
       recursiveCallback(i+1);
+    } else {
+      setTimeout(() => showImage(), 200);
+      return;
     }
   });
 }
