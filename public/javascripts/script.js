@@ -7,30 +7,32 @@
 // }
 
 // Iteration 1 using callbacks
-addFood(steak[0], '#steak', () => {
-  addFood(steak[1], '#steak', () => {
-    addFood(steak[2], '#steak', () => {
-      addFood(steak[3], '#steak', () => {
-        addFood(steak[4], '#steak', () => {
-          addFood(steak[5], '#steak', () => {
-            addFood(steak[6], '#steak', () => {
-              addFood(steak[7], '#steak', () => {
-                let steakImg = document.createElement('img');
-                steakImg.src = './public/images/steak.jpg';
-                document.getElementById('table').appendChild(steakImg);
+const steakPrep = 
+  addFood(steak[0], '#steak', () => {
+    addFood(steak[1], '#steak', () => {
+      addFood(steak[2], '#steak', () => {
+        addFood(steak[3], '#steak', () => {
+          addFood(steak[4], '#steak', () => {
+            addFood(steak[5], '#steak', () => {
+              addFood(steak[6], '#steak', () => {
+                addFood(steak[7], '#steak', () => {
+                  let steakImg = document.createElement('img');
+                  steakImg.src = './public/images/steak.jpg';
+                  document.getElementById('table').appendChild(steakImg);
+                })
               })
             })
           })
         })
       })
     })
-  })
-});
+  });
 
 
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], '#mashPotatoes')
+const potatoesPrep = 
+  addFood(mashPotatoes[0], '#mashPotatoes')
 .then(() => {
   return addFood(mashPotatoes[1], '#mashPotatoes');
 })
@@ -52,7 +54,6 @@ addFood(mashPotatoes[0], '#mashPotatoes')
 
 
 // Iteration 3 using async and await
-
   async function makeFood(array, id) {
     for(let i = 0; i < array.length; i++) {
       await addFood(array[i], id);
@@ -61,4 +62,15 @@ addFood(mashPotatoes[0], '#mashPotatoes')
     sproutsImg.src = './public/images/brusselSprouts.jpg';
     document.getElementById('table').appendChild(sproutsImg);
   }
-  makeFood(brusselSprouts, '#brusselSprouts');
+
+const brusselsPrep = makeFood(brusselSprouts, '#brusselSprouts');
+
+
+Promise.all([brusselsPrep, steakPrep, potatoesPrep]).then(() => {
+  setTimeout(() => {
+    alert('Dinner is served!')
+  }, 1000)
+});
+
+
+
