@@ -54,9 +54,7 @@ async function makeFood(steps) {
     await addFood(steps[i], '#brusselSprouts');
   }
   showImage("brusselSprouts");
-  return new Promise((resolve, reject) => {
-    resolve('brussel sprouts ready');
-  });
+  Promise.resolve('brussel sprouts ready');
 }
 
 const brusselSproutsReady = makeFood(brusselSprouts);
