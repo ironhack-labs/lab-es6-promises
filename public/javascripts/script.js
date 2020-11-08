@@ -35,26 +35,39 @@ addFood(steak[1], '#steak', () => {
     });
   });
 }); 
+imgSource="public/images/steak.jpg"
+insertImage(imgSource)
 
 
 
  //Iteration 2 using `.then()`
- addFood(mashPotatoes[0], '#mashPotatoes') 
-  .then(() => { addFood(mashPotatoes[1], '#mashPotatoes')})
+ addFood(mashPotatoes[1], '#mashPotatoes') 
   .then(() => { addFood(mashPotatoes[2], '#mashPotatoes')})
+  .then(() => { addFood(mashPotatoes[0], '#mashPotatoes')})
   .then(() => { addFood(mashPotatoes[3], '#mashPotatoes')})
   .then(() => { addFood(mashPotatoes[4], '#mashPotatoes')})
-  .then(() => { addFood(mashPotatoes[5], '#mashPotatoes')})
-  .then(() => { addFood(mashPotatoes[6], '#mashPotatoes')})
-  .then(() => { addFood(mashPotatoes[7], '#mashPotatoes')})
-  .then(() => { addFood(mashPotatoes[8], '#mashPotatoes')})
-  
+  imgSource="public/images/mashPotatoes.jpg"
+  insertImage(imgSource)
  
+
 
 // Iteration 3 using async and await
 async function makeFood(step) {
-  // ... your code here
-  
+    for (let i = 0; i < step.length; i++) {
+    await addFood(step[i],"#brusselSprouts")
+      } 
+      imgSource="public/images/brusselSprouts.jpg"
+      insertImage(imgSource)
+ }
+ 
+makeFood(brusselSprouts);
+
+
+function insertImage(imgSource){
+  let img = document. createElement("img");
+  img.src=imgSource;
+  const dinnerId = document.getElementById("table");
+  dinnerId.appendChild(img);
 }
-makeFood(eachStep);
+
 
