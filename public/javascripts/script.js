@@ -50,17 +50,43 @@ async function makeFood(steps) {
   // ... your code here
   // console.log("steps", steps);
 
-  await addFood(brusselSprouts[0], "#brusselSprouts");
-  await addFood(brusselSprouts[1], "#brusselSprouts");
-  await addFood(brusselSprouts[2], "#brusselSprouts");
-  await addFood(brusselSprouts[3], "#brusselSprouts");
-  await addFood(brusselSprouts[4], "#brusselSprouts");
-  await addFood(brusselSprouts[5], "#brusselSprouts");
-  await addFood(brusselSprouts[6], "#brusselSprouts");
-  await addFood(brusselSprouts[7], "#brusselSprouts");
-  await addFood(brusselSprouts[8], "#brusselSprouts");
+  for (let step of steps) {
+    await addFood(step, "#brusselSprouts");
+  }
+  // await addFood(brusselSprouts[0], "#brusselSprouts");
+  // await addFood(brusselSprouts[1], "#brusselSprouts");
+  // await addFood(brusselSprouts[2], "#brusselSprouts");
+  // await addFood(brusselSprouts[3], "#brusselSprouts");
+  // await addFood(brusselSprouts[4], "#brusselSprouts");
+  // await addFood(brusselSprouts[5], "#brusselSprouts");
+  // await addFood(brusselSprouts[6], "#brusselSprouts");
+  // await addFood(brusselSprouts[7], "#brusselSprouts");
+  // await addFood(brusselSprouts[8], "#brusselSprouts");
   let img = document.createElement("img");
   img.src = "public/images/brusselSprouts.jpg";
   document.querySelector("#table").appendChild(img);
 }
 makeFood(brusselSprouts);
+
+//another solution:
+
+// const addImage = img => document.querySelector('#table').innerHTML +=
+//   `<img src="public/images/${img}.jpg" />`
+
+// async function makeFood(steps, id) {
+//   for (let step of steps) {
+//     await addFood(step, id)
+//   }
+//   addImage(id.slice(1))
+// }
+// Promise.all([
+//   makeFood(steak, '#steak'),
+//   makeFood(brusselSprouts, '#brusselSprouts'),
+//   makeFood(mashPotatoes, '#mashPotatoes')
+// ]).then(() => {
+//   document.body.innerHTML += `
+//   <button onclick="new Audio('public/media/dinnerIsServed.mp3').play()">
+//   Dinner is served
+//   </button>
+//   `
+// })
