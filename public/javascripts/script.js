@@ -40,7 +40,7 @@
 
 // Iteration 3 using async and await
 
-const addImage = img => document.querySelector('#table').innerHTML += `<img src="../images/${img}.jpg">`
+const addImage = img => document.querySelector('#table').innerHTML += `<img src="public/images/${img}.jpg">`
 
 async function makeFood(steps, id) {
   for (let step of steps) {
