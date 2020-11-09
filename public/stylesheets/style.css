@@ -75,3 +75,15 @@ button:hover {
     transform: rotateX(0deg) translate(-50%, -50%) scale(1);
   }
 }
+
+/* Aditinal rules added by me */
+
+.pics-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.pic-inactive{
+  display: none;
+}
