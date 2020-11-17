@@ -2,7 +2,7 @@
 // we added it for you to test to make sure data is loaded
 // 🚨🚨🚨 comment out the next 3 lines when you start working on the code
 // for (let i = 0; i < mashPotatoes.length; i++) {
-//   addFood(steak[i], '#steak');
+//   addFood(mashPotatoes[i]], '#mashPotatoes');
 //   console.log(mashPotatoes[i])
 // }
 
