@@ -15,7 +15,7 @@ const addImg = (src, alt) => {
   table.appendChild(img)
 }
 
-Promise.all(
+/*Promise.all(
 // Iteration 1 using callbacks
 [addFood(steak[0], '#steak', () => {
   addFood(steak[1], '#steak', () => {
@@ -33,7 +33,7 @@ Promise.all(
       })
     })
   })
-})],[
+}),
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
@@ -45,19 +45,21 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
             }).then(() => {
               addFood(mashPotatoes[7], '#mashPotatoes')
             }).then(addImg('public/images/mashPotatoes.jpg', 'mash potatoes'))
-})],[makeFood(brusselSprouts, '#brusselSprouts')]).then(() => alert("Dinner is served"))
+}),makeFood(brusselSprouts, '#brusselSprouts')]).then(() => alert("Dinner is served"))*/
 // Iteration 3 using async and await
 
-async function makeFood(steps, id) {
-  await addFood(brusselSprouts[0], '#brusselSprouts');
-  await addFood(brusselSprouts[1], '#brusselSprouts');
-  await addFood(brusselSprouts[2], '#brusselSprouts');
-  await addFood(brusselSprouts[3], '#brusselSprouts');
-  await addFood(brusselSprouts[4], '#brusselSprouts');
-  await addFood(brusselSprouts[5], '#brusselSprouts');
-  await addFood(brusselSprouts[6], '#brusselSprouts');
-  await addFood(brusselSprouts[7], '#brusselSprouts');
-  await addImg('public/images/brusselSprouts.jpg', 'brussel sprouts')
+async function makeFood(steps, id, src, alt) {
+  for (let i = 0; i < steps.length; i++){
+    await addFood(steps[i], id);
+  }
+  await addImg(src, alt)
 }
 
+Promise.all([ 
+  makeFood(steak, '#steak','public/images/steak.jpg', 'steak'),
+  makeFood(mashPotatoes, '#mashPotatoes','public/images/mashPotatoes.jpg', 'mash potatoes'),
+  makeFood(brusselSprouts, '#brusselSprouts','public/images/brusselSprouts.jpg', 'brussel sprouts')
+])
+   .then(() => alert("Dinner is served"))
+   .catch( (error) => console.log(error) )
 
