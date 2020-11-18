@@ -43,7 +43,7 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 async function makeFood(steps) {
   // your code here…
   for (let i = 0; i<steps.length; i++){
-    await addFood(steps[1], '#brusselSprouts')
+    await addFood(steps[i], '#brusselSprouts')
   }
 }
-makeFood(brusselSprouts, '#brusselSprouts');
+makeFood(brusselSprouts);
