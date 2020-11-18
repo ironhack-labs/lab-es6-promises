@@ -75,3 +75,9 @@ button:hover {
     transform: rotateX(0deg) translate(-50%, -50%) scale(1);
   }
 }
+
+body div {
+  background-color: rgb(168, 164, 164);
+  color: black;
+  width: 10%;
+}

@@ -6,6 +6,8 @@
 // }
 
 // Iteration 1 using callbacks
+let p1;
+
 addFood(steak[0], '#steak', () => {
   // ... your code here
   addFood(steak[1], '#steak', () => {
@@ -20,7 +22,9 @@ addFood(steak[0], '#steak', () => {
 
             addFood(steak[6], '#steak', () => {
 
-              addFood(steak[7], '#steak', () => {
+              p1 = addFood(steak[7], '#steak', () => {
+
+                document.querySelector("#table").innerHTML += `<img src="public/images/steak.jpg" alt="img-steak">`;
 
               });
 
@@ -40,11 +44,12 @@ addFood(steak[0], '#steak', () => {
 
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], '#mashPotatoes')
+let p2 = addFood(mashPotatoes[0], '#mashPotatoes')
 .then(() => addFood(mashPotatoes[1], '#mashPotatoes'))
 .then(() => addFood(mashPotatoes[2], '#mashPotatoes'))
 .then(() => addFood(mashPotatoes[3], '#mashPotatoes'))
-.then(() => addFood(mashPotatoes[4], '#mashPotatoes'));
+.then(() => addFood(mashPotatoes[4], '#mashPotatoes'))
+.then(() => document.querySelector("#table").innerHTML += `<img src="public/images/mashPotatoes.jpg" alt="img-steak">`);
 
 // Iteration 3 using async and await
 
@@ -58,6 +63,14 @@ async function makeFood(steps, id) {
   await addFood(brusselSprouts[5], '#brusselSprouts');
   await addFood(brusselSprouts[6], '#brusselSprouts');
   await addFood(brusselSprouts[7], '#brusselSprouts');
-  await addFood(brusselSprouts[8], '#brusselSprouts');
+  const res = await addFood(brusselSprouts[8], '#brusselSprouts');
+  if(res) document.querySelector("#table").innerHTML += `<img src="public/images/brusselSprouts.jpg" alt="img-steak">`;
+  return res;
 }
-makeFood(brusselSprouts, '#brusselSprouts');
+let p3 = makeFood(brusselSprouts, '#brusselSprouts');
+
+Promise.all([p1, p2, p3]).then(() => {
+  let dinner = document.createElement("div");
+  dinner.innerText = "Dinner is served";
+  document.querySelector("body").appendChild(dinner);
+});
