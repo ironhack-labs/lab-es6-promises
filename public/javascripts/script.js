@@ -7,7 +7,7 @@
 // }
 
 // Iteration 1 using callbacks. Print the directions to make Steak in the correct order. 
-let steakDone = addFood(steak[0], '#steak', () => {
+addFood(steak[0], '#steak', () => {
   // ... your code here
   addFood(steak[1], '#steak', () => {
 
@@ -40,7 +40,7 @@ let steakDone = addFood(steak[0], '#steak', () => {
 });
 
 // Iteration 2 using `.then()`
-let potatoesDone = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
+addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   // ... your code here
   addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
 
@@ -72,16 +72,26 @@ let potatoesDone = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
 
 
-  // let brusselDone = async (steps, id) => {
-  //   for (let i=0; i<steps.length - 1; i++){
-  //     await addFood(steps[i], id)
-  //   }
-  //   return brusselSprouts, '#brusselSprouts'
-  // }
-  // brusselDone(brusselSprouts, '#brusselSprouts')
+//Bonus
+  let imgSteak = document.createElement('img')
+  imgSteak.setAttribute('src', './public/images/steak.jpg')
   
-//Bonus 2
-// let promiseAll = Promise.all([steakDone, potatoesDone, brusselDone]).then(() => {
-//   alert('Dinner is served')
-//   console.log("dinner is served")
-// })
+  let imgMashPotatoes = document.createElement('img')
+  imgMashPotatoes.setAttribute('src', './public/images/mashPotatoes.jpg')
+  
+  let imgBrusselSprouts = document.createElement('img')
+  imgBrusselSprouts.setAttribute('src', './public/images/brusselSprouts.jpg')
+  
+  let addImage = document.querySelector('#table')
+
+
+  Promise.all([ 
+    makeFood(steak, '#steak'),
+    makeFood(mashPotatoes, '#mashPotatoes'),
+    makeFood(brusselSprouts, '#brusselSprouts')
+  ]).then(()=>{
+    addImage.appendChild(imgMashPotatoes)
+    addImage.appendChild(imgSteak)
+    addImage.appendChild(imgBrusselSprouts)
+    alert("Dinner is served")
+  })
