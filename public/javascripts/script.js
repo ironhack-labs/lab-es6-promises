@@ -14,6 +14,7 @@
 // FETCH ELEMENTS
 const table = document.getElementById("table");
 
+
 // Iteration 1 using callback hell
 addFood(steak[0], '#steak', () => {
   addFood(steak[1], '#steak', () => {
@@ -23,8 +24,9 @@ addFood(steak[0], '#steak', () => {
           addFood(steak[5], '#steak', () => {
             addFood(steak[6], '#steak', () => {
               addFood(steak[7], '#steak', () => {
-                table.innerHTML += `<img src="./public/images/steak.jpg" alt="steak image"/>`;
-              })
+                //table.innerHTML += `<img src="./public/images/steak.jpg" alt="steak image"/>`;
+              });
+              table.innerHTML += `<img src="./public/images/steak.jpg" alt="steak image"/>`;
             })
           })
         })
@@ -66,11 +68,20 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     }
     finally {
         table.innerHTML += `<img src="./public/images/brusselSprouts.jpg" alt="brussels image"/>`;
-        document.body.innerHTML += `<button> Diner is served! </button>`; // since it is the last promise and we want this button when all the promises are done, we can just add this line
-    }
+        document.body.innerHTML += `<button> Dinner is served! </button>`; // since it is the last promise and we want this button when all the promises are done, we can just add this line
+
+        const btn = document.querySelector("button");
+         btn.addEventListener("click", () => {
+              var audio = new Audio("./public/media/dinnerIsServed.mp3");
+              audio.play();
+        });
+  
+      }
   }
   
   makeFood(brusselSprouts,'#brusselSprouts');
+
+ 
 
 //// Bonus 2 - Make the dinner served after all promises fulfilled
 
