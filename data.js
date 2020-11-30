@@ -18,7 +18,8 @@ const brusselSprouts = [
   'place in flat side down',
   'cook for 20 minutes',
   'place back in bowl and add salt and pepper',
-  'enjoy'
+  'enjoy',
+  
 ];
 
 const mashPotatoes = [
