@@ -6,6 +6,8 @@
 //   console.log(mashPotatoes[i]);
 // }
 
+const table = document.querySelector("#table");
+
 // Iteration 1 using callbacks
 addFood(steak[0], "#steak", () => {
   addFood(steak[1], "#steak", () => {
@@ -14,7 +16,10 @@ addFood(steak[0], "#steak", () => {
         addFood(steak[4], "#steak", () => {
           addFood(steak[5], "#steak", () => {
             addFood(steak[6], "#steak", () => {
-              addFood(steak[7], "#steak", () => {});
+              addFood(steak[7], "#steak", () => {
+                table.innerHTML +=
+                  '<img src="./public/images/steak.jpg" alt="steak">';
+              });
             });
           });
         });
@@ -28,7 +33,10 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
-        addFood(mashPotatoes[4], "#mashPotatoes");
+        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
+          table.innerHTML +=
+            '<img src="./public/images/mashPotatoes.jpg" alt="potatoes">';
+        });
       });
     });
   });
@@ -42,6 +50,8 @@ async function makeFood(step) {
       await addFood(brusselSprouts[step], "#brusselSprouts");
       step++;
     }
+    table.innerHTML +=
+      '<img src="./public/images/brusselSprouts.jpg" alt="sprouts">';
   } catch (err) {
     console.log(err);
   }
