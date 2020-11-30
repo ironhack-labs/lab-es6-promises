@@ -52,7 +52,11 @@ const foodTwo = makeFood(brusselSprouts, "#brusselSprouts", "brusselSprouts");
 const foodThree = makeFood(steak, "#steak", "steak");
 
 Promise.all([foodOne, foodTwo, foodThree]).then((values) => {
+  const buttonEnd = document.createElement("button");
+  buttonEnd.textContent = "Dinner is served.";
+  document.querySelector("body").appendChild(buttonEnd);
   const audioFinal = "./public/media/dinnerIsServed.mp3";
-  const playSound = (url) => new Audio(url).play();
+  const playSound = (url) => new Audio(url).play(audioFinal);
+  // buttonEnd.addEventListener("click", playSound);
   playSound(audioFinal);
 });
