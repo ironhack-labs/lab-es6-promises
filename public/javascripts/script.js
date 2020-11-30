@@ -7,6 +7,7 @@
 // }
 
 const table = document.querySelector("#table");
+var audio = new Audio("../../public/media/dinnerIsServed.mp3");
 
 // Iteration 1 using callbacks
 const steakCall = addFood(steak[0], "#steak", () => {
@@ -60,4 +61,5 @@ async function makeFood(step) {
 Promise.all([steakCall, potatoesCall, makeFood(0)]).then(() => {
   document.querySelector("body").innerHTML +=
     "<button>Dinner is served!</button>";
+  audio.play();
 });
