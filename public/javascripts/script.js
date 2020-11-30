@@ -16,7 +16,9 @@ addFood(steak[0], "#steak", () => {
           addFood(steak[5], "#steak", () => {
             addFood(steak[6], "#steak", () => {
               addFood(steak[7], "#steak", () => {
-                addFood(steak[8], "#steak", () => {});
+                addFood(steak[8], "#steak", () => {
+                  table.innerHTML += `<img src="./public/images/steak.jpg">`;
+                });
               });
             });
           });
@@ -31,7 +33,9 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
-        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {});
+        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
+          table.innerHTML += `<img src="./public/images/mashPotatoes.jpg">`;
+        });
       });
     });
   });
@@ -40,11 +44,20 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 // Iteration 3 using async and await
 
 async function makeFood(step, id) {
-  for (let i = 0; i < brusselSprouts.length; i++) {
-    // console.log(brusselSprouts[i]);
-    try {
+  try {
+    for (let i = 0; i < brusselSprouts.length; i++) {
+      // console.log(brusselSprouts[i]);
       await addFood(step[i], id);
-    } catch {}
+    }
+  } catch {
+    console.log(err);
+  } finally {
+    table.innerHTML += `<img src="./public/images/brusselSprouts.jpg">`;
+    let btn = (document.body.innerHTML = `<button>Dinner is Served</button>`);
+    btn.addEventListener("click", function () {
+      let audio = new Audio("./public/media/dinnerIsServed.mp3");
+      audio.play();
+    });
   }
 }
 makeFood(brusselSprouts, "#brusselSprouts");
