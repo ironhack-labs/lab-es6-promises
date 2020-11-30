@@ -7,7 +7,7 @@ function addFood(step, id, callback) {
     setTimeout(() => {
       document.querySelector(id).innerHTML += `<li>${step}</li`;
       resolve(step);
-      callback ? callback() : ''; // For iteration one
+      callback ? callback() : ""; // For iteration one
     }, Math.floor(Math.random() * 1000));
   });
 }
