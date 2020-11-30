@@ -47,24 +47,12 @@ async function makeFood(steps, id, picname) {
   document.getElementById("table").appendChild(divImg);
 }
 
-makeFood(mashPotatoes, "#mashPotatoes", "mashPotatoes");
-makeFood(brusselSprouts, "#brusselSprouts", "brusselSprouts");
-makeFood(steak, "#steak", "steak");
+const foodOne = makeFood(mashPotatoes, "#mashPotatoes", "mashPotatoes");
+const foodTwo = makeFood(brusselSprouts, "#brusselSprouts", "brusselSprouts");
+const foodThree = makeFood(steak, "#steak", "steak");
 
-// const foodOne = makeFood(mashPotatoes, "#mashPotatoes", "mashPotatoes");
-// const foodTwo = makeFood(brusselSprouts, "#brusselSprouts", "brusselSprouts");
-// const foodThree = makeFood(steak, "#steak", "steak");
-
-// Promise.all([foodOne, foodTwo, foodThree]).then((values) => {
-//   const divFinal = document.createElement("div");
-//   divFinal.innerHTML = `<audio src=\"./public/media/dinnerIsServed.mp3\"></audio>`;
-//   document.getElementsByTagName("body").appendChild(divFinal);
-// });
-
-// Promise.all([
-//   makeFood(brusselSprouts, "#brusselSprouts", "brusselSprouts"),
-//   makeFood(brusselSprouts, "#brusselSprouts", "brusselSprouts"),
-//   makeFood(steak, "#steak", "steak"),
-// ]).then((values) => {
-//   console.log(values); // [3, 1337, "foo"]
-// });
+Promise.all([foodOne, foodTwo, foodThree]).then((values) => {
+  const audioFinal = "./public/media/dinnerIsServed.mp3";
+  const playSound = (url) => new Audio(url).play();
+  playSound(audioFinal);
+});
