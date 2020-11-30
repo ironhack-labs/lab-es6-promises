@@ -11,6 +11,7 @@ let steakImg = `<img src="./public/images/steak.jpg"/>`
 let mashImg = `<img src="./public/images/mashPotatoes.jpg"/>`
 let brussImg = `<img src="./public/images/brusselSprouts.jpg"/>`
 let sound = document.querySelector("#sound")
+let button = document.querySelector("#button1")
  
 // Iteration 1 using callbacks
 // addFood(steak[0], '#steak', () => {
@@ -63,13 +64,12 @@ let sound = document.querySelector("#sound")
 
   // makeFood(brusselSprouts, '#brusselSprouts', brussImg);
 
-Promise.all([makeFood(steak, '#steak', steakImg), makeFood(mashPotatoes, '#mashPotatoes', mashImg), makeFood(brusselSprouts, '#brusselSprouts', brussImg)]).then( () => {
-  setTimeout(() => {
-    alert("dinner is ready!!!")
-    sound.play()
-  }, 1000);
 
-}) 
-  
+  Promise.all([makeFood(steak, '#steak', steakImg), makeFood(mashPotatoes, '#mashPotatoes', mashImg), makeFood(brusselSprouts, '#brusselSprouts', brussImg)]).then( () => {
+    setTimeout(() => {
+      alert("dinner is served !")
+      sound.play()
+    }, 1000);
+  }) 
 
   
