@@ -9,7 +9,7 @@
 const table = document.querySelector("#table");
 
 // Iteration 1 using callbacks
-addFood(steak[0], "#steak", () => {
+const steakCall = addFood(steak[0], "#steak", () => {
   addFood(steak[1], "#steak", () => {
     addFood(steak[2], "#steak", () => {
       addFood(steak[3], "#steak", () => {
@@ -29,7 +29,7 @@ addFood(steak[0], "#steak", () => {
 });
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
+const potatoesCall = addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
@@ -57,4 +57,7 @@ async function makeFood(step) {
   }
 }
 
-makeFood(0);
+Promise.all([steakCall, potatoesCall, makeFood(0)]).then(() => {
+  document.querySelector("body").innerHTML +=
+    "<button>Dinner is served!</button>";
+});
