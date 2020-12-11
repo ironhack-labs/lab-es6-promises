@@ -46,6 +46,22 @@ addFood(steak[0], '#steak', () => {
 //   addFood(mashPotatoes[1], '#mashPotatoes')
 // });
 
+addFood(mashPotatoes[0], '#mashPotatoes')
+.then(() => {
+  return addFood(mashPotatoes[1], '#mashPotatoes')
+})
+.then(()=>{
+  return addFood(mashPotatoes[2], '#mashPotatoes')
+})
+.then(()=>{
+  return addFood(mashPotatoes[3], '#mashPotatoes')
+})
+.then(()=>{
+  return addFood(mashPotatoes[4], '#mashPotatoes')
+})
+.catch((err) => console.log(err));
+
+
 // // Iteration 3 using async and await
 
 //   async function makeFood(step) {
