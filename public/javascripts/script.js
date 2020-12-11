@@ -79,26 +79,31 @@ function mashP(){ addFood(mashPotatoes[0], '#mashPotatoes')
 
 // // Iteration 3 using async and await
 
-//   async function makeFood(step) {
-//     // ... your code here
+  async function makeFood(step, id) {
+    for(i=0;i<step.length; i++)
+     await addFood(step[i], id)
     
-//   }
-//   makeFood(eachStep);
-
-//const makeBrussels = brussels()
-
-
-async function makeFood(){
-  try {
-   const makePotatoes = await mashP();
-   const makeSteak = await steaks() 
- 
-  } catch (err) {
-    console.log(err);
   }
+
+  // makeFood(mashPotatoes, '#mashPotatoes');
+  // makeFood(steak, '#steak');
+  makeFood(brusselSprouts, '#brusselSprouts');
+
+
+
+
+
+// async function makeFood(){
+//   try {
+//    const makePotatoes = await mashP();
+//    const makeSteak = await steaks() 
+ 
+//   } catch (err) {
+//     console.log(err);
+//   }
  
 
-}
+// }
 
 //makeFood();
 
@@ -112,8 +117,14 @@ function doneButton(){
   // brusselsImg.src = 'public/images/brusselSprouts.jpg'
   // table.appendChild(brusselsImg)
 
-  Promise.all([makeFood()])
+  // Promise.all([makeFood()])
+  // .then(() => {
+  //   doneButton()
+  // })
+  // .catch((err) => console.log(err));
+ 
+  Promise.all([])
   .then(() => {
-    doneButton()
+    
   })
   .catch((err) => console.log(err));
