@@ -13,7 +13,9 @@
 //     
 //   })
 // });
-addFood(steak[0], '#steak', () => {
+const table = document.querySelector('#table')
+
+function steaks() { addFood(steak[0], '#steak', () => {
   console.log(steak[0])
   addFood(steak[1], '#steak', () => {
     console.log(steak[1])
@@ -29,6 +31,10 @@ addFood(steak[0], '#steak', () => {
               console.log(steak[6])
               addFood(steak[7], '#steak', () => {
                 console.log(steak[7])
+               
+                const steakImg = document.createElement('img')
+                steakImg.src = 'public/images/steak.jpg'
+                table.appendChild(steakImg)
               });
             });
           });
@@ -37,7 +43,7 @@ addFood(steak[0], '#steak', () => {
     });
   });
 });
-
+}
 
 
 // Iteration 2 using `.then()`
@@ -46,7 +52,8 @@ addFood(steak[0], '#steak', () => {
 //   addFood(mashPotatoes[1], '#mashPotatoes')
 // });
 
-addFood(mashPotatoes[0], '#mashPotatoes')
+ 
+function mashP(){ addFood(mashPotatoes[0], '#mashPotatoes')
 .then(() => {
   return addFood(mashPotatoes[1], '#mashPotatoes')
 })
@@ -57,9 +64,17 @@ addFood(mashPotatoes[0], '#mashPotatoes')
   return addFood(mashPotatoes[3], '#mashPotatoes')
 })
 .then(()=>{
-  return addFood(mashPotatoes[4], '#mashPotatoes')
+  return addFood(mashPotatoes[4], '#mashPotatoes'); 
+})
+.then(()=>{
+  
+  const potatoImg = document.createElement('img')
+  potatoImg.src = 'public/images/mashPotatoes.jpg'
+   table.appendChild(potatoImg)
 })
 .catch((err) => console.log(err));
+}
+
 
 
 // // Iteration 3 using async and await
@@ -69,3 +84,36 @@ addFood(mashPotatoes[0], '#mashPotatoes')
     
 //   }
 //   makeFood(eachStep);
+
+//const makeBrussels = brussels()
+
+
+async function makeFood(){
+  try {
+   const makePotatoes = await mashP();
+   const makeSteak = await steaks() 
+ 
+  } catch (err) {
+    console.log(err);
+  }
+ 
+
+}
+
+//makeFood();
+
+function doneButton(){
+  const alertButton = document.createElement("button")
+  alertButton.innerHTML = 'Dinner is served.'
+  table.appendChild(alertButton)
+}
+
+  // const brusselsImg = document.createElement('img')
+  // brusselsImg.src = 'public/images/brusselSprouts.jpg'
+  // table.appendChild(brusselsImg)
+
+  Promise.all([makeFood()])
+  .then(() => {
+    doneButton()
+  })
+  .catch((err) => console.log(err));
