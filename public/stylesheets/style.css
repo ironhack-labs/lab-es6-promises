@@ -60,6 +60,7 @@ button {
   background: #eeeeee;
   color: black;
   transition: all.2s;
+  z-index: 1;
 }
 
 button:hover {
