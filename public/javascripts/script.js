@@ -2,7 +2,7 @@
 // we added it for you to test to make sure data is loaded
 // 🚨🚨🚨 comment out the next 3 lines when you start working on the code
 for (let i = 0; i < mashPotatoes.length; i++) {
-  //addFood(steak[i], '#steak');
+  addFood(steak[i], '#steak');
   console.log(mashPotatoes[i])
 }
 
@@ -10,6 +10,20 @@ for (let i = 0; i < mashPotatoes.length; i++) {
 addFood(steak[0], '#steak', () => {
   // ... your code here
   addFood(steak[1], '#steak', () => {
+    addFood(steak[2], '#steak', () => {
+      addFood(steak[3], '#steak', () => {
+        addFood(steak[4], '#steak', () => {
+          addFood(steak[5], '#steak', () => {
+            addFood(steak[6], '#steak', () => {
+              
+            })
+
+          })
+
+        })
+
+      })
+    })
 
   })
 });
