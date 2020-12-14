@@ -28,8 +28,6 @@ addFood(steak[0], '#steak', () => {
   });
 });
 
-
-
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   // ... your code here
@@ -50,11 +48,10 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     for (let i = 0; i < step.length; i++) {
         await addFood(step[i], "#brusselSprouts");
       }
+       let imageBrussel = document.createElement('img');
+       imageBrussel.setAttribute("src", "public/images/brusselSprouts.jpg");
+       document.getElementById('table').appendChild(imageBrussel);
     }
-    let imageBrussel = document.createElement('img');
-    imageBrussel.setAttribute("src", "public/images/brusselSprouts.jpg");
-   document.getElementById('table').appendChild(imageBrussel);
-  
   makeFood(brusselSprouts);
 
     
