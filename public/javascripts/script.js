@@ -29,7 +29,7 @@ addFood(steak[0], '#steak', () => {
 });
 
 
-/*
+
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   // ... your code here
@@ -57,4 +57,4 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   
   makeFood(brusselSprouts);
 
-    */
+    
