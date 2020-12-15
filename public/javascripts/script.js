@@ -60,6 +60,9 @@ async function makeFood(step) {
   Promise.all([promise1, promise2, promise3]).then(() => {
     const timeToEat = document.querySelector('body');
     timeToEat.innerHTML += '<button>Dinner is served!!</button>';
+
+    let chime = new Audio('/public/media/dinnerIsServed.mp3');
+    chime.play();
   });
 
 
