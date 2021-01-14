@@ -28,20 +28,35 @@ addFood(steak[0], "#steak", () => {
 
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
-  addFood(mashPotatoes[1], "#mashPotatoes");
-  addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
-    addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
-      addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
-        document.getElementById("table").innerHTML +=
-          '<img src="public/images/mashPotatoes.jpg" />';
+  addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
+    addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
+      addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
+        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
+          document.getElementById("table").innerHTML +=
+            '<img src="public/images/mashPotatoes.jpg" />';
+        });
       });
     });
   });
 });
 
-// Iteration 3 using async and await
+//Iteration 3 using async and await
 
-async function makeFood(step) {
-  // ... your code here
+async function makeFood(steps, id) {
+  for (let i = 0; i < steps; i++) {
+    await addFood(brusselSprouts[i], id);
+  }
+  makeFood(eachStep);
 }
-makeFood(eachStep);
+makeFood(brusselSprouts.length, "#brusselSprouts").then(() => {
+  document.getElementById("table").innerHTML +=
+    '<img src="./public/images/brusselSprouts.jpg" />';
+});
+
+// Promise.all([
+//   makeFood(steak, "steak"),
+//   makeFood(mashPotatoes, "mashPotatoes"),
+//   makeFood(brusselSprouts, "brusselSprouts"),
+// ]).then(() => {
+//   alert("DINNER IS SERVED");
+// });
