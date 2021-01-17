@@ -15,7 +15,7 @@ addFood(steak[0], "#steak", () => {
           addFood(steak[5], "#steak", () => {
             addFood(steak[6], "#steak", () => {
               addFood(steak[7], "#steak", () => {
-                document.getElementById('table').innerHTML += `<img src="./public/images/steak.jpg">`;
+                document.getElementById("table").innerHTML += `<img src="./public/images/steak.jpg">`;
               });
             });
           });
@@ -31,7 +31,7 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
         addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
-          document.getElementById('table').innerHTML += `<img src="./public/images/mashPotatoes.jpg">`;
+          document.getElementById("table").innerHTML += `<img src="./public/images/mashPotatoes.jpg">`;
         });
       });
     });
@@ -42,15 +42,14 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 
 async function makeFood(step, id) {
   try {
-    for (let i = 0; i < brusselSprouts.length; i += 1) {
+    for (let i = 0; i < step.length; i += 1) {
       await addFood(step[i], id);
     }
   } catch (err) {
     console.log(err);
   } finally {
-    document.getElementById(
-      "table"
-    ).innerHTML += `<img src="./public/images/brusselSprouts.jpg">`;
+    document.getElementById("table").innerHTML += `<img src="./public/images/brusselSprouts.jpg">`;
+    setTimeout(() => {alert('Dinner is served!')}, 1000);
   }
 }
 makeFood(brusselSprouts, "#brusselSprouts");
