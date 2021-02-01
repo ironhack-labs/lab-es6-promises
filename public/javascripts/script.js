@@ -48,5 +48,6 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
         await addFood(step[i],id);
       }
       document.querySelector('#table').innerHTML += `<img src="./public/images/brusselSprouts.jpg">`;
+      setTimeout(() => { alert('Dinner is served!') }, 1000);
 } 
   makeFood(brusselSprouts,'#brusselSprouts');
