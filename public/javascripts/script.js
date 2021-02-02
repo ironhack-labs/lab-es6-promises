@@ -6,6 +6,8 @@ let imgSprout = document.createElement("img");
 let imgSteak = document.createElement("img");
 let imgPotato = document.createElement("img");
 
+let audioDin = new Audio("./public/media/dinnerIsServed.mp3");
+
 window.onload = function () {
   imgSprout.src = "./public/images/brusselSprouts.jpg";
   imgSteak.src = "./public/images/steak.jpg";
@@ -75,6 +77,7 @@ async function makeFood(steps) {
   await table.appendChild(imgSprout);
 }
 
-Promise.all([steakAdd(), potatoAdd(),makeFood(brusselSprouts)]).then().then(() => {
-  alert("hola");
-})
+Promise.all([steakAdd(), potatoAdd(),makeFood(brusselSprouts)]).then(() => setTimeout(() => {
+  audioDin.play();
+  alert("Dinner is served!");
+}, 200));
