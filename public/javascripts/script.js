@@ -48,18 +48,16 @@ function steakAdd() {
 
 // Iteration 2 using `.then()`
 function potatoAdd() {
-  addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
-    // ... your code here
-    addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
-      addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
-        addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
-          addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
-            table.appendChild(imgPotato);
-          })
-        })
-      })
-    })
-  })
+  addFood(mashPotatoes[0], '#mashPotatoes')
+  .then(() => {addFood(mashPotatoes[1], '#mashPotatoes')})
+  .then(() => {addFood(mashPotatoes[2], '#mashPotatoes')})
+  .then(() => {addFood(mashPotatoes[3], '#mashPotatoes')})
+  .then(() => {addFood(mashPotatoes[4], '#mashPotatoes')})
+  .then(() => {addFood(mashPotatoes[5], '#mashPotatoes')})
+  .then(() => {addFood(mashPotatoes[6], '#mashPotatoes')})
+  .then(() => {addFood(mashPotatoes[7], '#mashPotatoes')})
+  .then(() => {addFood(mashPotatoes[8], '#mashPotatoes')})
+  .then(() => {table.appendChild(imgPotato);});
 }
 
 // Iteration 3 using async and await
@@ -77,7 +75,7 @@ async function makeFood(steps) {
   await table.appendChild(imgSprout);
 }
 
-Promise.all([steakAdd(), potatoAdd(),makeFood(brusselSprouts)]).then(() => setTimeout(() => {
+Promise.all([steakAdd(), potatoAdd(), makeFood(brusselSprouts)]).then(() => setTimeout(() => {
   audioDin.play();
   alert("Dinner is served!");
 }, 200));
