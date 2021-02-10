@@ -9,7 +9,7 @@
 const imagesPlaceholder = document.getElementById("table");
 
 // Iteration 1 using callbacks
-addFood(steak[0], "#steak", () => {
+const steakCook = addFood(steak[0], "#steak", () => {
   addFood(steak[1], "#steak", () => {
     addFood(steak[2], "#steak", () => {
       addFood(steak[3], "#steak", () => {
@@ -29,7 +29,7 @@ addFood(steak[0], "#steak", () => {
 });
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
+const mashPotatoesCook = addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
@@ -44,11 +44,11 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
 
 // Iteration 3 using async and await
 
-async function makeFood(step) {
+const brusselSproutsCook = async (step) => {
   try {
     if (step < brusselSprouts.length) {
       await addFood(brusselSprouts[step], "#brusselSprouts"); // Coloco o passo atual na fila
-      makeFood(step + 1); // Dou o próximo passo na receita
+      brusselSproutsCook(step + 1); // Dou o próximo passo na receita
     } else {
       imagesPlaceholder.innerHTML +=
         "<img src = './public/images/brusselSprouts.jpg' />";
@@ -57,7 +57,24 @@ async function makeFood(step) {
   } catch (err) {
     console.log(err);
   }
+};
+
+// brusselSproutsCook(eachStep);
+// steakCook();
+// mashPotatoesCook();
+
+async function waitAll() {
+  try {
+    const eachStep = 0;
+    await Promise.all([
+      steakCook,
+      mashPotatoesCook,
+      brusselSproutsCook(eachStep),
+    ]);
+    // alert("Dinner is served!");
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-const eachStep = 0;
-makeFood(eachStep);
+waitAll();
