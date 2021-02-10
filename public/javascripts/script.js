@@ -9,16 +9,19 @@
 const imagesPlaceholder = document.getElementById("table");
 
 // Iteration 1 using callbacks
-const steakCook = addFood(steak[0], "#steak", () => {
-  addFood(steak[1], "#steak", () => {
-    addFood(steak[2], "#steak", () => {
-      addFood(steak[3], "#steak", () => {
-        addFood(steak[4], "#steak", () => {
-          addFood(steak[5], "#steak", () => {
-            addFood(steak[6], "#steak", () => {
-              addFood(steak[7], "#steak", () => {
-                imagesPlaceholder.innerHTML +=
-                  "<img src = './public/images/steak.jpg' />";
+const steakCook = new Promise((resolve, reject) => {
+  addFood(steak[0], "#steak", () => {
+    addFood(steak[1], "#steak", () => {
+      addFood(steak[2], "#steak", () => {
+        addFood(steak[3], "#steak", () => {
+          addFood(steak[4], "#steak", () => {
+            addFood(steak[5], "#steak", () => {
+              addFood(steak[6], "#steak", () => {
+                addFood(steak[7], "#steak", () => {
+                  imagesPlaceholder.innerHTML +=
+                    "<img src = './public/images/steak.jpg' />";
+                  resolve();
+                });
               });
             });
           });
@@ -29,13 +32,16 @@ const steakCook = addFood(steak[0], "#steak", () => {
 });
 
 // Iteration 2 using `.then()`
-const mashPotatoesCook = addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
-  addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
-    addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
-      addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
-        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
-          imagesPlaceholder.innerHTML +=
-            "<img src = './public/images/mashPotatoes.jpg' />";
+const mashPotatoesCook = new Promise((resolve, reject) => {
+  addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
+    addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
+      addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
+        addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
+          addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
+            imagesPlaceholder.innerHTML +=
+              "<img src = './public/images/mashPotatoes.jpg' />";
+            resolve();
+          });
         });
       });
     });
@@ -48,17 +54,16 @@ const brusselSproutsCook = async (step) => {
   try {
     if (step < brusselSprouts.length) {
       await addFood(brusselSprouts[step], "#brusselSprouts"); // Coloco o passo atual na fila
-      brusselSproutsCook(step + 1); // Dou o próximo passo na receita
+      brusselSproutsCook(step + 1); //o próximo passo na receita
     } else {
       imagesPlaceholder.innerHTML +=
         "<img src = './public/images/brusselSprouts.jpg' />";
-      throw "End of recipe.";
+      return;
     }
   } catch (err) {
     console.log(err);
   }
 };
-
 // brusselSproutsCook(eachStep);
 // steakCook();
 // mashPotatoesCook();
@@ -71,7 +76,7 @@ async function waitAll() {
       mashPotatoesCook,
       brusselSproutsCook(eachStep),
     ]);
-    // alert("Dinner is served!");
+    alert("Dinner is served!");
   } catch (err) {
     console.log(err);
   }
