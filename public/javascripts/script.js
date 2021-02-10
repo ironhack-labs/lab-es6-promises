@@ -6,6 +6,8 @@
 // console.log(mashPotatoes[i]);
 // }
 
+const imagesPlaceholder = document.getElementById("table");
+
 // Iteration 1 using callbacks
 addFood(steak[0], "#steak", () => {
   addFood(steak[1], "#steak", () => {
@@ -14,7 +16,10 @@ addFood(steak[0], "#steak", () => {
         addFood(steak[4], "#steak", () => {
           addFood(steak[5], "#steak", () => {
             addFood(steak[6], "#steak", () => {
-              addFood(steak[7], "#steak", () => {});
+              addFood(steak[7], "#steak", () => {
+                imagesPlaceholder.innerHTML +=
+                  "<img src = './public/images/steak.jpg' />";
+              });
             });
           });
         });
@@ -28,7 +33,10 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
   addFood(mashPotatoes[1], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[2], "#mashPotatoes").then(() => {
       addFood(mashPotatoes[3], "#mashPotatoes").then(() => {
-        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {});
+        addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
+          imagesPlaceholder.innerHTML +=
+            "<img src = './public/images/mashPotatoes.jpg' />";
+        });
       });
     });
   });
@@ -42,6 +50,8 @@ async function makeFood(step) {
       await addFood(brusselSprouts[step], "#brusselSprouts"); // Coloco o passo atual na fila
       makeFood(step + 1); // Dou o próximo passo na receita
     } else {
+      imagesPlaceholder.innerHTML +=
+        "<img src = './public/images/brusselSprouts.jpg' />";
       throw "End of recipe.";
     }
   } catch (err) {
