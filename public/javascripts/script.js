@@ -99,4 +99,4 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   Promise.all([steakImage,mashImage, makeFood(brusselImage)]).then(() => {
 
     alert('Dinner is served!')
-  } )
+  })
