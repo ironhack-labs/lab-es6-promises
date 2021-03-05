@@ -7,6 +7,8 @@
 //   console.log(mashPotatoes[i])
 // }
 
+let steakImage = '';
+let mashImage = '';
 
 // Iteration 1 using callbacks
 addFood(steak[0], '#steak', () => {
@@ -26,8 +28,8 @@ addFood(steak[0], '#steak', () => {
 
               addFood(steak[7], '#steak', () => {
 
-               const steakImage = addImage('steak');
-
+               steakImage = addImage('steak');
+         
               })
             })
           })
@@ -36,13 +38,14 @@ addFood(steak[0], '#steak', () => {
     })
 
    })
-
+   
 });
 
 
 
 
  // Iteration 2 using `.then()`
+ 
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   // ... your code here
 
@@ -54,8 +57,9 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     
         addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
 
-         const mashImage = addImage('mashPotatoes')
-    
+         mashImage = addImage('mashPotatoes')
+         
+         
           })
         
         })
@@ -63,6 +67,7 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
       })
 
     })
+    
 });
 
 // Iteration 3 using async and await
@@ -82,7 +87,7 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     const brusselImage = addImage('brusselSprouts')
     return brusselImage;
   }
-  makeFood(brusselSprouts);
+//  makeFood(brusselSprouts);
 
 
   //bonus 1
@@ -90,13 +95,17 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   function addImage(food){
 
     console.log(food)
-    document.querySelector('#table').innerHTML += `<img src = "/Users/vitalb2b/lab-es6-promises/public/images/${food}.jpg">`;
+    document.querySelector('#table')
+    .innerHTML += `<img src = "/Users/vitalb2b/lab-es6-promises/public/images/${food}.jpg">`;
 
   }
 
   //bonus 2
 
-  Promise.all([steakImage,mashImage, makeFood(brusselImage)]).then(() => {
-
-    alert('Dinner is served!')
-  })
+  Promise.all([
+    steakImage,
+    mashImage, 
+    makeFood(brusselSprouts)])
+    .then(() => {
+    document.querySelector('#steps').innerHTML += `<button>Dinner is served</button>`
+  } )
