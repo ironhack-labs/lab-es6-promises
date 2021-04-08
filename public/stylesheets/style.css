@@ -26,6 +26,7 @@ label {
   height: 200px;
   display: flex;
   justify-content: space-evenly;
+  background-image: ("../images/steak.jpg");
 }
 ol {
   width: 33%;
