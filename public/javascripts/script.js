@@ -18,7 +18,7 @@ addFood(steak[0], "#steak", (callback) => {
             addFood(steak[6], "#steak", (callback) => {
               addFood(steak[7], "#steak", (callback) => {
                 const img = document.createElement("img");
-                img.src = "../images/steak.jpg";
+                img.src = "/public/images/steak.jpg";
                 document.getElementById("table").appendChild(img);
               });
             });
