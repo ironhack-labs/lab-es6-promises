@@ -49,10 +49,16 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
 brusselSprouts.forEach(eachStep => {
   async function makeFood(step) {
-    await addFood(step, '#brusselSprouts')
+    await addFood(step, '#brusselSprouts');
+    if (brusselSprouts.indexOf(step) === brusselSprouts.length - 1) {
+      
+      document.querySelector("#table").innerHTML += `<img src="public/images/brusselSprouts.jpg"/>`;
+    }
   }
-   makeFood(eachStep);
-})
+
+  makeFood(eachStep);
+
+});
 
 
 Promise.all([
