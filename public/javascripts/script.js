@@ -35,8 +35,9 @@ addFood(mashPotatoes[0], "#mashPotatoes").then((res) => {
     addFood(mashPotatoes[2], "#mashPotatoes").then((res) => {
       addFood(mashPotatoes[3], "#mashPotatoes").then((res) => {
         addFood(mashPotatoes[4], "#mashPotatoes").then((res) => {
-          document.querySelector("#table").innerHTML +=
-            "<img src= 'public/images/mashPotatoes.jpg'/>";
+          document.querySelector(
+            "#table"
+          ).innerHTML += `<img src="public/images/mashPotatoes.jpg"/>`;
         });
       });
     });
@@ -45,7 +46,20 @@ addFood(mashPotatoes[0], "#mashPotatoes").then((res) => {
 
 // Iteration 3 using async and await
 
-async function makeFood(step) {
-  // ... your code here
+async function makeFood(steps, id) {
+  for (let step of steps) {
+    await addFood(step, `#${id}`);
+  }
+  // makeFood(eachStep);
+  document.getElementById(
+    "table"
+  ).innerHTML += `<img src="public/images/${id}.jpg"/>`;
 }
-makeFood(eachStep);
+makeFood(brusselSprouts, "brusselSprouts");
+Promise.all([
+  makeFood(steak, "steak"),
+  makeFood(mashPotatoes, "mashPotatoes"),
+  makeFood(brusselSprouts, "brusselSprouts"),
+]).then(() => {
+  document.body.innerHTML += `<button>Dinner is served</button>`;
+});
