@@ -36,8 +36,19 @@ addFood(steak[0], '#steak', () => {
 
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
-  // ... your code here
-  addFood(mashPotatoes[1], '#mashPotatoes')
+  console.log(mashPotatoes[0])
+  addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
+    console.log(mashPotatoes[1])
+    addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
+      console.log(mashPotatoes[2])
+      addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
+        console.log(mashPotatoes[3])
+        addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
+          console.log(mashPotatoes[4])
+        })
+      })
+    })
+  })
 });
 
 // Iteration 3 using async and await
