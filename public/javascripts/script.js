@@ -23,6 +23,10 @@ addFood(steak[0], "#steak", () => {
               console.log(steak[6]);
               addFood(steak[7], "#steak", () => {
                 console.log(steak[7]);
+                let imageDiv = document.getElementById("table");
+                let image = document.createElement("img");
+                image.src = "./public/images/steak.jpg";
+                imageDiv.appendChild(image);
               });
             });
           });
@@ -43,6 +47,10 @@ addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
         console.log(mashPotatoes[3]);
         addFood(mashPotatoes[4], "#mashPotatoes").then(() => {
           console.log(mashPotatoes[4]);
+          let imageDiv = document.getElementById("table");
+          let image = document.createElement("img");
+          image.src = "./public/images/mashPotatoes.jpg";
+          imageDiv.appendChild(image);
         });
       });
     });
@@ -55,9 +63,14 @@ async function makeFood(step) {
   for (let i = 0; i < step.length; i++) {
     await addFood(step[i], "#brusselSprouts");
   }
-  // await addFood(step[0], '#brusselSprouts');
-  // await addFood(step[1], '#brusselSprouts');
   makeFood(eachStep);
 }
 
-makeFood(brusselSprouts)
+const brusselSproutsCook = makeFood(brusselSprouts)
+  .then(() => {
+    let imageDiv = document.getElementById("table");
+    let image = document.createElement("img");
+    image.src = "./public/images/brusselSprouts.jpg";
+    imageDiv.appendChild(image);
+  })
+  .catch((error) => console.log(error));
