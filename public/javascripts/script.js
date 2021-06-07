@@ -22,7 +22,7 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   addFood(mashPotatoes[1], '#mashPotatoes')
 });
 
-// Iteration 3 using async and await
+// Iteration 3 using async/await
 
   async function makeFood(step) {
     // ... your code here
