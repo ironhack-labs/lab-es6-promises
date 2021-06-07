@@ -2,9 +2,15 @@
 
 # LAB | #Promise me a dinner
 
+<br>
+
 ## Introduction
 
-Due to the asynchronous nature of Javascript promises & callbacks are very important. Both allow us to control the flow of the operations, meaning its sequence.
+<br>
+
+Due to the asynchronous nature of JavaScript, promises & callbacks are very important. Both allow us to control the flow of the operations, meaning its sequence.
+
+<br>
 
 ## Requirements
 
@@ -23,7 +29,11 @@ $ git push origin master
 
 Create Pull Request so your TAs can check up your work.
 
+<br>
+
 ## Instructions
+
+<br>
 
 ### Iteration 0 | The starter code
 
@@ -44,6 +54,8 @@ Notice how the steps to cooking the food are out of order, and all the images ar
 
 **You should write your solution in the `public/javascripts/script.js` file.**
 
+<br>
+
 ## Iteration 1 | Make the steak with callbacks
 
 Using callbacks print the directions to make Steak in the correct order. Write your JavaScript in the provided `public/javascripts/script.js` file. Once again, a reminder not to alter the `addFood.js` file.
@@ -53,6 +65,8 @@ addFood(steak[0], '#steak', () => {
   // ... your code here
 });
 ```
+
+<br>
 
 ## Iteration 2 | Make the mash potatoes with promises
 
@@ -64,6 +78,8 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(res => {
 });
 ```
 
+<br>
+
 ## Iteration 3 | Make the brussels sprouts with async/await
 
 Using promises with the `async` and `await` syntax print the directions to make Brussels Sprouts in the correct order
@@ -74,9 +90,13 @@ async function makeFood(steps, id) {
 }
 ```
 
+<br>
+
 ## BONUS 1
 
 When the specific food is ready to be served (all steps are listed), add the image that represents that food to the `#table` div.
+
+<br>
 
 ## BONUS 2
 
@@ -86,6 +106,7 @@ Using `promise.all` when all dinner items (Steak, Mash Potatoes, and Brussels Sp
 
 ![promiseme](https://user-images.githubusercontent.com/25275745/82280586-2df10580-995d-11ea-982f-e9650cb9bfb2.gif)
 
-<!-- ![](images/inSync.gif) -->
+<br>
+
 
 **Happy coding!** :heart:
