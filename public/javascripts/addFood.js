@@ -2,6 +2,8 @@
 
 /****** DO NOT TOUCH vvv *****/
 
+// (mashPotatoes[0], '#mashPotatoes')
+
 function addFood(step, id, callback) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -12,3 +14,6 @@ function addFood(step, id, callback) {
   });
 }
 /***** ^^^ DO NOT TOUCH *****/
+
+
+
