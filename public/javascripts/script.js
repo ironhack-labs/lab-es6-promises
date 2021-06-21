@@ -23,7 +23,9 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
   addFood(mashPotatoes[2], '#mashPotatoes').then (() => {
   addFood(mashPotatoes[3], '#mashPotatoes').then (() => {
-  addFood(mashPotatoes[4], '#mashPotatoes')
+  addFood(mashPotatoes[4], '#mashPotatoes').then (() => {
+  document.querySelector('#table').innerHTML += '<img src="public/images/mashPotatoes.jpg" alt=""/>'
+  })
   })
   })
   })
@@ -37,7 +39,9 @@ addFood(steak[0], '#steak').then(() => {
   addFood(steak[4], '#steak').then (() => {
   addFood(steak[5], '#steak').then (() => {
   addFood(steak[6], '#steak').then (() => {
-  addFood(steak[7], '#steak')
+  addFood(steak[7], '#steak').then (() => {
+  document.querySelector('#table').innerHTML += '<img src="public/images/steak.jpg" alt=""/>'
+  })
   })
   })
   })
@@ -55,7 +59,9 @@ addFood(brusselSprouts[0], '#brusselSprouts').then(() => {
   addFood(brusselSprouts[5], '#brusselSprouts').then(() => {
   addFood(brusselSprouts[6], '#brusselSprouts').then (() => {
   addFood(brusselSprouts[7], '#brusselSprouts').then (() => {
-  addFood(brusselSprouts[8], '#brusselSprouts')
+  addFood(brusselSprouts[8], '#brusselSprouts').then (() => {
+  document.querySelector('#table').innerHTML += '<img src="public/images/brusselSprouts.jpg" alt=""/>'
+  })
   })
   })
   })
