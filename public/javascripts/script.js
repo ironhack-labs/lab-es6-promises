@@ -24,7 +24,7 @@ addFood(steak[0], '#steak', () => {
       })
     })
   })
-  document.querySelector('#steak').innerHTML = "<img src ='/lab-es6-promises/public/images/steak.jpg'>"
+  document.querySelector('#table').innerHTML = "<img src ='/lab-es6-promises/public/images/steak.jpg'>"
 });
 
 
@@ -55,3 +55,12 @@ document.querySelector('#mashPotatoes').innerHTML = "<img src ='/lab-es6-promise
   document.querySelector('#brusselSprouts').innerHTML = "<img src ='/lab-es6-promises/public/images/brusselSprouts.jpg'>"
 
   console.log(makeFood(brusselSprouts))
+
+
+  //Promise.all([
+    //makeFood(steak), 
+    //makeFood(mashPotatoes), 
+   // makeFood(brusselSprouts)])
+    //.then(() => {
+    //document.body.innerHTML += "Dinner is served!";
+  //})
