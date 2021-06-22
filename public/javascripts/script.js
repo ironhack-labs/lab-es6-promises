@@ -15,6 +15,16 @@ steakImg.src = "./public/images/steak.jpg";
 
 let tableSection = document.getElementById("table");
 
+
+/*
+function addImg(newImage) {
+    const img = document.getElementById("table")
+    img.innerHTML = `
+    <img src="./public/images/${newImage}.jpg" alt="${newImage}">
+    `
+}
+*/
+
 addFood(steak[0], '#steak')
   .then(() => addFood(steak[1], '#steak'))
   .then(() => addFood(steak[2], '#steak'))
@@ -24,6 +34,10 @@ addFood(steak[0], '#steak')
   .then(() => addFood(steak[6], '#steak'))
   .then(() => addFood(steak[7], '#steak'))
   .then(() => tableSection.appendChild(steakImg))
+  
+  
+  //.then(addImg(brusselSprouts))
+  //.then(() => addImg(newImage))
  
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes')
@@ -32,6 +46,8 @@ addFood(mashPotatoes[0], '#mashPotatoes')
   .then(() => addFood(mashPotatoes[3], '#mashPotatoes'))
   .then(() => addFood(mashPotatoes[4], '#mashPotatoes'))
   .then(() => tableSection.appendChild(mashImg))
+  
+  //.then(newImage => addImg(newImage.mashImg))
 
   addFood(brusselSprouts[0], '#brusselSprouts')
   .then(() => addFood(brusselSprouts[1], '#brusselSprouts'))
@@ -43,6 +59,9 @@ addFood(mashPotatoes[0], '#mashPotatoes')
   .then(() => addFood(brusselSprouts[7], '#brusselSprouts'))
   .then(() => addFood(brusselSprouts[8], '#brusselSprouts'))
   .then(() => tableSection.appendChild(brusselImg))
+  
+  
+  //.then(newImage => addImg(newImage.steakImg))
 
 
 
