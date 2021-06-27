@@ -66,19 +66,33 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
   document.querySelector('#table').innerHTML += `<img src="public/images/mashPotatoes.jpg" />`
 
+
 });
 
 // Iteration 3 using async/await
 
-  async function makeFood(step) {
+  async function makeFood(steps, id) {
     // ... your code here
     
-    for (let i = 0; i < step.length; i++) {
-      await addFood(step[i], '#brusselSprouts');
+   //for (let i = 0; i < step.length; i++) {
+
+      for(let step of steps){
+
+      await addFood(step, id);
     } 
-    makeFood(step);
-  }   
-  document.querySelector('#table').innerHTML += "<img src ='public/images/brusselSprouts.jpg'>"
 
-  const brusselSproutsCook = makeFood(brusselSprouts);
+    document.querySelector('#table').innerHTML += `<img src="public/images/${id.slice(1)}.jpg" />`;
 
+  } 
+  
+  Promise.all([
+
+    makeFood(brusselSprouts, '#brusselSprouts'),
+    makeFood(steak, '#steak'),
+    makeFood(mashPotatoes, '#mashPotatoes'),
+
+  ]).then(() => {
+
+    document.body.innerHTML += '<button>Dinner is served</button>';
+    
+  });
