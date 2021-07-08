@@ -2,6 +2,7 @@
 // we added it for you to test to make sure data is loaded
 // 🚨🚨🚨 comment out the next 3 lines when you start working on the code
 
+
 // Iteration 1 using callbacks
 addFood(steak[0], '#steak',()=>{
   addFood(steak[1],'#steak',()=>{
@@ -10,7 +11,9 @@ addFood(steak[0], '#steak',()=>{
         addFood(steak[4],'#steak',()=>{
           addFood(steak[5],'#steak',()=>{
             addFood(steak[6],'#steak',()=>{
-              addFood(steak[7],'#steak')
+              addFood(steak[7],'#steak').then(()=>{
+                table.innerHTML +='<img src=public/images/steak.jpg></img>'
+              })
             })
           })
         })
@@ -29,6 +32,8 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     addFood(mashPotatoes[2], '#mashPotatoes').then(()=>{
       addFood(mashPotatoes[3], '#mashPotatoes').then(()=>{
         addFood(mashPotatoes[4], '#mashPotatoes').then(()=>{
+        }).then(()=>{
+          table.innerHTML +='<img src=public/images/mashPotatoes.jpg></img>'
         })
       })
     })
@@ -44,5 +49,7 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     for(let i = 0; i<step.length; i+=1){
       await addFood(step[i],'#brusselSprouts')
     }
+    table.innerHTML +='<img src=public/images/brusselSprouts.jpg></img>'
+
   }
   makeFood(brusselSprouts);
