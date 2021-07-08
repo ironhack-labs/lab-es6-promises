@@ -67,6 +67,10 @@ button:hover {
   background: #333;
 }
 
+#alert{
+  text-align: center;
+}
+
 @keyframes enter {
   from {
     transform: rotateX(3000deg) translate(-50%, -50%) scale(0);
