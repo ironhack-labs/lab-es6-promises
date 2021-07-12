@@ -7,7 +7,7 @@ for (let i = 0; i < mashPotatoes.length; i++) {
 }
 
 // Iteration 1 using callbacks
-addFood(steak[0], '#steak', () => {
+const makeSteak = addFood(steak[0], '#steak', () => {
   addFood(steak[1], '#steak', () => {
     addFood(steak[2], '#steak', () =>{
       addFood(steak[3], '#steak', ()=> {
@@ -28,7 +28,7 @@ addFood(steak[0], '#steak', () => {
 
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], '#mashPotatoes').then(() =>{
+const makeMash = addFood(mashPotatoes[0], '#mashPotatoes').then(() =>{
   addFood(mashPotatoes[1], '#mashPotatoes').then(() =>{
     addFood(mashPotatoes[2], '#mashPotatoes').then(() =>{
       addFood(mashPotatoes[3], '#mashPotatoes').then(() =>{
@@ -61,13 +61,11 @@ async function makeFood(step){
   src.appendChild(brusselImage);
 }
 
-makeFood(brusselSprouts);
+const makeBrussel = makeFood(brusselSprouts);
 
-Promise.all([
-  steakFood,
-  mashPotatoesFood,
-  brousselFood
-])
-.then(() => {
-  alert('Dinner is served!')
+
+Promise.all([ makeSteak, makeMash, makeBrussel]).then(() =>{
+  const button = document.createElement('button');
+  button.innerText = 'Dinner is served';
+  document.body.appendChild(button);
 })
