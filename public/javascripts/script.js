@@ -6,10 +6,7 @@
 //   console.log(mashPotatoes[i])
 // }
 
-// function addImage(image) {
-//   let table = document.querySelector('table');
-//   table.innerHTML = `<tr><img src="${image}"></tr>`;
-// }
+
 
 // Iteration 1 using callbacks
 addFood(steak[0], '#steak', () => {
@@ -20,6 +17,7 @@ addFood(steak[0], '#steak', () => {
           addFood(steak[5], '#steak', () => {
             addFood(steak[6], '#steak', () => {
               addFood(steak[7], '#steak', () => {
+                document.getElementById("table").innerHTML += `<tr><img src="public/images/steak.jpg"></tr>`
               })
             })
           })
@@ -28,8 +26,7 @@ addFood(steak[0], '#steak', () => {
     })
   })
 });
-// addImage("public/images/steak.jpg");
-// console.log(addImage)
+
 
 // Iteration 2 using `.then()`
 addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
@@ -41,6 +38,8 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   return addFood(mashPotatoes[3], '#mashPotatoes')
 }).then(() => {
   return addFood(mashPotatoes[4], '#mashPotatoes')
+}).then(() => {
+  document.getElementById("table").innerHTML += `<tr><img src="public/images/mashPotatoes.jpg"></tr>`
 }).catch((error) => {
   console.log(error);
 });
