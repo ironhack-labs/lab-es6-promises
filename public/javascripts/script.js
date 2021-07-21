@@ -5,7 +5,7 @@ for (let i = 0; i < mashPotatoes.length; i++) {
   //addFood(steak[i], '#steak');
   console.log(mashPotatoes[i])
 }
-//we need to improve more this lab
+//we need to improve more this lab and add some more things
 // Iteration 1 using callbacks
 addFood(steak[0], '#steak', () => {
   // ... your code here
