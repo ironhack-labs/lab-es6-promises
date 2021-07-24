@@ -6,6 +6,8 @@
 //   console.log(mashPotatoes[i])
 // }
 
+const table = document.querySelector('#table')
+
 // Iteration 1 using callbacks
 const makeSteak = addFood(steak[0], '#steak', () => {
   addFood(steak[1], '#steak', () => {
@@ -15,6 +17,7 @@ const makeSteak = addFood(steak[0], '#steak', () => {
           addFood(steak[5], '#steak', () => {
             addFood(steak[6], '#steak', () => {
               addFood(steak[7], '#steak', () => {
+                table.innerHTML += '<img src="./public/images/steak.jpg" />';
               })        
             })
           })
@@ -30,6 +33,7 @@ const makeMashPotatoes = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
       addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
         addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
+          table.innerHTML += '<img src="./public/images/mashPotatoes.jpg" />';
         })
       })    
     })
@@ -40,7 +44,15 @@ const makeMashPotatoes = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
   async function makeFood(steps, id) {
     for (let step = 0; step < steps.length; step += 1){
-      await makeFood(steps.[step] `#${id}`)
+      await addFood(steps[step], `#${id}`)
     }
+    table.innerHTML += `<img src="./public/images/${id}.jpg" />`;
   }
-  makeFood(step);
+
+  const makeBrusselSprouts = makeFood(brusselSprouts, 'brusselSprouts');
+
+Promise.all([makeSteak, makeMashPotatoes, makeBrusselSprouts]).then(() => {
+  const button = document.createElement('button');
+  button.innerText = 'Dinner is served.';
+  document.body.appendChild(button);
+})
