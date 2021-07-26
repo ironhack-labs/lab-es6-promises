@@ -35,7 +35,11 @@ addFood(mashPotatoes[0], "#mashPotatoes")
 
 // Iteration 3 using async/await
 
-// async function makeFood(step) {
-//   // ... your code here
-// }
-// makeFood(eachStep);
+async function makeFood(step,id) {
+  for (let i=0; i<step.length; i++){
+    await addFood(step[i],id)
+  }
+}
+makeFood(brusselSprouts, '#brusselSprouts');
+
+
