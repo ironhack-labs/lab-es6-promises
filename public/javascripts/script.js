@@ -16,7 +16,11 @@ addFood(steak[0], "#steak", () => {
           addFood(steak[5], "#steak", () => {
             addFood(steak[6], "#steak", () => {
               addFood(steak[7], "#steak", () => {
-                document.getElementById("table").innerHTML = `<img src="${public / images / steak.jpg}">`;
+                const image = 
+                 document.createElement('img')
+                image.src  = 'public/images/steak.jpg'
+                document.querySelector('#table').appendChild(image)
+
               });
             });
           });
@@ -31,12 +35,16 @@ addFood(mashPotatoes[0], "#mashPotatoes")
   .then(() => addFood(mashPotatoes[1], "#mashPotatoes"))
   .then(() => addFood(mashPotatoes[2], "#mashPotatoes"))
   .then(() => addFood(mashPotatoes[3], "#mashPotatoes"))
-  .then(() => addFood(mashPotatoes[4], "#mashPotatoes"));
-// .then(
-//   () =>
-//     (document.getElementById("table").innerHTML = `
-// <img src="${public / images / mashPotatoes.jpg}">`)
-// );
+  .then(() => addFood(mashPotatoes[4], "#mashPotatoes"))
+  .then(() => {
+    const image = 
+  document.createElement('img')
+ image.src  = 'public/images/mashPotatoes.jpg'
+ document.querySelector('#table').appendChild(image)
+
+  });
+
+  
 
 // Iteration 3 using async/await
 
@@ -50,5 +58,20 @@ async function makeFood() {
   const result6 = await addFood(brusselSprouts[6], "#brusselSprouts");
   const result7 = await addFood(brusselSprouts[7], "#brusselSprouts");
   const result8 = await addFood(brusselSprouts[8], "#brusselSprouts");
+  const image = 
+  document.createElement('img')
+ image.src  = 'public/images/brusselSprouts.jpg'
+ document.querySelector('#table').appendChild(image)
 }
 makeFood();
+
+
+let allPromise =
+Promise.all
+allPromise.then(() => {
+    alert('Dinner is served')
+    
+})
+
+
+
