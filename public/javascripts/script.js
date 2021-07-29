@@ -41,8 +41,17 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
 
 // Iteration 3 using async/await
 
-async function makeFood(step) {
-  // ... your code here
-
+async function makeFood() {
+  let eachStep = await addFood(brusselSprouts[0], '#brusselSprouts') + 
+                 await addFood(brusselSprouts[1], '#brusselSprouts') +
+                 await addFood(brusselSprouts[2], '#brusselSprouts') +
+                 await addFood(brusselSprouts[3], '#brusselSprouts') +
+                 await addFood(brusselSprouts[4], '#brusselSprouts') +
+                 await addFood(brusselSprouts[5], '#brusselSprouts') +
+                 await addFood(brusselSprouts[6], '#brusselSprouts') +
+                 await addFood(brusselSprouts[7], '#brusselSprouts') +
+                 await addFood(brusselSprouts[8], '#brusselSprouts') 
+  // return eachStep
 }
-makeFood(eachStep);
+
+makeFood();
