@@ -75,3 +75,9 @@ button:hover {
     transform: rotateX(0deg) translate(-50%, -50%) scale(1);
   }
 }
+
+.images-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
