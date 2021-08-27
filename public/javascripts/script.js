@@ -7,7 +7,7 @@
 } */
 
 // Iteration 1 using callbacks
-addFood(steak[0], '#steak', () => {
+promisse1 = addFood(steak[0], '#steak', () => {
   addFood(steak[1], '#steak', () => {
     addFood(steak[2], '#steak', () => {
       addFood(steak[3], '#steak', () => {
@@ -30,7 +30,7 @@ addFood(steak[0], '#steak', () => {
 
 
 // Iteration 2 using `.then()`
-addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
+promisse2 = addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
   addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
     addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
       addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
@@ -53,10 +53,20 @@ addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     }
     let image2 = new Image();
     image2.src = '/public/images/brusselSprouts.jpg'
-    document.getElementById('table').appendChild(image2);
+    image2.onload=() => document.getElementById('table').appendChild(image2);   
   }
-  makeFood(brusselSprouts);
+  let promisse3 = makeFood(brusselSprouts);
 /*   for (let i = 0; i < brusselSprouts.length; i++) {
     addFood(brusselSprouts[i], '#brusselSprouts');
     console.log(brusselSprouts[i])
   } */
+
+  Promise.all([promisse1, promisse2, promisse3]).then((values) => {
+    console.log(values);
+    console.log('Dinner is Served');
+    const button = document.createElement("button");
+    button.innerHTML = "Dinner is served!";
+    document.body.appendChild(button);
+  });
+
+  
