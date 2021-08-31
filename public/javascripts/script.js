@@ -6,8 +6,6 @@
   console.log(mashPotatoes[i])
 }*/
 
-console.time("timer");
-
 //Bonus 1
 
 function addImage(img) {
@@ -28,7 +26,7 @@ function alertButton() {
 
 // Iteration 1 using callBacks
 function makeSteak() {
-  addFood(steak[0], "#steak", () => {
+  return addFood(steak[0], "#steak", () => {
     addFood(steak[1], "#steak", () => {
       addFood(steak[2], "#steak", () => {
         addFood(steak[3], "#steak", () => {
@@ -49,7 +47,7 @@ function makeSteak() {
 
 // Iteration 2 using `.then()`
 function makePotatoes() {
-  addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
+  return addFood(mashPotatoes[0], "#mashPotatoes").then(() => {
     addFood(mashPotatoes[1], "#mashPotatoes").then(() =>
       addFood(mashPotatoes[2], "#mashPotatoes").then(() =>
         addFood(mashPotatoes[3], "#mashPotatoes").then(() =>
@@ -72,7 +70,7 @@ async function makeFood() {
       continue;
     }
   }
-  addImage("/public/images/brusselSprouts.jpg");
+ return addImage("/public/images/brusselSprouts.jpg");
 }
 
 const firstPromise = makeSteak();
