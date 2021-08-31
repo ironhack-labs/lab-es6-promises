@@ -9,7 +9,7 @@ for (let i = 0; i < mashPotatoes.length; i++) {
 */
 
 // Iteration 1 using callbacks
-async function responseHandlerSteak() {
+function responseHandlerSteak() {
 addFood(steak[0], '#steak', () => {
     // ... your code here
     addFood(steak[1], '#steak', () => {
@@ -32,13 +32,15 @@ addFood(steak[0], '#steak', () => {
 
 
 // Iteration 2 using `.then()`
-async function responseHandlerMashPotatoes() {
+function responseHandlerMashPotatoes() {
   addFood(mashPotatoes[0], '#mashPotatoes').then(() => {
     // ... your code here
     addFood(mashPotatoes[1], '#mashPotatoes').then(() => {
       addFood(mashPotatoes[2], '#mashPotatoes').then(() => {
         addFood(mashPotatoes[3], '#mashPotatoes').then(() => {
-          addFood(mashPotatoes[4], '#mashPotatoes').then(mashPotatoesImg)
+          addFood(mashPotatoes[4], '#mashPotatoes').then(() => {
+           return mashPotatoesImg();
+          })
         })
       })
     })
@@ -48,13 +50,14 @@ async function responseHandlerMashPotatoes() {
 //const serverResponseMashPotatoes = responseHandlerMashPotatoes();
 
 // Iteration 3 using async/await
+// same as const makeFood = new Promise()
 async function makeFood(step) {
   // ... your code here
   //console.log(step)
-  for (element of step) {
-      await addFood(element, '#brusselSprouts')
+  for (const element of step) {       // declare element as const to ensure it does not go outside the function
+       await addFood(element, '#brusselSprouts')
   }
-  await brusselSproutImg();
+  return await brusselSproutImg();    // with async functions, the return statement is the .then()
 }
 // const serverResponseBrusselSprout = makeFood(brusselSprouts);
 
@@ -82,9 +85,9 @@ function steakImg() {
   table.appendChild(newImg)
 }
 
-
   Promise.all([responseHandlerSteak(), responseHandlerMashPotatoes(), makeFood(brusselSprouts)]).then(() => {
-    alert("Dinner is served!")
+    console.log("Dinner is served!");
+    //alert("Dinner is served!")
   })
 
 
