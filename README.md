@@ -104,6 +104,7 @@ After the last step you should display an additional `<li>` with the text: `Mash
 
 <details>
   <summary><b>Expected Result</b></summary>
+
 ![Iteration 1 expected result](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-1-result.gif)
 
 </details>
