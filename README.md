@@ -71,14 +71,21 @@ We provided you with some starter code:
 
  **You should write your code <u>only</u> in the `javascript/index.js` file.** 
 
-Now, open the file and take a look at the starter code provided there. Notice how the cooking steps are displayed out of order. 
+Now, open the file and take a look at the starter code provided there. The provided code doesn't use nested callbacks to enforce a sequence of execution, which is why the steps are not displayed in the correct order.
 
-The provided code doesn't use nested callbacks to enforce a sequence of execution, which is why the steps are not displayed in the correct order.
+Go ahead and open the `index.html` page in the browser. Notice how the cooking steps are displayed out of order. 
+
+
+<details>
+  <summary><b>Screenshot</b></summary>
+
+  ![Steps out of sync](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-out-of-sync.gif)
+
+</details>
+
+
 
 Before you start working on the Iteration 1, comment out the initial code in `javascript/index.js`.
-
-![Steps out of sync](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-out-of-sync.gif)
-
 
 
 <br>
