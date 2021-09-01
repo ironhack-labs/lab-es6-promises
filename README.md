@@ -8,7 +8,7 @@ Due to the asynchronous nature of JavaScript, promises and callbacks are very im
 
 <p align="center">
 
-<img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-cover.png" alt="Lab Promise me dinner - final result" />
+<img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-cover.png" alt="Lab Promise me dinner - final result" width="500" />
 
 </p>
 
