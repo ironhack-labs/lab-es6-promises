@@ -2,6 +2,10 @@
   transition: all 0.4s;
 }
 
+body {
+  padding: 20px;
+}
+
 img {
   width: 200px;
 }
@@ -18,23 +22,33 @@ label {
   font-family: sans-serif;
 }
 
-#steps {
+#steps,
+#images {
   display: flex;
 }
 
-#table {
+#images {
   height: 200px;
-  display: flex;
-  justify-content: space-evenly;
 }
+
+#images img {
+  width: 200px;
+  height: auto;
+}
+
+#images div {
+  width: 25%;
+}
+
 ol {
-  width: 33%;
+  width: 25%;
   position: relative;
   list-style: none;
   counter-reset: li;
   margin: 0;
   padding: 0;
 }
+
 li::before {
   content: counter(li);
   color: white;
