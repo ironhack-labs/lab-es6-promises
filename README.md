@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Due to the asynchronous nature of JavaScript, promises and callbacks are very important. Both allow us to control the flow of the operations, and execute tasks in sequence.
+Due to the asynchronous nature of JavaScript, promises and callbacks are very important. Both allow us to control the flow of the operations and execute tasks in sequence.
 
 <p align="center">
 
@@ -21,7 +21,7 @@ Due to the asynchronous nature of JavaScript, promises and callbacks are very im
 
 Upon completion, run the following commands:
 
-```
+```shell
 $ git add .
 $ git commit -m "done"
 $ git push origin master
@@ -35,7 +35,7 @@ Create Pull Request so your TAs can check up your work.
 
 We provided you with some starter code:
 
-- `javascript/data.js` - contains four arrays with steps to preparing 4 different foods: _mashed potatoes_, _steak_, _brussels sprouts_, and _broccoli_.
+- `javascript/data.js` - contains four arrays with steps to preparing 4 different foods: _mashed potatoes_, _steak_, _brussels sprouts_ and _broccoli_.
 
 - `javascript/getInstruction.js` - contains a function **`getInstruction`** that **uses callbacks** to asynchronously retrieve instruction steps for any food. It uses `setTimeout` to mimic an asynchronous operation.
 
@@ -43,7 +43,7 @@ We provided you with some starter code:
   getInstruction(food, step, callback, errorCallback)
   ```
 
-   **You should not make any changes in this file.**
+  :exclamation: **You should not make any changes in this file.**
 
   
 
@@ -53,13 +53,14 @@ We provided you with some starter code:
   obtainInstruction(food, step)
   ```
 
-   **You should not make any changes to this file either.**
+  :exclamation: **You should not make any changes to this file either.**
 
   
 
 - `javascript/index.js` - in this file we left an example to show you how the code should execute. However, the provided code doesn't use nested callbacks or promises *yet*, which is why the steps won't print in the correct order. Your task in the first iteration will be to do this properly, but more on that later. 
 
-- `index.html` - contains a base HTML structure needed so no need to add any code there. Previously mentioned JavaScript files are already linked to the `index.html`. The `data.js` loads first to make sure arrays that hold instructions are already loaded and can be used in other files, where we need them.  **You should not make any changes to this file.**
+- `index.html` - contains a base HTML structure needed so no need to add any code there. Previously mentioned JavaScript files are already linked to the `index.html`. The `data.js` loads first to make sure arrays that hold instructions are already loaded and can be used in other files, where we need them.  
+  :exclamation: **You should not make any changes to this file.**
 
 
 
@@ -81,7 +82,7 @@ Go ahead and open the `index.html` page in the browser. Notice how the cooking s
 
 
 
-Before you start working on the Iteration 1, comment out the initial code in `javascript/index.js`.
+:exclamation: Before you start working on Iteration 1, comment out the initial code in `javascript/index.js`.
 
 
 <br>
@@ -95,13 +96,13 @@ Using nested callbacks print the cooking steps to make Mashed Potatoes in the co
 getInstruction('mashedPotatoes', 0, (step0) => {
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`
   // ... Your code here
-   	// ...
+    // ...
 });
 ```
 
 
 
-After the last step you should display an additional `<li>` with the text: `Mashed potatoes are ready!`.
+After the last step, you should display an additional `<li>` with the text: `Mashed potatoes are ready!`.
 
 
 
@@ -124,15 +125,15 @@ Continue working in the `javascript/index.js`. You should not alter the `obtainI
 // Iteration 2 - using promises
 obtainInstruction('steak', 0)
   .then( (step0) => {
-  	document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
-  	//  ... Your code here
-	})
-	// ... Your code here
+    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
+    //  ... Your code here
+  })
+  // ... Your code here
 ```
 
 
 
-After the last step you should display an additional `<li>` with the text: `Stake is ready!`.
+After the last step, you should display an additional `<li>` with the text: `Stake is ready!`.
 
 
 
@@ -145,7 +146,7 @@ After the last step you should display an additional `<li>` with the text: `Stak
 
 
 
-## Iteration 3 | Make the brussels sprouts with async/await
+## Iteration 3 | Make the broccoli with async/await
 
 Using promises with the `async` and `await` syntax print the directions to make Brussels Sprouts in the correct order. You will need the function `obtainInstruction` which returns a pending Promise.
 
@@ -157,7 +158,7 @@ async function makeBroccoli() {
 
 
 
-After the last step you should display an additional `<li>` with the text: `Broccoli is ready!`.
+After the last step, you should display an additional `<li>` with the text: `Broccoli is ready!`.
 
 
 
@@ -187,7 +188,7 @@ When the specific food is ready to be served (all steps are listed), remove the 
 
 Using `promise.all` display the cooking steps to make Brussels Sprouts in the correct order.
 
-After the last step you should display an additional `<li>` with the text: `Brussels sprouts are ready!`.
+After the last step, you should display an additional `<li>` with the text: `Brussels sprouts are ready!`.
 
 
 

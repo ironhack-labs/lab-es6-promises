@@ -33,10 +33,8 @@
 // Iteration 2 - using promises
 // ...
 
-
 // Iteration 3 using async/await
 // ...
-
 
 // Bonus 2 - Promise all
 // ...
