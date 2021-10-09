@@ -17,6 +17,7 @@ function obtainInstruction(food, step) {
       }
       else if (food === "brusselsSprouts") {
         instruction = brusselsSprouts[step];
+        console.log(instruction)
       }
       else if (food === "broccoli") {
         instruction = broccoli[step];
