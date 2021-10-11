@@ -90,10 +90,55 @@ async function makeBroccoli() {
     await obtainInstruction("broccoli", 6);
     document.querySelector("#broccoli").innerHTML += `<li>${broccoli[6]}</li>`
 
-    document.querySelector("#broccoli").innerHTML += `<li>Broccoli sprouts are ready!</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
     document.querySelector("#broccoliImg").removeAttribute("hidden");
 }
 makeBroccoli();
 
 
 // Bonus 2 - Promise all
+const p1 = new Promise((resolve, reject) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[0]}</li>`;
+  resolve();
+});
+
+const p2 = new Promise((resolve, reject) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[1]}</li>`;
+  resolve();
+});
+
+const p3 = new Promise((resolve, reject) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[2]}</li>`;
+  resolve();
+});
+
+const p4 = new Promise((resolve, reject) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[3]}</li>`;
+  resolve();
+});
+const p5 = new Promise((resolve, reject) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[4]}</li>`;
+  resolve();
+});
+
+const p6 = new Promise((resolve, reject) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[5]}</li>`;
+  resolve();
+});
+
+const p7 = new Promise((resolve, reject) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[6]}</li>`;
+  resolve();
+});
+
+const p8 = new Promise((resolve, reject) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[7]}</li>`;
+  resolve();
+});
+
+
+Promise.all([p1, p2, p3, p4, p5, p6, p7, p8]).then(() => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready!</li>`
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
+.catch(error => console.log(error));
