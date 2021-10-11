@@ -90,8 +90,33 @@ obtainInstruction('steak', 0)
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
-  
+  await obtainInstruction('broccoli', 0);
+  document.querySelector("#broccoli").innerHTML += `<li>${broccoli[0]}</li>`;
+  await obtainInstruction('broccoli', 1);
+  document.querySelector("#broccoli").innerHTML += `<li>${broccoli[1]}</li>`;
+  await obtainInstruction('broccoli', 2);
+  document.querySelector("#broccoli").innerHTML += `<li>${broccoli[2]}</li>`;
+  await obtainInstruction('broccoli', 3);
+  document.querySelector("#broccoli").innerHTML += `<li>${broccoli[3]}</li>`;
+  await obtainInstruction('broccoli', 4);
+  document.querySelector("#broccoli").innerHTML += `<li>${broccoli[5]}</li>`;
+  await obtainInstruction('broccoli', 5);
+  document.querySelector("#broccoli").innerHTML += `<li>${broccoli[6]}</li>`;
+  await obtainInstruction('broccoli', 6);
+  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
+
 }
 
+makeBroccoli();
+
 // Bonus 2 - Promise all
-// ...
+
+Promise.all([
+  obtainInstruction('brusselsSprouts', 0), 
+]).then(() => {
+  for (let i = 0; i < brusselsSprouts.length; i++){
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[i]}</li>`;
+  }
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
