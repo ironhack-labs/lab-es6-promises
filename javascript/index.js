@@ -92,40 +92,27 @@ obtainInstruction('steak', 0)
 
   //Iteration 3
   async function makeBroccoli() {
-    
+
     await obtainInstruction('broccoli', 0);
-    await obtainInstruction('broccoli', 1);
-    await obtainInstruction('broccoli', 3);
-    await obtainInstruction('broccoli', 4);
-    await obtainInstruction('broccoli', 5);
-    await obtainInstruction('broccoli', 6);
-  //   await obtainInstruction('broccoli', 0,(step0) => {
-  //     document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`    
-  // });
-  // await obtainInstruction('broccoli', 1 ,(step1) => {
-  //   document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`
-  // });
-  // await obtainInstruction('broccoli', 2 ,(step2) => {
-  //   document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`
-  // });
-  // await obtainInstruction('broccoli', 3 ,(step3) => {
-  //   document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`
-  // });
-  // await obtainInstruction('broccoli', 4 ,(step4) => {
-  //   document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`
-  // });
-  // await obtainInstruction('broccoli', 5 ,(step5) => {
-  //   document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`
-  // });
-  // await obtainInstruction('broccoli', 6 ,(step6) => {
-  //   document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`
-  // });
-  // obtainInstruction('broccoli', 6 ,(step6) => {
-  //   document.querySelector("#broccoli").innerHTML += `<li>${`Broccoli is ready!`}</li>`
-  // });
+      document.querySelector("#broccoli").innerHTML += `<li>${broccoli[1]}</li>`;
+  
+  await obtainInstruction('broccoli', 1);
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[2]}</li>`;
+  
+  await obtainInstruction('broccoli', 2);
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[3]}</li>`;
+
+  await obtainInstruction('broccoli', 3);
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[4]}</li>`;
+  await obtainInstruction('broccoli', 4);
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[5]}</li>`;
+  await obtainInstruction('broccoli', 5);
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[6]}</li>`;
+  obtainInstruction('broccoli', 6);
+    document.querySelector("#broccoli").innerHTML += `<li>${`Broccoli is ready!`}</li>`;
 }
 makeBroccoli();
-console.log(makeBroccoli);
+
 
   
   
