@@ -157,14 +157,14 @@ let promesis = [...Array(8)].map((element, key) =>
   obtainInstruction("brusselsSprouts", key)
 );
 
-async function makeBrussels() {
-  let steps = await Promise.all(promesis);
+ async function makeBrussels() {
+  let steps = await Promise.all(promesis)
 
-  steps.forEach((step) => {
+  steps.forEach(step => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
-  });
+  })
 
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-}
+ } 
 
-makeBrussels();
+makeBrussels()
