@@ -8,7 +8,6 @@ function obtainInstruction(food, step) {
     setTimeout(() => {
       // Get the instruction string
       let instruction;
-
       if (food === "mashedPotatoes") {
         instruction = mashedPotatoes[step];
       }
