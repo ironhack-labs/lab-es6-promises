@@ -3,7 +3,7 @@ const steak = [
   "place in zip lock bag",
   "cook in sous vide at 120 F for 1-2 hours",
   "remove from bag and pat dry",
-  "heat pan with grapeseed oil and a quarter stick of butter",
+  "heat pan with grape seed oil and a quarter stick of butter",
   "cook steak for 30-60 seconds per side using a spoon to baste with butter",
   "rest for 10 minutes",
   "enjoy",
