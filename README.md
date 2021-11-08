@@ -186,7 +186,7 @@ When the specific food is ready to be served (all steps are listed), remove the 
 
 ## Bonus 2
 
-Using `promise.all` display the cooking steps to make Brussels Sprouts in the correct order.
+Using `Promise.all` display the cooking steps to make Brussels Sprouts in the correct order.
 
 After the last step, you should display an additional `<li>` with the text: `Brussels sprouts are ready!`.
 
