@@ -160,3 +160,20 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
+
+async function makeBrussels() {
+
+  let brusselsSteps =[];
+  async function getSteps(num) {
+    const step = await obtainInstruction("brusselsSprouts", num);
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+  }
+
+  for (let i = 0; i < 8; i++) {
+    brusselsSteps.push(getSteps(i)); 
+  }
+
+  Promise.all(brusselsSteps).then(()=> document.querySelector("#brusselsSproutsImg").removeAttribute("hidden"));
+}
+
+makeBrussels();
