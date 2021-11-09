@@ -152,4 +152,17 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+const step = []
+for (let i = 0; i < brusselsSprouts.length; i++) {
+  step[i] = obtainInstruction("brusselsSprouts", i);
+  
+}
+
+Promise.all( step )
+  .then((values) => {
+    values.forEach((steps) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${steps}</li>`
+    })
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+    document.getElementById("brusselsSproutsImg").removeAttribute("hidden");
+  });
