@@ -118,12 +118,8 @@ makeBroccoli()
 function makeBrussels() {
   let brusselsArray = []
 
-  function steps(num) {
-    return obtainInstruction('brusselsSprouts', num)
-  }
-  for (let i = 0; i < 8; i++) {
-    brusselsArray.push(steps(i))
-  }
+  function steps(num) {return obtainInstruction('brusselsSprouts', num)}
+  for (let i = 0; i < 8; i++) {brusselsArray.push(steps(i))}
 
   Promise.all(brusselsArray).then((resultsFromPromiseAll) => { 
     resultsFromPromiseAll.forEach((step) => {
