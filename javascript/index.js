@@ -75,13 +75,21 @@ obtainInstruction('steak', 0)
                   document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
                   document.querySelector("#steakImg").removeAttribute("hidden");
                 })
+                .catch((message)=>{return message})
               })
+              .catch((message)=>{return message})
             })
+            .catch((message)=>{return message})
           })
+          .catch((message)=>{return message})
         })
+        .catch((message)=>{return message})
       })
+      .catch((message)=>{return message})
     })
+    .catch((message)=>{return message})
   })
+  .catch((message)=>{return message})
 
 // Iteration 3 using async/await
 // ...
