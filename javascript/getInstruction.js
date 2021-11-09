@@ -19,14 +19,12 @@ function getInstruction(food, step, callback, errorCallback) {
       else if (food === "broccoli") {
         instruction = broccoli[step];
       };
-
       // Invoke the provided callback or errorCallback
       if (!instruction) {
         errorCallback("Instruction step does not exist!");
       } else {
         callback(instruction);
       }
-
     }, Math.floor(Math.random() * 1000));
 }
 
