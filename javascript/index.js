@@ -129,7 +129,9 @@ obtainInstruction("steak", 0).then((step0) => {
             obtainInstruction("steak", 6).then((step6) => {
               document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
               obtainInstruction("steak", 7).then((step7) => {
-                document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
+                document.querySelector(
+                  "#steak"
+                ).innerHTML += `<li>${step7}</li>`;
                 document.querySelector("#steakImg").removeAttribute("hidden");
               });
             });
@@ -141,7 +143,20 @@ obtainInstruction("steak", 0).then((step0) => {
 });
 
 // Iteration 3 using async/await
-// ...
+
+async function makeBroccoli() {
+  async function getSteps(num) {
+    const step = await obtainInstruction("broccoli", num);
+    document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
+  }
+
+  for (let i = 0; i < 8; i++) {
+    await getSteps(i);
+  }
+
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
+}
+
+makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
