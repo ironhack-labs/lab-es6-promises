@@ -28,7 +28,7 @@
 
 
 // Iteration 1 - using callbacks
-getInstruction("mashedPotatoes", 0, (step1) => {
+getInstruction("mashedPotatoes", 0, (step1) => { //Nest each callback so the next step is executed only after the current one is
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`
   getInstruction("mashedPotatoes", 1, (step2) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`
@@ -49,36 +49,36 @@ getInstruction("mashedPotatoes", 0, (step1) => {
 
 
 // Iteration 2 - using promises
-obtainInstruction('steak', 0)
-.then( (step0) => { 
+obtainInstruction('steak', 0) //Same logic as iteration 1 but with .then
+.then((step0) => { 
   document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
-  return obtainInstruction('steak', 1)
+  return obtainInstruction('steak', 1) //Return promise of next step to follow up with another .then
 })
-.then( (step1) => {
+.then((step1) => {
   document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
   return obtainInstruction('steak', 2)
 })
-.then( (step2) => {
+.then((step2) => {
   document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
   return obtainInstruction('steak', 3)
 })
-.then( (step3) => {
+.then((step3) => {
   document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
   return obtainInstruction('steak', 4)
 })
-.then( (step4) => {
+.then((step4) => {
   document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
   return obtainInstruction('steak', 5)
 })
-.then( (step5) => {
+.then((step5) => {
   document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
   return obtainInstruction('steak', 6)
 })
-.then( (step6) => {
+.then((step6) => {
   document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
   return obtainInstruction('steak', 7)
 })
-.then( (step7) => {
+.then((step7) => {
   document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
   document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
   document.getElementById("steakImg").removeAttribute("hidden")
@@ -87,10 +87,10 @@ obtainInstruction('steak', 0)
 
 
 // Iteration 3 using async/await
-makeBroccoli = async ()=>{
+makeBroccoli = async() => { //Define the async function to use await
   await obtainInstruction('broccoli', 0)
   document.querySelector('#broccoli').innerHTML += `<li>${broccoli[1]}</li>`
-  await obtainInstruction('broccoli', 1)
+  await obtainInstruction('broccoli', 1) //This code will only be executed after line 91 and 92 are done because of await
   document.querySelector('#broccoli').innerHTML += `<li>${broccoli[2]}</li>`
   await obtainInstruction('broccoli', 2)
   document.querySelector('#broccoli').innerHTML += `<li>${broccoli[3]}</li>`
@@ -110,7 +110,7 @@ makeBroccoli()
 
 
 // Bonus 2 - Promise all
-let p0 = obtainInstruction('brusselsSprouts', 0)
+let p0 = obtainInstruction('brusselsSprouts', 0) //Save each step's promise
 let p1 = obtainInstruction('brusselsSprouts', 1)
 let p2 = obtainInstruction('brusselsSprouts', 2)
 let p3 = obtainInstruction('brusselsSprouts', 3)
@@ -119,8 +119,8 @@ let p5 = obtainInstruction('brusselsSprouts', 5)
 let p6 = obtainInstruction('brusselsSprouts', 6)
 let p7 = obtainInstruction('brusselsSprouts', 7)
 
-Promise.all([p0, p1, p2, p3, p4, p5, p6, p7])
-.then(()=>{
+Promise.all([p0, p1, p2, p3, p4, p5, p6, p7]) //Write the instructions when all promises are resolved
+.then(() => {
   document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[0]}</li>`
   document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[1]}</li>`
   document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[2]}</li>`
