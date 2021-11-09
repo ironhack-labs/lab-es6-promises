@@ -50,61 +50,40 @@ const orderSteps = getInstruction("mashedPotatoes", 0, (step1) => {
 obtainInstruction('steak', 0)
   .then( (step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
-    obtainInstruction('steak', 1)
-    .then( (step1) => {
-      document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
-      obtainInstruction('steak', 2)
-      .then( (step2) => {
-        document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
-        obtainInstruction('steak', 3)
-        .then( (step3) => {
-          document.querySelector("#steak").innerHTML += `<li>${step3}</li>`;
-          obtainInstruction('steak', 4)
-          .then( (step4) => {
-            document.querySelector("#steak").innerHTML += `<li>${step4}</li>`;
-            obtainInstruction('steak', 5)
-            .then( (step5) => {
-              document.querySelector("#steak").innerHTML += `<li>${step5}</li>`;
-              obtainInstruction('steak', 6)
-              .then( (step6) => {
-                document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
-                obtainInstruction('steak', 7)
-                .then( (step7) => {
-                  document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
-                  document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
-                  document.querySelector("#steakImg").removeAttribute("hidden");
-              })
-                .catch((message)=>{
-                  return message;
-                })
-            })
-            .catch((message)=>{
-              return message;
-            })
-          })
-          .catch((message)=>{
-            return message;
-          })
-        })
-        .catch((message)=>{
-          return message;
-        })
-      })
-      .catch((message)=>{
-        return message;
-      })
-    })
-    .catch((message)=>{
-      return message;
-    })
+    return obtainInstruction('steak', 0)
   })
-  .catch((message)=>{
-    return message;
+  .then( (step1) => {
+    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
+    return obtainInstruction('steak', 1)
   })
-})
-.catch((message)=>{
-  return message;
-})
+  .then( (step2) => {
+    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
+    return obtainInstruction('steak', 2)
+  })
+  .then( (step3) => {
+    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`;
+    return obtainInstruction('steak', 3)
+  })
+  .then( (step4) => {
+    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`;
+    return obtainInstruction('steak', 4)
+  })
+  .then( (step5) => {
+    document.querySelector("#steak").innerHTML += `<li>${step5}</li>`;
+    return obtainInstruction('steak', 5)
+  })
+  .then( (step6) => {
+    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
+    return obtainInstruction('steak', 6)
+  })
+  .then( (step7) => {
+    document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
+    document.querySelector("#steakImg").removeAttribute("hidden");
+  })
+  .catch((message) => {
+    console.log(message)
+  })
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
@@ -132,4 +111,20 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+const p0 = obtainInstruction("brusselsSprouts", 0)
+const p1 = obtainInstruction("brusselsSprouts", 1)
+const p2 = obtainInstruction("brusselsSprouts", 2)
+const p3 = obtainInstruction("brusselsSprouts", 3)
+const p4 = obtainInstruction("brusselsSprouts", 4)
+const p5 = obtainInstruction("brusselsSprouts", 5)
+const p6 = obtainInstruction("brusselsSprouts", 6)
+const p7 = obtainInstruction("brusselsSprouts", 7)
+
+Promise.all([p0, p1, p2, p3, p4, p5, p6, p7])
+.then((step) => {
+  step.forEach((step) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+  })
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts is ready!</li>`;
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+});
