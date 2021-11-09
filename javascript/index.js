@@ -104,8 +104,31 @@ makeBroccoli = async ()=>{
   document.querySelector('#broccoli').innerHTML += `<li>Broccoli is ready!</li>`
   document.getElementById('broccoliImg').removeAttribute('hidden')
 }
+
 makeBroccoli()
 
 
+
 // Bonus 2 - Promise all
-// ...
+let p0 = obtainInstruction('brusselsSprouts', 0)
+let p1 = obtainInstruction('brusselsSprouts', 1)
+let p2 = obtainInstruction('brusselsSprouts', 2)
+let p3 = obtainInstruction('brusselsSprouts', 3)
+let p4 = obtainInstruction('brusselsSprouts', 4)
+let p5 = obtainInstruction('brusselsSprouts', 5)
+let p6 = obtainInstruction('brusselsSprouts', 6)
+let p7 = obtainInstruction('brusselsSprouts', 7)
+
+Promise.all([p0, p1, p2, p3, p4, p5, p6, p7])
+.then(()=>{
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[0]}</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[1]}</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[2]}</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[3]}</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[4]}</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[5]}</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[6]}</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[7]}</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>Brussels sprouts are ready!</li>`
+  document.getElementById('brusselsSproutsImg').removeAttribute('hidden')
+})
