@@ -31,6 +31,7 @@
 // Iteration 1 - using callbacks
 const obtainStepPotatoes =
 getInstruction('mashedPotatoes', 0, (step1) => { 
+    document.querySelector("#mashedPotatoesImg").removeAttribute("hidden")
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
 
 getInstruction('mashedPotatoes', 1, (step2) => {
@@ -54,6 +55,7 @@ getInstruction('mashedPotatoes', 4, (step5) => {
 // Iteration 2 - using promises
 obtainInstruction('steak', 0)
   .then( (step1) => {
+    document.querySelector("#steakImg").removeAttribute("hidden")
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>` 
     return obtainInstruction('steak', 1) 
   })
@@ -83,14 +85,31 @@ obtainInstruction('steak', 0)
  })
  .then( (step7) => {
   document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
+  document.querySelector("#steak").innerHTML += `<li>Steak are ready!</li>` 
   return obtainInstruction('steak', 8) 
   })
-  .then( (step8) => {
-    document.querySelector("#steak").innerHTML += `<li>${step8}</li>`
-    document.querySelector("#steak").innerHTML += `<li>Steak are ready!</li>` 
-    })
+
 // Iteration 3 using async/await
-// ...
+const makeBroccoli = async() => {
+  // ... Your code here
+  try{
+    document.querySelector("#broccoliImg").removeAttribute("hidden")
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction('broccoli',0)}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction('broccoli',1)}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction('broccoli',2)}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction('broccoli',3)}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction('broccoli',4)}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction('broccoli',5)}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction('broccoli',6)}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>` 
+   
+  }catch(error){
+    document.querySelector("#broccoli").innerHTML += `<li>${error}</li>`
+  }
+}
+
+makeBroccoli()
+
 
 // Bonus 2 - Promise all
 // ...
