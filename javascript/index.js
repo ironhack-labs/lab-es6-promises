@@ -145,16 +145,21 @@ const p6 = obtainInstruction('brusselsSprouts', 6);
 const p7 = obtainInstruction('brusselsSprouts', 7);
 
 Promise.all([p1, p2, p3, p4, p5, p6, p7])
-  .then(() => {
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[0]}</li>`
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[1]}</li>`
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[2]}</li>`
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[3]}</li>`
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[4]}</li>`
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[5]}</li>`
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[6]}</li>`
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>${brusselsSprouts[7]}</li>`
-    document.querySelector('#brusselsSprouts').innerHTML += `<li>Brussels sprouts are ready!</li>`
-    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+ 
+.then((values) => {
+  values.forEach((instruction) => {
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${instruction}</li>`;
+  });
 
-  })
+  document.querySelector(
+    "#brusselsSprouts"
+  ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
+.catch((err) => console.log(err));
+
+
+ 
+
