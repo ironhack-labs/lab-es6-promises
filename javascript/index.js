@@ -123,7 +123,7 @@ async function makeBroccoli() {
   document.querySelector('#broccoli').innerHTML += `<li>${broccoli[6]}</li>`
   document.querySelector('#broccoli').innerHTML += `<li>Broccoli is ready!`
   document.querySelector("#broccoliImg").removeAttribute("hidden");
-
+  
 }
 
 makeBroccoli();
@@ -131,6 +131,22 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 
-const sprouts = new Promise((resolve, reject) => {
-  
+const s0 = obtainInstruction('brusselsSprouts', 0);
+const s1 = obtainInstruction('brusselsSprouts', 1);
+const s2 = obtainInstruction('brusselsSprouts', 2);
+const s3 = obtainInstruction('brusselsSprouts', 3);
+const s4 = obtainInstruction('brusselsSprouts', 4);
+const s5 = obtainInstruction('brusselsSprouts', 5);
+const s6 = obtainInstruction('brusselsSprouts', 6);
+const s7 = obtainInstruction('brusselsSprouts', 7);
+
+Promise.all([s0, s1, s2, s3, s4, s5, s6, s7])
+.then((values) => {
+  console.log(values)
+  values.forEach((value) => {
+    document.querySelector('#brusselsSprouts').innerHTML += `<li>${value}`
+  })
+}).finally(() => {
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>Brussels Sprouts are ready!</li>`
+  document.querySelector('#brusselsSproutsImg').removeAttribute('hidden');
 })
