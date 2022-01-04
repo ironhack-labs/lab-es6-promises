@@ -1,3 +1,4 @@
+// jshint esversion:8
 const steak = [
   "season steak generously with salt, pepper and garlic powder",
   "place in zip lock bag",
@@ -6,7 +7,7 @@ const steak = [
   "heat pan with grapeseed oil and a quarter stick of butter",
   "cook steak for 30-60 seconds per side using a spoon to baste with butter",
   "rest for 10 minutes",
-  "enjoy",
+  "enjoy"
 ];
 
 const mashedPotatoes = [
@@ -14,7 +15,7 @@ const mashedPotatoes = [
   "tear open bag of of instant potato mix and pour into bowl",
   "pour in water",
   "mix",
-  "enjoy",
+  "enjoy"
 ];
 
 const brusselsSprouts = [

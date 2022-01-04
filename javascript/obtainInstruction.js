@@ -1,3 +1,4 @@
+// jshint esversion:8
 /* CALL THIS FUNCTION FROM OTHER FILES LIKE */
 
 /****** DO NOT TOUCH vvv *****/
@@ -5,6 +6,7 @@
 // Promise based function
 function obtainInstruction(food, step) {
   return new Promise((resolve, reject) => {
+
     setTimeout(() => {
       // Get the instruction string
       let instruction;
@@ -20,12 +22,12 @@ function obtainInstruction(food, step) {
       }
       else if (food === "broccoli") {
         instruction = broccoli[step];
-      };
+      }
       
 
       // Resolve or reject the promise
       if (!instruction) {
-        reject("Instruction step does not exist!")
+        reject("Instruction step does not exist!");
       }
       else {
         resolve(instruction);
