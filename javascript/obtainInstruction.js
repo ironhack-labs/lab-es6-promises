@@ -35,5 +35,4 @@ function obtainInstruction(food, step) {
   });
 }
 
-
 /***** ^^^ DO NOT TOUCH *****/
