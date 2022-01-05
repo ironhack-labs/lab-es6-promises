@@ -48,6 +48,7 @@ getInstruction('mashedPotatoes', 0, (step0) => {
           setTimeout( () => {
         
             document.querySelector("#mashedPotatoes").innerHTML += `<li>${'Mashed potatoes are ready!'}</li>`;
+            document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
     
           }, Math.floor(Math.random() * 1000));
           
@@ -163,6 +164,7 @@ obtainInstruction('steak', 0)
     setTimeout( () => {
 
       document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+      document.querySelector("#steakImg").removeAttribute("hidden");
 
     }, Math.floor(Math.random() * 1000));
     
@@ -184,6 +186,7 @@ async function makeBroccoli() {
     setTimeout( () => {
         
       document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+      document.querySelector("#broccoliImg").removeAttribute("hidden");
 
     }, Math.floor(Math.random() * 1000));
     
@@ -194,5 +197,36 @@ async function makeBroccoli() {
   }
 }
 makeBroccoli();
+
+
 // Bonus 2 - Promise all
-// ...
+
+const brussels0 = Promise.resolve(brusselsSprouts[0]);
+
+const brussels1 = Promise.resolve(brusselsSprouts[1]);
+
+const brussels2 = Promise.resolve(brusselsSprouts[2]);
+
+const brussels3 = Promise.resolve(brusselsSprouts[3]);
+
+const brussels4 = Promise.resolve(brusselsSprouts[4]);
+
+const brussels5 = Promise.resolve(brusselsSprouts[5]);
+
+const brussels6 = Promise.resolve(brusselsSprouts[6]);
+
+const brussels7 = Promise.resolve(brusselsSprouts[7]);
+
+const brussels8 = Promise.resolve('Brussels sprouts are ready!');
+
+
+
+Promise.all( [brussels0, brussels1, brussels2, brussels3, brussels4, brussels5, brussels6, brussels7, brussels8] )
+  .then((values) => {
+
+    values.forEach(element => {
+      
+      setTimeout(() => document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`, Math.floor(Math.random() * 2000));
+    });
+  });
+  
