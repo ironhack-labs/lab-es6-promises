@@ -55,8 +55,11 @@ function returnRecipeSteps() {
 returnRecipeSteps()
 
 // Iteration 2 - using promises
-/*
-obtainInstruction('steak', 0)
+
+
+function getMeSteak () {
+
+  obtainInstruction('steak', 0)
   .then( (step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
     obtainInstruction('steak', 1)
@@ -80,7 +83,11 @@ obtainInstruction('steak', 0)
                         obtainInstruction('steak', 7)
                         .then( (step7) => {
                           document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
-                        })})})})})})})})*/
+                        })})})})})})})})
+
+}
+
+getMeSteak()
 
 // Iteration 3 using async/await
 
@@ -100,11 +107,35 @@ async function makeBroccoli() {
   document.querySelector("#broccoli").innerHTML += `<li>${p5}</li>`
   const p6 = await obtainInstruction('broccoli', 6)
   document.querySelector("#broccoli").innerHTML += `<li>${p6}</li>`
+  const p7 = await obtainInstruction('broccoli', 7)
+  document.querySelector("#broccoli").innerHTML += `<li>${p7}</li>`
 
 }
 
 makeBroccoli()
 
-
 // Bonus 2 - Promise all
-// ...
+
+Promise.all([
+  obtainInstruction('brusselsSprouts', 0),
+  obtainInstruction('brusselsSprouts', 1),
+  obtainInstruction('brusselsSprouts', 2),
+  obtainInstruction('brusselsSprouts', 3),
+  obtainInstruction('brusselsSprouts', 4),
+  obtainInstruction('brusselsSprouts', 5),
+  obtainInstruction('brusselsSprouts', 6),
+  obtainInstruction('brusselsSprouts', 7),
+  obtainInstruction('brusselsSprouts', 8),
+])
+.then((values) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[0]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[1]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[2]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[3]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[4]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[5]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[6]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[7]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[8]}</li>`
+})
+

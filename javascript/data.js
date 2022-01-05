@@ -26,7 +26,8 @@ const brusselsSprouts = [
   'coat baking sheet with olive oil',
   'roast in the oven for 20 minutes',
   'place back in bowl and add salt and pepper',
-  'enjoy'
+  'enjoy',
+  'Brussels sprouts are ready!'
 ];
 
 const broccoli = [
@@ -36,5 +37,6 @@ const broccoli = [
   'once boiling, carefully lower the broccoli into the water',
   'cook for 3 to 4 minutes, or until tender',
   'drain, then leave to steam dry for a minute',
-  'enjoy'
+  'enjoy',
+  'Broccoli is ready!'
 ];
