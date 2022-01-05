@@ -183,6 +183,7 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li> ${await obtainInstruction('broccoli', 4)} </li>`;
     document.querySelector("#broccoli").innerHTML += `<li> ${await obtainInstruction('broccoli', 5)} </li>`;
     document.querySelector("#broccoli").innerHTML += `<li> ${await obtainInstruction('broccoli', 6)} </li>`;
+    
     setTimeout( () => {
         
       document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
@@ -225,8 +226,12 @@ Promise.all( [brussels0, brussels1, brussels2, brussels3, brussels4, brussels5, 
   .then((values) => {
 
     values.forEach(element => {
-      
-      setTimeout(() => document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`, Math.floor(Math.random() * 2000));
+
+      // for it to show synchronously/in order we need to use setTimeout and give time for the stack to be empty
+      setTimeout(() => {
+        document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`;
+        document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+      },  1000);
     });
   });
   
