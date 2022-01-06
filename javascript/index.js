@@ -102,15 +102,28 @@ makeBroccoli()
 // Bonus 2 - Promise all
 
 function makeBrusselSprouts(){
-  const step0 = obtainInstruction('brusselsSprouts', 0)
-  const step1 = obtainInstruction('brusselsSprouts', 1)
-  const step2 = obtainInstruction('brusselsSprouts', 2)
-  const step3 = obtainInstruction('brusselsSprouts', 3)
-  const step4 = obtainInstruction('brusselsSprouts', 4)
-  const step5 = obtainInstruction('brusselsSprouts', 5)
-  const step6 = obtainInstruction('brusselsSprouts', 6)
-  const step7 = obtainInstruction('brusselsSprouts', 7)
-  Promise.all([step0, step1, step2, step3, step4, step5, step6, step7]).then((results) => {
+  // const step0 = obtainInstruction('brusselsSprouts', 0)
+  // const step1 = obtainInstruction('brusselsSprouts', 1)
+  // const step2 = obtainInstruction('brusselsSprouts', 2)
+  // const step3 = obtainInstruction('brusselsSprouts', 3)
+  // const step4 = obtainInstruction('brusselsSprouts', 4)
+  // const step5 = obtainInstruction('brusselsSprouts', 5)
+  // const step6 = obtainInstruction('brusselsSprouts', 6)
+  // const step7 = obtainInstruction('brusselsSprouts', 7)
+  const brusselsSteps = [
+    obtainInstruction('brusselsSprouts', 0),
+    obtainInstruction('brusselsSprouts', 1),
+    obtainInstruction('brusselsSprouts', 2),
+    obtainInstruction('brusselsSprouts', 3),
+    obtainInstruction('brusselsSprouts', 4),
+    obtainInstruction('brusselsSprouts', 5),
+    obtainInstruction('brusselsSprouts', 6),
+    obtainInstruction('brusselsSprouts', 7),
+  ]
+
+  console.log(brusselsSteps[0])
+  // Promise.all([step0, step1, step2, step3, step4, step5, step6, step7]).then((results) => {
+  Promise.all([...brusselsSteps]).then((results) => {
     results.forEach((step) => {
       document.querySelector('#brusselsSprouts').innerHTML += `<li>${step}</li>`;
     })
