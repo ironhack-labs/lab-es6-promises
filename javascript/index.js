@@ -88,7 +88,7 @@ obtainInstruction('steak', 0)
 // ...
 async function makeBroccoli() {
   try {
-    for (let i = 0; i < 7; i += 1) {
+    for (let i = 0; i < broccoli.length; i += 1) {
       const step = await obtainInstruction("broccoli", i);
       document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
     };
@@ -105,13 +105,13 @@ makeBroccoli();
 // Bonus 2 - Promise all
 // ...
 let funcArray = [];
-for (let i = 0; i < 8; i += 1) {
+for (let i = 0; i < brusselsSprouts.length; i += 1) {
   const func = obtainInstruction("brusselsSprouts", i);
   funcArray.push(func);
 };
 
 Promise.all(funcArray).then((instruction) => {
-  for (let i = 0; i < 8; i += 1) {
+  for (let i = 0; i < brusselsSprouts.length; i += 1) {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction[i]}</li>`;
   };
 
