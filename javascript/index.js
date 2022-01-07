@@ -128,16 +128,13 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
-Promise.all([
-  obtainInstruction("brusselsSprouts", 0),
-  obtainInstruction("brusselsSprouts", 1),
-  obtainInstruction("brusselsSprouts", 2),
-  obtainInstruction("brusselsSprouts", 3),
-  obtainInstruction("brusselsSprouts", 4),
-  obtainInstruction("brusselsSprouts", 5),
-  obtainInstruction("brusselsSprouts", 6),
-  obtainInstruction("brusselsSprouts", 7)
-]).then((instruction) => {
+let funcArray = [];
+for (let i = 0; i < 8; i += 1) {
+  const func = obtainInstruction("brusselsSprouts", i);
+  funcArray.push(func);
+};
+
+Promise.all(funcArray).then((instruction) => {
   /*
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction[0]}</li>`;
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction[1]}</li>`;
