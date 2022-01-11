@@ -68,7 +68,7 @@ obtainInstruction('steak', 5)
 obtainInstruction('steak', 6)
   .then( (step6) => {
     document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
-    document.querySelector("#steak").innerHTML += `<liSteak is ready!</li>`
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
 }
 })
 })
