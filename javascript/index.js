@@ -117,7 +117,7 @@ obtainInstruction("steak", 0).then((step0) => {
 });
 */
 
-
+// BETTER WAY TO USE PROMISES -->
 
 obtainInstruction("steak", 0).then((step0) => {
   document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
