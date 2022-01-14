@@ -120,7 +120,6 @@ Promise.all([
     instructions.forEach(step => {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
     });
-}).then( () => {
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
-  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 });
