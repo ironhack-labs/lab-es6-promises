@@ -112,12 +112,18 @@ makeBroccoli();
 // Bonus 2 - Promise all
 
 Promise.all([
-  obtainInstruction("brusselsSprouts", 0), obtainInstruction("brusselsSprouts", 1)
-  
-]).then((step0, step1) => {
-  
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`;
-
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
+  obtainInstruction("brusselsSprouts", 7),
+]).then((values) => {
+  values.forEach((step) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+  });
+  document.querySelector(
+    "#brusselsSprouts"
+  ).innerHTML += `<li>Brussels Sprouts are ready!</li>`;
 });
-
