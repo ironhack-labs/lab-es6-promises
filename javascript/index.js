@@ -99,12 +99,13 @@ obtainInstruction('steak', 0)
   .then((step7)=>{
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
   })
+  .then(()=>{
+    document.querySelector("#steak").innerHTML+= `<li>Stake is ready!</li>`;
+    document.getElementById("steakImg").removeAttribute("hidden")
+  })
   .catch((error)=> {
     console.log(error);
   })
-  .finally(()=>{document.querySelector("#steak").innerHTML+= `<li>"Stake is ready!"</li>`;
-   document.getElementById("steakImg").removeAttribute("hidden");
-});
 
 
   // ... Your code here
