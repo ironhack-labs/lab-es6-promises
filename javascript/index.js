@@ -49,6 +49,7 @@ getInstruction(
             document.querySelector(
               "#mashedPotatoes"
             ).innerHTML += `<li>${step5}</li>`;
+            document.querySelector("#mashedPotatoes").innerHTML+=`<li>Mashed potatoes are ready!</li>`
             document.getElementById("mashedPotatoesImg").removeAttribute("hidden");
           }); //step5 callback function
         }); //step4 callback function
@@ -64,6 +65,52 @@ getInstruction(
 
 // Iteration 2 - using promises
 // ...
+
+obtainInstruction('steak', 0)
+  .then( (step0) => {
+    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+    //  ... Your code here
+  })
+  .then (()=> obtainInstruction("steak", 1))
+  .then ( (step1) => {
+    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
+  })
+  .then(()=> obtainInstruction("steak", 2))
+  .then ((step2)=> {
+    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
+  }) 
+  .then(()=>    obtainInstruction("steak",3))
+  .then((step3)=> {
+    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`;
+  })
+  .then(()=>  obtainInstruction("steak",4))
+  .then((step4)=>{
+    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`;
+  })
+  .then(()=> obtainInstruction("steak",5))
+  .then((step5)=>{
+    document.querySelector("#steak").innerHTML += `<li>${step5}</li>`;
+  })
+  .then(()=> obtainInstruction("steak",6))
+  .then((step6)=>{
+    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
+  })
+  .then(()=>    obtainInstruction("steak",7))
+  .then((step7)=>{
+    document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
+  })
+  .catch((error)=> {
+    console.log(error);
+  })
+  .finally(()=>{document.querySelector("#steak").innerHTML+= `<li>"Stake is ready!"</li>`;
+   document.getElementById("steakImg").removeAttribute("hidden");
+});
+
+
+  // ... Your code here
+
+
+
 
 // Iteration 3 using async/await
 // ...
