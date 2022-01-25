@@ -79,7 +79,7 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
     document.querySelector("#steak").innerHTML += `<li>Steak is ready</li>`
   })
-  
+
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
@@ -109,4 +109,3 @@ makeBroccoli();
 
 
 // Bonus 2 - Promise all
-// ...
