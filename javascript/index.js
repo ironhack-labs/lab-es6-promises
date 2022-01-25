@@ -149,3 +149,14 @@ Promise.all([p1, p2])
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[1]}</li>`;
     console.log("values", values)
 })
+
+/*another cleaner way to use promise.all*/
+let p3 = obtainInstruction('brusselsSprouts', 3);
+let p4 = obtainInstruction('brusselsSprouts', 4);
+
+Promise.all([p3, p4])
+  .then((values) => {
+    values.forEach((instruction) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`;
+    })
+})
