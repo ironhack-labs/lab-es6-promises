@@ -46,6 +46,7 @@ getInstruction('mashedPotatoes', 0, (step0) => {
             document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`
 
             document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`
+            document.querySelector("#mashedPotatoesImg").hidden = false;
           });  
         });
       });
@@ -93,6 +94,7 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
     
     document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
+    document.querySelector("#steakImg").hidden = false;
   })
 
 // Iteration 3 using async/await
@@ -106,6 +108,7 @@ async function makeBroccoli() {
         document.querySelector("#broccoli").innerHTML += `<li>${stepI}</li>`;
         if(i === 6){
           document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+          document.querySelector("#broccoliImg").hidden = false;
         }
       });
   }
