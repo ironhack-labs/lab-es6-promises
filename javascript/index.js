@@ -98,7 +98,20 @@ obtainInstruction('steak', 0)
 // Iteration 3 using async/await
 // ...
 
+async function makeBroccoli() {
+  // ... Your code here
+  for(let i = 0 ; i < 7 ; i++){
+    await obtainInstruction('broccoli', i)
+    .then((stepI) => {
+        document.querySelector("#broccoli").innerHTML += `<li>${stepI}</li>`;
+        if(i === 6){
+          document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+        }
+      });
+  }
+}
 
+makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
