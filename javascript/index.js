@@ -44,7 +44,6 @@ getInstruction('mashedPotatoes', 0, (step0) => {
 
           getInstruction('mashedPotatoes', 4, (step4) => {
             document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`
-
             document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`
             document.querySelector("#mashedPotatoesImg").hidden = false;
           });  
@@ -61,9 +60,7 @@ obtainInstruction('steak', 0)
     //  ... Your code here
     return obtainInstruction('steak', 1);
   })
-
   // ... Your code here
-
   .then( (step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
     return obtainInstruction('steak', 2);
@@ -91,8 +88,7 @@ obtainInstruction('steak', 0)
 
   })
   .then( (step7) => {
-    document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
-    
+    document.querySelector("#steak").innerHTML += `<li>${step7}</li>`    
     document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
     document.querySelector("#steakImg").hidden = false;
   })
@@ -103,14 +99,12 @@ obtainInstruction('steak', 0)
 async function makeBroccoli() {
   // ... Your code here
   for(let i = 0 ; i < 7 ; i++){
-    await obtainInstruction('broccoli', i)
-    .then((stepI) => {
-        document.querySelector("#broccoli").innerHTML += `<li>${stepI}</li>`;
-        if(i === 6){
-          document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
-          document.querySelector("#broccoliImg").hidden = false;
-        }
-      });
+    const stepI = await obtainInstruction('broccoli', i);
+    document.querySelector("#broccoli").innerHTML += `<li>${stepI}</li>`;
+    if(i === 6){
+      document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+      document.querySelector("#broccoliImg").hidden = false;
+    }
   }
 }
 
@@ -118,3 +112,23 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
+Promise.all([ obtainInstruction('brusselsSprouts', 0) ,
+              obtainInstruction('brusselsSprouts', 1) , 
+              obtainInstruction('brusselsSprouts', 2) , 
+              obtainInstruction('brusselsSprouts', 3) , 
+              obtainInstruction('brusselsSprouts', 4) ,
+              obtainInstruction('brusselsSprouts', 5) ,
+              obtainInstruction('brusselsSprouts', 6) , 
+              obtainInstruction('brusselsSprouts', 7) ])
+  .then(([ step0 , step1 , step2 , step3 , step4 , step5 , step6 , step7 ]) => { 
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step2}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step3}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step4}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step5}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step6}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step7}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").hidden = false;
+});
