@@ -169,7 +169,7 @@ async function makeBroccoli() {
   document.querySelector("#broccoliImg").removeAttribute("hidden");
 }
 
-makeBroccoli();
+makeBrusselsSprouts();
 const step0 = obtainInstruction("brusselsSprouts", 0);
 const step1 = obtainInstruction("brusselsSprouts", 1);
 const step2 = obtainInstruction("brusselsSprouts", 2);
