@@ -4,6 +4,7 @@
 // 🚨🚨🚨 Comment out the below code before you start working on the code
 
 // Out of sync
+/*
 getInstruction(
   "mashedPotatoes",
   0,
@@ -49,6 +50,7 @@ getInstruction(
   },
   (error) => console.log(error)
 );
+*/
 
 // Iteration 1 - using callbacks
 getInstruction(
