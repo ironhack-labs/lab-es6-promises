@@ -28,7 +28,6 @@
 
 
 // Iteration 1 - using callbacks
-// hello world
 getInstruction('mashedPotatoes',0,(step0) => {
   document.querySelector('#mashedPotatoes').innerHTML += `<li>${step0}</li>`;
   getInstruction('mashedPotatoes',1,(step1)=> {
@@ -45,7 +44,7 @@ getInstruction('mashedPotatoes',0,(step0) => {
 
 
 // Iteration 2 - using promises
-// ...
+
 obtainInstruction('steak', 0)
   .then((step0) => {
     document.querySelector('#steak').innerHTML += `<li>${step0}</li>`;
@@ -82,7 +81,16 @@ obtainInstruction('steak', 0)
   .catch(error =>console.log(error))
 
 // Iteration 3 using async/await
-// ...
+async function makeBroccoli() {
+  for (let i=0; i<7; i++){
+   await obtainInstruction('broccoli', i)
+   .then((stepX) => {
+     document.querySelector('#broccoli').innerHTML += `<li>${stepX}</li>`
+   })
+   .catch(error => console.log(error)) 
+  }
+}
 
+makeBroccoli()
 // // Bonus 2 - Promise all
 // // ...
