@@ -54,7 +54,7 @@ getInstruction("mashedPotatoes", 0, (step1) => {
 obtainInstruction('steak', 0)
   .then( (step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
-    return obtainInstruction('steak', 1);
+    return obtainInstruction('steak', 1);        //why not resolve()? we are handling, not creating a promise
   })
   .then( (step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
@@ -118,8 +118,9 @@ makeBroccoli();
 
 //Bonus 1 
 document.querySelector("#steakImg").removeAttribute("hidden");
-//document.querySelector("#steakImg").setAttribute("hidden", "") - why not?
-//document.querySelector("#steakImg").style.visibility = "visible";  - why not?
+//document.querySelector("#steakImg").setAttribute("hidden", ""); // key-value pair - here: no key to access!
+//document.querySelector("#steakImg").style.visibility = "visible"; 
+
 document.querySelector("#broccoliImg").removeAttribute("hidden");
 document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 
@@ -130,13 +131,11 @@ for (let i = 0; i < brusselsSprouts.length; i++) {
 }
 
 const allBrusselsSproutsPromises = Promise.all(brusselsSproutPromises);
-
-console.log(allBrusselsSproutsPromises)
 allBrusselsSproutsPromises
   .then((stepArray) => {
     for (let i = 0; i < stepArray.length; i++) {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${stepArray[i]}</li>`
-    }
+    };
   })
   .catch(error => {
     console.log(error);
