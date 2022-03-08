@@ -115,9 +115,9 @@ After the last step, you should display an additional `<li>` with the text: `Mas
 
 
 
-## Iteration 2 | Make the stake with promises
+## Iteration 2 | Make the steak with promises
 
-Using promises and the `then()` statement print the directions to display the cooking instruction for the Stake in the correct order. This time, you will have to call the function `obtainInstruction` which returns a pending Promise.
+Using promises and the `then()` statement print the directions to display the cooking instruction for the steak in the correct order. This time, you will have to call the function `obtainInstruction` which returns a pending Promise.
 
 Continue working in the `javascript/index.js`. You should not alter the `obtainInstruction.js` file.
 
@@ -133,7 +133,7 @@ obtainInstruction('steak', 0)
 
 
 
-After the last step, you should display an additional `<li>` with the text: `Stake is ready!`.
+After the last step, you should display an additional `<li>` with the text: `Steak is ready!`.
 
 
 
