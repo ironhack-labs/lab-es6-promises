@@ -50,6 +50,9 @@ getInstruction(
             document.querySelector(
               "#mashedPotatoes"
             ).innerHTML += `<li>The Mash Is ready</li>`;
+            document
+              .getElementById("mashedPotatoesImg")
+              .removeAttribute("hidden");
           });
         });
       });
@@ -105,6 +108,10 @@ obtainInstruction("steak", 0)
                           })
                           .then(() =>
                             obtainInstruction("steak", 7).then((step7) => {
+                              document
+                                .getElementById("steakImg")
+                                .removeAttribute("hidden");
+
                               document.querySelector(
                                 "#steak"
                               ).innerHTML += `<li>${step7}</li>`;
@@ -117,10 +124,60 @@ obtainInstruction("steak", 0)
       )
   );
 
-//  what is life?
-
 // Iteration 3 using async/await
 // ...
+async function makeBrocoli() {
+  const renderStep = (res) => {
+    document.querySelector("#broccoli").innerHTML += `<li>${res}</li>`;
+  };
+  const step0 = await obtainInstruction("broccoli", 0).then((res) =>
+    renderStep(res)
+  );
+  const step2 = await obtainInstruction("broccoli", 2).then((res) =>
+    renderStep(res)
+  );
+  const step3 = await obtainInstruction("broccoli", 3).then((res) =>
+    renderStep(res)
+  );
+  const step4 = await obtainInstruction("broccoli", 4).then((res) =>
+    renderStep(res)
+  );
+  const step5 = await obtainInstruction("broccoli", 5).then((res) =>
+    renderStep(res)
+  );
+  const step6 = await obtainInstruction("broccoli", 6).then((res) =>
+    renderStep(res)
+  );
+
+  document.querySelector(
+    "#broccoli"
+  ).innerHTML += `<li>Broccoli is ready!</li>`;
+
+  document.getElementById("broccoliImg").removeAttribute("hidden");
+}
+makeBrocoli();
 
 // Bonus 2 - Promise all
 // ...
+async function Brussel() {
+  const renderStep = (res) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${res}</li>`;
+  };
+
+  const step0 = await obtainInstruction("brusselsSprouts", 0);
+  const step1 = await obtainInstruction("brusselsSprouts", 1);
+  const step2 = await obtainInstruction("brusselsSprouts", 2);
+  const step3 = await obtainInstruction("brusselsSprouts", 3);
+  const step4 = await obtainInstruction("brusselsSprouts", 4);
+  const step5 = await obtainInstruction("brusselsSprouts", 5);
+  const step6 = await obtainInstruction("brusselsSprouts", 6);
+
+  Promise.all([step0, step1, step2, step3, step3, step4, step5, step6]).then(
+    (values) =>
+      values.forEach((val) => {
+        renderStep(val);
+      })
+  );
+  document.getElementById("brusselsSproutsImg").removeAttribute("hidden");
+}
+Brussel();
