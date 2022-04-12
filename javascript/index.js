@@ -50,33 +50,34 @@ getInstruction('mashedPotatoes', 0, (step0) => {
 
 // Iteration 2 - using promises
 
-obtainInstruction('steak', 0)
+  obtainInstruction('steak', 0)
   .then( (step0) => {
-    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`})
-  .then(() => 
-  obtainInstruction('steak', 1) )
-  .then( (step1) => { 
-      document.querySelector("#steak").innerHTML += `<li>${step1}</li>`})
-  .then(() => 
-  obtainInstruction('steak', 2) )
+    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
+    return obtainInstruction('steak', 1)
+  })
+  .then((step1) => {
+    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
+    return obtainInstruction('steak', 2) 
+  })
   .then( (step2) => { 
-      document.querySelector("#steak").innerHTML += `<li>${step2}</li>`})
-  .then(() => 
-  obtainInstruction('steak', 3) )
-  .then( (step3) => { 
-      document.querySelector("#steak").innerHTML += `<li>${step3}</li>`})
-  .then(() => 
-  obtainInstruction('steak', 4) )
-  .then( (step4) => { 
-      document.querySelector("#steak").innerHTML += `<li>${step4}</li>`})
-  .then(() => 
-  obtainInstruction('steak', 5) )
-  .then( (step5) => { 
-      document.querySelector("#steak").innerHTML += `<li>${step5}</li>`})
-  .then(() => 
-  obtainInstruction('steak', 6) )
-  .then( (step6) => { 
-    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`})
+    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
+    return obtainInstruction('steak', 3) 
+  })
+  .then( (step3) => {     
+    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
+    return obtainInstruction('steak', 4)
+  })    
+  .then( (step4) => {     
+    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
+    return obtainInstruction('steak', 5)    
+  })    
+  .then( (step5) => {     
+    document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
+    return obtainInstruction('steak', 6)
+  })  
+  .then( (step6) => {     
+    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
+  })
   .finally(() => {
     document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`
     document.querySelector("#steakImg").removeAttribute("hidden");
@@ -120,7 +121,7 @@ const bsSteps = [
   obtainInstruction('brusselsSprouts',4),
   obtainInstruction('brusselsSprouts',5),
   obtainInstruction('brusselsSprouts',6),
-  obtainInstruction('brusselsSprouts',7)]
+  obtainInstruction('brusselsSprouts',7)];
 
   Promise.all( bsSteps )
   .then((steps) => {
@@ -132,7 +133,7 @@ const bsSteps = [
   });
 
 /*
-// Long Way: 
+// Longer Way: 
 const bsStep0 = obtainInstruction('brusselsSprouts',0);
 const bsStep1 = obtainInstruction('brusselsSprouts',1);
 const bsStep2 = obtainInstruction('brusselsSprouts',2);
