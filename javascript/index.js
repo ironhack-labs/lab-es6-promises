@@ -146,9 +146,11 @@ let brusselsSproutsArray = [
   bsStep8,
 ];
 
-Promise.all(brusselsSproutsArray).then((brusselsSproutsArray.forEach((step) => {
+console.log(brusselsSproutsArray)
+
+Promise.all(brusselsSproutsArray).then((brusselsSproutsArray) => brusselsSproutsArray.forEach((step) => {
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
-})))
+}))
 
 document.querySelector(
   "#brusselsSprouts"
