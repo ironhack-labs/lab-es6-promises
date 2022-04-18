@@ -40,50 +40,40 @@ We provided you with some starter code:
 - `javascript/getInstruction.js` - contains a function **`getInstruction`** that **uses callbacks** to asynchronously retrieve instruction steps for any food. It uses `setTimeout` to mimic an asynchronous operation.
 
   ```js
-  getInstruction(food, step, callback, errorCallback)
+  getInstruction(food, step, callback, errorCallback);
   ```
 
   :exclamation: **You should not make any changes in this file.**
 
-  
-
-- `javascript/obtainInstruction.js` - has a function **`obtainInstruction`**  that **uses promises** to asynchronously retrieve instruction steps for any food. It also uses `setTimeout` to mimic an asynchronous operation.
+- `javascript/obtainInstruction.js` - has a function **`obtainInstruction`** that **uses promises** to asynchronously retrieve instruction steps for any food. It also uses `setTimeout` to mimic an asynchronous operation.
 
   ```js
-  obtainInstruction(food, step)
+  obtainInstruction(food, step);
   ```
 
   :exclamation: **You should not make any changes to this file either.**
 
-  
-
-- `javascript/index.js` - in this file we left an example to show you how the code should execute. However, the provided code doesn't use nested callbacks or promises *yet*, which is why the steps won't print in the correct order. Your task in the first iteration will be to do this properly, but more on that later. 
+- `javascript/index.js` - in this file we left an example to show you how the code should execute. However, the provided code doesn't use nested callbacks or promises _yet_, which is why the steps won't print in the correct order. Your task in the first iteration will be to do this properly, but more on that later.
 
 - `index.html` - contains a base HTML structure needed so no need to add any code there. Previously mentioned JavaScript files are already linked to the `index.html`. The `data.js` loads first to make sure arrays that hold instructions are already loaded and can be used in other files, where we need them.  
   :exclamation: **You should not make any changes to this file.**
 
+### Out of sync
 
-
-### Out of sync 
-
- **You should write your code <u>only</u> in the `javascript/index.js` file.** 
+**You should write your code <u>only</u> in the `javascript/index.js` file.**
 
 Now, open the file and take a look at the starter code provided there. The provided code doesn't use nested callbacks to enforce a sequence of execution, which is why the steps are not displayed in the correct order.
 
-Go ahead and open the `index.html` page in the browser. Notice how the cooking steps are displayed out of order. 
-
+Go ahead and open the `index.html` page in the browser. Notice how the cooking steps are displayed out of order.
 
 <details>
   <summary><b>Screenshot</b></summary>
 
-  ![Steps out of sync](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-out-of-sync.gif)
+![Steps out of sync](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-out-of-sync.gif)
 
 </details>
 
-
-
 :exclamation: Before you start working on Iteration 1, comment out the initial code in `javascript/index.js`.
-
 
 <br>
 
@@ -93,18 +83,14 @@ Using nested callbacks print the cooking steps to make Mashed Potatoes in the co
 
 ```javascript
 // Iteration 1 - using callbacks
-getInstruction('mashedPotatoes', 0, (step0) => {
-  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`
+getInstruction("mashedPotatoes", 0, (step0) => {
+  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`;
   // ... Your code here
-    // ...
+  // ...
 });
 ```
 
-
-
 After the last step, you should display an additional `<li>` with the text: `Mashed potatoes are ready!`.
-
-
 
 <details>
   <summary><b>Expected Result</b></summary>
@@ -112,8 +98,6 @@ After the last step, you should display an additional `<li>` with the text: `Mas
 ![Iteration 1 expected result](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-1-result.gif)
 
 </details>
-
-
 
 ## Iteration 2 | Make the stake with promises
 
@@ -123,19 +107,14 @@ Continue working in the `javascript/index.js`. You should not alter the `obtainI
 
 ```javascript
 // Iteration 2 - using promises
-obtainInstruction('steak', 0)
-  .then( (step0) => {
-    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
-    //  ... Your code here
-  })
-  // ... Your code here
+obtainInstruction("steak", 0).then((step0) => {
+  document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+  //  ... Your code here
+});
+// ... Your code here
 ```
 
-
-
 After the last step, you should display an additional `<li>` with the text: `Stake is ready!`.
-
-
 
 <details>
   <summary><b>Expected Result</b></summary>
@@ -143,8 +122,6 @@ After the last step, you should display an additional `<li>` with the text: `Sta
 ![Iteration 2 expected result](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-2-result.gif)
 
 </details>
-
-
 
 ## Iteration 3 | Make the broccoli with async/await
 
@@ -156,11 +133,7 @@ async function makeBroccoli() {
 }
 ```
 
-
-
 After the last step, you should display an additional `<li>` with the text: `Broccoli is ready!`.
-
-
 
 <details>
   <summary><b>Expected Result</b></summary>
@@ -169,13 +142,9 @@ After the last step, you should display an additional `<li>` with the text: `Bro
 
 </details>
 
-
-
 ## Bonus 1
 
 When the specific food is ready to be served (all steps are listed), remove the `hidden` attribute from the `<img />` element that represents the food, so that the image gets displayed.
-
-
 
 <details>
   <summary><b>Expected Result</b></summary>
@@ -189,8 +158,6 @@ When the specific food is ready to be served (all steps are listed), remove the 
 Using `Promise.all` display the cooking steps to make Brussels Sprouts in the correct order.
 
 After the last step, you should display an additional `<li>` with the text: `Brussels sprouts are ready!`.
-
-
 
 **The final result should look like this - with all the cooking steps displaying in the correct order**:
 
