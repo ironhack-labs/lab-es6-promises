@@ -138,4 +138,22 @@ makeBroccoli()
 
 
 // Bonus 2 - Promise all
-// ...
+let promise1 = obtainInstruction('brusselsSprouts', 0);
+let promise2 = obtainInstruction('brusselsSprouts', 1);
+let promise3 = obtainInstruction('brusselsSprouts', 2);
+let promise4 = obtainInstruction('brusselsSprouts', 3);
+let promise5 = obtainInstruction('brusselsSprouts', 4);
+let promise6 = obtainInstruction('brusselsSprouts', 5);
+let promise7 = obtainInstruction('brusselsSprouts', 6);
+let promise8 = obtainInstruction('brusselsSprouts', 7);
+
+let arrOfPromise = [promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8]
+Promise.all(arrOfPromise)
+  .then((response) => {
+
+    for (let i = 0; i < response.length; i++) {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[i]}</li>`;
+    }
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>'Brussels Sprouts is ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
