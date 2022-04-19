@@ -11,7 +11,7 @@ const steak = [
 
 const mashedPotatoes = [
   "boil water",
-  "tear open bag of of instant potato mix and pour into bowl",
+  "tear open bag of instant potato mix and pour into bowl",
   "pour in water",
   "mix",
   "enjoy",
