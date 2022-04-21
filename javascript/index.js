@@ -94,14 +94,9 @@ getSteakProm(0)
 function getBroccoliProm(step){
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      let ready = step==7 ? document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`:
+      let broccoliOptions = step==7 ? document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`:
       step>=8 ? document.getElementById('broccoliImg').removeAttribute('hidden') :
       document.querySelector("#broccoli").innerHTML += `<li>${broccoli[step]}</li>`; 
-/*       let ready = step>=7 ? document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`:
-      document.querySelector("#broccoli").innerHTML += `<li>${broccoli[step]}</li>`; */
-/*       let ready = step>=7 ? document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`: 
-      step>=8 ? document.getElementById('broccoliImg').removeAttribute('hidden');
-      document.querySelector("#broccoli").innerHTML += `<li>${broccoli[step]}</li>`; */
       resolve();
     }, Math.floor(Math.random() * 1000));
   })
@@ -127,4 +122,13 @@ const getBroccoli = async () => {
 getBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+
+const brusselSproutArr = [];
+for(let i=0; i<=(brusselsSprouts.length+1); i++){
+  let brusselsOptions = i==7 ? brusselSproutArr.push(document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`) :
+  i>=8 ? brusselSproutArr.push(document.getElementById('brusselsSproutsImg').removeAttribute('hidden')) :
+  brusselSproutArr.push(document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[i]}</li>`);
+}
+
+
+Promise.all(brusselSproutArr);
