@@ -49,6 +49,38 @@ getInstruction("mashedPotatoes", 0, (step1) => {
 
 // Iteration 2 - using promises
 
+function getSteakProm(step) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      document.querySelector("#steak").innerHTML += `<li>${steak[step]}</li>`;
+      resolve();
+    }, Math.floor(Math.random() * 1000));
+  })
+}
+
+getSteakProm(0)
+.then(() => {
+  return getSteakProm(1);
+})
+.then(()=>{
+  return getSteakProm(2);
+})
+.then(()=>{
+  return getSteakProm(3);
+})
+.then(()=>{
+  return getSteakProm(4);
+})
+.then(()=>{
+  return getSteakProm(5);
+})
+.then(()=>{
+  return getSteakProm(6);
+})
+.then(()=>{
+  return getSteakProm(7);
+})
+.catch(() => console.error('err'));
 
 // Iteration 3 using async/await
 // ...
