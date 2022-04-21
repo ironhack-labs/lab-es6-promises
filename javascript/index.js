@@ -59,7 +59,7 @@ function getSteakProm(step) {
 }
 
 getSteakProm(0)
-.then(() => {
+.then(()=>{
   return getSteakProm(1);
 })
 .then(()=>{
@@ -80,30 +80,34 @@ getSteakProm(0)
 .then(()=>{
   return getSteakProm(7);
 })
+.then(()=>{
+  document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
+})
 .catch(()=>console.error('err'));
 
 // Iteration 3 using async/await
-// brusselsSprouts 7 steps
 
-function getSproutsProm(step){
+function getBroccoliProm(step){
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[step]}</li>`;
+      let ready = step>=7 ? document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`:
+      document.querySelector("#broccoli").innerHTML += `<li>${broccoli[step]}</li>`;
       resolve();
     }, Math.floor(Math.random() * 1000));
   })
 }
 
+
 const getAllSprouts = async () => {
   try{
-    await getSproutsProm(0);
-    await getSproutsProm(1);
-    await getSproutsProm(2);
-    await getSproutsProm(3);
-    await getSproutsProm(4);
-    await getSproutsProm(5);
-    await getSproutsProm(6);
-    await getSproutsProm(7);
+    await getBroccoliProm(0);
+    await getBroccoliProm(1);
+    await getBroccoliProm(2);
+    await getBroccoliProm(3);
+    await getBroccoliProm(4);
+    await getBroccoliProm(5);
+    await getBroccoliProm(6);
+    await getBroccoliProm(7);
   }catch(error){
     console.log(error);
   }
