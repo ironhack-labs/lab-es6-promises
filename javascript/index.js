@@ -161,21 +161,44 @@ obtainInstruction("steak", 0)
 // }
 // Iteration 3 using async/await
 // ...
-async function makeBroccoli() {
-  // ... Your code here
-  for (let i = 0; i < broccoli.length; i++) {
-    await obtainInstruction("broccoli", i).then((step) => {
-      document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
-    });
-  }
-  //last list element to print
+// async function makeBroccoli() {
+//   // ... Your code here
+//   for (let i = 0; i < broccoli.length; i++) {
+//     await obtainInstruction("broccoli", i).then((step) => {
+//       document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
+//     });
+//   }
+//   //last list element to print
+//   document.querySelector(
+//     "#broccoli"
+//   ).innerHTML += `<li>Broccoli is ready!</li>`;
+
+//   document.querySelector("#broccoliImg").removeAttribute("hidden");
+// }
+// makeBroccoli();
+
+async function myFunc() {
+  let step1 = await obtainInstruction("broccoli", 0);
+  document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`;
+  let step2 = await obtainInstruction("broccoli", 1);
+  document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`;
+  let step3 = await obtainInstruction("broccoli", 2);
+  document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`;
+  let step4 = await obtainInstruction("broccoli", 3);
+  document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`;
+  let step5 = await obtainInstruction("broccoli", 4);
+  document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
+  let step6 = await obtainInstruction("broccoli", 5);
+  document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
+  let step7 = await obtainInstruction("broccoli", 6);
+  document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
   document.querySelector(
     "#broccoli"
-  ).innerHTML += `<li>Broccoli is ready!</li>`;
-
+  ).innerHTML += `<li>${"Broccoli is ready!"}</li>`;
   document.querySelector("#broccoliImg").removeAttribute("hidden");
 }
-makeBroccoli();
+
+myFunc();
 
 // Bonus 2 - Promise all
 // ...
