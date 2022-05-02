@@ -104,6 +104,7 @@ obtainInstruction("steak", 0).then((step1) => {
                 document.querySelector(
                   "#steak"
                 ).innerHTML += `<li>${"Steak is ready!"}</li>`;
+                document.getElementById("steakImg").removeAttribute("hidden");
               });
             });
           });
@@ -135,6 +136,7 @@ async function makeBroccoli() {
     document.querySelector(
       "#broccoli"
     ).innerHTML += `<li>${"Broccoli is ready!"}</li>`;
+    document.getElementById("broccoliImg").removeAttribute("hidden");
   } catch (error) {
     console.log(error);
   }
@@ -143,4 +145,24 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+
+Promise.all([
+  brusselsSprouts[0],
+  brusselsSprouts[1],
+  brusselsSprouts[2],
+  brusselsSprouts[3],
+  brusselsSprouts[4],
+  brusselsSprouts[5],
+  brusselsSprouts[6],
+  brusselsSprouts[7],
+]).then((result) => {
+  result.forEach((e, i) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${e}</li>`;
+    if (i + 1 >= brusselsSprouts.length) {
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+      document.getElementById("brusselsSproutsImg").removeAttribute("hidden");
+    }
+  });
+});
