@@ -148,20 +148,15 @@ async function myFunc() {
 
 myFunc();
 // Bonus 2 - Promise all
-/*  brusselsSprouts.forEach((e, i) => {
-  obtainInstruction("brusselsSprouts", i).then((step) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
-  });
-}); */
 Promise.all([
-  brusselsSprouts[0],
-  brusselsSprouts[1],
-  brusselsSprouts[2],
-  brusselsSprouts[3],
-  brusselsSprouts[4],
-  brusselsSprouts[5],
-  brusselsSprouts[6],
-  brusselsSprouts[7],
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 2),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
+  obtainInstruction("brusselsSprouts", 7),
 ]).then((result) => {
   result.forEach((e, i) => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${e}</li>`;
