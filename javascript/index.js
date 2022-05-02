@@ -177,14 +177,18 @@ Promise.all([
   obtainInstruction("brusselsSprouts", 5),
   obtainInstruction("brusselsSprouts", 6),
 ])
-  .then((values) =>
-    values.forEach((el, index) => {
-      document.querySelector(
-        "#brusselsSprouts"
-      ).innerHTML += `<li>${values[index]}</li>`;
-    })
+  .then(
+    (values) =>
+      values.forEach((el, index) => {
+        document.querySelector(
+          "#brusselsSprouts"
+        ).innerHTML += `<li>${values[index]}</li>`;
+      })(
+        (document.querySelector(
+          "#brusselsSprouts"
+        ).innerHTML += `<li>Brussels sprouts are ready!</li>`)
+      ),
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
   )
-  .then(() => {
-    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-  })
+
   .catch((err) => console.log(err));
