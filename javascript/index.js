@@ -179,5 +179,21 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
-obtainInstruction("brusselsSprouts", i);
-Promise.all();
+const p1 = obtainInstruction("brusselsSprouts", 0);
+const p2 = obtainInstruction("brusselsSprouts", 1);
+const p3 = obtainInstruction("brusselsSprouts", 2);
+const p4 = obtainInstruction("brusselsSprouts", 3);
+const p5 = obtainInstruction("brusselsSprouts", 4);
+const p6 = obtainInstruction("brusselsSprouts", 5);
+const p7 = obtainInstruction("brusselsSprouts", 6);
+const p8 = obtainInstruction("brusselsSprouts", 7);
+Promise.all([p1, p2, p3, p4, p5, p6, p7]).then((values) => {
+  values.forEach(
+    (e) =>
+      (document.querySelector("#brusselsSprouts").innerHTML += `<li>${e}</li>`)
+  );
+  document.querySelector(
+    "#brusselsSprouts"
+  ).innerHTML += `<li>Brussels sprouts are ready</li>`;
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+});
