@@ -148,13 +148,13 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>${stepTwo}</li>`;
     let stepThree = await obtainInstruction("brusselsSprouts", 2);
     document.querySelector("#broccoli").innerHTML += `<li>${stepThree}</li>`;
-    let stepFour = await obtainInstruction("brusselsSprouts", 2);
+    let stepFour = await obtainInstruction("brusselsSprouts", 3);
     document.querySelector("#broccoli").innerHTML += `<li>${stepFour}</li>`;
-    let stepFive = await obtainInstruction("brusselsSprouts", 2);
+    let stepFive = await obtainInstruction("brusselsSprouts", 4);
     document.querySelector("#broccoli").innerHTML += `<li>${stepFive}</li>`;
-    let stepSix = await obtainInstruction("brusselsSprouts", 2);
+    let stepSix = await obtainInstruction("brusselsSprouts", 5);
     document.querySelector("#broccoli").innerHTML += `<li>${stepSix}</li>`;
-    let stepSeven = await obtainInstruction("brusselsSprouts", 2);
+    let stepSeven = await obtainInstruction("brusselsSprouts", 6);
     document.querySelector("#broccoli").innerHTML += `<li>${stepSeven}</li>`;
     let stepEight = "Broccoli is ready!";
     document.querySelector("#broccoli").innerHTML += `<li>${stepEight}</li>`;
@@ -169,19 +169,22 @@ makeBroccoli();
 // ...
 
 Promise.all([
-  obtainInstruction("#brusselsSprouts", 0),
-  obtainInstruction("#brusselsSprouts", 1),
-  obtainInstruction("#brusselsSprouts", 2),
-  obtainInstruction("#brusselsSprouts", 3),
-  obtainInstruction("#brusselsSprouts", 4),
-  obtainInstruction("#brusselsSprouts", 5),
-  obtainInstruction("#brusselsSprouts", 6),
-  obtainInstruction("#brusselsSprouts", 7),
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 2),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
 ])
-  .then(
-    (values) =>
-      (document.querySelector(
+  .then((values) =>
+    values.forEach((el, index) => {
+      document.querySelector(
         "#brusselsSprouts"
-      ).innerHTML += `<li>${values}</li>`)
+      ).innerHTML += `<li>${values[index]}</li>`;
+    })
   )
+  .then(() => {
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
   .catch((err) => console.log(err));
