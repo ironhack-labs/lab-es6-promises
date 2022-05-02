@@ -144,6 +144,8 @@ Promise.all([step0, step1, step2, step3, step4, step5, step6, step7])
     document.querySelector('#brusselsSprouts').innerHTML += `<li>${values[i]}</li>`
   }
   document.querySelector('#brusselsSprouts').innerHTML += `<li>Brussels sprouts are ready!</li>`;
-  document.querySelector("#brusselsSprouts").removeAttribute("hidden")
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
 })
 .catch((err) => console.log("chatch()", err));
+
+
