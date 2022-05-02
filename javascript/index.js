@@ -76,7 +76,7 @@ obtainInstruction('steak', 0)
   document.querySelector("#steak").innerHTML += `<li>${step7}</li>
   <li>Stake is ready!</li>`
   document.querySelector("#steakImg").removeAttribute("hidden")
-}).catch((err) => console.log("catch() -> ", err));
+}).catch((err) => console.log(err));
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
