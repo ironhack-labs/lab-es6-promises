@@ -136,7 +136,7 @@ Promise.all([
     brusselsSproutsEl.innerHTML += `<li>${step}</li>`;
   });
 
-  brusselsSproutsEl.innerHTML += `<li>Brussels Sprouts is ready!</li>`;
+  brusselsSproutsEl.innerHTML += `<li>Brussels Sprouts are ready!</li>`;
   document.querySelector(`#brusselsSproutsImg`).removeAttribute(`hidden`);
 })
 .catch(error => {
