@@ -95,15 +95,64 @@ getInstruction(
 obtainInstruction("steak", 0)
   .then((step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
-
+    return obtainInstruction("steak", 1);
     //  ... Your code here
   })
-  .then(() => obtainInstruction("steak", 1))
-  .then(() => obtainInstruction("steak", 2));
+  .then((step1) => {
+    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
+    return obtainInstruction("steak", 2);
+    //  ... Your code here
+  })
+  .then((step2) => {
+    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
+    return obtainInstruction("steak", 3);
+    //  ... Your code here
+  })
+  .then((step3) => {
+    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`;
+    return obtainInstruction("steak", 4);
+    //  ... Your code here
+  })
+  .then((step4) => {
+    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`;
+    return obtainInstruction("steak", 5);
+    //  ... Your code here
+  })
+  .then((step5) => {
+    document.querySelector("#steak").innerHTML += `<li>${step5}</li>`;
+    return obtainInstruction("steak", 6);
+    //  ... Your code here
+  })
+  .then((step6) => {
+    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
+    return obtainInstruction("steak", 7);
+    //  ... Your code here
+  })
+  .then(() => {
+    document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+    //  ... Your code here
+  });
 // ... Your code here
 
 // Iteration 3 using async/await
 // ...
 
+async function makeBroccoli() {
+  // ... Your code here
+
+  obtainInstruction("broccoli", 0);
+  await obtainInstruction("broccoli", 1);
+}
+
+// obtainInstruction("broccoli", 0)
+//   .then((step0) => {
+//     document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`;
+//     return obtainInstruction("broccoli", 1);
+//   })
+//   .then((step1) => {
+//     document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`;
+//     return obtainInstruction("broccoli", 2);
+//   });
+makeBroccoli();
 // Bonus 2 - Promise all
 // ...
