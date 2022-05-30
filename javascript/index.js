@@ -96,7 +96,7 @@ obtainInstruction('steak', 0)
   });
 
 // Iteration 3 using async/await
-async function makeBroccoli() {
+(async function makeBroccoli() {
   try {
     const steps = [
       await obtainInstruction(`broccoli`, 0),
@@ -117,9 +117,7 @@ async function makeBroccoli() {
   } catch (error) {
     console.error(error);
   }
-}
-
-makeBroccoli();
+})()
 
 // Bonus 2 - Promise all
 Promise.all([
