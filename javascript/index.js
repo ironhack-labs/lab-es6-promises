@@ -155,6 +155,13 @@ makeBroccoli();
 // Bonus 2 - Promise all
 // ...
 
+//FASTER WAY OF GETTING ALL INSTRUCTIONS
+// let arrayOfPromises = [];
+
+// for (let i = 0; i < 7; i++){
+//   arrayOfPromises.push(obtainInstruction('brusselsSprouts', i))
+// }
+
 const p0 = obtainInstruction("brusselsSprouts", 0);
 const p1 = obtainInstruction("brusselsSprouts", 1);
 const p2 = obtainInstruction("brusselsSprouts", 2);
@@ -166,7 +173,7 @@ const p7 = obtainInstruction("brusselsSprouts", 7);
 
 const allSteps = Promise.all([p1, p2, p3, p4, p5, p6, p7]);
 
-console.log(allSteps);
+// console.log(allSteps);
 
 allSteps.then((values) => {
   for (let i = 0; i < values.length; i++) {
