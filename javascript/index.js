@@ -120,18 +120,37 @@ async function makeBroccoli() {
 
   let step6 = await obtainInstruction("broccoli",6);
   document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
-
-  let step7 = await obtainInstruction("broccoli",7);
-  document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
   
+  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
 }
 catch (error){
   console.log(error);
 }
-document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
 document.querySelector("#broccoliImg").removeAttribute("hidden");
 }
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+let step0 = obtainInstruction("brusselsSprouts", 0);
+let step1 = obtainInstruction("brusselsSprouts", 1);
+let step2 = obtainInstruction("brusselsSprouts", 2);
+let step3 = obtainInstruction("brusselsSprouts", 3);
+let step4 = obtainInstruction("brusselsSprouts", 4);
+let step5 = obtainInstruction("brusselsSprouts", 5);
+let step6 = obtainInstruction("brusselsSprouts", 6);
+let step7 = obtainInstruction("brusselsSprouts", 7);
+
+Promise.all([step0, step1, step2, step3, step4, step5, step6, step7])
+.then((values)=>{
+  console.log(values)
+  values.forEach((element) => 
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</i>`
+)}
+)
+.catch((error)=>
+console.log("catch()", error)
+)
+.finally(()=>
+document.querySelector("#brusselsSprouts").innerHTML += `<li> Brussels sprouts are ready!`
+)
+document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
