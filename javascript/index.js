@@ -117,15 +117,9 @@ async function makeBroccoli() {
 // Bonus 2 - Promise all
 makeBrusselsSprouts();
 async function makeBrusselsSprouts() {
-  let steps = [];
-  for (let i = 0; i < 8; i++) {
-    steps = [
-      ...steps,
-      obtainInstruction("brusselsSprouts", i).then((step) => {
-        return step;
-      }),
-    ];
-  }
+  let steps = [...Array(8).keys()].map((i) =>
+    obtainInstruction("brusselsSprouts", i).then((step) => step)
+  );
 
   Promise.all(steps)
     .then((results) => {
