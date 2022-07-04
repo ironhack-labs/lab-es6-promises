@@ -116,20 +116,21 @@ async function makeBroccoli(){
 makeBroccoli();
 
 // Bonus 2 - Promise all
-let promisesArray = [];
+const promisesArray = [];
 for (let i=0; i<8; i++) {
   promisesArray.push(obtainInstruction('brusselsSprouts', i));
 }
 
 Promise.all(promisesArray)
 .then( (promisesArray) => {
-  console.log("all promises have been successfull");
-  // document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`
-  
+  console.log("all promises have been successful");
+  for (let i=0; i<8; i++){
+    const step = promisesArray[i]
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
+  }
 })
-.then ( (dataArr) => {
-  document.querySelector("#brusselsSprout").innerHTML += `<li>${dataArr[0]}</li>`
-
+.then ( () => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready</li>`
 })
 .catch( () => {
   console.log('at least one promise failed')
