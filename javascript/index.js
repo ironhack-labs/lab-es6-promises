@@ -80,7 +80,7 @@ obtainInstruction('steak', 0)
     document.getElementById("steakImg").removeAttribute("hidden");    
   })
   .catch((error) => {
-    console.log(error);
+    throw console.error();
   })
 
 
@@ -105,13 +105,38 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
     document.getElementById("broccoliImg").removeAttribute("hidden");  
     
-
-  } catch (error) {console.log("BROCOLLI ERROR");}
-
- 
-  // ... Your code here
+  } catch (error) {
+    throw console.error();
+    }
 }
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+function makeSprouts() {
+
+  const sproutStepArr= [
+    obtainInstruction('brusselsSprouts', 0),
+    obtainInstruction('brusselsSprouts', 1),
+    obtainInstruction('brusselsSprouts', 2),
+    obtainInstruction('brusselsSprouts', 3),
+    obtainInstruction('brusselsSprouts', 4),
+    obtainInstruction('brusselsSprouts', 5),
+    obtainInstruction('brusselsSprouts', 6),
+    obtainInstruction('brusselsSprouts', 7)
+  ];
+
+  Promise.all(sproutStepArr) 
+    .then((sproutStepArr) => {
+      sproutStepArr.forEach((step, i) => {
+        document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+      })
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+      //console.log('all brussels Sprout promises were successfull');
+    })
+    .catch( () => {
+      //console.log('at least one promise failed');
+      throw console.error();
+    });
+}
+
+makeSprouts()
