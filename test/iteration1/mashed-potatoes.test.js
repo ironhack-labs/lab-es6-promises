@@ -1,6 +1,3 @@
-const { getInstruction } = require("../../javascript/getInstruction");
-const indexFunc = "../../javascript/index";
-
 beforeAll(() => {
   document.body.innerHTML = `
   <section id="steps">
@@ -28,7 +25,12 @@ beforeAll(() => {
 </section>`;
 });
 
-it("should contain a title with 'Mashed Potatoes' ", () => {
+it("should mashedPotatoes be defined' ", () => {
   const orderedListElement = document.querySelector("#mashedPotatoes");
   expect(orderedListElement).toBeDefined();
+});
+
+it("should mashedPotatoes be a ordered List' ", () => {
+  const orderedListElement = document.querySelector("#mashedPotatoes");
+  expect(orderedListElement.tagName).toMatch(/ol/i);
 });
