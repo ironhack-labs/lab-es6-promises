@@ -130,7 +130,8 @@ Promise.all(promisesArray)
   }
 })
 .then ( () => {
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready</li>`;
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 })
 .catch( () => {
   console.log('at least one promise failed')
