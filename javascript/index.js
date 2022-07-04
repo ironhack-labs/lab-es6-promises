@@ -56,7 +56,29 @@ getIngredientFor("mashedPotatoes", 0, () => {
 });
 
 // Iteration 2 - using promises
-// ...
+obtainInstruction("steak", 0).then((step0) => {
+  document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+  obtainInstruction("steak", 1).then((step0) => {
+    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+    obtainInstruction("steak", 2).then((step0) => {
+      document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+      obtainInstruction("steak", 4).then((step0) => {
+        document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+        obtainInstruction("steak", 5).then((step0) => {
+          document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+          obtainInstruction("steak", 6).then((step0) => {
+            document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+            obtainInstruction("steak", 7).then((step0) => {
+              document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+              document.querySelector("#steakImg").removeAttribute("hidden");
+            });
+          });
+        });
+      });
+    });
+  });
+});
+// ... Your code here
 
 // Iteration 3 using async/await
 // ...
