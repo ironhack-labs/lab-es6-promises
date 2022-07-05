@@ -47,27 +47,31 @@ getInstruction('mashedPotatoes', 0, (step0) => {
 
 // Iteration 2 - using promises
 
-for( let i = 0; i < 6; i++){
-    obtainInstruction('steak', i)
-    .then( (step) => {
-      document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-      return obtainInstruction('steak', i);
-    }).catch((error)=>{
-      console.log(`Error promise instruction:  ${error}`);
-    })
-}
-obtainInstruction('steak', 7)
-    .then( () => {
-      document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
-      return obtainInstruction('steak', 7);// step 7
-    })
-    .then( () => {
-      document.querySelector("#steakImg").removeAttribute("hidden");
-    })
-    .catch((error)=>{
-      console.log(`Error last promise instruction:  ${error}`);
-    })
+async function generateSteakInstruction() {
 
+  for( let i = 0; i < 6; i++){
+     await obtainInstruction('steak', i)
+      .then( (step) => {
+        document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+        return obtainInstruction('steak', i);
+      }).catch((error)=>{
+        console.log(`Error promise instruction:  ${error}`);
+      })
+  }
+  obtainInstruction('steak', 7)
+      .then( () => {
+        document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+        return obtainInstruction('steak', 7);// step 7
+      })
+      .then( () => {
+        document.querySelector("#steakImg").removeAttribute("hidden");
+      })
+      .catch((error)=>{
+        console.log(`Error last promise instruction:  ${error}`);
+      })
+}
+
+generateSteakInstruction()
 // Iteration 3 using async/await
 // ...
 
