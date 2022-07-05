@@ -31,7 +31,7 @@
 
 getInstruction('mashedPotatoes', 0, (step0) => {
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`;
-    getInstruction("mashedPotatoes", 0, (step1) => {
+    getInstruction("mashedPotatoes", 1, (step1) => {
       document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
         getInstruction("mashedPotatoes", 2, (step3) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
@@ -128,7 +128,7 @@ const arrayOfPromises = [step0, step1, step2, step3, step4, step5, step6];
 
 Promise.all(arrayOfPromises)
   .then((responseArr) => {
-    const resultArr = responseArr.map((response) => {
+    responseArr.map((response) => {
       return document.querySelector("#brusselsSprouts").innerHTML += `<li>${response}</li>`
     });
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${"Brussels sprouts are ready!"}</li>`;
