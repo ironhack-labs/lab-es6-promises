@@ -98,12 +98,11 @@ const p3 = async function makeBroccoli() {
   }
 }
 
-p3()
 
 // Bonus 2 - Promise all
 
 const p4 = obtainInstruction('brusselsSprouts', 0)
-const promises = [p1, p2, p3, p4]
+const promises = [p1, p2, p3(), p4]
 
 Promise.all([promises])
   .then(instruction0 => {
