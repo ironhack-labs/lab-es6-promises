@@ -64,10 +64,10 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`
     return obtainInstruction (`steak`,7)
   })
-  // .then( (step7) => {
-  //   document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
-  
-  // })
+  .then( (step7) => {
+    document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
+    document.querySelector("#steakImg").removeAttribute("hidden");
+  })
   .catch(err=>console.error(err))
 
 
@@ -86,10 +86,10 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`
     const step5 = await obtainInstruction (`broccoli`,5)
     document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`
-    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
     const step6 = await obtainInstruction (`broccoli`,6)
     document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`
-   
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`   
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
   }
  
   catch (err) {
@@ -97,5 +97,45 @@ async function makeBroccoli() {
   }
 }
 makeBroccoli()
+
+
 // Bonus 2 - Promise all
-// ...
+Promise.all(brusselsSprouts)
+.then((brusselsSprouts)=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[0]}</li>`
+      return brusselsSprouts
+  })
+.then((brusselsSprouts)=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[1]}</li>`
+      return brusselsSprouts
+  })
+.then((brusselsSprouts)=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[2]}</li>`
+      return brusselsSprouts
+  })
+.then((brusselsSprouts)=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[3]}</li>`
+      return brusselsSprouts
+  })
+.then((brusselsSprouts)=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[4]}</li>`
+      return brusselsSprouts
+  })
+.then((brusselsSprouts)=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[5]}</li>`
+      return brusselsSprouts
+  })
+.then((brusselsSprouts)=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[6]}</li>`
+      return brusselsSprouts
+  })
+.then((brusselsSprouts)=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[7]}</li>`
+      return brusselsSprouts
+  })
+.then(()=>{
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
+  .catch (err=> console.error(err))
+ 
