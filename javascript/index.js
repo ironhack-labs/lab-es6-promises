@@ -19,8 +19,8 @@
 
           getInstruction("mashedPotatoes", 4, (step5) => {
             document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
+            document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`
             document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
-
           }, (error) => console.log(error));
 
         }, (error) => console.log(error));
@@ -64,6 +64,7 @@ const p2 = obtainInstruction('steak', 0)
   })
   .then(instruction7 => {
     document.querySelector("#steak").innerHTML += `<li>${instruction7}</li>`
+    document.querySelector("#steak").innerHTML += `<li>Steake is ready!</li>`
     document.querySelector('#steakImg').removeAttribute("hidden")
   })
   .catch(err => console.log(err))
@@ -92,19 +93,54 @@ const p3 = async function makeBroccoli() {
 
     const instruction6 = await obtainInstruction('broccoli', 6)
     document.querySelector("#broccoli").innerHTML += `<li>${instruction6}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
     document.querySelector('#broccoliImg').removeAttribute("hidden")
   } catch(err) {
     console.error(err)
   }
 }
 
-
 // Bonus 2 - Promise all
 
-const p4 = obtainInstruction('brusselsSprouts', 0)
-const promises = [p1, p2, p3(), p4]
+const promises = [p1, p2, p3()]
+
+const p4 = async function makeBrusselSprouts() {
+  try {
+    const instruction0 = await obtainInstruction('brusselsSprouts', 0)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction0}</li>`
+
+    const instruction1 = await obtainInstruction('brusselsSprouts', 1)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction1}</li>`
+
+    const instruction2 = await obtainInstruction('brusselsSprouts', 2)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction2}</li>`
+
+    const instruction3 = await obtainInstruction('brusselsSprouts', 3)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction3}</li>`
+
+    const instruction4 = await obtainInstruction('brusselsSprouts', 4)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction4}</li>`
+
+    const instruction5 = await obtainInstruction('brusselsSprouts', 5)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction5}</li>`
+
+    const instruction6 = await obtainInstruction('brusselsSprouts', 6)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction6}</li>`
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+    document.querySelector('#brusselsSproutsImg').removeAttribute("hidden")
+  } catch(err) {
+    console.error(err)
+  }
+}
 
 Promise.all([promises])
+ .then(p4())
+ .catch(err => console.log(err))
+
+
+ /*  
+  Promise.all([promises])
+  obtainInstruction('brusselsSprouts', 0) // COMO HARÍA PARA PONER ESTO DENTRO DEL THEN
   .then(instruction0 => {
    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction0}</li>`
    return obtainInstruction('brusselsSprouts', 1)
@@ -135,7 +171,7 @@ Promise.all([promises])
   })
   .then(instruction7 => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction7}</li>`
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`    
     document.querySelector('#brusselsSproutsImg').removeAttribute("hidden")
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err)) */
