@@ -79,7 +79,7 @@ obtainInstruction('steak', 0)
   })
   .then ((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
-    document.querySelector("#steak").innerHTML += `<li>The steak is ready</li>`
+    document.querySelector("#steak").innerHTML += `<li>The steak is ready!</li>`
     document.getElementById("steakImg").removeAttribute("hidden")
   })
   .catch (() => {
@@ -114,7 +114,7 @@ async function makeBroccoli() {
     
     const step7 = await obtainInstruction('broccoli',6)
     document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`
-    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
 
     document.getElementById("broccoliImg").removeAttribute("hidden")
     
@@ -141,3 +141,26 @@ async function makeBroccoli() {
 
 // Bonus 2 - Promise all
 // ...
+Promise.all ([
+  obtainInstruction('brusselsSprouts',0),
+  obtainInstruction('brusselsSprouts', 1),
+  obtainInstruction('brusselsSprouts',2),
+  obtainInstruction('brusselsSprouts', 3),
+  obtainInstruction('brusselsSprouts',4),
+  obtainInstruction('brusselsSprouts', 5),
+  obtainInstruction('brusselsSprouts',6),
+  obtainInstruction('brusselsSprouts', 7),
+
+])
+.then (response =>  {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[0]}</li>` 
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[1]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[2]}</li>` 
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[3]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[4]}</li>` 
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[5]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[6]}</li>` 
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[7]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+  document.getElementById("brusselsSproutsImg").removeAttribute("hidden")
+})
