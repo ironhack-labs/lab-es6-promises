@@ -4,7 +4,7 @@
 // 🚨🚨🚨 Comment out the below code before you start working on the code
 
 // Out of sync
-  getInstruction("mashedPotatoes", 0, (step1) => {
+getInstruction("mashedPotatoes", 0, (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
   }, (error) => console.log(error));
   
@@ -29,14 +29,68 @@
 
 // Iteration 1 - using callbacks
 // ...
+// function requestRecipe (stepIndex, callback, callbackErr) {
+//   if (mashedPotatoes[stepIndex] === undefined) {
+//      callbackErr ("No existe este paso")
+//   }else {
+//     callback(mashedPotatoes[stepIndex])
+//   }
+// }
 
+// console.log(requestRecipe(0, requestRecipe1,err ))
 
+// requestRecipe1 (0, (response1) => {
+//   console.log(response1)
+// })
+
+// requestRecipe(mashedPotatoes)
 
 // Iteration 2 - using promises
 // ...
+obtainInstruction('steak', 0)
+  .then( (step0) => {
+    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
+  
+    return obtainInstruction('steak', 1)
+  })
+  .then ( (step1) => {
+    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
+    return obtainInstruction('steak', 2 )
+  })
+  .then ((step2) => {
+    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
+    return obtainInstruction('steak', 3 )
+  })
+  .then ((step3) => {
+    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
+    return obtainInstruction('steak', 4 )
+  })
+  .then( (step4) => {
+    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
+    return obtainInstruction('steak', 5)
+  })
+  .then ( (step5) => {
+    document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
+    return obtainInstruction('steak', 6 )
+  })
+  .then ((step6) => {
+    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
+    return obtainInstruction('steak', 7 )
+  })
+  .then ((step7) => {
+    document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
+    return obtainInstruction('steak', 8 )
+  })
+  .catch (() => {
+    console.log("No hay más pasos")
+  })
+   
+  
+  // ... Your code here
 
 // Iteration 3 using async/await
 // ...
+
 
 // Bonus 2 - Promise all
 // ...
