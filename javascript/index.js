@@ -79,7 +79,8 @@ obtainInstruction('steak', 0)
   })
   .then ((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
-    return obtainInstruction('steak', 8 )
+    document.querySelector("#steak").innerHTML += `<li>The steak is ready</li>`
+    document.getElementById("steakImg").removeAttribute("hidden")
   })
   .catch (() => {
     console.log("No hay más pasos")
@@ -89,6 +90,52 @@ obtainInstruction('steak', 0)
   // ... Your code here
 
 // Iteration 3 using async/await
+
+async function makeBroccoli() {
+
+  try{
+    const step1 = await obtainInstruction('broccoli',0)
+    document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`
+
+    const step2 = await obtainInstruction('broccoli',1)
+    document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`
+
+    const step3 = await obtainInstruction('broccoli',2)
+    document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`
+
+    const step4 = await obtainInstruction('broccoli',3)
+    document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`
+
+    const step5 = await obtainInstruction('broccoli',4)
+    document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`
+    
+    const step6 = await obtainInstruction('broccoli',5)
+    document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`
+    
+    const step7 = await obtainInstruction('broccoli',6)
+    document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready</li>`
+
+    document.getElementById("broccoliImg").removeAttribute("hidden")
+    
+
+
+
+
+
+
+    const step8 = await obtainInstruction('broccoli',7)
+    document.querySelector("#broccoli").innerHTML += `<li>${step8}</li>`
+    
+
+  } catch (err) {
+    console.log("Error")
+  }
+
+}
+ makeBroccoli()
+
+
 // ...
 
 
