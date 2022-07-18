@@ -38,7 +38,9 @@ getInstruction('mashedPotatoes', 0, (step0) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`
         getInstruction('mashedPotatoes', 4, (step4) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`
-  
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed Potatoes are ready !</li>`
+          document.getElementById("mashedPotatoesImg").removeAttribute("hidden")
+          
         });
       });
     });
@@ -78,6 +80,12 @@ obtainInstruction('steak', 0)
   .then(step7 =>{
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
   })
+  .then(()=>{
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready !</li>`
+  })
+  .then(()=>{
+    document.getElementById("steakImg").removeAttribute("hidden")
+  })
 
 
   // ... Your code here
@@ -86,19 +94,26 @@ obtainInstruction('steak', 0)
 
 const makeBroccoli = async ()=> {
   
+  const broccoli = document.getElementById("broccoli")
+
   try{
 
     const response1 = await obtainInstruction("broccoli", 0)
+    broccoli.innerHTML += `<li>${response1}</li>`
     const response2 = await obtainInstruction("broccoli", 1)
+    broccoli.innerHTML += `<li>${response2}</li>`
     const response3 = await obtainInstruction("broccoli", 2)
+    broccoli.innerHTML += `<li>${response3}</li>`
     const response4 = await obtainInstruction("broccoli", 3)
+    broccoli.innerHTML += `<li>${response4}</li>`
     const response5 = await obtainInstruction("broccoli", 4)
+    broccoli.innerHTML += `<li>${response5}</li>`
     const response6 = await obtainInstruction("broccoli", 5)
+    broccoli.innerHTML += `<li>${response6}</li>`
     const response7 = await obtainInstruction("broccoli", 6)
-
-    let steps = [response1, response2, response3, response4, response5, response6, response7]
-
-    console.log(steps)
+    broccoli.innerHTML += `<li>${response7}</li>`
+    broccoli.innerHTML += `<li>Broccoli is ready !</li>`
+    document.getElementById("broccoliImg").removeAttribute("hidden")
 
   }catch(error){
     console.log(error)
@@ -107,6 +122,7 @@ const makeBroccoli = async ()=> {
 }
 
 makeBroccoli()
+
 
 
 
