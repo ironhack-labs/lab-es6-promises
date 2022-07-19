@@ -126,5 +126,32 @@ makeBroccoli()
 
 
 
-// Bonus 2 - Promise all
-// ...
+// Bonus 2 - Promise all 
+
+const ret = (inst)=>{
+  return inst
+}
+
+const error = (err)=>{
+  console.error(err)
+}
+
+Promise.all([
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 2),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
+  obtainInstruction("brusselsSprouts", 7)
+])
+.then(response=>{
+  response.forEach(e=>{
+    document.getElementById("brusselsSprouts").innerHTML += `<li>${e}</li>`
+  })
+  document.getElementById("brusselsSproutsImg").removeAttribute("hidden")
+})
+.catch(error=>{
+  console.log(error)
+})
