@@ -34,7 +34,7 @@ getInstruction(
   0,
   (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
-    document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+    //document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
 
     getInstruction(
       "mashedPotatoes",
@@ -67,6 +67,9 @@ getInstruction(
                     document.querySelector(
                       "#mashedPotatoes"
                     ).innerHTML += `<li>${step5}</li>`;
+                    document
+                      .querySelector("#mashedPotatoesImg")
+                      .removeAttribute("hidden");
                   },
                   (error) => console.log(error)
                 );
@@ -119,8 +122,52 @@ obtainInstruction("steak", 0) // devuelve el str del paso
     document.querySelector("#steak").innerHTML += `<li>Stake is ready</li>`;
     document.querySelector("#steakImg").removeAttribute("hidden");
   });
+
 // Iteration 3 using async/await
-// ...
+async function makeBroccoli() {
+  try {
+    for (let i = 0; i < broccoli.length; i++) {
+      let stepi = await obtainInstruction("broccoli", i);
+      document.querySelector("#broccoli").innerHTML += `<li>${stepi}</li>`;
+    }
+    document.querySelector(
+      "#broccoli"
+    ).innerHTML += `<li>Broccoli is ready!</li>`;
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+
+async function makeBrusselsSprouts() {
+  try {
+    const stepArray = brusselsSprouts.map(async function (value, index) {
+      return await obtainInstruction("brusselsSprouts", index);
+    });
+
+    const variable = Promise.all(stepArray).then((totalSteps) => {
+      //function(totalSteps){}
+      console.log(totalSteps);
+      totalSteps.forEach(function (step) {
+        document.querySelector(
+          "#brusselsSprouts"
+        ).innerHTML += `<li>${step}</li>`;
+      });
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+
+      return true;
+    });
+    console.log(variable);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+makeBrusselsSprouts();
