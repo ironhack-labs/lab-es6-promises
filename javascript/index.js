@@ -107,6 +107,14 @@ async function makeBroccoli() {
 
 // Bonus 2 - Promise all
 //Using Promise.all display the cooking steps to make Brussels Sprouts in the correct order. After the last step, you should display an additional <li> with the text: Brussels sprouts are ready!
+makeBrusselsSprouts();
+ async function makeBrusselsSprouts() {
+  for (let i = 0; i < 7; i++) {
+    await obtainInstruction("brusselsSprouts", i).then((step0) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    });
+  }
+  
 Promise.all(promises)
   .then(result => {
     for (value of result) {
@@ -117,3 +125,4 @@ Promise.all(promises)
   .catch(error => {
     console.log(error)
   })
+   }
