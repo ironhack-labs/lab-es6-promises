@@ -136,12 +136,23 @@ makeBroccoli();
 
 
 // Bonus 2 - Promise all
+//creating an array to store the promises
+const promisesArray = [];
+for (let i in brusselsSprouts) {
+  promisesArray.push(obtainInstruction("brusselsSprouts", i));
+}
+
 
 for (let i = 0; i < brusselsSprouts.length; i++) {
-  Promise.all([obtainInstruction("brusselsSprouts", i)]).then(
+//referencing the array here
+  Promise.all(promisesArray).then(
     (step) => 
       (document.querySelector(
         "#brusselsSprouts"
       ).innerHTML += `<li>${step[i]}</li>`)
   );
 }
+setTimeout (function () {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${"Brussels sprouts are ready!"}</li>`;
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+}, 2000);
