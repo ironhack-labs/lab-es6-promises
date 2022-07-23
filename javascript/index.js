@@ -86,7 +86,6 @@ getInstruction(
 
 // Iteration 2 - using promises
 obtainInstruction("steak", 0)
-  
   .then((step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
     return obtainInstruction("steak", 2);
@@ -112,51 +111,24 @@ obtainInstruction("steak", 0)
     return obtainInstruction("steak", 7);
   })
   .then((step7) => {
-       document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
-       document.querySelector("#steakImg").removeAttribute("hidden");
-      return obtainInstruction("steak", 7);
+    document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
+    document.querySelector("#steakImg").removeAttribute("hidden");
+    return obtainInstruction("steak", 7);
   })
-  
+
   .catch((err) => console.log(err));
 
 // Iteration 3 using async/await
 // ...
 async function makeBroccoli() {
-  const instructions = await obtainInstruction(("brusselsSprouts", 0))
-  .then((step1) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`;
-    return obtainInstruction("brusselsSprouts", 2);
-  })
-  .then((step2) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step2}</li>`;
-    return obtainInstruction("brusselsSprouts", 3);
-  })
-  .then((step3) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step3}</li>`;
-    return obtainInstruction("brusselsSprouts", 4);
-  })
-  .then((step4) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step4}</li>`;
-    return obtainInstruction("stbrusselsSproutseak", 5);
-  })
-  .then((step5) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step5}</li>`;
-    return obtainInstruction("brusselsSprouts", 6);
-  })
-  .then((step6) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step6}</li>`;
-    return obtainInstruction("brusselsSprouts", 7);
-  })
-  .then((step7) => {
-       document.querySelector("#brusselsSprouts").innerHTML += `<li>${step7}</li>`
-       document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-      return obtainInstruction("brusselsSprouts", 7);
-  })
-  .catch((err) => console.log(err));
-  
-  return instructions
+  for (let i = 0; i < brusselsSprouts.length; i++) {
+    await obtainInstruction("brusselsSprouts", i);
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${brusselsSprouts[i]}</li>`;
+  }
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 }
+makeBroccoli()
 // Bonus 2 - Promise all
 // ...
-
-
