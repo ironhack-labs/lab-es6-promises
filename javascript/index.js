@@ -52,34 +52,35 @@ getInstruction("mashedPotatoes", 0, (step1) => {
 (error) => console.log(error));
 
 // Iteration 2 - using promises
+console.log(steak[3])
 obtainInstruction('steak', 0)
   .then( (step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
-    obtainInstruction('steak', 1)
+    return obtainInstruction('steak', 1)  
   })
   .then( (step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
-    obtainInstruction('steak', 2)
-  })
+    return obtainInstruction('steak', 2) 
+  })  
   .then( (step2) => {
     document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
-    obtainInstruction('steak', 3)
+    return obtainInstruction('steak', 3)
   })
   .then( (step3) => {
     document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
-    obtainInstruction('steak', 4)
+    return obtainInstruction('steak', 4)
   })
   .then( (step4) => {
     document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
-    obtainInstruction('steak', 5)
+    return obtainInstruction('steak', 5)
   })
   .then( (step5) => {
     document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
-    obtainInstruction('steak', 6)
+    return obtainInstruction('steak', 6)
   })
   .then( (step6) => {
     document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
-    obtainInstruction('steak', 7)
+    return obtainInstruction('steak', 7)
   })
   .then( (step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
@@ -126,7 +127,8 @@ step4 = obtainInstruction('brusselsSprouts', 4)
 step5 = obtainInstruction('brusselsSprouts', 5)
 step6 = obtainInstruction('brusselsSprouts', 6)
 step7 = obtainInstruction('brusselsSprouts', 7)
-Promise.all([step0,step1,step2,step3,step4,step5,step6,step7]).then((brusselsSteps)=>{
+Promise.all([step0,step1,step2,step3,step4,step5,step6,step7])
+.then((brusselsSteps)=>{
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSteps[0]}</li>`
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSteps[1]}</li>`
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSteps[2]}</li>`
@@ -137,5 +139,5 @@ Promise.all([step0,step1,step2,step3,step4,step5,step6,step7]).then((brusselsSte
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSteps[7]}</li>`
   document.querySelector("#brusselsSprouts").innerHTML += `<li>"Brussels Sprouts are ready!"</li>`
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-
 })
+.catch((err)=>console.log(err))
