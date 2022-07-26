@@ -51,11 +51,11 @@ ol {
 
 li::before {
   content: counter(li);
-  color: white;
+  color: rgb(255, 255, 255);
   display: inline-block;
   width: 1em;
   margin-left: -0.5em;
-  background: #93b874;
+  background: #cfc721;
   padding-left: 0.5em;
   margin: 0.2em;
 }
