@@ -96,15 +96,15 @@ obtainInstruction("steak", 0)
 
 async function makeBroccoli() {
   try {
-    await obtainInstruction("broccoli", 0);
-    await obtainInstruction("broccoli", 1);
-    await obtainInstruction("broccoli", 2);
-    await obtainInstruction("broccoli", 3);
-    await obtainInstruction("broccoli", 4);
-    await obtainInstruction("broccoli", 5);
-    await obtainInstruction("broccoli", 6);
-    await obtainInstruction("broccoli", "Brocoli is ready!");
-    console.log(document.querySelector("#broccoliImg").removeAttribute("hidden"));
+    const step1 = await obtainInstruction("broccoli", 0);
+    const step2 = await obtainInstruction("broccoli", 1);
+    const step3 = await obtainInstruction("broccoli", 2);
+    const step4 = await obtainInstruction("broccoli", 3);
+    const step5 = await obtainInstruction("broccoli", 4);
+    const step6 = await obtainInstruction("broccoli", 5);
+    const step7 = await obtainInstruction("broccoli", 6);
+    const step8 = await obtainInstruction("broccoli", "Brocoli is ready!");
+    const step9 = document.querySelector("#broccoliImg").removeAttribute("hidden");
   } catch (error) {
      console.log(error);
   }
