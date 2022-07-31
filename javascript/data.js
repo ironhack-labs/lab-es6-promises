@@ -15,6 +15,7 @@ const mashedPotatoes = [
   "pour in water",
   "mix",
   "enjoy",
+  "mashed potatoes are ready!"
 ];
 
 const brusselsSprouts = [
