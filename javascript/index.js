@@ -41,16 +41,9 @@ getInstruction('mashedPotatoes', 0, (step0) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`
           getInstruction('mashedPotatoes', 4, (step4) => {
             document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`
-            getInstruction('mashedPotatoes', 5, (step5) => {
-              document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`
-              getInstruction('mashedPotatoes', 6, (step6) => {
-                document.querySelector("#mashedPotatoes").innerHTML += `<li>${step6}</li>`
-                getInstruction('mashedPotatoes', 7, (step7) => {
-                  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step7}</li>`
-
-                }, (err) => console.log(err)); 
-              }, (err) => console.log(err)); 
-            }, (err) => console.log(err));  
+            document.querySelector('#mashedPotatoes').innerHTML += `<li>Mashed potatoes are ready!</li>`;
+            document.querySelector('#mashedPotatoesImg').removeAttribute('hidden');
+           
           }, (err) => console.log(err));
         }, (err) => console.log(err));
       }, (err) => console.log(err));
@@ -83,6 +76,7 @@ obtainInstruction('steak', 0)
               obtainInstruction('steak', 0)
               .then( (step7) => {
                 document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`
+                document.querySelector('#steakImg').removeAttribute('hidden');
 
   })})})})})})})
   // ... Your code here
@@ -108,9 +102,10 @@ async function makeBroccoli() {
 
     const step5 = await obtainInstruction('broccoli', 5);
     document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`
-
-    const step6 = await obtainInstruction('broccoli', 6);
     document.querySelector("#broccoli").innerHTML += `<li>'Broccoli is ready!'</li>`
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
+
+    
   } catch (err) {
 
   }
@@ -118,3 +113,29 @@ async function makeBroccoli() {
 makeBroccoli();
 // Bonus 2 - Promise all
 // ...
+
+const p0 = obtainInstruction('brusselsSprouts', 0);
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${p0}</li>`
+
+const p1 = obtainInstruction('brusselsSprouts', 1);
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${p1}</li>`
+
+const p2 = obtainInstruction('brusselsSprouts', 2);
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${p2}</li>`
+
+const p3 = obtainInstruction('brusselsSprouts', 3);
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${p3}</li>`
+
+const p4 = obtainInstruction('brusselsSprouts', 4);
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${p4}</li>`
+
+const p5 = obtainInstruction('brusselsSprouts', 5);
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${p5}</li>`
+
+const p6 = obtainInstruction('brusselsSprouts', 6);
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${p6}</li>`
+
+Promise.all( [p0, p1, p2, p3, p4, p5, p6] )
+.then((values) => console.log("brusselsSprouts", values))
+
+
