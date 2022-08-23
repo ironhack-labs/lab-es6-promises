@@ -70,16 +70,14 @@ obtainInstruction('steak', 0)
               .then( (step6)  => {
                 document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
                 document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`
-              })
-            })
-          })
-        })
-      })
-    })
-  })
-  
-  
-  // ... Your code here
+                document.querySelector("#steakImg").removeAttribute("hidden")
+              });
+            });
+          });
+        });
+      });
+    });
+  });
 
 // Iteration 3 using async/await
 // ...
