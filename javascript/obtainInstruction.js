@@ -22,7 +22,7 @@ function obtainInstruction(food, step) {
         instruction = broccoli[step];
       };
       
-
+      
       // Resolve or reject the promise
       if (!instruction) {
         reject("Instruction step does not exist!")
