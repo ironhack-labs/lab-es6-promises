@@ -199,8 +199,8 @@ async function makeBroccoli() {
       const step = await obtainInstruction("broccoli", i);
       document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
     }
-  } catch {
-    (err) => console.log(err);
+  } catch (err) {
+    console.log(err);
   } finally {
     document.querySelector(
       "#broccoli"
