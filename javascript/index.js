@@ -117,69 +117,101 @@ getInstruction(
 );
 
 // Iteration 2 - using promises
-obtainInstruction("steak", 0)
-  .then((step) => {
-    document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-    return obtainInstruction("steak", 1);
-  })
-  .then((step) => {
-    document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-    return obtainInstruction("steak", 2);
-  })
-  .then((step) => {
-    document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-    return obtainInstruction("steak", 3);
-  })
-  .then((step) => {
-    document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-    return obtainInstruction("steak", 4);
-  })
-  .then((step) => {
-    document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-    return obtainInstruction("steak", 5);
-  })
-  .then((step) => {
-    document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-    return obtainInstruction("steak", 6);
-  })
-  .then((step) => {
-    document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-    return obtainInstruction("steak", 7);
-  })
-  .catch((err) => console.log(err))
-  .finally(() => {
-    document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
-    document.getElementById("steakImg").removeAttribute("hidden");
-  });
+
+// Manually
+// obtainInstruction("steak", 0)
+//   .then((step) => {
+//     document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+//     return obtainInstruction("steak", 1);
+//   })
+//   .then((step) => {
+//     document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+//     return obtainInstruction("steak", 2);
+//   })
+//   .then((step) => {
+//     document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+//     return obtainInstruction("steak", 3);
+//   })
+//   .then((step) => {
+//     document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+//     return obtainInstruction("steak", 4);
+//   })
+//   .then((step) => {
+//     document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+//     return obtainInstruction("steak", 5);
+//   })
+//   .then((step) => {
+//     document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+//     return obtainInstruction("steak", 6);
+//   })
+//   .then((step) => {
+//     document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+//     return obtainInstruction("steak", 7);
+//   })
+//   .catch((err) => console.log(err))
+//   .finally(() => {
+//     document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+//     document.getElementById("steakImg").removeAttribute("hidden");
+//   });
+
+// With a for loop
+let inst;
+for (let i = 1; i <= steak.length - 1; i++) {
+  inst = obtainInstruction("steak", i)
+    .then((step) => {
+      document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+    })
+    .catch((err) => console.log(err));
+}
+
+inst.finally(() => {
+  document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+  document.getElementById("steakImg").removeAttribute("hidden");
+});
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
   try {
-    const step0 = await obtainInstruction("broccoli", 0);
-    document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`;
-    const step1 = await obtainInstruction("broccoli", 1);
-    document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`;
-    const step2 = await obtainInstruction("broccoli", 2);
-    document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`;
-    const step3 = await obtainInstruction("broccoli", 3);
-    document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`;
-    const step4 = await obtainInstruction("broccoli", 4);
-    document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`;
-    const step5 = await obtainInstruction("broccoli", 5);
-    document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
-    const step6 = await obtainInstruction("broccoli", 6);
-    document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
+    // Manually
+    // const step0 = await obtainInstruction("broccoli", 0);
+    // document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`;
+
+    // const step1 = await obtainInstruction("broccoli", 1);
+    // document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`;
+
+    // const step2 = await obtainInstruction("broccoli", 2);
+    // document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`;
+
+    // const step3 = await obtainInstruction("broccoli", 3);
+    // document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`;
+
+    // const step4 = await obtainInstruction("broccoli", 4);
+    // document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`;
+
+    // const step5 = await obtainInstruction("broccoli", 5);
+    // document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
+
+    // const step6 = await obtainInstruction("broccoli", 6);
+    // document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
+
+    // With a for loop
+    for (let i = 0; i <= broccoli.length - 1; i++) {
+      const step = await obtainInstruction("broccoli", i);
+      document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
+    }
+  } catch {
+    (err) => console.log(err);
+  } finally {
     document.querySelector(
       "#broccoli"
     ).innerHTML += `<li>Broccoli is ready!.</li>`;
     document.getElementById("broccoliImg").removeAttribute("hidden");
-  } catch {
-    (err) => console.log(err);
   }
 }
 makeBroccoli();
 
 // Bonus 2 - Promise all
+// Manually
 const step0 = obtainInstruction("brusselsSprouts", 0);
 const step1 = obtainInstruction("brusselsSprouts", 1);
 const step2 = obtainInstruction("brusselsSprouts", 2);
@@ -189,7 +221,15 @@ const step5 = obtainInstruction("brusselsSprouts", 5);
 const step6 = obtainInstruction("brusselsSprouts", 6);
 const step7 = obtainInstruction("brusselsSprouts", 7);
 
-Promise.all([step0, step1, step2, step3, step4, step5, step6, step7])
+// With a for loop
+const steps = [];
+for (let i = 0; i <= brusselsSprouts.length - 1; i++) {
+  const step = obtainInstruction("brusselsSprouts", i);
+  steps.push(step);
+}
+
+// Manually we change steps for [step0,step1,step2,step2,step3,step4,step5,step6,step7]
+Promise.all(steps)
   .then((values) => {
     for (let value of values) {
       document.querySelector(
