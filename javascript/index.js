@@ -89,31 +89,31 @@ obtainInstruction((error) =>{
 // ...
 async function makeBroccoli(){
   try{
-    let result = await obtainInstruction("broccoli", 0).then((step0) =>{
+    let result = await obtainInstruction("broccoli", 0);
       document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`;
-    })
-    let result2 = await obtainInstruction("broccoli", 1).then((step1) =>{
+
+    let result2 = await obtainInstruction("broccoli", 1);
       document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`;
-    })
-    let result3 = await obtainInstruction("broccoli", 2).then((step2) =>{
+
+    let result3 = await obtainInstruction("broccoli", 2);
       document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`;
-    })
-    let result4 = await obtainInstruction("broccoli", 3).then((step3) =>{
+
+    let result4 = await obtainInstruction("broccoli", 3);
       document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`;
-    }) 
-    let result5 = await obtainInstruction("broccoli", 4).then((step4) =>{
+  
+    let result5 = await obtainInstruction("broccoli", 4);
       document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`;
-    })
-    let result6 = await obtainInstruction("broccoli", 5).then((step5) =>{
+  
+    let result6 = await obtainInstruction("broccoli", 5);
       document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
-    })
-    let result7 = await obtainInstruction("broccoli", 6).then((step6) =>{
+    
+    let result7 = await obtainInstruction("broccoli", 6);
       document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
       document.querySelector("#broccoliImg").removeAttribute("hidden");
-    })
-    let result8 = await obtainInstruction("broccoli", 7).then((step7) =>{
+  
+    let result8 = await obtainInstruction("broccoli", 7);
       document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
-    })
+  
   } catch (error){
     console.log(error);
   }
