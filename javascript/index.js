@@ -102,6 +102,12 @@ async function makeBroccoli(){
     })
     let result7 = await obtainInstruction("broccoli", 6).then((step6) =>{
       document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
+    })
+    let result8 = await obtainInstruction("broccoli", 7).then((step7) =>{
+      document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
+    })
+    let result9 = await obtainInstruction("broccoli", 8).then((step8) =>{
+      document.querySelector("#broccoli").innerHTML += `<li>${step8}</li>`;
       document.querySelector("#broccoliImg").removeAttribute("hidden");
     })
   } catch (error){
@@ -109,5 +115,33 @@ async function makeBroccoli(){
   }
 }
 makeBroccoli();
+
 // Bonus 2 - Promise all
-// ...
+let result = new obtainInstruction("brusselsSprouts", 0).then((step0) =>{
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+})
+let result2 = new obtainInstruction("brusselsSprouts", 1).then((step1) =>{
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`;
+})
+let result3 = new obtainInstruction("brusselsSprouts", 2).then((step2) =>{
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step2}</li>`;
+})
+let result4 = new obtainInstruction("brusselsSprouts", 3).then((step3) =>{
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step3}</li>`;
+}) 
+let result5 = new obtainInstruction("brusselsSprouts", 4).then((step4) =>{
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step4}</li>`;
+})
+let result6 = new obtainInstruction("brusselsSprouts", 5).then((step5) =>{
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step5}</li>`;
+})
+let result7 = new obtainInstruction("brusselsSprouts", 6).then((step6) =>{
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step6}</li>`;
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
+//catch (error){
+//console.log(error);
+//}
+obtainInstruction.call([result, result2, result3,result4,result5,result6,result7]).then((results) =>{
+  console.log(results);
+})
