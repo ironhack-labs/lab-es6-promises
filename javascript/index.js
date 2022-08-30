@@ -3,19 +3,20 @@ const steakImg = document.getElementById("steakImg");
 const broccoliImg = document.getElementById("broccoliImg");
 const brusselImg = document.getElementById("brusselsSproutsImg");
 
+const mashedPotatoesOl = document.getElementById("mashedPotatoes");
 // Iteration 1 - using callbacks
 getInstruction("mashedPotatoes", 0, (step0) => {
-  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`;
+  mashedPotatoesOl.innerHTML += `<li>${step0}</li>`;
   getInstruction("mashedPotatoes", 1, (step1) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
+    mashedPotatoesOl.innerHTML += `<li>${step1}</li>`;
     getInstruction("mashedPotatoes", 2, (step2) => {
-      document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`;
+      mashedPotatoesOl.innerHTML += `<li>${step2}</li>`;
       getInstruction("mashedPotatoes", 3, (step3) => {
-        document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
+        mashedPotatoesOl.innerHTML += `<li>${step3}</li>`;
         getInstruction("mashedPotatoes", 4, (step4) => {
-          document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
+          mashedPotatoesOl.innerHTML += `<li>${step4}</li>`;
           setTimeout(() => {
-            document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
+            mashedPotatoesOl.innerHTML += `<li>Mashed potatoes are ready!</li>`;
             potatoeImg.removeAttribute("hidden");
             // potatoeImg.style.display = "block"; // display:something overwrites "hidden"
           }, 500);
