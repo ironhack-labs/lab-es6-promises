@@ -63,9 +63,7 @@ obtainInstruction("steak", 0)
       document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
     }, 500);
   })
-  .then(() => {
-    bringTheEyesBack();
-  });
+  .then(bringTheEyesBack);
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
