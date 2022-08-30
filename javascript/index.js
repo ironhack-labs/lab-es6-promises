@@ -123,9 +123,9 @@ makeBrusselsSprouts();
 
 function bringTheEyesBack() {
   setTimeout(() => {
-    steakImg.src = "images/steakOr.jpg";
-    broccoliImg.src = "images/broccoliOr.jpg";
-    brusselImg.src = "images/brussels-sproutsOr.jpg";
-    potatoeImg.src = "images/mashed-potatoesOr.jpg";
+    steakImg.src = "images/steak.jpg";
+    broccoliImg.src = "images/broccoli.jpg";
+    brusselImg.src = "images/brussels-sprouts.jpg";
+    potatoeImg.src = "images/mashed-potatoes.jpg";
   }, 3000);
 }
