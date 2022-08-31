@@ -112,5 +112,22 @@ async function makeBroccoli() {
 }
 
 makeBroccoli()
-// Bonus 2 - Promise all
-// ...
+const s0= obtainInstruction("brusselsSprouts",0)
+const s1= obtainInstruction("brusselsSprouts",1)
+const s2= obtainInstruction("brusselsSprouts",2)
+const s3= obtainInstruction("brusselsSprouts",3)
+const s4= obtainInstruction("brusselsSprouts",4)
+const s5= obtainInstruction("brusselsSprouts",5)
+const s6= obtainInstruction("brusselsSprouts",6)
+const s7= obtainInstruction("brusselsSprouts",7)
+const s8= obtainInstruction("brusselsSprouts",8)
+document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+
+Promise.all([s1,s2,s3,s4,s5,s6,s7])
+.then((steps) =>{
+  steps.forEach((step)=>{
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li> ${step}</li>`;
+  })
+})
