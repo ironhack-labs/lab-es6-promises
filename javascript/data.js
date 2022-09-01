@@ -6,7 +6,7 @@ const steak = [
   "heat pan with grapeseed oil and a quarter stick of butter",
   "cook steak for 30-60 seconds per side using a spoon to baste with butter",
   "rest for 10 minutes",
-  "enjoy",
+  "enjoy"
 ];
 
 const mashedPotatoes = [
