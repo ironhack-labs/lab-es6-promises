@@ -62,10 +62,22 @@ getInstruction(
                     document.querySelector(
                       "#mashedPotatoes"
                     ).innerHTML += `<li>${step5}</li>`;
-                    // ********** BONUS 1 ***********
-                    document
-                      .querySelector("#mashedPotatoesImg")
-                      .removeAttribute("hidden");
+
+                    getInstruction(
+                      "mashedPotatoes",
+                      5,
+                      (step6) => {
+                        document.querySelector(
+                          "#mashedPotatoes"
+                        ).innerHTML += `<li>Mashed potatoes are ready!</li>`;
+
+                        // ********** BONUS 1 ***********
+                        document
+                          .querySelector("#mashedPotatoesImg")
+                          .removeAttribute("hidden");
+                      },
+                      (error) => console.log(error)
+                    );
                   },
                   (error) => console.log(error)
                 );
