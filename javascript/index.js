@@ -85,7 +85,9 @@ obtainInstruction("steak", 0)
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
     document.querySelector("#steakImg").removeAttribute("hidden");
   })
-  .catch(console.log("there was an error"));
+  .catch((error) => {
+    console.log("there was an error : " + error);
+  });
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
@@ -146,4 +148,6 @@ Promise.all(promises)
     }
     document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   })
-  .catch("There was an error");
+  .catch((error) => {
+    console.log("there was an error : " + error);
+  });
