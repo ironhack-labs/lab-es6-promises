@@ -131,7 +131,6 @@ pictureBroccoli();
 // Bonus 2 - Promise all
 // ...
 
-
 const promise0 = obtainInstruction('brusselsSprouts', 0)
 const promise1 = obtainInstruction('brusselsSprouts', 1)
 const promise2 = obtainInstruction('brusselsSprouts', 2)
@@ -139,22 +138,18 @@ const promise3 = obtainInstruction('brusselsSprouts', 3)
 const promise4 = obtainInstruction('brusselsSprouts', 4)
 const promise5 = obtainInstruction('brusselsSprouts', 5)
 const promise6 = obtainInstruction('brusselsSprouts', 6)
-const promise7 = "Brussels sprouts are ready!"
+const promise7 = obtainInstruction('brusselsSprouts', 7)
+const promise8 = "Brussels sprouts are ready!"
 
-
-const array = [promise0, promise1, promise2,promise3,promise4,promise5,
-  promise6,promise7];
-Promise.all(array)
-  .then((array) =>{
-    array.forEach(elm =>{
+const promiseArray = [promise0, promise1, promise2,promise3,promise4,promise5,
+  promise6,promise7,promise8];
+Promise.all(promiseArray)
+  .then((response) =>{
+    response.forEach(elm =>{
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${elm}</li>`  
-    })
-    
-})
-.then(
+    })   
+}).then(()=>{
   document.querySelector('#brusselsSproutsImg').removeAttribute("hidden")
-)
-.catch((error) =>{
+}).catch((error) =>{
   console.log("Error",error)
 })
-
