@@ -39,7 +39,7 @@ getInstruction("mashedPotatoes", 0, (step1) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
         getInstruction("mashedPotatoes", 4, (step5) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
-          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+          //document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
         }, (error) => console.log(error));
       }, (error) => console.log(error));
     }, (error) => console.log(error));
@@ -119,3 +119,23 @@ async function makeBroccoli() {
 makeBroccoli();
 // Bonus 2 - Promise all
 // ...
+const promise1 = obtainInstruction("brusselsSprouts", 0);
+const promise2 = obtainInstruction("brusselsSprouts", 1);
+const promise3 = obtainInstruction("brusselsSprouts", 2);
+const promise4 = obtainInstruction("brusselsSprouts", 3);
+const promise5 = obtainInstruction("brusselsSprouts", 4);
+const promise6 = obtainInstruction("brusselsSprouts", 5);
+const promise7 = obtainInstruction("brusselsSprouts", 6);
+const promise8 = obtainInstruction("brusselsSprouts", 7);
+const arrayOfPromises = [promise1, promise2, promise3, promise4, promise5, promise6, promise7, promise8];
+
+Promise.all(arrayOfPromises)
+  .then( (response) => {
+    response.map((li) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${li}</li>`
+    })
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+  })
+  .catch( (error) => {
+    console.log(error)
+  })
