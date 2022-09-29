@@ -85,9 +85,26 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-/*async function makeBroccoli() {
-  const tarea0 = obtainInstruction('steak', 0);
-  const tarea1 = obtainInstruction('steak', 1);
-  const tarea2 = obtainInstruction('steak', 2);
-  const [paso0, paso1, paso2] = await Promise.all([tarea0, tarea1, tarea2]);
-}*/
+async function makeBrussels() {
+  const tarea0 = obtainInstruction('brusselsSprouts', 0);
+  const tarea1 = obtainInstruction('brusselsSprouts', 1);
+  const tarea2 = obtainInstruction('brusselsSprouts', 2);
+  const tarea3 = obtainInstruction('brusselsSprouts', 3);
+  const tarea4 = obtainInstruction('brusselsSprouts', 4);
+  const tarea5 = obtainInstruction('brusselsSprouts', 5);
+  const tarea6 = obtainInstruction('brusselsSprouts', 6);
+  const tarea7 = obtainInstruction('brusselsSprouts', 7);
+  const [paso0, paso1, paso2, paso3, paso4, paso5, paso6, paso7] = await Promise.all([tarea0, tarea1, tarea2, tarea3, tarea4, tarea5, tarea6, tarea7]);
+  
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${paso0}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${paso1}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${paso2}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${paso3}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${paso4}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${paso5}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${paso6}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${paso7}</li>`
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+}
+
+makeBrussels();
