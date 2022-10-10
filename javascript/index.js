@@ -124,4 +124,38 @@ async function makeBroccoli() {
 makeBroccoli()
 
 // Bonus 2 - Promise all
-// ...
+
+
+Promise.all([
+  obtainInstruction("brusselsSprouts",0),
+  obtainInstruction("brusselsSprouts",1),
+  obtainInstruction("brusselsSprouts",2),
+  obtainInstruction("brusselsSprouts",3),
+  obtainInstruction("brusselsSprouts",4),
+  obtainInstruction("brusselsSprouts",5),
+  obtainInstruction("brusselsSprouts",6),
+  obtainInstruction("brusselsSprouts",7)
+
+])
+.then((brussels) =>{
+//esto es igual que = 
+// document.querySelector("#brusselsSprouts").innerHTML += `<li>${brussels[0]}</li>`
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${brussels[1]}</li>`
+//...
+
+// Con buncle for -----
+//  for (let i = 0; i < brussels.length; i++) {
+//  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brussels[i]}</li>`
+//  console.log(brussels[i])
+//}
+// con forEach ----
+  brussels.forEach((eachElement) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${eachElement}</li>`
+}) 
+  //console.log(brussels)
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>"Brussels sprouts are ready!"</li>`
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
+})
+.catch((error) => {
+  return error
+})
