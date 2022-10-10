@@ -138,17 +138,18 @@ Promise.all([
 
 ])
 .then((brussels) =>{
+
 //esto es igual que = 
 // document.querySelector("#brusselsSprouts").innerHTML += `<li>${brussels[0]}</li>`
 //document.querySelector("#brusselsSprouts").innerHTML += `<li>${brussels[1]}</li>`
 //...
 
-// Con buncle for -----
+// Con buncle for -----***
 //  for (let i = 0; i < brussels.length; i++) {
 //  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brussels[i]}</li>`
 //  console.log(brussels[i])
 //}
-// con forEach ----
+// con forEach ----****
   brussels.forEach((eachElement) => {
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${eachElement}</li>`
 }) 
