@@ -79,6 +79,8 @@ obtainInstruction('steak', 0)
   })
   .then( () => {
     document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+    document.querySelector("#steakImg").removeAttribute("hidden");
+
   })
   .catch((error)=>{
     console.log(error);
@@ -104,6 +106,7 @@ async function makeBroccoli() {
     let response7 = await obtainInstruction ("broccoli", 6)
     document.querySelector("#broccoli").innerHTML += `<li>${response7}</li>`
     document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
 
   }
   catch(error){
@@ -133,7 +136,8 @@ Promise.all ([
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[6]}</li>`
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[7]}</li>`
   document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready!</li>`
-
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  
 })
 .catch((error) => {
   console.log(error)
