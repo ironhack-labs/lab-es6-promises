@@ -125,5 +125,28 @@ async function makeBroccoli(){
 }
 }
 makeBroccoli()
+
 // Bonus 2 - Promise all
-// ...
+const p1 = new Promise((resolve)=>resolve(obtainInstruction("brusselsSprouts",0))) 
+const p2 = new Promise((resolve)=>resolve(obtainInstruction("brusselsSprouts",2))) 
+const p3 = new Promise((resolve)=>resolve(obtainInstruction("brusselsSprouts",3))) 
+const p4 = new Promise((resolve)=>resolve(obtainInstruction("brusselsSprouts",4))) 
+const p5 = new Promise((resolve)=>resolve(obtainInstruction("brusselsSprouts",5))) 
+const p6 = new Promise((resolve)=>resolve(obtainInstruction("brusselsSprouts",6))) 
+const p7 = new Promise((resolve)=>resolve(obtainInstruction("brusselsSprouts",7)))
+
+Promise.all([p1,p2,p3,p4,p5,p6,p7])
+ .then((promises)=>{
+  return promises.map((promise)=>`<li>${promise}</li>`)
+ })
+ .then((values)=>
+  values.forEach(value =>document.querySelector("#brusselsSprouts").innerHTML += value)
+ )
+ .then(()=>{
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready!</li>`
+ })
+ .then(()=>
+ document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
+ )
+.catch((err)=>console.log(err))
+ 
