@@ -48,7 +48,7 @@ getInstruction('mashedPotatoes', 0, (step0) => {
 
 // Iteration 2 - using promises
 obtainInstruction('steak', 0)
-  .then( (step0) => {
+  .then((step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
     return obtainInstruction ('steak', 1)
   })
@@ -80,6 +80,9 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
   })
   .then(() => {
+    document.querySelector("#steak").innerHTML += '<li>Steak is ready!</li>'
+  })
+  .then(() => {
     document.querySelector("#steakImg").removeAttribute("hidden")
   })
   .catch((err) => {
@@ -90,6 +93,7 @@ obtainInstruction('steak', 0)
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
+try {
 let step0 = await obtainInstruction('broccoli', 0)
 document.querySelector("#broccoli").innerHTML+= `<li>${step0}</li>`;
 let step1 = await obtainInstruction('broccoli', 1)
@@ -105,11 +109,18 @@ document.querySelector("#broccoli").innerHTML+= `<li>${step5}</li>`;
 let step6 = await obtainInstruction('broccoli', 6)
 document.querySelector("#broccoli").innerHTML+= `<li>${step6}</li>`;
 let step7 = await obtainInstruction('broccoli', 7)
-document.querySelector("#broccoli").innerHTML+= `<li>${step7}</li>`;
-let remImg = await obtainInstruction ()
-document.querySelector("#broccoliImg").removeAttribute("hidden")
+document.querySelector("#broccoli").innerHTML+= `<li>${step7}</li>`
+await obtainInstruction()
+document.querySelector("#broccoli").innerHTML+= '<li>$Broccoli is ready!</li>'
+
+} catch (err) {
+  console.log(err)
+}
 }
 makeBroccoli();
+
+
+
 // Bonus 2 - Promise all
 
 Promise.all([
