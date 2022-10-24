@@ -126,7 +126,7 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 
-Promise.all([obtainInstruction('brusselsSprouts', 0), obtainInstruction('brusselsSprouts', 1), obtainInstruction('brusselsSprouts', 2)
+/* Promise.all([obtainInstruction('brusselsSprouts', 0), obtainInstruction('brusselsSprouts', 1), obtainInstruction('brusselsSprouts', 2)
 , obtainInstruction('brusselsSprouts', 3), obtainInstruction('brusselsSprouts', 4), obtainInstruction('brusselsSprouts', 5)
 , obtainInstruction('brusselsSprouts', 6), obtainInstruction('brusselsSprouts', 7)])
 .then((allValues) => {
@@ -141,6 +141,23 @@ Promise.all([obtainInstruction('brusselsSprouts', 0), obtainInstruction('brussel
   document.querySelector('#brusselsSprouts').innerHTML += `<li>Brussels sprouts are ready!</li>`
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 })
-.catch((err) => console.log(err));
+.catch((err) => console.log(err)); */
+
+// OR
+
+Promise.all([obtainInstruction('brusselsSprouts', 0), obtainInstruction('brusselsSprouts', 1), obtainInstruction('brusselsSprouts', 2)
+, obtainInstruction('brusselsSprouts', 3), obtainInstruction('brusselsSprouts', 4), obtainInstruction('brusselsSprouts', 5)
+, obtainInstruction('brusselsSprouts', 6), obtainInstruction('brusselsSprouts', 7)])
+.then((allValues) => {
+
+  let arr = allValues;
+
+  arr.forEach((value) => {
+    document.querySelector('#brusselsSprouts').innerHTML += `<li>${value}</li>`
+  })
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>Brussels sprouts are ready!</li>`
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+
+})
 
 
