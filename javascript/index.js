@@ -132,14 +132,10 @@ Promise.all([
   obtainInstruction('brusselsSprouts', 6),
   obtainInstruction('brusselsSprouts', 7),
 ]).then((response) =>{
-  document.querySelector('#brusselsSprouts').innerHTML += `<li>${response[0]}</li>`
-  document.querySelector('#brusselsSprouts').innerHTML += `<li>${response[1]}</li>`
-  document.querySelector('#brusselsSprouts').innerHTML += `<li>${response[2]}</li>`
-  document.querySelector('#brusselsSprouts').innerHTML += `<li>${response[3]}</li>`
-  document.querySelector('#brusselsSprouts').innerHTML += `<li>${response[4]}</li>`
-  document.querySelector('#brusselsSprouts').innerHTML += `<li>${response[5]}</li>`
-  document.querySelector('#brusselsSprouts').innerHTML += `<li>${response[6]}</li>`
-  document.querySelector('#brusselsSprouts').innerHTML += `<li>${response[7]}</li>`
+  response.forEach((x) => {
+    document.querySelector('#brusselsSprouts').innerHTML += `<li>${x}</li>`
+
+  })
   document.querySelector('#brusselsSprouts').innerHTML += `<li>Brussels sprouts are ready!</li>`
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 })
