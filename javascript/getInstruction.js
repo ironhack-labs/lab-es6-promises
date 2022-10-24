@@ -1,7 +1,7 @@
 /* CALL THIS FUNCTION FROM OTHER FILES */
 /****** DO NOT TOUCH vvv *****/
 
-// Callback based function
+// Callback based function //specify elements
 function getInstruction(food, step, callback, errorCallback) {
     setTimeout(() => {
       // Get the instruction string
