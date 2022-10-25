@@ -108,10 +108,8 @@ let step5 = await obtainInstruction('broccoli', 5)
 document.querySelector("#broccoli").innerHTML+= `<li>${step5}</li>`;
 let step6 = await obtainInstruction('broccoli', 6)
 document.querySelector("#broccoli").innerHTML+= `<li>${step6}</li>`;
-let step7 = await obtainInstruction('broccoli', 7)
-document.querySelector("#broccoli").innerHTML+= `<li>${step7}</li>`
-await obtainInstruction()
-document.querySelector("#broccoli").innerHTML+= '<li>$Broccoli is ready!</li>'
+document.querySelector("#broccoli").innerHTML+= '<li>Broccoli is ready!</li>'
+document.querySelector("#broccoliImg").removeAttribute('hidden')
 
 } catch (err) {
   console.log(err)
