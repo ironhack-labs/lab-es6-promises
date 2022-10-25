@@ -82,7 +82,7 @@ getInstruction(
 );
 // Iteration 2 - using promises
 obtainInstruction("steak", 0)
-  .then((step0) => {
+.then((step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
     return obtainInstruction("steak", 1);
   })
@@ -121,7 +121,7 @@ obtainInstruction("steak", 0)
   });
 
 // Iteration 3 using async/await
-async function makeBroccoli() {
+/* async function makeBroccoli() {
   try {
     let response = await obtainInstruction("broccoli", 0);
     document.querySelector("#broccoli").innerHTML += `<li>${response}<li>`;
@@ -153,9 +153,9 @@ async function makeBroccoli() {
   }
 }
 
-makeBroccoli();
+makeBroccoli(); */
 
-/* async function makeBroccoli() {
+ async function makeBroccoli() {
   try {
     document.querySelector("#broccoliImg").removeAttribute("hidden");
     let step0 = await obtainInstruction("broccoli", 0);
@@ -179,7 +179,7 @@ makeBroccoli();
     console.log(err);
   }
 }
-makeBroccoli(); */
+makeBroccoli(); 
 
 // Bonus 2 - Promise all
 Promise.all([
