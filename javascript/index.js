@@ -100,7 +100,7 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
     return obtainInstruction("steak",5)
    })
-   .then((step5) => {
+   .then((step9) => {
     document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
     return obtainInstruction("steak",6)
    })
@@ -112,6 +112,9 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
     return obtainInstruction("steak",8)
    })
+   .then(
+    document.getElementById("steakImg").removeAttribute("hidden")
+   )
    .catch((error) => {
     console.log(error);
   });
@@ -140,5 +143,16 @@ const printRecipe = async () => {
 };
 printRecipe();
 
+
+// const removeHiddenImage  = new Promise((resolve, reject) => {
+//   if () {
+//     resolve(document.getElementById("steakImg").removeAttribute("hidden"));
+//   } else {
+//     reject(Error("there was an error"));
+//   }
+// });
+
+//  document.getElementById("steakImg").style.visibility = "visible";
 // Bonus 2 - Promise all
 // ...
+const allMyPromises = Promise.all([aPromise, bPromise, cPromise, myPromise]);
