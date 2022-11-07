@@ -105,6 +105,7 @@ async function makeBroccoli() {
 }
 
 makeBroccoli();
+
 // Bonus 2 - Promise all
 const step0 = new Promise((resolve, reject) => {
   setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 0)), 1000);
