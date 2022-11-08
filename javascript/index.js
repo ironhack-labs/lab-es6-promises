@@ -107,37 +107,21 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-const step0 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 0)), 1000);
-});
-const step1 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 1)), 1000);
-});
-const step2 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 2)), 1000);
-});
-const step3 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 3)), 1000);
-});
-const step4 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 4)), 1000);
-});
-const step5 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 5)), 1000);
-});
-const step6 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 6)), 1000);
-});
-const step7 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(obtainInstruction("brusselsSprouts", 7)), 1000);
-});
+const step0 = obtainInstruction('brusselsSprouts', 0);
+const step1 = obtainInstruction('brusselsSprouts', 1);
+const step2 = obtainInstruction('brusselsSprouts', 2);
+const step3 = obtainInstruction('brusselsSprouts', 3);
+const step4 = obtainInstruction('brusselsSprouts', 4);
+const step5 = obtainInstruction('brusselsSprouts', 5);
+const step6 = obtainInstruction('brusselsSprouts', 6);
+const step7 = obtainInstruction('brusselsSprouts', 7);
 
 Promise.all( [step0, step1, step2, step3, step4, step5, step6, step7] )
   .then((values) => {
-    console.log("values", values)
-    values.forEach(item => {
-      document.querySelector("#brusselsSprouts").innerHTML += `<li>${item}</li>`;
+    values.forEach(instruction => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`;
     });
+
     document.querySelector("#brusselsSproutsImg").removeAttribute('hidden');
   })
   .catch((err)=> console.log("catch()", err));
