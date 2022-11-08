@@ -161,3 +161,31 @@ async function makeBrusselsSprouts() {
   }
 }
 makeBrusselsSprouts();
+
+/*
+
+// Alternative solution 
+
+const pr0 = obtainInstruction("brusselsSprouts", 0);
+const pr1 = obtainInstruction("brusselsSprouts", 1);
+const pr2 = obtainInstruction("brusselsSprouts", 2);
+const pr3 = obtainInstruction("brusselsSprouts", 3);
+const pr4 = obtainInstruction("brusselsSprouts", 4);
+const pr5 = obtainInstruction("brusselsSprouts", 5);
+const pr6 = obtainInstruction("brusselsSprouts", 6);
+
+Promise.all([pr0, pr1, pr2, pr3, pr4, pr5, pr6])
+  .then((values) => {
+    values.forEach((instruction) => {
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>${instruction}</li>`;
+    });
+
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
+  .catch((err) => console.log(err));
+*/
