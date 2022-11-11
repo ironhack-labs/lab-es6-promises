@@ -79,13 +79,22 @@ obtainInstruction('steak', 0)
                   const steakImg = document.querySelector("#steakImg")
                   steakImg.attributes.removeNamedItem("hidden")
                 })
+                .catch(console.log)
               })
+              .catch(console.log)
             })
+            .catch(console.log)
           })
+          .catch(console.log)
         })
+        .catch(console.log)
       })
+      .catch(console.log)
     })
+    .catch(console.log)
   })
+  .catch(console.log)
+
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
