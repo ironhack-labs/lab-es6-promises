@@ -28,7 +28,25 @@
 
 
 // Iteration 1 - using callbacks
-// ...
+/**getDirections(0, ()=>{
+    getDirections(1, ()=>{
+        getDirections(2, ()=>{
+            getDirections(3, ()=>{
+                getDirections(4, ()=>{}, (error)=>{console.error(error)})
+            })
+        })
+    })
+}, (error)=>{console.error(error)})  */
+getInstruction('mashedPotatoes', 0, ()=>{
+  getDirections(1, ()=>{
+      getDirections(2, ()=>{
+          getDirections(3, ()=>{
+              getDirections(4, ()=>{}, (error)=>{console.error(error)})
+          })
+      })
+  })
+}, (error)=>{console.error(error)})
+
 
 // Iteration 2 - using promises
 // ...
