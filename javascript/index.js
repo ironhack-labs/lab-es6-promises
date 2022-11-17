@@ -164,20 +164,15 @@ const pr7 = obtainInstruction('brusselsSprouts', 7);
 
 
 
-Promise.all([pr, pr1, pr2, pr3, pr4, pr5, pr6, pr7]).then((values) => 
+Promise.all([pr, pr1, pr2, pr3, pr4, pr5, pr6, pr7]).then((values) => {
 
-document.querySelector('#brusselsSprouts').innerHTML =
-`
-<li>${values[0]}<li>
-<li>${values[1]}<li>
-<li>${values[2]}<li>
-<li>${values[3]}<li>
-<li>${values[4]}<li>
-<li>${values[5]}<li>
-<li>${values[6]}<li>
-<li>${values[7]}<li>
-`,
+for(value of values){
+  document.querySelector('#brusselsSprouts').innerHTML +=`<li>${value}</li>`
+}
+
+
+
 document.querySelector('#brusselsSproutsImg').removeAttribute('hidden')
-)
+})
 
 
