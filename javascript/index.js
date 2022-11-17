@@ -129,22 +129,20 @@ makeBroccoli()
 
 
 // Bonus 2 - Promise all
-Promise.all([ 
-  obtainInstruction('brusselsSprouts', 0),
-  obtainInstruction('brusselsSprouts', 1),
-  obtainInstruction('brusselsSprouts', 2),
-  obtainInstruction('brusselsSprouts', 3),
-  obtainInstruction('brusselsSprouts', 4),
-  obtainInstruction('brusselsSprouts', 5),
-  obtainInstruction('brusselsSprouts', 6),
-  obtainInstruction('brusselsSprouts', 7)
-]).then(values => {
-  for(let step of values){
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
-  }
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
-  document.querySelector("#brusselsSproutsImg").removeAttribute('hidden') // Bonus 1 - Show image
-})
+function getStep (step) {
+  return obtainInstruction('brusselsSprouts', step)
+}
+
+Promise.all([getStep(0), getStep(1), getStep(2), getStep(3), getStep(4), getStep(5), getStep(6), getStep(7)])
+  .then(values => {
+    for(let step of values){
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
+    }
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+    document.querySelector("#brusselsSproutsImg").removeAttribute('hidden') // Bonus 1 - Show image
+  }).catch(err => {
+    console.log(err)
+  })
 
 
 
