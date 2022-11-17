@@ -151,4 +151,33 @@ displayImg();
 
 
 // Bonus 2 - Promise all
-// ...
+
+
+const pr = obtainInstruction('brusselsSprouts', 0);
+const pr1 = obtainInstruction('brusselsSprouts', 1);
+const pr2 = obtainInstruction('brusselsSprouts', 2);
+const pr3 = obtainInstruction('brusselsSprouts', 3);
+const pr4 = obtainInstruction('brusselsSprouts', 4);
+const pr5 = obtainInstruction('brusselsSprouts', 5);
+const pr6 = obtainInstruction('brusselsSprouts', 6);
+const pr7 = obtainInstruction('brusselsSprouts', 7);
+
+
+
+Promise.all([pr, pr1, pr2, pr3, pr4, pr5, pr6, pr7]).then((values) => 
+
+document.querySelector('#brusselsSprouts').innerHTML =
+`
+<li>${values[0]}<li>
+<li>${values[1]}<li>
+<li>${values[2]}<li>
+<li>${values[3]}<li>
+<li>${values[4]}<li>
+<li>${values[5]}<li>
+<li>${values[6]}<li>
+<li>${values[7]}<li>
+`,
+document.querySelector('#brusselsSproutsImg').removeAttribute('hidden')
+)
+
+
