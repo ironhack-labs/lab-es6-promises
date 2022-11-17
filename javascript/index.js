@@ -95,33 +95,27 @@ obtainInstruction("steak", 0)
     document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
     return obtainInstruction("steak", 3);
   })
-
   .then((step3) => {
     document.querySelector("#steak").innerHTML += `<li>${step3}</li>`;
     return obtainInstruction("steak", 4);
   })
-
   .then((step4) => {
     document.querySelector("#steak").innerHTML += `<li>${step4}</li>`;
     return obtainInstruction("steak", 5);
   })
-
   .then((step5) => {
     document.querySelector("#steak").innerHTML += `<li>${step5}</li>`;
     return obtainInstruction("steak", 6);
   })
-
   .then((step6) => {
     document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
     return obtainInstruction("steak", 7);
   })
-
   .then((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
     document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
     document.querySelector("#steakImg").removeAttribute("hidden");
   })
-
   .catch((err) => console.log("catch()", err));
 
 // Iteration 3 using async/await
