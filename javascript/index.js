@@ -5,7 +5,7 @@
 
 // Out of sync
 
-  getInstruction("mashedPotatoes", 0, (step1) => {
+  /*getInstruction("mashedPotatoes", 0, (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
   }, (error) => console.log(error));
   
@@ -25,7 +25,7 @@
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
     document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
   }, (error) => console.log(error));
-
+*/
 
 
 // Iteration 1 - using callbacks
@@ -39,7 +39,6 @@
     })
 }, (error)=>{console.error(error)})  */
 getInstruction('mashedPotatoes', 0, (step1)=>{
-  console.log('Probando step1');
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`
   getInstruction('mashedPotatoes',1, (step2)=>{
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`  
@@ -58,10 +57,32 @@ getInstruction('mashedPotatoes', 0, (step1)=>{
 
 
 // Iteration 2 - using promises
-// ...
+obtainInstruction('steak', 0)
+.then((step1)=>{
+  document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
+  return obtainInstruction('steak',1)
+})
+.then((step2) =>{
+  document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
+  return obtainInstruction('steak',2)
+})
+.catch((error) => console.log('el error', error))
 
 // Iteration 3 using async/await
-// ...
+async function getDinner(){
+  try{
+    const step0 = await obtainInstruction('brusselsSprouts', 0)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`
+    const step1 =await obtainInstruction('brusselsSprouts', 1)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`
+    const step2 = await obtainInstruction('brusselsSprouts', 2)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step2}</li>`
+  }catch{
+    console.log('Error');
+  }
+}
+
+getDinner()
 
 // Bonus 2 - Promise all
 // ...
