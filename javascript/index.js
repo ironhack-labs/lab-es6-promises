@@ -85,6 +85,8 @@ obtainInstruction('steak', 0)
     })
 
 // Iteration 3 using async/await
+
+// could this be refractored using a loop? 0, 1, 2...
 async function makeBroccoli() {
   const step0 = await obtainInstruction("broccoli", 0);
   document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`
