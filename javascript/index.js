@@ -54,8 +54,35 @@ getInstruction("mashedPotatoes", 0, (step1) => {
 // Iteration 2 - using promises
 // ...
 
+obtainInstruction('steak', 0)
+.then((step0) =>{
+  document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+})
+.then((step1) =>{
+  document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
+})
+.then((step2) =>{
+  document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
+})
+.catch((error)=> console.log("el error",error))
+
 // Iteration 3 using async/await
 // ...
+
+async function getDinner(){
+  try{
+    const step0 = await obtainInstruction('brusselsSprouts', 0)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`
+    const step1 =await obtainInstruction('brusselsSprouts', 1)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`
+    const step2 = await obtainInstruction('brusselsSprouts', 2)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step2}</li>`
+  }catch{
+    console.log('Error');
+  }
+}
+
+getDinner()
 
 // Bonus 2 - Promise all
 // ...
