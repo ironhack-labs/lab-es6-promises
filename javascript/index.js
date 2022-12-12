@@ -2,32 +2,6 @@
 // We added it as an example and to test that the arrays from data.js are loaded
 
 // 🚨🚨🚨 Comment out the below code before you start working on the code
-
-/*
-// Out of sync
-  getInstruction("mashedPotatoes", 0, (step1) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
-  }, (error) => console.log(error));
-  
-  getInstruction("mashedPotatoes", 1, (step2) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`;
-  }, (error) => console.log(error));
-  
-  getInstruction("mashedPotatoes", 2, (step3) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
-  }, (error) => console.log(error));
-  
-  getInstruction("mashedPotatoes", 3, (step4) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
-  }, (error) => console.log(error));
-  
-  getInstruction("mashedPotatoes", 4, (step5) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
-    document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
-  }, (error) => console.log(error));
-
-*/
-
 // Iteration 1 - using callbacks
 // ...
 getInstruction("mashedPotatoes", 0, (step1) => {
@@ -94,74 +68,46 @@ obtainInstruction('steak', 0)
     document.querySelector("#steakImg").removeAttribute("hidden")
     //  ...Your code here
   })
-  .catch((err)=>{
+  .catch((error)=>{
     console.log(error)
   })
-  
-
-
-
-
-
-
-
 
 // Iteration 3 using async/await
 // ...
 async function makeBroccoli() {
-  // ... Your code here
-  try{
-  const step0 = await obtainInstruction('broccoli', 0)
-  document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`
-  const step1 = await obtainInstruction('broccoli', 1)
-  document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`
-  const step2 = await obtainInstruction('broccoli', 2)
-  document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`
-  const step3 = await obtainInstruction('broccoli', 3)
-  document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`
-  const step4 = await obtainInstruction('broccoli', 4)
-  document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`
-  const step5 = await obtainInstruction('broccoli', 5)
-  document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`
-  const step6 = await obtainInstruction('broccoli', 6)
-  document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`
+
+try{
+  for(let i = 0; i < broccoli.length; i++){
+    const step = await obtainInstruction('broccoli', i)
+     document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`
+  }
   document.querySelector("#broccoli").innerHTML += `<li>brocolli is ready</li>`
   document.querySelector("#broccoliImg").removeAttribute("hidden")
-  }
-
+}
   catch(err){
       console.log(error)
   }
  
 }
 
-
 makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
 
-
 async function makeBrusselsSprouts(){
-const step0 = await obtainInstruction('brusselsSprouts', 0)
-const step1 = await obtainInstruction('brusselsSprouts', 1)
-const step2 = await obtainInstruction('brusselsSprouts', 2)
-const step3 = await obtainInstruction('brusselsSprouts', 3)
-const step4 = await obtainInstruction('brusselsSprouts', 4)
-const step5 = await obtainInstruction('brusselsSprouts', 5)
-const step6 = await obtainInstruction('brusselsSprouts', 6)
-const step7 = await obtainInstruction('brusselsSprouts', 7)
-
-
-Promise.all([step0,step1,step2,step3,step4,step5,step6,step7])
+const promises = []
+for(let i = 0; i < brusselsSprouts.length; i++){
+    promises.push( await obtainInstruction('brusselsSprouts', i))
+}
+Promise.all(promises)
 .then ((step)=>{
  step.forEach((elm)=>{
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${elm}</li>`
  })
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel sprouts are reday</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel sprouts are ready</li>`
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
 })
 }
-
 
 makeBrusselsSprouts();
