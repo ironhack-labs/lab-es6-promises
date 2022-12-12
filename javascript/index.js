@@ -112,14 +112,22 @@ async function makeBroccoli() {
 }
 makeBroccoli();
 
-// Bonus 1 - 
-Promise.all([showMashedPotatoImg, showBroccoliImg, showSteakImg])
-.then ((responseArr) => {
-  const promisesArr = responseArr.map((elm) => {
-    return elm.removeAttribute("hidden");
-  });
-
-})
-
 // Bonus 2 - Promise all
 // 
+Promise.all([
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 2),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
+  obtainInstruction("brusselsSprouts", 7),
+])
+.then((values) => {
+  for (let i = 0; i < values.length; i++) {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[i]}</li>`;
+  }
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+  document.getElementById("brusselsSproutsImg").removeAttribute("hidden");
+});
