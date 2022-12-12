@@ -67,20 +67,10 @@ getInstruction("mashedPotatoes", 0, (step1) => {
                   document
                     .querySelector("#mashedPotatoesImg")
                     .removeAttribute("hidden");
-
-                  getInstruction(
-                    "mashedPotatoes",
-                    5,
-                    (step6) => {
-                      const myNewLi = document.createElement("li");
-                      myNewLi.setAttribute("li");
-                      `mashedPotatoes.appendChild(myNewLi)`;
-                      document.querySelector(
-                        "myNewLi"
-                      ).innerHTML += `Mashed Potatoes are ready`;
-                    },
-                    (error) => console.log(error)
-                  );
+                    document.querySelector(
+                      "#mashedPotatoes"
+                    ).innerHTML += `<li>Mashed potatoes are ready!</li>`;
+                  
                 },
                 (error) => console.log(error)
               );
@@ -93,7 +83,8 @@ getInstruction("mashedPotatoes", 0, (step1) => {
     },
     (error) => console.log(error)
   );
-});
+},
+(error) => console.log(error));
 
 // Iteration 2 - using promises
 obtainInstruction("steak", 0)
