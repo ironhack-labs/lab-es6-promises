@@ -73,7 +73,42 @@ getInstruction(
 );
 
 // Iteration 2 - using promises
-// ...
+const steakOL = document.querySelector("#steak");
+
+obtainInstruction("steak", 0)
+  .then((instruction) => {
+    steakOL.innerHTML += `<li>${instruction}</li>`;
+    return obtainInstruction("steak", 1);
+  })
+  .then((instruction) => {
+    steakOL.innerHTML += `<li>${instruction}</li>`;
+    return obtainInstruction("steak", 2);
+  })
+  .then((instruction) => {
+    steakOL.innerHTML += `<li>${instruction}</li>`;
+    return obtainInstruction("steak", 3);
+  })
+  .then((instruction) => {
+    steakOL.innerHTML += `<li>${instruction}</li>`;
+    return obtainInstruction("steak", 4);
+  })
+  .then((instruction) => {
+    steakOL.innerHTML += `<li>${instruction}</li>`;
+    return obtainInstruction("steak", 5);
+  })
+  .then((instruction) => {
+    steakOL.innerHTML += `<li>${instruction}</li>`;
+    return obtainInstruction("steak", 6);
+  })
+  .then((instruction) => {
+    steakOL.innerHTML += `<li>${instruction}</li>`;
+    return obtainInstruction("steak", 7);
+  })
+  .then((instruction) => {
+    steakOL.innerHTML += `<li>${instruction}</li>`;
+    document.querySelector("#steakImg").removeAttribute("hidden");
+  })
+  .catch((error) => console.log(error));
 
 // Iteration 3 using async/await
 // ...
