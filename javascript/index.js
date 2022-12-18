@@ -53,6 +53,7 @@ getInstruction(
                   4,
                   (step5) => {
                     mashedPotatoesOL.innerHTML += `<li>${step5}</li>`;
+                    mashedPotatoesOL.innerHTML += `<li>Mashed potatoes are ready!</li>`;
                     document
                       .querySelector("#mashedPotatoesImg")
                       .removeAttribute("hidden");
@@ -106,12 +107,44 @@ obtainInstruction("steak", 0)
   })
   .then((instruction) => {
     steakOL.innerHTML += `<li>${instruction}</li>`;
+    steakOL.innerHTML += `<li>Stake is ready!</li>`;
     document.querySelector("#steakImg").removeAttribute("hidden");
   })
   .catch((error) => console.log(error));
 
 // Iteration 3 using async/await
-// ...
+const makeBroccoli = async () => {
+  try {
+    const broccoliOL = document.querySelector('#broccoli');
+  
+    let instruction = await obtainInstruction('broccoli', 0);
+    broccoliOL.innerHTML += `<li>${instruction}</li>`;
+  
+    instruction = await obtainInstruction('broccoli', 1);
+    broccoliOL.innerHTML += `<li>${instruction}</li>`;
+    
+    instruction = await obtainInstruction('broccoli', 2);
+    broccoliOL.innerHTML += `<li>${instruction}</li>`;
+    
+    instruction = await obtainInstruction('broccoli', 3);
+    broccoliOL.innerHTML += `<li>${instruction}</li>`;
+    
+    instruction = await obtainInstruction('broccoli', 4);
+    broccoliOL.innerHTML += `<li>${instruction}</li>`;
+    
+    instruction = await obtainInstruction('broccoli', 5);
+    broccoliOL.innerHTML += `<li>${instruction}</li>`;
+    
+    instruction = await obtainInstruction('broccoli', 6);
+    broccoliOL.innerHTML += `<li>${instruction}</li>`;
+    broccoliOL.innerHTML += `<li>Brussels sprouts are ready!</li>`;
+
+    document.querySelector('#broccoliImg').removeAttribute('hidden');
+  } catch (error) {
+    console.log(error)
+  }
+}
+makeBroccoli()
 
 // Bonus 2 - Promise all
 // ...
