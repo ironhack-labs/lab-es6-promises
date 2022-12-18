@@ -25,10 +25,52 @@
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
     document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
   }, (error) => console.log(error));
-*/
-
+  */
+const mashedPotatoesOL = document.querySelector("#mashedPotatoes");
 // Iteration 1 - using callbacks
-// ...
+getInstruction(
+  "mashedPotatoes",
+  0,
+  (step1) => {
+    mashedPotatoesOL.innerHTML += `<li>${step1}</li>`;
+    getInstruction(
+      "mashedPotatoes",
+      1,
+      (step2) => {
+        mashedPotatoesOL.innerHTML += `<li>${step2}</li>`;
+        getInstruction(
+          "mashedPotatoes",
+          2,
+          (step3) => {
+            mashedPotatoesOL.innerHTML += `<li>${step3}</li>`;
+            getInstruction(
+              "mashedPotatoes",
+              3,
+              (step4) => {
+                mashedPotatoesOL.innerHTML += `<li>${step4}</li>`;
+                getInstruction(
+                  "mashedPotatoes",
+                  4,
+                  (step5) => {
+                    mashedPotatoesOL.innerHTML += `<li>${step5}</li>`;
+                    document
+                      .querySelector("#mashedPotatoesImg")
+                      .removeAttribute("hidden");
+                  },
+                  (error) => console.log(error)
+                );
+              },
+              (error) => console.log(error)
+            );
+          },
+          (error) => console.log(error)
+        );
+      },
+      (error) => console.log(error)
+    );
+  },
+  (error) => console.log(error)
+);
 
 // Iteration 2 - using promises
 // ...
