@@ -87,7 +87,18 @@ obtainInstruction('steak', 0)
   .catch((err) => err);
 
 // Iteration 3 using async/await
-// ...
+async function makeBroccoli() {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${await obtainInstruction("brusselsSprouts", 0)}</li>`;
+	document.querySelector("#brusselsSprouts").innerHTML += `<li>${await obtainInstruction("brusselsSprouts", 1)}</li>`;
+	document.querySelector("#brusselsSprouts").innerHTML += `<li>${await obtainInstruction("brusselsSprouts", 2)}</li>`;
+	document.querySelector("#brusselsSprouts").innerHTML += `<li>${await obtainInstruction("brusselsSprouts", 3)}</li>`;
+	document.querySelector("#brusselsSprouts").innerHTML += `<li>${await obtainInstruction("brusselsSprouts", 4)}</li>`;
+	document.querySelector("#brusselsSprouts").innerHTML += `<li>${await obtainInstruction("brusselsSprouts", 5)}</li>`;
+	document.querySelector("#brusselsSprouts").innerHTML += `<li>${await obtainInstruction("brusselsSprouts", 6)}</li>`;
+	document.querySelector("#brusselsSprouts").innerHTML += `<li>${await obtainInstruction("brusselsSprouts", 7)}</li>`;
+	document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+}
+
+makeBroccoli(8);
 
 // Bonus 2 - Promise all
-// ...
