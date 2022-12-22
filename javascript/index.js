@@ -38,8 +38,8 @@ getInstruction('mashedPotatoes', 0, (step) => {
       document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`
       getInstruction('mashedPotatoes', 3, (step) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`
-        document.querySelector("#mashedPotatoes").innerHTML += `Mashed potatoes are ready!`
-
+        document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`
+        document.getElementById("mashedPotatoesImg").removeAttribute("hidden");
       });
     });
   });
@@ -76,8 +76,8 @@ obtainInstruction('steak', 0)
                                   .then((step) => {
                                     document.querySelector("#steak").innerHTML += `<li>${step}</li>`
                                   })
-                                  document.querySelector("#steak").innerHTML += `Steak is ready!`
-
+                                  document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
+                                  document.getElementById("steakImg").removeAttribute("hidden");
                               })
                           })
                       })
@@ -92,7 +92,6 @@ obtainInstruction('steak', 0)
 
 async function makeBroccoli() {
   try {
-
   let step1 = await obtainInstruction("broccoli", 0);
   document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`
 
@@ -115,13 +114,16 @@ async function makeBroccoli() {
   document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
 
   let step8 = await obtainInstruction("broccoli", 7);
-  document.querySelector("#broccoli").innerHTML += `<li>${step8}</li>`;  
+  document.querySelector("#broccoli").innerHTML += `<li>${step8}</li>`; 
+  
   } catch(err) {
     console.log(err)
   } 
-  document.querySelector("#broccoli").innerHTML += `Broccoli is ready!`;
+  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
+
 }
- 
+
 makeBroccoli();
 
 
