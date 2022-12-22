@@ -38,15 +38,58 @@ getInstruction('mashedPotatoes', 0, (step) => {
       document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`
       getInstruction('mashedPotatoes', 3, (step) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`
+        document.querySelector("#mashedPotatoes").innerHTML += `Mashed potatoes are ready!`
+
       });
     });
   });
 });
 
 
+// Iteration 2 - using promises
 
 // Iteration 2 - using promises
-// ...
+
+
+obtainInstruction('steak', 0)
+  .then((step) => {
+    document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+    obtainInstruction('steak', 1)
+      .then((step) => {
+        document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+        obtainInstruction('steak', 2)
+          .then((step) => {
+            document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+            obtainInstruction('steak', 3)
+              .then((step) => {
+                document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+                obtainInstruction('steak', 4)
+                  .then((step) => {
+                    document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+                    obtainInstruction('steak', 5)
+                      .then((step) => {
+                        document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+                        obtainInstruction('steak', 6)
+                          .then((step) => {
+                            document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+                            obtainInstruction('steak', 7)
+                              .then((step) => {
+                                document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+                                obtainInstruction('steak', 8)
+                                  .then((step) => {
+                                    document.querySelector("#steak").innerHTML += `<li>${step}</li>`
+                                  })
+                                  document.querySelector("#steak").innerHTML += `Steak is ready!`
+
+                              })
+                          })
+                      })
+                  })
+              })
+          })
+      })
+  })
+  .catch((err) => console.log(err));
 
 // Iteration 3 using async/await
 // ...
