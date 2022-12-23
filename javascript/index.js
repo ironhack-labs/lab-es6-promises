@@ -89,4 +89,17 @@ obtainInstruction("steak", 0)
 // ...
 
 // Bonus 2 - Promise all
-// ...
+Promise.all([
+  obtainInstruction("broccoli", 0),
+  obtainInstruction("broccoli", 1),
+  obtainInstruction("broccoli", 2),
+  obtainInstruction("broccoli", 3),
+  obtainInstruction("broccoli", 4),
+  obtainInstruction("broccoli", 5),
+  obtainInstruction("broccoli", 6),
+]).then((steps) => {
+  steps.forEach((step) => {
+    document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`
+  })
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
+})
