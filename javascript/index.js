@@ -105,9 +105,9 @@ async function makeBroccoli() {
     step5 = await obtainInstruction('broccoli', 4);
     document.querySelector('#broccoli').innerHTML += `<li>${step5}</li>`;
     step6 = await obtainInstruction('broccoli', 5);
-    document.querySelector('#broccoli').innerHTML += `<li>${step1}</li>`;
+    document.querySelector('#broccoli').innerHTML += `<li>${step6}</li>`;
     step7 = await obtainInstruction('broccoli', 6);
-    document.querySelector('#broccoli').innerHTML += `<li>${step1}</li>`;
+    document.querySelector('#broccoli').innerHTML += `<li>${step7}</li>`;
     document.querySelector('#broccoli').innerHTML += `<li>Broccoli is ready!</li>`;
   } catch (err) {
     console.log(err);
