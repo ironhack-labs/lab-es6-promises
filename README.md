@@ -351,7 +351,7 @@ After the last step, you should display an additional `<li>` with the text: `Bru
   async function greeting() {
     // An `async` function always returns a promise
     // This value will be returned as a Promise
-    return "HELLO IRONHACKERS"!;
+    return "HELLO IRONHACKERS!";
   }
 
   greeting()
