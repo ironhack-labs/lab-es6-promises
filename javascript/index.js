@@ -40,6 +40,7 @@ getInstruction("mashedPotatoes", 0, (step1) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
           getInstruction("mashedPotatoes", 5, (step6) => {
             document.querySelector("#mashedPotatoes").innerHTML += `<li>${step6}</li>`;
+            document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
           }, (err) => console.log(err))
       }, (err) => console.log(err))
   }, (err) => console.log(err))
@@ -72,7 +73,9 @@ obtainInstruction("steak", 0)
                 return obtainInstruction("steak", 7)
                 .then( (step8) => {
                   document.querySelector("#steak").innerHTML += `<li>${step8}</li>`
+                  document.querySelector("#steakImg").removeAttribute("hidden")
                   return obtainInstruction("steak", 8)
+                  
             
 
 .catch((err) => console.log(err))
@@ -106,6 +109,7 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
     const step8 = await obtainInstruction("broccoli", 7)
     document.querySelector("#broccoli").innerHTML += `<li>${step8}</li>`;
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
 } catch(err){
     console.log(err)
 }
