@@ -75,9 +75,7 @@ obtainInstruction("steak", 0)
                   document.querySelector("#steak").innerHTML += `<li>${step8}</li>`
                   document.querySelector("#steakImg").removeAttribute("hidden")
                   return obtainInstruction("steak", 8)
-                  
-            
-
+                
 .catch((err) => console.log(err))
   })
 })
@@ -115,6 +113,8 @@ async function makeBroccoli() {
 }
 }
 makeBroccoli();
+
+
 
 // Bonus 2 - Promise all
 Promise.all([
