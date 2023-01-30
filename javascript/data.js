@@ -26,7 +26,8 @@ const brusselsSprouts = [
   'coat baking sheet with olive oil',
   'roast in the oven for 20 minutes',
   'place back in bowl and add salt and pepper',
-  'enjoy'
+  'enjoy',
+  'Brussels Sprouts are ready!'
 ];
 
 const broccoli = [
