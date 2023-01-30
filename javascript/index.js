@@ -1,6 +1,3 @@
-// This will print in the wrong order.
-// We added it as an example and to test that the arrays from data.js are loaded
-
 // Iteration 1 - using callbacks
 getInstruction("mashedPotatoes", 0, (step0) => {
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`;
