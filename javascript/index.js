@@ -96,6 +96,9 @@ Promise.all([
   obtainInstruction("brusselsSprouts", 6),
   obtainInstruction("brusselsSprouts", 7),
 ])
-  .then(() => (document.querySelector("#broccoli").innerHTML += `<li>Brussels sprouts are ready!</li>`))
+  .then((steps) => {
+    steps.forEach((step) => (document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`));
+  })
+  .then(() => (document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`))
   .then(() => document.querySelector("#brusselsSproutsImg").removeAttribute("hidden"))
   .catch((error) => console.log(error));
