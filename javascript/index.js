@@ -56,12 +56,13 @@ getInstruction("mashedPotatoes", 0, (step0) => {
 //   .then(() => document.querySelector("#steakImg").removeAttribute("hidden"))
 //   .catch((error) => console.log(error));
 
-steak.forEach((step, index) => {
-  obtainInstruction("steak", index)
-    .then((step) => (document.querySelector("#steak").innerHTML += `<li>${step}</li>`))
-    .catch((error) => console.log(error));
-});
-// .then(() => document.querySelector("#steakImg").removeAttribute("hidden"));
+Promise.allSettled(
+  steak.map((step, index) => {
+    obtainInstruction("steak", index)
+      .then((step) => (document.querySelector("#steak").innerHTML += `<li>${step}</li>`))
+      .catch((error) => console.log(error));
+  })
+).then(() => document.querySelector("#steakImg").removeAttribute("hidden"));
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
