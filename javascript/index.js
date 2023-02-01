@@ -117,11 +117,11 @@ catch(err) {
   console.log('Something went wrong', error);
 }
 }
-makeBroccoli()
+makeBroccoli() 
 
 // Bonus 2 - Promise all
 // BRUSSELS SPROUTS using async / await
-
+/*
 async function makeBrusselsSprouts() {
 try {
   await obtainInstruction("brusselsSprouts", 0);
@@ -140,13 +140,28 @@ try {
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[6]}</li>`;
   await obtainInstruction("brusselsSprouts", 7);
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[7]}</li>`;
-  await obtainInstruction("brusselsSprouts", 8);
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[8]}</li>`;
-  // Why not printing these two lines? Done exactly as Broccoli example
   document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 } catch(err) {
   console.log("There is an error");
 }
 }
-makeBrusselsSprouts()
+makeBrusselsSprouts() */
+
+Promise.all([
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 2),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
+  obtainInstruction("brusselsSprouts", 7)
+]).then(values => {
+  values.forEach(value => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${value}</li>`; 
+  });
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
+.catch((error) => console.log(error));
