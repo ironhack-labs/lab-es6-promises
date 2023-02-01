@@ -95,14 +95,28 @@ obtainInstruction('steak', 0)
       })
     })
   })
-
-
-    
-
   .catch((error) => console.log(error))
 
+
 // Iteration 3 using async/await
-// ...
+async function makeBroccoli() {
+  try {
+    
+    let step0 = await obtainInstruction('broccoli', 0)
+    document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`
+    
+    await obtainInstruction('broccoli', 1)
+    await obtainInstruction('broccoli', 2)
+    await obtainInstruction('broccoli', 3)
+    await obtainInstruction('broccoli', 4)
+    await obtainInstruction('broccoli', 5)
+    await obtainInstruction('broccoli', 6)
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
+
 
 // Bonus 2 - Promise all
 // ...
