@@ -131,7 +131,9 @@ const prom7 = new Promise((resolve, reject) => {
 
 Promise.all([prom0, prom1, prom2, prom3, prom4, prom5, prom6, prom7])
   .then((value) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${value}</li>`
+    value.forEach(v => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${v}</li>`
+    })
     document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready</li>`
     document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
   })
