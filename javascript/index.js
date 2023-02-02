@@ -82,17 +82,17 @@ async function makeBroccoli() {
   try {
     const step0 = await obtainInstruction('broccoli', 0)
     document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`
-    const step1 = await obtainInstruction('broccoli', 0)
+    const step1 = await obtainInstruction('broccoli', 1)
     document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`
-    const step2 = await obtainInstruction('broccoli', 0)
+    const step2 = await obtainInstruction('broccoli', 2)
     document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`
-    const step3 = await obtainInstruction('broccoli', 0)
+    const step3 = await obtainInstruction('broccoli', 3)
     document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`
-    const step4 = await obtainInstruction('broccoli', 0)
+    const step4 = await obtainInstruction('broccoli', 4)
     document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`
-    const step5 = await obtainInstruction('broccoli', 0)
+    const step5 = await obtainInstruction('broccoli', 5)
     document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`
-    const step6 = await obtainInstruction('broccoli', 0)
+    const step6 = await obtainInstruction('broccoli', 6)
     document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`
     document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready</li>`
     document.querySelector("#broccoliImg").removeAttribute("hidden")
