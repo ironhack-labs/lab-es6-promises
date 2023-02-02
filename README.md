@@ -140,7 +140,7 @@ After the last step, you should display an additional `<li>` with the text: `Sta
 <details>
   <summary><b>Expected Result</b></summary>
 
-![Iteration 2 expected result](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dinner-2-result.gif)
+![Iteration 2 expected result](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-promise-me-dingithner-2-result.gif)
 
 </details>
 
