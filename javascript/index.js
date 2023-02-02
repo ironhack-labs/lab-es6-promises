@@ -104,3 +104,36 @@ makeBroccoli()
 
 // Bonus 2 - Promise all
 // ...
+const prom0 = new Promise((resolve, reject) => {
+  resolve(obtainInstruction('brusselsSprouts', 0))
+})
+const prom1 = new Promise((resolve, reject) => {
+  resolve(obtainInstruction('brusselsSprouts', 1))
+})
+const prom2 = new Promise((resolve, reject) => {
+  resolve(obtainInstruction('brusselsSprouts', 2))
+})
+const prom3 = new Promise((resolve, reject) => {
+  resolve(obtainInstruction('brusselsSprouts', 3))
+})
+const prom4 = new Promise((resolve, reject) => {
+  resolve(obtainInstruction('brusselsSprouts', 4))
+})
+const prom5 = new Promise((resolve, reject) => {
+  resolve(obtainInstruction('brusselsSprouts', 5))
+})
+const prom6 = new Promise((resolve, reject) => {
+  resolve(obtainInstruction('brusselsSprouts', 6))
+})
+const prom7 = new Promise((resolve, reject) => {
+  resolve(obtainInstruction('brusselsSprouts', 7))
+})
+
+Promise.all([prom0, prom1, prom2, prom3, prom4, prom5, prom6, prom7])
+  .then((value) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${value}</li>`
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts are ready</li>`
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
+  })
+  .catch(e => console.log(e))
+  
