@@ -130,4 +130,21 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+async function makeBrusselsSprouts() {
+  const promises = [];
+  for (let i = 0; i < brusselsSprouts.length; i++) {
+    promises.push(obtainInstruction("brusselsSprouts", i));
+  }
+  try {
+    const steps = await Promise.all(promises);
+    steps.forEach((step) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+    });
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+makeBrusselsSprouts();
