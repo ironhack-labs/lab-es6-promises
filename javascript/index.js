@@ -109,10 +109,7 @@ obtainInstruction("steak", 0)
   })
   .then((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
-    return obtainInstruction("steak", 1);
-  })
-  .then((step8) => {
-    document.querySelector("#steak").innerHTML += `<li>"Stake is ready!"</li>`;
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
   });
 
 // Iteration 3 using async/await
@@ -132,11 +129,12 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
     const step6 = await obtainInstruction("broccoli", 6);
     document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
-    const step7 = await obtainInstruction("broccoli", 8);
-    document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
-    const step8 = await obtainInstruction("broccoli", 9);
-    document.append("#broccoli").innerHTML += `<li>"Broccoli is ready!"</li>`;
-  } catch (error) {}
+    document.querySelector(
+      "#broccoli"
+    ).innerHTML += `<li>Broccoli is ready!</li>`;
+  } catch (error) {
+    console.log(error);
+  }
 }
 makeBroccoli();
 
