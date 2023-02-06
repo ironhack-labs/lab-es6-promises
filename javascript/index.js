@@ -149,15 +149,17 @@ const pr2 = obtainInstruction("brusselsSprouts", 1);
 
 const pr3 = obtainInstruction("brusselsSprouts", 2);
 
-const pr4 = obtainInstruction("brusselsSprouts", 4);
+const pr4 = obtainInstruction("brusselsSprouts", 3);
 
-const pr5 = obtainInstruction("brusselsSprouts", 5);
+const pr5 = obtainInstruction("brusselsSprouts", 4);
 
-const pr6 = obtainInstruction("brusselsSprouts", 6);
+const pr6 = obtainInstruction("brusselsSprouts", 5);
 
-const pr7 = obtainInstruction("brusselsSprouts", 7);
+const pr7 = obtainInstruction("brusselsSprouts", 6);
 
-Promise.all([pr1, pr2, pr3, pr4, pr5, pr6, pr7]) //With promise.all we wait for the longest promise to finish and then return all at the same time
+const pr8 = obtainInstruction("brusselsSprouts", 7);
+
+Promise.all([pr1, pr2, pr3, pr4, pr5, pr6, pr7, pr8]) //With promise.all we wait for the longest promise to finish and then return all at the same time
   .then((steps) => {
     steps.forEach((step) => {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
