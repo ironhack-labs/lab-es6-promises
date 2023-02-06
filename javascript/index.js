@@ -111,7 +111,7 @@ obtainInstruction('steak', 0)
       console.log(error)
     }
   }
-  broccoli.push("Broccoli are ready!")
+  broccoli.push("Broccoli is ready!")
   makeBroccoli()
 
 // Bonus 2 - Promise all
@@ -135,4 +135,4 @@ Promise.all(allBrusselsSproutes)
   }
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
 })
-brusselsSprouts.push("Brussel sprouts are ready!")
+brusselsSprouts.push("Brussels sprouts are ready!")
