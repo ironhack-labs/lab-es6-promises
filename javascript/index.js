@@ -139,13 +139,17 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-Promise.all([
-  (step0 = document.querySelector("#brusselsSprouts").innerHTML +=
-    `<li>${step0}</li>`),
-])
+const steps = [0, 1, 2, 3, 4, 5, 6, 7];
+Promise.all(steps.map((step) => obtainInstruction("brusselsSprouts", step)))
   .then((response) => {
-    console.log(response);
+    let instructionList = "";
+    response.forEach((instruction) => {
+      instructionList += document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>${instruction}</li>`;
+    })
   })
+
   .catch((error) => {
-    console.log(error);
+    return error;
   });
