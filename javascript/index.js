@@ -88,6 +88,8 @@ obtainInstruction('steak', 0)
 
 async function makeBroccoli() {
   try {
+    let step0 = await obtainInstruction('broccoli', 0)
+    document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`
     let step1 = await obtainInstruction('broccoli', 1)
     document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`
     let step2 = await obtainInstruction('broccoli', 2)
