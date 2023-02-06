@@ -104,7 +104,7 @@ obtainInstruction('steak', 0)
     try {
       for (let i = 0; i < broccoli.length; i++) {
         let rawResponse = await obtainInstruction('broccoli', i)
-        broccoliEle.innerHTML += `<li>${broccoli[i]}</li>`
+        broccoliEle.innerHTML += `<li>${rawResponse}</li>`
       }
       document.querySelector("#broccoliImg").removeAttribute("hidden")
     } catch(error) {
@@ -128,7 +128,8 @@ const allBrusselsSproutes = [
 ]
 
 const brusselsSproutsEle = document.querySelector("#brusselsSprouts")
-Promise.all(allBrusselsSproutes).then((result) => {
+Promise.all(allBrusselsSproutes)
+.then((result) => {
   for (let i = 0; i < allBrusselsSproutes.length; i++) {
     brusselsSproutsEle.innerHTML += `<li>${result[i]}</li>`
   }
