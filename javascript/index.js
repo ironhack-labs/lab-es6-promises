@@ -99,3 +99,20 @@ async function makeBroccoli() {
 makeBroccoli().then(() => document.getElementById("broccoliImg").removeAttribute("hidden"))
 
 // Bonus 2 - Promise all
+ const step1 = obtainInstruction('brusselsSprouts', 0)
+ const step2 = obtainInstruction('brusselsSprouts', 1)
+ const step3 = obtainInstruction('brusselsSprouts', 2)
+ const step4 = obtainInstruction('brusselsSprouts', 3)
+ const step5 = obtainInstruction('brusselsSprouts', 4)
+ const step6 = obtainInstruction('brusselsSprouts', 5)
+ const step7 = obtainInstruction('brusselsSprouts', 6)
+ const step8 = obtainInstruction('brusselsSprouts', 7)
+
+ Promise.all([step1, step2, step3, step4, step5, step6, step7, step8])
+ .then((values) =>{
+  values.forEach(element => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`
+   })
+ })
+ .then(() => document.querySelector("#brusselsSprouts").innerHTML += '<li>Brussels sprouts are ready!</li>')
+ .then(() => document.getElementById("brusselsSproutsImg").removeAttribute("hidden"))
