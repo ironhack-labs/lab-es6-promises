@@ -28,6 +28,7 @@
 
 
 // Iteration 1 - using callbacks
+//function getInstruction(food, step, callback, errorCallback)
 getInstruction('mashedPotatoes', 0, (step0) => {
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`
   getInstruction('mashedPotatoes', 1, (step1) => {
@@ -136,3 +137,47 @@ Promise.all(allBrusselsSproutes)
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
 })
 brusselsSprouts.push("Brussels sprouts are ready!")
+
+const brusselList = document.getElementById('brusselsSprouts')
+
+const arrayOfPromises = [
+	obtainInstruction('brusselsSprouts', 0),
+	obtainInstruction('brusselsSprouts', 1),
+	obtainInstruction('brusselsSprouts', 2),
+	obtainInstruction('brusselsSprouts', 3),
+	obtainInstruction('brusselsSprouts', 4),
+	obtainInstruction('brusselsSprouts', 5),
+	obtainInstruction('brusselsSprouts', 6),
+	obtainInstruction('brusselsSprouts', 7),
+]
+
+// Florian version
+// Promise.all(arrayOfPromises)
+// .then((arrayOfMessages) => {
+// 	console.log(arrayOfMessages)
+// 	arrayOfMessages.forEach((message) => {
+// 		const li = document.createElement('li')
+// 		li.textContent = message
+// 		brusselList.append(li)
+// 	})
+// })
+// .catch((error) => {
+// 	console.log(error)
+// })
+
+// Promise.all(
+// 	brusselsSprouts.map((el, i) => {
+// 		return obtainInstruction('brusselsSprouts', i)
+// 	})
+// )
+// .then((arrayOfMessages) => {
+// 	console.log(arrayOfMessages)
+// 	arrayOfMessages.forEach((message) => {
+// 		const li = document.createElement('li')
+// 		li.textContent = message
+// 		brusselList.append(li)
+// 	})
+// })
+// .catch((error) => {
+// 	console.log(error)
+// })
