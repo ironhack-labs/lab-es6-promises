@@ -126,10 +126,34 @@ for (let i = 0; i < brusselsSprouts.length; i++) {
 }
 
 
-Promise.all(arrayOfPromises).then((step) => {
+Promise.all(arrayOfPromises)
+.then((step) => {
   for (let i = 0; i < arrayOfPromises.length; i++) {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[i]}</li>`;
   }
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
-});
+})
+.catch((error) => {
+  console.log(error)
+})
+
+// ou - la version de Florian:
+// Promise.all(arrayOfPromises)
+// .then((arrayOfMessages) => {
+  //arrayOMesssages.forEach(message) => {
+//     const li = document.createElement('li')
+//     li.textContent = MessageChannelbrusselList.append(li)
+//   })
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// or
+
+// Promise.all(brusselsSprouts.map((el, i) = >
+// return obtainInstruction('brusselsSprouts', i)
+// ))
+// .then((arrayOfMessages))
+//   etc
