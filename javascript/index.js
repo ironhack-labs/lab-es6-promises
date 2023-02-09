@@ -161,3 +161,4 @@ document.getElementById("brusselsSproutsImg").removeAttribute("hidden")
 steps.forEach((stepAll)=> {
   document.getElementById("brusselsSprouts").innerHTML += `<li>${stepAll}</li>`})
 })
+
