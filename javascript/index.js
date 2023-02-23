@@ -44,9 +44,7 @@ getInstruction('mashedPotatoes', 0,
         getInstruction('mashedPotatoes', 4, 
         (step5) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
-          const li = document.createElement('li');
-          li.innerHTML = 'Mahed potatoes are ready!';
-          document.getElementById('mashedPotatoes').appendChild(li);
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mahed potatoes are ready!</li>`;
           document.getElementById('mashedPotatoesImg').removeAttribute('hidden');
         },
         (error) => console.log(error));
@@ -95,10 +93,8 @@ obtainInstruction('steak', 0)
   })
   .then( (step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
-    const li = document.createElement('li');
-          li.innerHTML = 'Stake is ready!';
-          document.getElementById('steak').appendChild(li);
-          document.getElementById('steakImg').removeAttribute('hidden');
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
+    document.getElementById('steakImg').removeAttribute('hidden');
   })
   .catch(error => console.log(error));
   
@@ -122,10 +118,8 @@ async function makeBroccoli() {
     document.querySelector('#broccoli').innerHTML += `<li>${broccoli[5]}</li>`
     await obtainInstruction('broccoli', 6);
     document.querySelector('#broccoli').innerHTML += `<li>${broccoli[6]}</li>`
-    const li = document.createElement('li');
-          li.innerHTML = 'Broccoli are ready!';
-          document.getElementById('broccoli').appendChild(li);
-          document.getElementById('broccoliImg').removeAttribute('hidden');
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli are ready!</li>`;
+    document.getElementById('broccoliImg').removeAttribute('hidden');
 
   } 
   catch (error) {console.log(error)}
@@ -148,10 +142,8 @@ Promise.all(arrPromises)
   brusselsSprouts.forEach((step) => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
   })
-  const li = document.createElement('li');
-          li.innerHTML = 'Brussels sprouts are ready!';
-          document.getElementById('brusselsSprouts').appendChild(li);
-          document.getElementById('brusselsSproutsImg').removeAttribute('hidden');
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brusselsprouts are ready!</li>`;
+  document.getElementById('brusselsSproutsImg').removeAttribute('hidden');
 
 })
 .catch((err) => console.log(err));
