@@ -126,6 +126,8 @@ Promise.all(steps.map((step) => obtainInstruction("brusselsSprouts", step)))
         "#brusselsSprouts"
       ).innerHTML += `<li>${instruction}</li>`;
     })
+    const brusselsSproutsImg = document.querySelector("#brusselsSproutsImg");
+    brusselsSproutsImg.removeAttribute("hidden");
   })
   .catch((error) => {
     return error;
