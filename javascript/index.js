@@ -29,8 +29,8 @@
 
 //Iteration 1 - using callbacks
 
-getInstruction('mashedPotatoes', 0, (step0) => {
-  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`
+getInstruction('mashedPotatoes', 0, (step1) => {
+  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`
   getInstruction("mashedPotatoes", 1, (step2) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`;
     getInstruction("mashedPotatoes", 2, (step3) => {
@@ -83,6 +83,7 @@ obtainInstruction('steak', 0)
   .then( (instruction) => {
     document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`
     document.querySelector("#steak").innerHTML += `<li>${'Stake is ready!'}</li>`
+    
     const steakImg = document.querySelector("#steakImg");
     steakImg.removeAttribute("hidden");
   })
@@ -116,4 +117,16 @@ async function makeBroccoli(instruction) {
 }
 makeBroccoli()
 
-// Bonus 2 - Promise all
+const steps = [0, 1, 2, 3, 4, 5, 6, 7];
+Promise.all(steps.map((step) => obtainInstruction("brusselsSprouts", step)))
+  .then((response) => {
+    let instructionList = "";
+    response.forEach((instruction) => {
+      instructionList += document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>${instruction}</li>`;
+    })
+  })
+  .catch((error) => {
+    return error;
+  });
