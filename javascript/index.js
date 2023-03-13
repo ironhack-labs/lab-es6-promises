@@ -53,6 +53,9 @@ getInstruction("mashedPotatoes", 0, (step0) => {
           document.querySelector(
             "#mashedPotatoes"
           ).innerHTML += `<li>Mashed potatoes are ready!</li>`;
+          document
+            .querySelector("#mashedPotatoesImg")
+            .removeAttribute("hidden");
         });
       });
     });
@@ -104,11 +107,54 @@ obtainInstruction("steak", 0)
   .then((step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
     document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
+    document.querySelector("#steakImg").removeAttribute("hidden");
+
     return true;
   });
 
 // Iteration 3 using async/await
 // ...
 
+async function makeBroccoli() {
+  // ... Your code here
+
+  for (let i = 0; i < 7; i++) {
+    const step = await obtainInstruction("broccoli", i);
+    document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
+  }
+
+  document.querySelector(
+    "#broccoli"
+  ).innerHTML += `<li>Broccoli is ready!</li>`;
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
+}
+
+makeBroccoli();
+
 // Bonus 2 - Promise all
 // ...
+
+const brusselStep0 = obtainInstruction("brusselsSprouts", 0);
+const brusselStep1 = obtainInstruction("brusselsSprouts", 1);
+const brusselStep2 = obtainInstruction("brusselsSprouts", 2);
+const brusselStep3 = obtainInstruction("brusselsSprouts", 3);
+const brusselStep4 = obtainInstruction("brusselsSprouts", 4);
+const brusselStep5 = obtainInstruction("brusselsSprouts", 5);
+const brusselStep6 = obtainInstruction("brusselsSprouts", 6);
+
+Promise.all([
+  brusselStep0,
+  brusselStep1,
+  brusselStep2,
+  brusselStep3,
+  brusselStep4,
+  brusselStep5,
+  brusselStep6,
+]).then((response) => {
+  for (res in response) {
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${response[res]}</li>`;
+  }
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+});
