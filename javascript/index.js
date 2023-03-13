@@ -122,3 +122,28 @@ makeBroccoli()
 
 // Bonus 2 - Promise all
 // ...
+
+const p1 = obtainInstruction('brusselsSprouts', 0)
+const p2 = obtainInstruction('brusselsSprouts', 1)
+const p3 = obtainInstruction('brusselsSprouts', 2)
+const p4 = obtainInstruction('brusselsSprouts', 3)
+const p5 = obtainInstruction('brusselsSprouts', 4)
+const p6 = obtainInstruction('brusselsSprouts', 5)
+const p7 = obtainInstruction('brusselsSprouts', 6)
+const p8 = obtainInstruction('brusselsSprouts', 7)
+
+Promise.all([p1,p2,p3,p4,p5,p6,p7,p8])
+.then((responseArr)=> {
+console.log(responseArr)
+document.querySelector("#brusselsSprouts").innerHTML += `<li>${responseArr[0]}</li>`
+document.querySelector("#brusselsSprouts").innerHTML += `<li>${responseArr[1]}</li>`
+document.querySelector("#brusselsSprouts").innerHTML += `<li>${responseArr[2]}</li>`
+document.querySelector("#brusselsSprouts").innerHTML += `<li>${responseArr[3]}</li>`
+document.querySelector("#brusselsSprouts").innerHTML += `<li>${responseArr[4]}</li>`
+document.querySelector("#brusselsSprouts").innerHTML += `<li>${responseArr[5]}</li>`
+document.querySelector("#brusselsSprouts").innerHTML += `<li>${responseArr[6]}</li>`
+document.querySelector("#brusselsSprouts").innerHTML += `<li>${responseArr[7]}</li>`
+document.querySelector("#brusselsSprouts").innerHTML += `<li>BrusselsSprouts is ready!</li>`;
+  document.querySelector("#brusselsSproutsImg").hidden = false;
+
+})
