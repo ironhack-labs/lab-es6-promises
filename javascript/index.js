@@ -84,7 +84,7 @@ obtainInstruction('steak', 0)
 
 
 // Iteration 3 using async/await
-// ...
+
 async function makeBroccoli() {
 
   try {
@@ -114,9 +114,6 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
-
-
 
 const brusselsArray = [
   obtainInstruction('brusselsSprouts', 0),
