@@ -138,6 +138,8 @@ Promise.all([promise0,promise1,promise2,promise3,promise4,promise5,promise6,prom
 .then((steps) => {
  steps.forEach(element => {
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`;
+ document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussles Sprouts are ready!</li>`;
+ document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
  })
 .catch((error) => {
 console.log(error.message)});
