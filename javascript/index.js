@@ -87,6 +87,9 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>steak is ready</li>`
     const img = document.querySelector("#steakImg").removeAttribute("hidden");
   })
+  .catch((error) => {
+    Document.querySelector("#steak").innerHTML += `SOMETHING WENT WRONG`;
+  })
   // ... Your code here
 
 // Iteration 3 using async/await
@@ -118,3 +121,35 @@ async function makeBroccoli() {
 
 }
 makeBroccoli();
+
+Promise.all(brusselsSprouts)
+.then( (step0) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[0]}</li>`;
+})
+.then( (step1) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[1]}</li>`;
+})
+.then( (step2) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[2]}</li>`;
+})
+.then( (step3) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[3]}</li>`;
+})
+.then( (step4) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[4]}</li>`;
+})
+.then( (step5) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[5]}</li>`;
+})
+.then( (step6) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[6]}</li>`;
+})
+.then( (step7) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[7]}</li>`;
+})
+.then( (step8) => {
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
+.catch((error) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `${error}`;
+})
