@@ -73,32 +73,34 @@ getInstruction(
 // Iteration 2 - using promises
 // ...
 
- obtainInstructions("steak", 0)
+ obtainInstruction("steak", 0)
    .then((step0) => {
+    
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
-    return obtainInstruction(0)})
+    return obtainInstruction("steak", 0)})
    .then((step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
-    return obtainInstruction(1)})
+    return obtainInstruction("steak", 1)})
    .then((step2) => {
     document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
-    return obtainInstruction(2)})
+    return obtainInstruction("steak", 2)})
    .then((step3) => {
     document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
-    return obtainInstruction(3)})
+    return obtainInstruction("steak", 3)})
    .then((step4) => {
     document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
-    return obtainInstruction(4)})
+    return obtainInstruction("steak", 4)})
    .then((step5) => {
     document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
-    return obtainInstruction(5)})
+    return obtainInstruction("steak", 5)})
    .then((step6) => {
     document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
-    return obtainInstruction(6)})
+    return obtainInstruction("steak", 6)})
    .then((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
     document.querySelector("#steak").innerHTML += `<li> Steak is ready! </li>`
-    return obtainInstruction(7)})
+    document.querySelector("#steakImg").removeAttribute('hidden')
+    return obtainInstruction("steak", 7)})
    .catch((error) => console.log(error));
 
 
