@@ -11,6 +11,7 @@ function obtainInstruction(food, step) {
 
       if (food === "mashedPotatoes") {
         instruction = mashedPotatoes[step];
+        
       }
       else if (food === "steak") {
         instruction = steak[step];
