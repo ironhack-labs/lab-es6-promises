@@ -38,15 +38,14 @@ getInstruction('mashedPotatoes', 0, (step0) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
         getInstruction('mashedPotatoes', 4, (step4) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
-          document.querySelector("#mashedPotatoes").innerHTML += `<li>"Mashed potatoes are ready!"</li>`;
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
+          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
 
-        });
-      });
-    });
-  });
-});
-
-document.querySelector("#mashedPotatoesImg") 
+        },error => console.log(error))
+      },error => console.log(error))
+    },error => console.log(error))
+  },error => console.log(error))
+},error => console.log(error));
 
 
 
@@ -84,6 +83,7 @@ obtainInstruction('steak', 0)
   .then( (step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
     document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+    document.querySelector("#steakImg").removeAttribute("hidden");
     // return obtainInstruction('steak', 8)
   })
   .catch((err) => console.log("catch() -> ", err));
@@ -150,6 +150,7 @@ try {
   let brocStep6 = await obtainInstruction('broccoli', 6);
   document.querySelector("#broccoli").innerHTML += `<li>${brocStep6}</li>`;
   document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
 } catch (err) {
   console.log("Something went wrong!", err);
 }
