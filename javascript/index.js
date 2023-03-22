@@ -4,7 +4,7 @@
 // 🚨🚨🚨 Comment out the below code before you start working on the code
 
 // Out of sync
- /* getInstruction("mashedPotatoes", 0, (step1) => {
+ getInstruction("mashedPotatoes", 0, (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
   }, (error) => console.log(error));
   
@@ -23,7 +23,7 @@
   getInstruction("mashedPotatoes", 4, (step5) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
     document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
-  }, (error) => console.log(error));*/
+  }, (error) => console.log(error));
 
 
 
@@ -126,4 +126,22 @@ makeBroccoli()
 
 
 // Bonus 2 - Promise all
-// ...
+
+/*const step0 = obtainInstruction('brusselsSprouts', 0)
+  const step1 = obtainInstruction('brusselsSprouts', 1)
+  const step2 = obtainInstruction('brusselsSprouts', 2)
+  
+
+  
+  
+  Promise.all( [step0, step1, step2] )
+    .then((value) => document.querySelector("#brusselsSprouts").innerHTML +=  `<li>${value}</li> <li>${value[1]}</li> <li>${value[2]}</li>  ` )*/
+    
+    
+  
+
+
+
+          
+      
+      
