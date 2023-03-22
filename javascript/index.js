@@ -95,6 +95,23 @@ obtainInstruction('steak', 0)
 
 // Iteration 3 using async/await
 
+async function makeBroccoli() {
+  try {
+      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[0]}</li>`
+      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[1]}</li>`
+      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[2]}</li>`
+      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[3]}</li>`
+      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[4]}</li>`
+      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[5]}</li>`
+      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[6]}</li>`
+  }
+  catch(err){
+    console.log("error");
+  }
+  }
+
+
+makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
