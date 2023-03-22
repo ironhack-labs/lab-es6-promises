@@ -149,10 +149,11 @@ try {
 } try {
   let brocStep6 = await obtainInstruction('broccoli', 6);
   document.querySelector("#broccoli").innerHTML += `<li>${brocStep6}</li>`;
-  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
-  document.querySelector("#broccoliImg").removeAttribute("hidden");
 } catch (err) {
   console.log("Something went wrong!", err);
+} finally {
+  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
 }
 }
 makeBroccoli();
