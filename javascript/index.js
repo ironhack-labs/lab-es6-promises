@@ -127,18 +127,22 @@ makeBroccoli()
 
 // Bonus 2 - Promise all
 
-/*const step0 = obtainInstruction('brusselsSprouts', 0)
-  const step1 = obtainInstruction('brusselsSprouts', 1)
-  const step2 = obtainInstruction('brusselsSprouts', 2)
-  
+  const step0 = obtainInstruction('brusselsSprouts', 0);
+const step1 = obtainInstruction('brusselsSprouts', 1);
+const step2 = obtainInstruction('brusselsSprouts', 2);
+const step3 = obtainInstruction('brusselsSprouts', 3);
+const step4 = obtainInstruction('brusselsSprouts', 4);
+const step5 = obtainInstruction('brusselsSprouts', 5);
+const step6 = obtainInstruction('brusselsSprouts', 6);
+const step7 = obtainInstruction('brusselsSprouts', 7);
+
+
 
   
   
-  Promise.all( [step0, step1, step2] )
-    .then((value) => document.querySelector("#brusselsSprouts").innerHTML +=  `<li>${value}</li> <li>${value[1]}</li> <li>${value[2]}</li>  ` )*/
-    
-    
-  
+  Promise.all( [step0, step1, step2, step3, step4, step5, step6, step7] )
+    .then((value) => document.querySelector("#brusselsSprouts").innerHTML +=  `<li>${value[0]}</li> <li>${value[1]}</li> <li>${value[2]}</li> <li>${value[3]}</li> <li>${value[4]}</li> <li>${value[5]}</li> <li>${value[6]}</li> <li>${value[7]}</li> <li>Brussels Sprouts are ready!</li>` )//
+    .then((value) => document.querySelector("#brusselsSproutsImg").removeAttribute("hidden"));
 
 
 
