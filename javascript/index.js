@@ -95,23 +95,36 @@ obtainInstruction('steak', 0)
 
 // Iteration 3 using async/await
 
+broccoli.push("Broccoli is ready!")
+
+
 async function makeBroccoli() {
-  try {
-      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[0]}</li>`
-      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[1]}</li>`
-      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[2]}</li>`
-      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[3]}</li>`
-      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[4]}</li>`
-      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[5]}</li>`
-      document.querySelector("#broccoli").innerHTML += await `<li>${broccoli[6]}</li>`
-  }
-  catch(err){
-    console.log("error");
-  }
-  }
+  try{
+    await obtainInstruction('broccoli', 0)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[0]}</li>`
+    await obtainInstruction('broccoli', 1)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[1]}</li>`
+    await obtainInstruction('broccoli', 2)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[2]}</li>`
+    await obtainInstruction('broccoli', 3)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[3]}</li>`
+    await obtainInstruction('broccoli', 4)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[4]}</li>`
+    await obtainInstruction('broccoli', 5)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[5]}</li>`
+    await obtainInstruction('broccoli', 6)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[6]}</li>`
+    await obtainInstruction('broccoli', 7)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[7]}</li>`
+    await obtainInstruction('broccoli', 8)
+    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[8]}</li>`
+  
+} catch(err) {
+  console.log(err)
+ }
+}
 
-
-makeBroccoli();
+makeBroccoli()  
 
 // Bonus 2 - Promise all
 // ...
