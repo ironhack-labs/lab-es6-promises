@@ -119,6 +119,22 @@ async function cookBroccoli() {
 cookBroccoli();
 
 
-
 // Bonus 2 - Promise all
-// ...
+
+let step0 = obtainInstruction('brusselsSprouts', 0);
+let step1 = obtainInstruction('brusselsSprouts', 1);
+let step2 = obtainInstruction('brusselsSprouts', 2);
+let step3 = obtainInstruction('brusselsSprouts', 3);
+let step4 = obtainInstruction('brusselsSprouts', 4);
+let step5 = obtainInstruction('brusselsSprouts', 5);
+let step6 = obtainInstruction('brusselsSprouts', 6);
+let step7 = obtainInstruction('brusselsSprouts', 7);
+
+Promise.all( [step0,step1,step2,step3,step4,step5,step6,step7] )
+  .then((values) => {
+    for (let i=0; i < values.length; i++) {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[i]}</li>`;
+    }
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
