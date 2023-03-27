@@ -54,8 +54,8 @@
 getInstruction(
   "mashedPotatoes",
   0,
-  (step1) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
+  (step0) => {
+    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`;
     // étape 2
     getInstruction(
       "mashedPotatoes",
@@ -64,39 +64,45 @@ getInstruction(
         document.querySelector(
           "#mashedPotatoes"
         ).innerHTML += `<li>${step2}</li>`;
-      },
-      (error) => console.log(error)
-    );
-    // étape 3
-    getInstruction(
-      "mashedPotatoes",
-      2,
-      (step3) => {
-        document.querySelector(
-          "#mashedPotatoes"
-        ).innerHTML += `<li>${step3}</li>`;
-      },
-      (error) => console.log(error)
-    );
-    //étape 4
-    getInstruction(
-      "mashedPotatoes",
-      3,
-      (step4) => {
-        document.querySelector(
-          "#mashedPotatoes"
-        ).innerHTML += `<li>${step4}</li>`;
-      },
-      (error) => console.log(error)
-    );
-    //étape 5
-    getInstruction(
-      "mashedpotatoes",
-      4,
-      (step5) => {
-        document.querySelector(
-          "#mashedPotatoes"
-        ).innerHTML += `<li>${step5}</li>`;
+
+        getInstruction(
+          "mashedPotatoes",
+          2,
+          (step3) => {
+            document.querySelector(
+              "#mashedPotatoes"
+            ).innerHTML += `<li>${step3}</li>`;
+
+            getInstruction(
+              "mashedPotatoes",
+              3,
+              (step4) => {
+                document.querySelector(
+                  "#mashedPotatoes"
+                ).innerHTML += `<li>${step4}</li>`;
+
+                getInstruction(
+                  "mashedPotatoes",
+                  4,
+                  (step5) => {
+                    document.querySelector(
+                      "#mashedPotatoes"
+                    ).innerHTML += `<li>${step5}</li>`;
+                    document
+                      .querySelector("#mashedPotatoesImg")
+                      .removeAttribute("hidden");
+                    document.querySelector(
+                      "#mashedPotatoes"
+                    ).innerHTML += `<li>Mashed potatoes are ready!</li>`;
+                  },
+                  (error) => console.log(error)
+                );
+              },
+              (error) => console.log(error)
+            );
+          },
+          (error) => console.log(error)
+        );
       },
       (error) => console.log(error)
     );
