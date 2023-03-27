@@ -4,7 +4,7 @@
 // 🚨🚨🚨 Comment out the below code before you start working on the code
 
 // Out of sync
-  getInstruction("mashedPotatoes", 0, (step1) => {
+/*  getInstruction("mashedPotatoes", 0, (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
   }, (error) => console.log(error));
   
@@ -22,13 +22,28 @@
   
   getInstruction("mashedPotatoes", 4, (step5) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
-    document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
   }, (error) => console.log(error));
-
-
+*/
 
 // Iteration 1 - using callbacks
-// ...
+
+
+
+getInstruction("mashedPotatoes", 0, (step1) => {
+    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
+    getInstruction("mashedPotatoes", 1, (step1) => {
+      document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
+      getInstruction("mashedPotatoes", 2, (step1) => {
+        document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
+        getInstruction("mashedPotatoes", 3, (step1) => {
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
+          getInstruction("mashedPotatoes", 4, (step1) => {
+            document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li> <li>Mashed potatoes are ready!</li>`;document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+          }, (error) => console.log(error));
+        }, (error) => console.log(error));
+      }, (error) => console.log(error));
+    }, (error) => console.log(error));
+  }, (error) => console.log(error));
 
 // Iteration 2 - using promises
 // ...
