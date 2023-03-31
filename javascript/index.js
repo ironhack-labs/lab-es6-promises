@@ -66,6 +66,10 @@ getInstruction("mashedPotatoes", 3, (step3) => {
 getInstruction("mashedPotatoes", 4, (step4) => {
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
 });
+document.querySelector(
+  "#mashedPotatoes"
+).innerHTML += `<li>Mashed potatoes are ready!</li>`;
+document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
 
 // Iteration 2 - using promises
 obtainInstruction("steak", 0).then((step0) => {
@@ -92,6 +96,8 @@ obtainInstruction("steak", 6).then((step6) => {
 obtainInstruction("steak", 7).then((step7) => {
   document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
 });
+document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+document.querySelector("#steakImg").removeAttribute("hidden");
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
@@ -120,9 +126,10 @@ async function makeBroccoli() {
     document.querySelector(
       "#broccoli"
     ).innerHTML += `<li>Broccoli is ready!</li>`;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    throw new Error();
   }
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
 }
 makeBroccoli();
 
