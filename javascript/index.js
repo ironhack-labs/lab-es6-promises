@@ -111,4 +111,38 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+
+const promAll = obtainInstruction("brusselsSprouts", 0)
+  .then((step0) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    return obtainInstruction("brusselsSprouts", 1);
+  })
+  .then((step0) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    return obtainInstruction("brusselsSprouts",2);
+  })
+  .then((step0) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    return obtainInstruction("brusselsSprouts",3);
+  })
+  .then((step0) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    return obtainInstruction("brusselsSprouts",4);
+  })
+  .then((step0) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    return obtainInstruction("brusselsSprouts",5);
+  })
+  .then((step0) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    return obtainInstruction("brusselsSprouts",6);
+  })
+  .then((step0) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`;
+    return obtainInstruction("brusselsSprouts",7);
+  })
+  .then((step0) => {
+  document.getElementById('brusselsSproutsImg').removeAttribute("hidden");
+})
+
+Promise.all([promAll]);
