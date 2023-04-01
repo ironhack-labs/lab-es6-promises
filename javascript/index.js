@@ -112,12 +112,7 @@ obtainInstruction("steak", 0)
   })
   .then((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
-    return obtainInstruction("steak", 8);
-  })
-  .then(() => {
-    document.querySelector("steak").innerHTML += `<li>Steak is ready!</li>`;
-  })
-  .then(() => {
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
     document.querySelector("#steakImg").removeAttribute("hidden");
   });
 
@@ -156,4 +151,46 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+const makeBrusselsSprouts = () => {
+  const p1 = obtainInstruction("brusselsSprouts", 0);
+  const p2 = obtainInstruction("brusselsSprouts", 1);
+  const p3 = obtainInstruction("brusselsSprouts", 2);
+  const p4 = obtainInstruction("brusselsSprouts", 3);
+  const p5 = obtainInstruction("brusselsSprouts", 4);
+  const p6 = obtainInstruction("brusselsSprouts", 5);
+  const p7 = obtainInstruction("brusselsSprouts", 6);
+  const p8 = obtainInstruction("brusselsSprouts", 7);
+
+  Promise.all([p1, p2, p3, p4, p5, p6, p7, p8]).then((values) => {
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${values[0]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${values[1]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${values[2]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${values[3]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${values[4]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${values[5]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${values[6]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${values[7]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  });
+};
+
+makeBrusselsSprouts();
