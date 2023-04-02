@@ -30,7 +30,7 @@
 
 // Iteration 1 - using callbacks
 
-mashedPotatoes.push("Mashed potatoes are ready!");
+mashedPotatoes.push('Mashed potatoes are ready!');
 
 getInstruction('mashedPotatoes', 0, (step0) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`;
@@ -44,8 +44,10 @@ getInstruction('mashedPotatoes', 0, (step0) => {
                     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
                       getInstruction('mashedPotatoes', 5, (step5) => {
                         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
+                        document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
                           getInstruction('mashedPotatoes', 6, (step6) => {
                             document.querySelector("#mashedPotatoes").innerHTML += `<li>${step6}</li>`;
+                          
                 
                           }), (error) => console.log(error);
                       }), (error) => console.log(error);
@@ -88,6 +90,7 @@ obtainInstruction('steak', 0)
     return obtainInstruction('steak', 8)
 })
     .then((step8) => {document.querySelector("#steak").innerHTML += `<li>${step8}</li>`
+    document.querySelector("#steakImg").removeAttribute("hidden");
     return obtainInstruction('steak', 8)
 });
 
@@ -116,8 +119,10 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>${broccoli[6]}</li>`
     await obtainInstruction('broccoli', 7)
     document.querySelector("#broccoli").innerHTML += `<li>${broccoli[7]}</li>`
+    document.querySelector("#broccoliImg").removeAttribute("hidden")
     await obtainInstruction('broccoli', 8)
     document.querySelector("#broccoli").innerHTML += `<li>${broccoli[8]}</li>`
+   
   
 } catch(err) {
   console.log(err)
@@ -127,4 +132,21 @@ async function makeBroccoli() {
 makeBroccoli()  
 
 // Bonus 2 - Promise all
-// ...
+
+const brusselsPromises = [];
+
+for (let i = 0; i < 9; i++) {
+  brusselsPromises.push(obtainInstruction("brusselsSprouts", i)
+    .then(() => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${brusselsSprouts[i]}</li>`
+      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+    }));
+}
+
+Promise.all(brusselsPromises)
+  .then(() => {
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
