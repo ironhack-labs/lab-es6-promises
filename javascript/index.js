@@ -37,7 +37,8 @@ getInstruction('mashedPotatoes', 0, (step0) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
         getInstruction('mashedPotatoes', 4, (step4) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
-          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;         
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`; 
+          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");        
         });
       });
     });
@@ -76,6 +77,7 @@ obtainInstruction('steak', 0)
   .then( (step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
     document.querySelector("#steak").innerHTML += `<li> Stake is ready!</li>`
+    document.querySelector("#steakImg").removeAttribute("hidden");
   })
 
 
@@ -98,6 +100,7 @@ async function makeBrusselsSprouts() {
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${step6}</li>`
   const step7 = await obtainInstruction('brusselsSprouts', 7);
   document.querySelector("#brusselsSprouts").innerHTML += `<li>${step7}</li>`
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 }
 catch(error) {
   console.log(error);
@@ -108,4 +111,19 @@ makeBrusselsSprouts();
 
 
 // Bonus 2 - Promise all
-// ...
+
+Promise.all([
+	obtainInstruction("broccoli", 0),
+	obtainInstruction("broccoli", 1),
+	obtainInstruction("broccoli", 2),
+	obtainInstruction("broccoli", 3),
+  obtainInstruction("broccoli", 4),
+  obtainInstruction("broccoli", 5),
+  obtainInstruction("broccoli", 6)
+
+])
+.then(values => {(values)
+  for (value of values) 
+  document.querySelector("#broccoli").innerHTML += `<li>${value}</li>`
+}
+)
