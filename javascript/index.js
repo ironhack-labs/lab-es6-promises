@@ -47,6 +47,7 @@ getInstruction("mashedPotatoes", 0, (step0) => {
             document.querySelector(
               "#mashedPotatoes"
             ).innerHTML += `<li>${"Mashed Potatoes Are Ready!"}</li>`;
+            document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
           });
         });
       });
@@ -95,6 +96,9 @@ obtainInstruction("steak", 0)
                                 document.querySelector(
                                   "#steak"
                                 ).innerHTML += `<li>${"Stake is ready!"}</li>`;
+
+                                document.querySelector("#steakImg").removeAttribute("hidden");
+                            
                               })
                               .catch((err) => console.log(err));
                           })
@@ -141,11 +145,33 @@ async function makeBroccoli() {
   document.querySelector(
     "#broccoli"
   ).innerHTML +=`<li>"Broccoli is ready!"</li>` 
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
+
   
 } catch (err) {
   console.log(err) 
 }
 }
 makeBroccoli()
+
+
 // Bonus 2 - Promise all
-// ...
+Promise.all([
+  obtainInstruction('brusselsSprouts', 0),
+  obtainInstruction('brusselsSprouts', 1),
+	obtainInstruction('brusselsSprouts', 2),
+	obtainInstruction('brusselsSprouts', 3),
+  obtainInstruction('brusselsSprouts', 4),
+  obtainInstruction('brusselsSprouts', 5),
+  obtainInstruction('brusselsSprouts', 6),
+  obtainInstruction('brusselsSprouts', 7)
+
+]).then(instructions => {instructions.forEach(instruction => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`  })
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels Sprouts Are Ready</li>` 
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
+ .catch((err) => console.log(err))
+
+
+
