@@ -129,6 +129,6 @@ makeBroccoli();
           document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
         }
         document.querySelector("#brusselSprouts").innerHTML += `<li>Brussel Sprouts are ready!</li>`;
-      document.querySelector("#brusselSproutsImg").attributes.removeNamedItem("hidden");
+      document.querySelector("#brusselsSproutsImg").attributes.removeNamedItem("hidden");
       })
 makeBrusselSprouts();
