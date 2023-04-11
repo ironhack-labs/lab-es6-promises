@@ -44,19 +44,14 @@ getInstruction("mashedPotatoes", 0, (step0) => {
       getInstruction("mashedPotatoes", 3, (step3) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
         getInstruction("mashedPotatoes", 4, () => {
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
           document.querySelector("#mashedPotatoes").innerHTML += `<li>mashed potatoes are ready!</li>`;
           document.querySelector("#mashedPotatoesImg").attributes.removeNamedItem("hidden");
-        },
-          (err) => console.log(err));
-      },
-        (err) => console.log(err));
-    },
-      (err) => console.log(err));
-  },
-    (err) => console.log(err));
-},
-  (err) => console.log(err));
-
+        },(err) => console.log(err));   
+      },(err) => console.log(err));
+    },(err) => console.log(err));
+  },(err) => console.log(err));
+},(err) => console.log(err));
 // Iteration 2 - using promises
 obtainInstruction("steak", 0)
   .then((step0) => {
