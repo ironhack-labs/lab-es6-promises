@@ -95,7 +95,7 @@ obtainInstruction("steak", 0)
                               
                                 document.querySelector(
                                   "#steak"
-                                ).innerHTML += `<li>${"Stake is ready!"}</li>`;
+                                ).innerHTML += `<li>${"Steak is ready!"}</li>`;
 
                                 document.querySelector("#steakImg").removeAttribute("hidden");
                             
