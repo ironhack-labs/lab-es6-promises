@@ -114,17 +114,27 @@ makeBroccoli()
 
 
 // Bonus 2 - Promise all
-Promise.all([step0,step1,step2,step3,step4,step5,step6,step7])
-  .then((step)=>{
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[0]}</li>`;
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[1]}</li>`;
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[2]}</li>`;
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[3]}</li>`;
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[4]}</li>`;
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[5]}</li>`;
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[6]}</li>`;
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step[7]}</li>`;
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>The brussels Sprouts is ready!</li>`;
-    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+async function makeBrusselsSprouds(){
+  try{
+    instruction = await Promise.all([
+      obtainInstruction("brusselsSprouts", 0),
+      obtainInstruction("brusselsSprouts", 1),
+      obtainInstruction("brusselsSprouts", 2),
+      obtainInstruction("brusselsSprouts", 3),
+      obtainInstruction("brusselsSprouts", 4),
+      obtainInstruction("brusselsSprouts", 5),
+      obtainInstruction("brusselsSprouts", 6),
+      obtainInstruction("brusselsSprouts", 7)
+    ])
+  }catch (error){
+    console.log(err)
   }
-)
+
+  instruction.forEach(instruction => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`
+  })
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>brussels sprouts are ready!</li>`
+  document.getElementById("brusselsSproutsImg").removeAttribute("hidden")
+
+}
+makeBrusselsSprouds()
