@@ -91,47 +91,28 @@ obtainInstruction('steak', 0)
                       document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
                       document.querySelector("#steakImg").removeAttribute('hidden');
                       document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
-                      //  ... Your code here
+                   
                     })
-                  //  ... Your code here
+          
                 })
                 
-                //  ... Your code here
+           
               })
               
-              //  ... Your code here
+           
             })
-            //  ... Your code here
+    
           })
           
-          //  ... Your code here
+     
         })
         
-        //  ... Your code here
+   
       })
-    //  ... Your code here
+
   })
 
 
-// obtainInstruction('steak', 0)
-//   .then( (step0) => {
-//     document.querySelector("#steak").innerHTML += `<li>${step0}</li>` })
-//   .then( (step1) => {
-//     document.querySelector("#steak").innerHTML += `<li>${step1}</li>` })
-//   .then( (step2) => {
-//     document.querySelector("#steak").innerHTML += `<li>${step2}</li>` })
-//   .then( (step3) => {
-//       document.querySelector("#steak").innerHTML += `<li>${step3}</li>` })
-//   .then( (step4) => {
-//       document.querySelector("#steak").innerHTML += `<li>${step4}</li>` })
-//   .then( (step5) => {
-//       document.querySelector("#steak").innerHTML += `<li>${step5}</li>` })
-//   .then( (step6) => {
-//       document.querySelector("#steak").innerHTML += `<li>${step6}</li>` })
-//   .then( (step7) => {
-//       document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
-//   })
-  
 
 // Iteration 3 using async/await
 
@@ -149,17 +130,6 @@ async function makeBroccoli() {
   document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
 }
 makeBroccoli()
-// async function makeBroccoli() {
-//   await obtainInstruction(0)
-//   await obtainInstruction(1)
-//   await obtainInstruction(2)
-//   await obtainInstruction(3)
-//   await obtainInstruction(4)
-//   await obtainInstruction(5)
-//   await obtainInstruction(6)
-// }
-
-
 
 // Bonus 2 - Promise all
 
@@ -171,13 +141,14 @@ let p4 = obtainInstruction('brusselsSprouts', 3)
 let p5 = obtainInstruction('brusselsSprouts', 4)
 let p6 = obtainInstruction('brusselsSprouts', 5)
 let p7 = obtainInstruction('brusselsSprouts', 6)
+let p8 = obtainInstruction('brusselsSprouts', 7)
 
 
-Promise.all([p1, p2, p3, p4, p5, p6, p7]).then((values) => {
+Promise.all([p1, p2, p3, p4, p5, p6, p7, p8],).then((values) => {
   values.forEach((elem) => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${elem}</li>`
   });
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
-  console.log(values);
+  // console.log(values);
 });
