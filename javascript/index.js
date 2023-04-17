@@ -133,15 +133,12 @@ async function makeBrusselsSprouts() {
   const pizza = await Promise.all(promisesBrussels).then((step)=>{
     brusselsSprouts.forEach((step) => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
-    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-  });})
+  });
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are read!</li>`;
+})
 
-  // brusselsSprouts.forEach((step) => {
-  //   document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
-  // });
 
-  // const sprouts = await Promise.all(steps);
-  // document.querySelector("#brusselsSprouts").innerHTML += `<li>${sprouts}</li>`
 }
 
 makeBrusselsSprouts();
