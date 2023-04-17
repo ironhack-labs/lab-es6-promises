@@ -126,10 +126,39 @@ async function makeBroccoli() {
   }
 }
 
-makeBroccoli()
+makeBroccoli();
 
 
 // Bonus 2 - Promise all
+
+const makeBrusselsSprouts = async() => {
+  try {
+    const brusselsSproutsPromiseArr = [];
+    
+    brusselsSprouts.forEach((currentStep, currentIndex) => {
+      brusselsSproutsPromiseArr.push(obtainInstruction('brusselsSprouts', currentIndex))
+    })
+    
+    const steps = await Promise.all(brusselsSproutsPromiseArr);
+
+    steps.forEach(currentStep => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${currentStep}</li>`
+    })
+
+    document.querySelector('#brusselsSproutsImg').removeAttribute('hidden')
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+
+  } catch(error) {
+    console.log(error)
+  }
+
+}
+
+makeBrusselsSprouts();
+
+
+// Bonus 2 - Promise all - Second Solution
+/*
 Promise.all([
   obtainInstruction('brusselsSprouts', 0),
   obtainInstruction('brusselsSprouts', 1),
@@ -149,4 +178,4 @@ Promise.all([
   console.log(error)
 })
 
-makeBrusselsSprouts()
+*/
