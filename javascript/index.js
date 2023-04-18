@@ -29,9 +29,41 @@
 
 // Iteration 1 - using callbacks
 // ...
+let receipeStep = 0
+const timeoutId = setTimeout(geInstruction,1000)
+    console.log($step );
 
 // Iteration 2 - using promises
-// ...
+const steak = [
+  "season steak generously with salt, pepper and garlic powder",
+  "place in zip lock bag",
+  "cook in sous vide at 120 F for 1-2 hours",
+  "remove from bag and pat dry",
+  "heat pan with grapeseed oil and a quarter stick of butter",
+  "cook steak for 30-60 seconds per side using a spoon to baste with butter",
+  "rest for 10 minutes",
+  "enjoy",
+];
+
+function(step) {
+  return new Promise (function (resolve, reject) {
+      console.log( obtainInstructions[step] );
+
+      if (!obtainInstructions[step]) reject("Instruction step does not exist!.")
+      else resolve(); 
+  })
+};
+
+obtainInstructions(0)
+  .then(() => obtainInstructions(1) )
+  .then(() => obtainInstructions(2) )
+  .then(() => obtainInstructions(3) )
+  .then(() => obtainInstructions(4) )
+  .then(() => obtainInstructions(5) )
+  .then(() => obtainInstructions(6) )
+  .finally(() => console.log("Enjoy!") )
+  .catch((err) => console.log(err));
+
 
 // Iteration 3 using async/await
 // ...
