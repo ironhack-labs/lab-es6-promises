@@ -61,12 +61,49 @@ obtainInstructions(0)
   .then(() => obtainInstructions(4) )
   .then(() => obtainInstructions(5) )
   .then(() => obtainInstructions(6) )
-  .finally(() => console.log("Enjoy!") )
+  .then(() => obtainInstructions(7) )
+  .finally(() => console.log("Stake is ready!") )
   .catch((err) => console.log(err));
 
 
 // Iteration 3 using async/await
-// ...
+const broccoli = [
+  'wash broccoli in cold water',
+  'trim and cut the stalk in half, then finely slice it',
+  'fill a pot with water, add a pinch of salt and bring to the boil',
+  'once boiling, carefully lower the broccoli into the water',
+  'cook for 3 to 4 minutes, or until tender',
+  'drain, then leave to steam dry for a minute',
+  'enjoy'
+];
+
+const directions = [
+  "Starting point: Ironhack Paris",
+  "← Head northwest on Bd Voltaire toward Rue Léon Frot",
+  "← Turn left onto Rue Chanzy",
+  "* Café Titon, 34 Rue Titon, 75011 Paris, France"
+];
+
+
+function obtainDirections(step) {
+  return new Promise ( (resolve, reject) => {
+      console.log( directions[step] );
+
+      if (!directions[step]) reject("Instructions not found.")
+      else resolve();
+  })
+}
+
+async function makeBroccoli() {
+  await obtainDirections(0);
+  await obtainDirections(1);
+  await obtainDirections(2);
+  await obtainDirections(3);
+  console.log("You arrived at your destination!");
+}
+
+makeBroccoli();
+
 
 // Bonus 2 - Promise all
 // ...
