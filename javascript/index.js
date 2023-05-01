@@ -133,15 +133,9 @@ makeBroccoli()
 
 Promise.all([obtainInstruction("brusselsSprouts", 0), obtainInstruction("brusselsSprouts", 1), obtainInstruction("brusselsSprouts", 2), obtainInstruction("brusselsSprouts", 3), obtainInstruction("brusselsSprouts", 4), obtainInstruction("brusselsSprouts", 5), obtainInstruction("brusselsSprouts", 6), obtainInstruction("brusselsSprouts", 7)])
 .then ((instructions) => {
-  console.log(instructions)
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instructions[0]}</li>`
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instructions[1]}</li>`
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instructions[2]}</li>`
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instructions[3]}</li>`
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instructions[4]}</li>`
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instructions[5]}</li>`
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instructions[6]}</li>`
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${instructions[7]}</li>`
+  instructions.forEach((instruction) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`
+  })
   document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
 })
