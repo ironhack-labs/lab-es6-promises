@@ -125,3 +125,20 @@ async function makeBroccoli() {
   }
 }
 makeBroccoli();
+
+function makeBrusselsSprouts() {
+  let promises = [];
+  for(let i = 0; i < brusselsSprouts.length; i++) {
+    promises.push(obtainInstruction('brusselsSprouts', i));
+  }
+
+  Promise.all(promises).then((instructions) => {
+    instructions.forEach((instruction) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`;
+    });
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  });
+}
+
+makeBrusselsSprouts()
