@@ -26,73 +26,62 @@
   //   document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
   // }, (error) => console.log(error));
 
-
+const addLiElement = (id, content) => {
+  document.querySelector(`#${id}`).innerHTML += `<li>${content}</li>`
+}
 
 // Iteration 1 - using callbacks
 getInstruction("mashedPotatoes", 0, (step0) => {
-  document.querySelector(
-    "#mashedPotatoes"
-  ).innerHTML += `<li>${step0}</li>`
+  addLiElement("mashedPotatoes", step0)
   
   getInstruction('mashedPotatoes', 1, (step1) => {
-    document.querySelector(
-      "#mashedPotatoes"
-    ).innerHTML += `<li>${step1}</li>`
+    addLiElement("mashedPotatoes", step1)
 
     getInstruction("mashedPotatoes", 2, (step2) => {
-      document.querySelector(
-        "#mashedPotatoes"
-      ).innerHTML += `<li>${step2}</li>`
+      addLiElement("mashedPotatoes", step2)
 
       getInstruction("mashedPotatoes", 3, (step3) => {
-        document.querySelector(
-          "#mashedPotatoes"
-        ).innerHTML += `<li>${step3}</li>`
+        addLiElement("mashedPotatoes", step3)
 
         getInstruction("mashedPotatoes", 4, (step4) => {
-          document.querySelector(
-            "#mashedPotatoes"
-          ).innerHTML += `<li>${step4}</li>`
-          document.querySelector(
-            "#mashedPotatoes"
-          ).innerHTML += `<li>Mashed potatoes are ready!</li>`
-
+          addLiElement("mashedPotatoes", step4)
+          addLiElement("mashedPotatoes", "Mashed potatoes are ready!")
           unhide("mashedPotatoesImg")
-        })
-      })
-    })
-  })
-})
+        }, (error) => console.error(error))
+      }, (error) => console.error(error))
+    }, (error) => console.error(error))
+  }, (error) => console.error(error))
+}, (error) => console.error(error))
 
 // Iteration 2 - using promises
 obtainInstruction("steak", 0)
   .then((step0) => {
-    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
+    addLiElement('steak', step0)
     return obtainInstruction("steak", 1)
   })
   .then((step1) => {
-    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
+    addLiElement('steak', step1)
     return obtainInstruction("steak", 2)
   })
   .then((step2) => {
-    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
+    addLiElement('steak', step2)
     return obtainInstruction("steak", 3)
   })
   .then((step3) => {
-    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
+    addLiElement('steak', step3)
     return obtainInstruction("steak", 4)
   })
   .then((step4) => {
-    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
+    addLiElement('steak', step4)
     return obtainInstruction("steak", 5)
   })
   .then((step5) => {
-    document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
+    addLiElement('steak', step5)
     return obtainInstruction("steak", 6)
   })
   .then((step6) => {
-    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
-    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
+    addLiElement('steak', step6)
+    addLiElement('steak', 'Steak is ready!')
     unhide("steakImg")
   })
 
