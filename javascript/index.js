@@ -57,7 +57,7 @@ getInstruction("mashedPotatoes", 0, (step0) => {
             "#mashedPotatoes"
           ).innerHTML += `<li>Mashed potatoes are ready!</li>`
 
-          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden")
+          unhide("mashedPotatoesImg")
         })
       })
     })
@@ -93,7 +93,7 @@ obtainInstruction("steak", 0)
   .then((step6) => {
     document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
     document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
-    document.querySelector("#steakImg").removeAttribute('hidden')
+    unhide("steakImg")
   })
 
 // Iteration 3 using async/await
@@ -107,10 +107,14 @@ async function makeBroccoli() {
   for (let i = 0; i < 7; i++) await addLi("broccoli", i)
 
   document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
-  document.querySelector("#broccoliImg").removeAttribute('hidden')
+  unhide("broccoliImg")
 }
 makeBroccoli()
 
+// Bonus 1 - Make img visible
+function unhide(id) {
+  document.querySelector(`#${id}`).removeAttribute("hidden")
+}
 
 // Bonus 2 - Promise all
 // ...
