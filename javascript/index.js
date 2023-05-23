@@ -66,10 +66,8 @@ getInstruction("mashedPotatoes", 0, (step0) => {
 obtainInstruction("steak", 0)
   .then((step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
-    //  ... Your code here
     return obtainInstruction("steak", 1)
   })
-  // ... Your code here
   .then((step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
     return obtainInstruction("steak", 2)
@@ -96,7 +94,21 @@ obtainInstruction("steak", 0)
   })
 
 // Iteration 3 using async/await
-// ...
+async function makeBroccoli() {
+  // ... Your code here
+  const addLi = async (food, step) => {
+    document.querySelector(
+      `#${food}`
+    ).innerHTML += `<li>${await obtainInstruction(food, step)}</li>`
+  }
+
+  for (let i = 0; i < 7; i++) await addLi("broccoli", i)
+  
+  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
+}
+
+makeBroccoli()
+
 
 // Bonus 2 - Promise all
 // ...
