@@ -41,7 +41,8 @@ getInstruction('mashedPotatoes', 0, (step1) => {
         getInstruction('mashedPotatoes', 4, (step5) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`})
           getInstruction('mashedPotatoes', 4, (step5) => {
-            document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`})
+            document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`
+            document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");})
   })
 }, (error) => console.log(error));
 
@@ -73,7 +74,8 @@ obtainInstruction('steak', 0)
     return obtainInstruction("steak", 7)})
 .then( (step7) => {
     document.querySelector("#steak").innerHTML +=  `<li>${step7}</li>`
-    document.querySelector("#steak").innerHTML +=  `<li>Stake is ready!</li>`})    
+    document.querySelector("#steak").innerHTML +=  `<li>Stake is ready!</li>`
+    document.querySelector("#steakImg").removeAttribute("hidden");})    
 .catch((error) => console.log(error));
 
 // Iteration 3 using async/await
@@ -98,6 +100,7 @@ async function makeBrocoli(){
     document.querySelector(
       "#broccoli"
     ).innerHTML += `<li>Broccoli is ready!</li>`;
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
   } catch (error) {
     console.log(error);
   }
@@ -107,3 +110,29 @@ makeBrocoli();
 
 // Bonus 2 - Promise all
 // ...
+
+
+let array = [
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 2),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
+  obtainInstruction("brusselsSprouts", 7),
+];
+Promise.all(array)
+  .then((value) => {
+    value.forEach((step) => {
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>${step}</li>`;
+    });
+
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>brusselsSprouts is ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
+  .catch((err) => console.log(err));
