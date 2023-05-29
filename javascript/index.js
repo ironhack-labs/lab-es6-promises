@@ -171,5 +171,41 @@ async function makeBroccoli() {
 }
 
 makeBroccoli();
+
 // Bonus 2 - Promise all
+Promise.all([steak, mashedPotatoes, brusselsSprouts, broccoli])
+  .then((step) => {
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${step[2][0]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${step[2][1]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${step[2][2]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${step[2][3]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${step[2][4]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${step[2][5]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${step[2][6]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${step[2][7]}</li>`;
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>'Brussels sprouts are ready!'</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
+  .catch((error) => {
+    console.log("Instruction step does not exist!");
+  });
+
 //
