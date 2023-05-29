@@ -67,6 +67,9 @@ getInstruction(
                     document.querySelector(
                       "#mashedPotatoes"
                     ).innerHTML += `<li>'Mashed potatoes are ready!'</li>`;
+                    document
+                      .querySelector("#mashedPotatoesImg")
+                      .removeAttribute("hidden");
                   },
                   (error) => console.log(error)
                 );
@@ -124,17 +127,14 @@ obtainInstruction("steak", 0)
 
   .then((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
-    return obtainInstruction("steak", 8);
-  })
-
-  .then((step8) => {
-    document.querySelector("#steak").innerHTML += `<li>${step8}</li>`;
-    return obtainInstruction("steak", 9);
-  })
-
-  .then((step) => {
     document.querySelector("#steak").innerHTML += `<li>"Steak is ready!"</li>`;
+    document.querySelector("#steakImg").removeAttribute("hidden");
   })
+
+  // .then((step8) => {
+  //   document.querySelector("#steak").innerHTML += `<li>${step8}</li>`;
+  //   return obtainInstruction("steak", 9);
+  // })
 
   .catch(console.log("Instruction step does not exist!"));
 
@@ -150,8 +150,8 @@ async function makeBroccoli() {
     const step4 = await obtainInstruction("broccoli", 4);
     const step5 = await obtainInstruction("broccoli", 5);
     const step6 = await obtainInstruction("broccoli", 6);
-    const step7 = await obtainInstruction("broccoli", 7);
-    const step8 = await obtainInstruction("broccoli", 8);
+    //const step7 = await obtainInstruction("broccoli", 7);
+    // const step8 = await obtainInstruction("broccoli", 8);
 
     document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`;
     document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`;
@@ -160,10 +160,11 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`;
     document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
     document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
-    document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
+
     document.querySelector(
       "#broccoli"
     ).innerHTML += `<li>"Broccoli is ready!"</li>`;
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
   } catch (err) {
     console.log("Instruction step does not exist!");
   }
