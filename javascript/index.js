@@ -40,6 +40,7 @@ getInstruction("mashedPotatoes", 0, (step1) => {
         getInstruction("mashedPotatoes", 4, (step5) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
           document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
         });
       });
     });
