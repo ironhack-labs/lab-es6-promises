@@ -129,4 +129,21 @@ makeBroccoli()
 
 
 // Bonus 2 - Promise all
-// ...
+
+Promise.all( [brusselsSprouts[0], brusselsSprouts[1], brusselsSprouts[2], brusselsSprouts[3], brusselsSprouts[4], brusselsSprouts[5], brusselsSprouts[6], brusselsSprouts[7]] )
+.then( (value) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${value[0]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${value[1]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${value[2]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${value[3]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${value[4]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${value[5]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${value[6]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${value[7]}</li>`
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
+})
+.catch( (error) => {
+    return error
+})
