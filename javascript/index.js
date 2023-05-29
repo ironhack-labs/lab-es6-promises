@@ -112,31 +112,3 @@ getInstruction('mashedPotatoes', 0, (step0) => {
   
 
  
-
-// Bonus 2 - Promise all
-function makeBrussels() {
-  const instructions = [];
-
-  for (let i = 0; i < brusselsSprouts.length; i++) {
-    const instruction = obtainInstruction("brusselsSprouts", i);
-    instructions.push(instruction);
-  }
-  Promise.all(instructions)
-    .then((steps) => {
-      steps.forEach((step) => {
-        document.querySelector(
-          "#brusselsSprouts"
-        ).innerHTML += `<li>${step}</li>`;
-      });
-    })
-    .then(() => {
-      document.querySelector(
-        "#brusselsSprouts"
-      ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
-      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-makeBrussels();
