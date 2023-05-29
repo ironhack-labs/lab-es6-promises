@@ -3,6 +3,7 @@
 
 // 🚨🚨🚨 Comment out the below code before you start working on the code
 
+
 // Out of sync
   getInstruction("mashedPotatoes", 0, (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
