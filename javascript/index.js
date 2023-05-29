@@ -26,9 +26,6 @@
   }, (error) => console.log(error)); */
 
 // Iteration 1 - using callbacks
-// ...
-
-// Iteration 1 - using callbacks
 getInstruction(
 	"mashedPotatoes",
 	0,
