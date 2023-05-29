@@ -76,6 +76,9 @@ getInstruction("mashedPotatoes", 0, (step0) => {
           document.querySelector(
             "#mashedPotatoes"
           ).innerHTML += `<li>Mashed potatoes are ready!</li>`;
+
+          let img = document.getElementById("mashedPotatoesImg");
+          img.removeAttribute("hidden");
         });
       });
     });
@@ -124,6 +127,8 @@ obtainInstruction("steak", 0)
   .then((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
     document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+    let img = document.getElementById("steakImg");
+    img.removeAttribute("hidden");
   });
 
 // Iteration 3 using async/await
@@ -152,20 +157,29 @@ async function makeBroccoli() {
     document.querySelector(
       "#broccoli"
     ).innerHTML += `<li>Broccoli is ready!</li>`;
+    let img = document.getElementById("broccoliImg");
+    img.removeAttribute("hidden");
   } catch (error) {}
 }
 
 makeBroccoli();
 
-/* Pattern with async/await (ES8) */
-async function doMyEveningRouting() {
-  try {
-    await cookDinner();
-    await eatDinner();
-    await doWashingUp();
-    await goToPub();
-  } catch (error) {}
-}
-
 // Bonus 2 - Promise all
-// ...
+
+// Obtain instruction returns a promise.
+
+// create array of promises
+const promiseArray = [];
+
+brusselsSprouts.forEach((step) => {
+  let promiseValue = obtainInstruction("brusselsSprouts", step);
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+
+  promiseArray.push(promiseValue);
+});
+
+Promise.all(promiseArray).then(
+  (document.querySelector(
+    "#brusselsSprout"
+  ).innerHTML += `<li>Brussels sprouts are ready!</li>`)
+);
