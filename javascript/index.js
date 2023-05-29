@@ -62,7 +62,7 @@ getInstruction(
                     ).innerHTML += `<li>${step5}</li>`;
                     document.querySelector(
                       "#mashedPotatoes"
-                    ).innerHTML += `<li>Mashed potatoes are ready!!!</li>`
+                    ).innerHTML += `<li>Mashed potatoes are ready!</li>`
                     document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
                   },
                   (error) => {
@@ -91,7 +91,6 @@ getInstruction(
 );
 
 // Iteration 2 - using promises
-
 obtainInstruction("steak", 0)
   .then((step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
@@ -123,6 +122,7 @@ obtainInstruction("steak", 0)
   })
   .then((step8) => {
     document.querySelector("#steak").innerHTML += `<li>${step8}</li>`
+    document.querySelector("#steak").innerHTML += `<li>Steak is are ready!</li>`
     document.querySelector("#steakImg").removeAttribute("hidden");;
   })
   .catch((error) => {
@@ -130,7 +130,6 @@ obtainInstruction("steak", 0)
   });
 
 // Iteration 3 using async/await
-// ...
 async function makeBroccoli() {
   try {
     let response = await obtainInstruction("broccoli", 0);
@@ -153,12 +152,12 @@ async function makeBroccoli() {
 
     response = await obtainInstruction("broccoli", 6);
     document.querySelector("#broccoli").innerHTML += `<li>${response}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
     document.querySelector("#broccoliImg").removeAttribute("hidden");
   } catch {
     console.log(error);
   }
 }
-
 makeBroccoli();
 
 // Bonus 2 - Promise all
@@ -174,5 +173,26 @@ Promise.all([p1, p2, p3, p4, p5, p6, p7]).then((response) => {
   for (i = 0; i < 7; i++) {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${response[i]}</li>`
   }
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel sprouts are ready!</li>`
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
 })
+
+// other idea:
+// const list = [
+//   obtainInstruction("brusselsSprouts", 0),
+//   obtainInstruction("brusselsSprouts", 1),
+//   obtainInstruction("brusselsSprouts", 2),
+//   obtainInstruction("brusselsSprouts", 3),
+//   obtainInstruction("brusselsSprouts", 4),
+//   obtainInstruction("brusselsSprouts", 5),
+//   obtainInstruction("brusselsSprouts", 6),
+//   obtainInstruction("brusselsSprouts", 7),
+// ];
+
+// Promise.all(list).then((response) => {
+//   response.forEach(response => {
+//     document.querySelector("#brusselsSprouts").innerHTML += `<li>${response}</li>`
+//   })
+//   document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel sprouts are ready!</li>`
+//   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
+// })
