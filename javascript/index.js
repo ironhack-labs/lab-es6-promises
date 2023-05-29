@@ -121,8 +121,6 @@ obtainInstruction("brusselsSprouts", 6), obtainInstruction("brusselsSprouts", 7)
   document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 })
-
-
 .catch((error) => console.log(error))
 
 
