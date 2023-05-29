@@ -86,7 +86,7 @@ getInstruction
   .then( (step) => {
     document.querySelector("#steak").innerHTML += `<li>${step}</li>`
   })
-  .then( (step) => {
+  .then( () => {
     document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`
 
   })
@@ -105,7 +105,7 @@ async function makeBroccoli() {
       let veggieValue = await obtainInstruction('broccoli', i); 
       document.querySelector("#broccoli").innerHTML += `<li>${veggieValue}</li>`
       if (i === 6) {
-        document.querySelector("#broccoli").innerHTML += `<li>IT IS WORKING</li>`
+        document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`
       }
     }
      
@@ -119,11 +119,13 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
+
+
 const step0 = new Promise((resolve, reject) => {
-  obtainInstruction('brusselsSprouts', 0); 
+  resolve(obtainInstruction('brusselsSprouts', 0)); 
 });
 const step1 = new Promise((resolve, reject) => {
-  obtainInstruction('brusselsSprouts', 1); 
+  resolve(obtainInstruction('brusselsSprouts', 1)); 
 });
 const step2 = new Promise((resolve, reject) => {
   obtainInstruction('brusselsSprouts', 2); 
@@ -140,8 +142,21 @@ const step5 = new Promise((resolve, reject) => {
 const step6 = new Promise((resolve, reject) => {
   obtainInstruction('brusselsSprouts', 6); 
 });
-Promise.all([step0, step1, step2, step3, step4, step5, step6])
-  .then((value) => {
-    document.querySelector("#brusselsSprouts").innerHTML += `<li>${value}</li>`
 
-  })
+async function handlePromiseAll() {
+  try{
+const values = await Promise.all([step0, step1, step2, step3, step4, step5, step6]);
+    console.log(values);
+  } catch (error) {
+    console.log(error);
+  }
+}
+handlePromiseAll();
+
+
+
+// Promise.all([step0, step1, step2, step3, step4, step5, step6])
+//   .then((value) => {
+//     document.querySelector("#brusselsSprouts").innerHTML += `<li>${value}</li>`
+//   .catch((error) => {})
+//   })
