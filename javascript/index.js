@@ -137,6 +137,7 @@ async function makeBroccoli() {
   }
 }
 makeBroccoli();
+console.log('returning immediately after makeBroccoli()...')
 
 // Bonus 2 - Promise all
 promises = []
