@@ -128,6 +128,7 @@ async function makeBroccoli() {
   try {
     for (let i = 0; i < broccoli.length; i++) {
       let response = await obtainInstruction("broccoli", i);
+      console.log("broccoli: " + i);
       document.querySelector("#broccoli").innerHTML += `<li>${response}</li>`;
     }
     document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
@@ -135,9 +136,12 @@ async function makeBroccoli() {
   } catch (error) {
     console.log(error);
   }
+  return 1
 }
-makeBroccoli();
-console.log('returning immediately after makeBroccoli()...')
+makeBroccoli().then(response => {console.log(response)});
+console.log('returning immediately after makeBroccoli()...');
+// makeBroccoli also returns a promise which will be resolved with the value returned by the async function, or rejected with an exception thrown from, or uncaught within, the async function
+// so later it returns 1 when done
 
 // Bonus 2 - Promise all
 promises = []
