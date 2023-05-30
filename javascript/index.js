@@ -26,24 +26,37 @@
 // }, (error) => console.log(error));
 
 // Iteration 1 - using callbacks
-getInstruction("mashedPotatoes", 0, (step1) => {
-  // add step1 to the DOM
-  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
-  getInstruction("mashedPotatoes", 1, (step2) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`;
-    getInstruction("mashedPotatoes", 2, (step3) => {
-      document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
-      getInstruction("mashedPotatoes", 3, (step4) => {
-        document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
-        getInstruction("mashedPotatoes", 4, (step5) => {
-          document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
-          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
-          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
-        }, (error) => {console.log(error);});
-      }, (error) => {console.log(error);});
-    }, (error) => {console.log(error);});
+// getInstruction("mashedPotatoes", 0, (step1) => {
+//   // add step1 to the DOM
+//   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
+//   getInstruction("mashedPotatoes", 1, (step2) => {
+//     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`;
+//     getInstruction("mashedPotatoes", 2, (step3) => {
+//       document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
+//       getInstruction("mashedPotatoes", 3, (step4) => {
+//         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
+//         getInstruction("mashedPotatoes", 4, (step5) => {
+//           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
+//           document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
+//           document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+//         }, (error) => {console.log(error);});
+//       }, (error) => {console.log(error);});
+//     }, (error) => {console.log(error);});
+//   }, (error) => {console.log(error);});
+// }, (error) => {console.log(error);});
+
+function getInstructionsRecursion(index) {
+  if (index >= mashedPotatoes.length) {
+    document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
+    document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+    return;
+  }
+  getInstruction("mashedPotatoes", index, (step) => {
+    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`;
+    getInstructionsRecursion(++index)
   }, (error) => {console.log(error);});
-}, (error) => {console.log(error);});
+}
+getInstructionsRecursion(0)
 
 // Iteration 2 - using promises
 // obtainInstruction("steak", 0)
@@ -85,11 +98,18 @@ getInstruction("mashedPotatoes", 0, (step1) => {
 //   });
 
 let promiseChain = Promise.resolve();
-for (let i = 0; i <= steak.length; i++) {
+for (let i = 0; i < steak.length; i++) {
   promiseChain = promiseChain.then(() => {
     return obtainInstruction("steak", i)
       .then((step) => {
-        document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+        // force an error
+        if (i===3) document.querySelector("#blablabla").innerHTML += `<li>${step}</li>`;
+        else document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+      })
+      .catch((error) => {
+        console.log(error);
+        document.querySelector("#steak").innerHTML += `<li>error @[i = ${i}]: ${error}</li>`;
+        return Promise.resolve(); // return a resolved promise to continue the chain even if an error occurs
       });
   });
 }
@@ -99,6 +119,7 @@ promiseChain
     document.querySelector("#steakImg").removeAttribute("hidden");
   })
   .catch((error) => {
+    console.log("here");
     console.log(error);
   });
 
