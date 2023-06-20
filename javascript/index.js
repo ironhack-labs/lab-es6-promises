@@ -52,6 +52,9 @@ getInstruction("mashedPotatoes", 0, (step0) => {
           document.querySelector(
             "#mashedPotatoes"
           ).innerHTML += `<li>Mashed potatoes are ready!</li>`;
+          document
+            .querySelector("#mashedPotatoesImg")
+            .removeAttribute("hidden");
         });
       });
     });
@@ -82,6 +85,7 @@ obtainInstruction("steak", 0).then((step0) => {
                 document.querySelector(
                   "#steak"
                 ).innerHTML += `<li>Steak is ready!</li>`;
+                document.querySelector("#steakImg").removeAttribute("hidden");
               });
           });
         });
