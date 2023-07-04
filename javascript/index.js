@@ -107,12 +107,13 @@ const makeBroccoli = async () => {
     document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`
     const step7 = await obtainInstruction("broccoli", 6);
     document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
     document.querySelector("#broccoliImg").removeAttribute("hidden");
 
   } catch (error) {
     console.log(error);
   }
-  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+  
 }
 
 makeBroccoli();
