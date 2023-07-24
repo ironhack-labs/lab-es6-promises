@@ -26,6 +26,7 @@
 // }, (error) => console.log(error));
 const mashedPotatoesList = document.getElementById("mashedPotatoes");
 const steakList = document.getElementById("steak");
+const brusselsList = document.getElementById("brusselsSprouts");
 // Iteration 1 - using callbacks
 getInstruction(
   "mashedPotatoes",
@@ -83,7 +84,6 @@ obtainInstruction("steak", 0).then((list) => {
           steakList.innerHTML += `<li>${list}</li>`;
           obtainInstruction("steak", 5).then((list) => {
             steakList.innerHTML += `<li>${list}</li>`;
-            steakList.innerHTML += `<li>${list}</li>`;
             obtainInstruction("steak", 6).then((list) => {
               steakList.innerHTML += `<li>${list}</li>`;
               obtainInstruction("steak", 7).then(
@@ -98,6 +98,35 @@ obtainInstruction("steak", 0).then((list) => {
 });
 
 // Iteration 3 using async/await
+
+async function getBrusselSprouts() {
+  await obtainInstruction("brusselsSprouts", 0).then(
+    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  );
+  await obtainInstruction("brusselsSprouts", 1).then(
+    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  );
+  await obtainInstruction("brusselsSprouts", 2).then(
+    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  );
+  await obtainInstruction("brusselsSprouts", 3).then(
+    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  );
+  await obtainInstruction("brusselsSprouts", 4).then(
+    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  );
+  await obtainInstruction("brusselsSprouts", 5).then(
+    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  );
+  await obtainInstruction("brusselsSprouts", 6).then(
+    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  );
+  await obtainInstruction("brusselsSprouts", 7).then(
+    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  );
+}
+
+getBrusselSprouts();
 
 // Bonus 2 - Promise all
 // ...
