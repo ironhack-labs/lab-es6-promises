@@ -25,6 +25,7 @@
 //   document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
 // }, (error) => console.log(error));
 const mashedPotatoesList = document.getElementById("mashedPotatoes");
+const steakList = document.getElementById("steak");
 // Iteration 1 - using callbacks
 getInstruction(
   "mashedPotatoes",
@@ -69,10 +70,34 @@ getInstruction(
 );
 
 // Iteration 2 - using promises
-// ...
+
+obtainInstruction("steak", 0).then((list) => {
+  steakList.innerHTML += `<li>${list}</li>`;
+  obtainInstruction("steak", 1).then((list) => {
+    steakList.innerHTML += `<li>${list}</li>`;
+    obtainInstruction("steak", 2).then((list) => {
+      steakList.innerHTML += `<li>${list}</li>`;
+      obtainInstruction("steak", 3).then((list) => {
+        steakList.innerHTML += `<li>${list}</li>`;
+        obtainInstruction("steak", 4).then((list) => {
+          steakList.innerHTML += `<li>${list}</li>`;
+          obtainInstruction("steak", 5).then((list) => {
+            steakList.innerHTML += `<li>${list}</li>`;
+            steakList.innerHTML += `<li>${list}</li>`;
+            obtainInstruction("steak", 6).then((list) => {
+              steakList.innerHTML += `<li>${list}</li>`;
+              obtainInstruction("steak", 7).then(
+                (list) => (steakList.innerHTML += `<li>${list}</li>`)
+              );
+            });
+          });
+        });
+      });
+    });
+  });
+});
 
 // Iteration 3 using async/await
-// ...
 
 // Bonus 2 - Promise all
 // ...
