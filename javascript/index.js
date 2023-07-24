@@ -27,6 +27,9 @@
 const mashedPotatoesList = document.getElementById("mashedPotatoes");
 const steakList = document.getElementById("steak");
 const brusselsList = document.getElementById("brusselsSprouts");
+const mashedPotatoesImg = document.getElementById("mashedPotatoesImg");
+const steakImg = document.getElementById("steakImg");
+const brusselsImg = document.getElementById("brusselsSproutsImg");
 // Iteration 1 - using callbacks
 getInstruction(
   "mashedPotatoes",
@@ -53,8 +56,10 @@ getInstruction(
                 getInstruction(
                   "mashedPotatoes",
                   4,
-                  (instruction) =>
-                    (mashedPotatoesList.innerHTML += `<li>${instruction}</li>`),
+                  (instruction) => {
+                    mashedPotatoesList.innerHTML += `<li>${instruction}</li>`;
+                    mashedPotatoesImg.removeAttribute("hidden");
+                  },
                   (error) => console.log(error)
                 );
               },
@@ -86,9 +91,10 @@ obtainInstruction("steak", 0).then((list) => {
             steakList.innerHTML += `<li>${list}</li>`;
             obtainInstruction("steak", 6).then((list) => {
               steakList.innerHTML += `<li>${list}</li>`;
-              obtainInstruction("steak", 7).then(
-                (list) => (steakList.innerHTML += `<li>${list}</li>`)
-              );
+              obtainInstruction("steak", 7).then((list) => {
+                steakList.innerHTML += `<li>${list}</li>`;
+                steakImg.removeAttribute("hidden");
+              });
             });
           });
         });
@@ -124,6 +130,7 @@ async function getBrusselSprouts() {
   await obtainInstruction("brusselsSprouts", 7).then(
     (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
   );
+  brusselsImg.removeAttribute("hidden");
 }
 
 getBrusselSprouts();
