@@ -26,12 +26,14 @@
 // }, (error) => console.log(error));
 const mashedPotatoesList = document.getElementById("mashedPotatoes");
 const steakList = document.getElementById("steak");
+const broccoliList = document.getElementById("broccoli");
 const brusselsList = document.getElementById("brusselsSprouts");
 const mashedPotatoesImg = document.getElementById("mashedPotatoesImg");
 const steakImg = document.getElementById("steakImg");
+const broccoliImg = document.getElementById("broccoliImg");
 const brusselsImg = document.getElementById("brusselsSproutsImg");
 // Iteration 1 - using callbacks
-getInstruction(
+const p1 = getInstruction(
   "mashedPotatoes",
   0,
   (instruction) => {
@@ -58,6 +60,8 @@ getInstruction(
                   4,
                   (instruction) => {
                     mashedPotatoesList.innerHTML += `<li>${instruction}</li>`;
+                    mashedPotatoesList.innerHTML += `<li>Mashed Potatoes are ready!</li>`;
+
                     mashedPotatoesImg.removeAttribute("hidden");
                   },
                   (error) => console.log(error)
@@ -77,7 +81,7 @@ getInstruction(
 
 // Iteration 2 - using promises
 
-obtainInstruction("steak", 0).then((list) => {
+const p2 = obtainInstruction("steak", 0).then((list) => {
   steakList.innerHTML += `<li>${list}</li>`;
   obtainInstruction("steak", 1).then((list) => {
     steakList.innerHTML += `<li>${list}</li>`;
@@ -93,6 +97,8 @@ obtainInstruction("steak", 0).then((list) => {
               steakList.innerHTML += `<li>${list}</li>`;
               obtainInstruction("steak", 7).then((list) => {
                 steakList.innerHTML += `<li>${list}</li>`;
+                steakList.innerHTML += `<li>Steak is ready!</li>`;
+
                 steakImg.removeAttribute("hidden");
               });
             });
@@ -105,35 +111,101 @@ obtainInstruction("steak", 0).then((list) => {
 
 // Iteration 3 using async/await
 
-async function getBrusselSprouts() {
-  await obtainInstruction("brusselsSprouts", 0).then(
-    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+async function getBroccoli() {
+  await obtainInstruction("broccoli", 0).then(
+    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
   );
-  await obtainInstruction("brusselsSprouts", 1).then(
-    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  await obtainInstruction("broccoli", 1).then(
+    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
   );
-  await obtainInstruction("brusselsSprouts", 2).then(
-    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  await obtainInstruction("broccoli", 2).then(
+    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
   );
-  await obtainInstruction("brusselsSprouts", 3).then(
-    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  await obtainInstruction("broccoli", 3).then(
+    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
   );
-  await obtainInstruction("brusselsSprouts", 4).then(
-    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  await obtainInstruction("broccoli", 4).then(
+    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
   );
-  await obtainInstruction("brusselsSprouts", 5).then(
-    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  await obtainInstruction("broccoli", 5).then(
+    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
   );
-  await obtainInstruction("brusselsSprouts", 6).then(
-    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
+  await obtainInstruction("broccoli", 6).then(
+    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
   );
-  await obtainInstruction("brusselsSprouts", 7).then(
-    (instruction) => (brusselsList.innerHTML += `<li>${instruction}</li>`)
-  );
-  brusselsImg.removeAttribute("hidden");
+  broccoliList.innerHTML += `<li>Broccoli are ready!</li>`;
+  broccoliImg.removeAttribute("hidden");
 }
 
-getBrusselSprouts();
+const p3 = getBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+
+// const bs0 = new Promise ((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve()
+//   }, 1000);
+// })
+// obtainInstruction("brusselsSprouts", 0).then((instruction)=> brusselsList.innerHTML += `<li>${instruction}</li>`;
+// )
+
+const brussel0 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(obtainInstruction("brusselsSprouts", 0));
+  }, 500);
+});
+
+const brussel1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(obtainInstruction("brusselsSprouts", 1));
+  }, 1000);
+});
+const brussel2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(obtainInstruction("brusselsSprouts", 2));
+  }, 1500);
+});
+const brussel3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(obtainInstruction("brusselsSprouts", 3));
+  }, 2000);
+});
+const brussel4 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(obtainInstruction("brusselsSprouts", 4));
+  }, 2500);
+});
+const brussel5 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(obtainInstruction("brusselsSprouts", 5));
+  }, 3000);
+});
+const brussel6 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(obtainInstruction("brusselsSprouts", 6));
+  }, 3500);
+});
+const brussel7 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(obtainInstruction("brusselsSprouts", 7));
+  }, 4000);
+});
+
+Promise.all([
+  brussel0,
+  brussel1,
+  brussel2,
+  brussel3,
+  brussel4,
+  brussel5,
+  brussel6,
+  brussel7,
+]).then((instructions) => {
+  instructions.forEach((instruction) => {
+    let li = document.createElement("li");
+    li.innerHTML = instruction;
+    brusselsList.append(li);
+  });
+  brusselsList.innerHTML += `<li>Brussels Sprouts are ready!</li>`;
+  brusselsImg.removeAttribute("hidden");
+});
