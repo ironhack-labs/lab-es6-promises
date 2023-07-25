@@ -174,15 +174,19 @@ obtainInstruction("steak", 0)
 //   broccoliImg.removeAttribute("hidden");
 // }
 
-
-async function  makeBrocco() {
-  const broccoliElement = document.getElementById('broccoli');
+async function makeBrocco() {
+  const broccoliElement = document.getElementById("broccoli");
   try {
-    for (let i=0; i< broccoli.length; i++) {
-      broccoliElement.innerHTML += `<li>${await obtainInstruction("broccoli", i)}</li>`;
+    for (let i = 0; i < broccoli.length; i++) {
+      broccoliElement.innerHTML += `<li>${await obtainInstruction(
+        "broccoli",
+        i
+      )}</li>`;
     }
+  } catch {
+    (error) => console.log(error);
   }
-};
+}
 const p3 = getBroccoli();
 
 // Bonus 2 - Promise all
@@ -248,8 +252,7 @@ const p3 = getBroccoli();
 //   brusselsImg.removeAttribute("hidden");
 // });
 
-
-const arrayOfPromises= [
+const arrayOfPromises = [
   obtainInstruction("brusselsSprouts", 0),
   obtainInstruction("brusselsSprouts", 1),
   obtainInstruction("brusselsSprouts", 2),
@@ -258,12 +261,12 @@ const arrayOfPromises= [
   obtainInstruction("brusselsSprouts", 5),
   obtainInstruction("brusselsSprouts", 6),
   obtainInstruction("brusselsSprouts", 7),
-]
+];
 
 Promise.all(arrayOfPromises).then((data) => {
-  for(const instruction of data){
-    brusselsList.innerHTML += `<li>${instruction}</li>`
-  };
+  for (const instruction of data) {
+    brusselsList.innerHTML += `<li>${instruction}</li>`;
+  }
   brusselsList.innerHTML += `<li>Brussels Sprouts are ready!</li>`;
   brusselsImg.removeAttribute("hidden");
-})
+});
