@@ -81,34 +81,71 @@ const p1 = getInstruction(
 
 // Iteration 2 - using promises
 
-const p2 = obtainInstruction("steak", 0).then((list) => {
-  steakList.innerHTML += `<li>${list}</li>`;
-  obtainInstruction("steak", 1).then((list) => {
+// const p2 = obtainInstruction("steak", 0)
+//   .then((list) => {
+//     steakList.innerHTML += `<li>${list}</li>`;
+//     obtainInstruction("steak", 1).then((list) => {
+//       steakList.innerHTML += `<li>${list}</li>`;
+//       obtainInstruction("steak", 2).then((list) => {
+//         steakList.innerHTML += `<li>${list}</li>`;
+//         obtainInstruction("steak", 3).then((list) => {
+//           steakList.innerHTML += `<li>${list}</li>`;
+//           obtainInstruction("steak", 4).then((list) => {
+//             steakList.innerHTML += `<li>${list}</li>`;
+//             obtainInstruction("steak", 5).then((list) => {
+//               steakList.innerHTML += `<li>${list}</li>`;
+//               obtainInstruction("steak", 6).then((list) => {
+//                 steakList.innerHTML += `<li>${list}</li>`;
+//                 obtainInstruction("steak", 7).then((list) => {
+//                   steakList.innerHTML += `<li>${list}</li>`;
+//                   steakList.innerHTML += `<li>Steak is ready!</li>`;
+
+//                   steakImg.removeAttribute("hidden");
+//                 });
+//               });
+//             });
+//           });
+//         });
+//       });
+//     });
+//   })
+//   .catch((error) => console.error(error));
+
+obtainInstruction("steak", 0)
+  .then((list) => {
     steakList.innerHTML += `<li>${list}</li>`;
-    obtainInstruction("steak", 2).then((list) => {
-      steakList.innerHTML += `<li>${list}</li>`;
-      obtainInstruction("steak", 3).then((list) => {
-        steakList.innerHTML += `<li>${list}</li>`;
-        obtainInstruction("steak", 4).then((list) => {
-          steakList.innerHTML += `<li>${list}</li>`;
-          obtainInstruction("steak", 5).then((list) => {
-            steakList.innerHTML += `<li>${list}</li>`;
-            obtainInstruction("steak", 6).then((list) => {
-              steakList.innerHTML += `<li>${list}</li>`;
-              obtainInstruction("steak", 7).then((list) => {
-                steakList.innerHTML += `<li>${list}</li>`;
-                steakList.innerHTML += `<li>Steak is ready!</li>`;
-
-                steakImg.removeAttribute("hidden");
-              });
-            });
-          });
-        });
-      });
-    });
-  });
-});
-
+    return obtainInstruction("steak", 1);
+  })
+  .then((list) => {
+    steakList.innerHTML += `<li>${list}</li>`;
+    return obtainInstruction("steak", 2);
+  })
+  .then((list) => {
+    steakList.innerHTML += `<li>${list}</li>`;
+    return obtainInstruction("steak", 3);
+  })
+  .then((list) => {
+    steakList.innerHTML += `<li>${list}</li>`;
+    return obtainInstruction("steak", 4);
+  })
+  .then((list) => {
+    steakList.innerHTML += `<li>${list}</li>`;
+    return obtainInstruction("steak", 5);
+  })
+  .then((list) => {
+    steakList.innerHTML += `<li>${list}</li>`;
+    return obtainInstruction("steak", 6);
+  })
+  .then((list) => {
+    steakList.innerHTML += `<li>${list}</li>`;
+    return obtainInstruction("steak", 7);
+  })
+  .then((list) => {
+    steakList.innerHTML += `<li>${list}</li>`;
+    steakList.innerHTML += `<li>Steak is ready!</li>`;
+    steakImg.removeAttribute("hidden");
+  })
+  .catch((error) => console.error(error));
 // Iteration 3 using async/await
 
 async function getBroccoli() {
@@ -140,14 +177,6 @@ async function getBroccoli() {
 const p3 = getBroccoli();
 
 // Bonus 2 - Promise all
-
-// const bs0 = new Promise ((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve()
-//   }, 1000);
-// })
-// obtainInstruction("brusselsSprouts", 0).then((instruction)=> brusselsList.innerHTML += `<li>${instruction}</li>`;
-// )
 
 const brussel0 = new Promise((resolve, reject) => {
   setTimeout(() => {
