@@ -148,93 +148,122 @@ obtainInstruction("steak", 0)
   .catch((error) => console.error(error));
 // Iteration 3 using async/await
 
-async function getBroccoli() {
-  await obtainInstruction("broccoli", 0).then(
-    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
-  );
-  await obtainInstruction("broccoli", 1).then(
-    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
-  );
-  await obtainInstruction("broccoli", 2).then(
-    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
-  );
-  await obtainInstruction("broccoli", 3).then(
-    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
-  );
-  await obtainInstruction("broccoli", 4).then(
-    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
-  );
-  await obtainInstruction("broccoli", 5).then(
-    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
-  );
-  await obtainInstruction("broccoli", 6).then(
-    (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
-  );
-  broccoliList.innerHTML += `<li>Broccoli are ready!</li>`;
-  broccoliImg.removeAttribute("hidden");
-}
+// async function getBroccoli() {
+//   await obtainInstruction("broccoli", 0).then(
+//     (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
+//   );
+//   await obtainInstruction("broccoli", 1).then(
+//     (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
+//   );
+//   await obtainInstruction("broccoli", 2).then(
+//     (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
+//   );
+//   await obtainInstruction("broccoli", 3).then(
+//     (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
+//   );
+//   await obtainInstruction("broccoli", 4).then(
+//     (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
+//   );
+//   await obtainInstruction("broccoli", 5).then(
+//     (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
+//   );
+//   await obtainInstruction("broccoli", 6).then(
+//     (instruction) => (broccoliList.innerHTML += `<li>${instruction}</li>`)
+//   );
+//   broccoliList.innerHTML += `<li>Broccoli are ready!</li>`;
+//   broccoliImg.removeAttribute("hidden");
+// }
 
+
+async function  makeBrocco() {
+  const broccoliElement = document.getElementById('broccoli');
+  try {
+    for (let i=0; i< broccoli.length; i++) {
+      broccoliElement.innerHTML += `<li>${await obtainInstruction("broccoli", i)}</li>`;
+    }
+  }
+};
 const p3 = getBroccoli();
 
 // Bonus 2 - Promise all
 
-const brussel0 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(obtainInstruction("brusselsSprouts", 0));
-  }, 500);
-});
+// const brussel0 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(obtainInstruction("brusselsSprouts", 0));
+//   }, 500);
+// });
 
-const brussel1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(obtainInstruction("brusselsSprouts", 1));
-  }, 1000);
-});
-const brussel2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(obtainInstruction("brusselsSprouts", 2));
-  }, 1500);
-});
-const brussel3 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(obtainInstruction("brusselsSprouts", 3));
-  }, 2000);
-});
-const brussel4 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(obtainInstruction("brusselsSprouts", 4));
-  }, 2500);
-});
-const brussel5 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(obtainInstruction("brusselsSprouts", 5));
-  }, 3000);
-});
-const brussel6 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(obtainInstruction("brusselsSprouts", 6));
-  }, 3500);
-});
-const brussel7 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(obtainInstruction("brusselsSprouts", 7));
-  }, 4000);
-});
+// const brussel1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(obtainInstruction("brusselsSprouts", 1));
+//   }, 1000);
+// });
+// const brussel2 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(obtainInstruction("brusselsSprouts", 2));
+//   }, 1500);
+// });
+// const brussel3 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(obtainInstruction("brusselsSprouts", 3));
+//   }, 2000);
+// });
+// const brussel4 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(obtainInstruction("brusselsSprouts", 4));
+//   }, 2500);
+// });
+// const brussel5 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(obtainInstruction("brusselsSprouts", 5));
+//   }, 3000);
+// });
+// const brussel6 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(obtainInstruction("brusselsSprouts", 6));
+//   }, 3500);
+// });
+// const brussel7 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(obtainInstruction("brusselsSprouts", 7));
+//   }, 4000);
+// });
 
-Promise.all([
-  brussel0,
-  brussel1,
-  brussel2,
-  brussel3,
-  brussel4,
-  brussel5,
-  brussel6,
-  brussel7,
-]).then((instructions) => {
-  instructions.forEach((instruction) => {
-    let li = document.createElement("li");
-    li.innerHTML = instruction;
-    brusselsList.append(li);
-  });
+// Promise.all([
+//   brussel0,
+//   brussel1,
+//   brussel2,
+//   brussel3,
+//   brussel4,
+//   brussel5,
+//   brussel6,
+//   brussel7,
+// ]).then((instructions) => {
+//   instructions.forEach((instruction) => {
+//     let li = document.createElement("li");
+//     li.innerHTML = instruction;
+//     brusselsList.append(li);
+//   });
+//   brusselsList.innerHTML += `<li>Brussels Sprouts are ready!</li>`;
+//   brusselsImg.removeAttribute("hidden");
+// });
+
+
+const arrayOfPromises= [
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 2),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
+  obtainInstruction("brusselsSprouts", 7),
+]
+
+Promise.all(arrayOfPromises).then((data) => {
+  for(const instruction of data){
+    brusselsList.innerHTML += `<li>${instruction}</li>`
+  };
   brusselsList.innerHTML += `<li>Brussels Sprouts are ready!</li>`;
   brusselsImg.removeAttribute("hidden");
-});
+})
