@@ -154,7 +154,6 @@ Promise.all([
   obtainInstruction("brusselsSprouts", 5),
   obtainInstruction("brusselsSprouts", 6),
   obtainInstruction("brusselsSprouts", 7),
-  "Brussels Sprouts are ready!",
 ]).then((values) => {
   values.forEach((step) => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
