@@ -49,7 +49,29 @@ getInstruction("mashedPotatoes", 0, step0 => {
 
 // Iteration 2 - using promises
 // ...
-obtainInstruction("steak", 0).then(step0 => {
+function obtainAndDisplay(Index) {
+  return obtainInstruction("steak", Index)
+    .then(step => {
+      document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
+      return Index + 1; 
+    });
+}
+
+function cookSteak() {
+  let steakProcess = Promise.resolve(0); // Start the chain with a resolved promise
+  for (let i = 0; i <= 7; i++) {
+    steakProcess = steakProcess.then(obtainAndDisplay);
+  }
+
+  return steakProcess.then(() => {
+    document.querySelector("#steak").innerHTML += "<li>Steak is ready!</li>";
+    document.querySelector("#steakImg").removeAttribute("hidden");
+  });
+}
+
+cookSteak().catch(console.log);
+
+/*obtainInstruction("steak", 0).then(step0 => {
   document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
   obtainInstruction("steak", 1).then(step1 => {
       document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
@@ -74,7 +96,7 @@ obtainInstruction("steak", 0).then(step0 => {
           })
       })
   })
-})
+})*/
 
 // Iteration 3 using async/await
 // ...
