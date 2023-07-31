@@ -113,7 +113,8 @@ obtainInstruction("steak", 0)
     document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
     document.querySelector("#steakImg").removeAttribute("hidden");
-  });
+  })
+  .catch((err) => console.log(err));
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
@@ -154,11 +155,11 @@ Promise.all([
   obtainInstruction("brusselsSprouts", 6),
   obtainInstruction("brusselsSprouts", 7),
   "Brussels Sprouts are ready!",
-]).then((array) => {
-  array.forEach((step) => {
+]).then((values) => {
+  values.forEach((step) => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
-    if (step === "Brussels Sprouts are ready!") {
-      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-    }
   });
-});
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel Sprouts are ready!</li>`;
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
+.catch((err) => console.log(err));
