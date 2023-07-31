@@ -151,13 +151,13 @@ After the last step, you should display an additional `<li>` with the text: `Sta
 Using promises with the `async` and `await` syntax print the directions to make Brussels Sprouts in the correct order. You will need the function `obtainInstruction` which returns a pending Promise.
 
 ```javascript
-async function makeBroccoli() {
-  // ... Your code here
-}
+
 ```
 
 
-
+async function makeBroccoli() {
+  // ... Your code here
+}
 After the last step, you should display an additional `<li>` with the text: `Broccoli is ready!`.
 
 
