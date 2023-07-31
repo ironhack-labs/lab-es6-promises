@@ -155,11 +155,9 @@ Promise.all([
   obtainInstruction("brusselsSprouts", 7),
   "Brussels Sprouts are ready!",
 ]).then((array) => {
-  array.forEach((element) => {
-    document.querySelector(
-      "#brusselsSprouts"
-    ).innerHTML += `<li>${element}</li>`;
-    if (element === "Brussels Sprouts are ready!") {
+  array.forEach((step) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+    if (step === "Brussels Sprouts are ready!") {
       document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
     }
   });
