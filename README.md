@@ -526,7 +526,7 @@ After the last step, you should display an additional `<li>` with the text: `Bru
 
   async function handlePromiseAll() {
     try {
-      const values = Promise.all( [promise1, promise2] );
+      await const values = Promise.all( [promise1, promise2] );
       console.log(values);
     }
     catch (error) {
