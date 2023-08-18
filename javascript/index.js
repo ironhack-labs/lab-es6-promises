@@ -25,6 +25,7 @@
   //   document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
   // }, (error) => console.log(error));
 
+
 // Iteration 1 - using callbacks
 getInstruction("mashedPotatoes", 0, (step1) => {
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
@@ -84,7 +85,32 @@ getInstruction("mashedPotatoes", 0, (step1) => {
     .catch((error) => console.log(error));
 
 // Iteration 3 using async/await
-// ...
+async function makeBroccoli(instructions) {
+
+  for (let i = 0; i < instructions.length; i++) {
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction("broccoli", i)}</li>`
+  }
+  document.querySelector("#broccoli").innerHTML += "<li>Broccoli is ready!</li>"
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
+}
+makeBroccoli(broccoli)
 
 // Bonus 2 - Promise all
-// ...
+
+function promiseAllBrusselsSprouts() {
+  let promisesArray = [];
+  for (let i = 0; i < brusselsSprouts.length; i++) {
+    promisesArray.push(obtainInstruction("brusselsSprouts", i).then((value) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${value}</li>`;
+    }))
+  }
+  return promisesArray;
+}
+
+Promise.all(promiseAllBrusselsSprouts())
+    .then(() => {
+      document.querySelector("#brusselsSprouts").innerHTML += "<li>Brussels sprouts are ready!</li>"
+    })
+    .then(() => {
+      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
+    })
