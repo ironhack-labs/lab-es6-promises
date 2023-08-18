@@ -33,19 +33,14 @@
 // ...
 
 // Iteration 3 using async/await
-async function makeBroccoli() {
-  const step1 = await obtainInstruction("broccoli", 0);
-  document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`
-  const step2 = await obtainInstruction("broccoli", 1);
-  document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`
-  const step3 = await obtainInstruction("broccoli", 2);
-  document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`
-  const step4 = await obtainInstruction("broccoli", 3);
-  document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`
+async function makeBroccoli(instructions) {
+
+  for (let i = 0; i < instructions.length; i++) {
+    document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction("broccoli", i)}</li>`
+  }
   document.querySelector("#broccoliImg").removeAttribute("hidden");
 }
-
-makeBroccoli()
+makeBroccoli(broccoli)
 
 // Bonus 2 - Promise all
 // ...
