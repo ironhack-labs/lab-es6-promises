@@ -31,7 +31,6 @@
 // ...
 
 // Iteration 2 - using promises
-// ...
   obtainInstruction("steak", 0)
     .then((step0) => {
       document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
@@ -63,8 +62,8 @@
     })
     .then((step7) => {
       document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
+      document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
       document.querySelector("#steakImg").removeAttribute("hidden");
-      return obtainInstruction("steak", 8);
     })
     .catch((error) => console.log(error));
 
