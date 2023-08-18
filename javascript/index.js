@@ -38,6 +38,7 @@ async function makeBroccoli(instructions) {
   for (let i = 0; i < instructions.length; i++) {
     document.querySelector("#broccoli").innerHTML += `<li>${await obtainInstruction("broccoli", i)}</li>`
   }
+  document.querySelector("#broccoli").innerHTML += "<li>Broccoli is ready!</li>"
   document.querySelector("#broccoliImg").removeAttribute("hidden");
 }
 makeBroccoli(broccoli)
@@ -54,6 +55,10 @@ function promiseAllBrusselsSprouts() {
   return promisesArray;
 }
 
-Promise.all(promiseAllBrusselsSprouts()).then(() => {
-  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
-});
+Promise.all(promiseAllBrusselsSprouts())
+    .then(() => {
+      document.querySelector("#brusselsSprouts").innerHTML += "<li>Brussels sprouts are ready!</li>"
+    })
+    .then(() => {
+      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden")
+    })
