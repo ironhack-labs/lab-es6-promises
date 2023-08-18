@@ -95,7 +95,20 @@ obtainInstruction("steak", 0)
   });
 
 // Iteration 3 using async/await
-// ...
+// Carla
 
 // Bonus 2 - Promise all
-// ...
+const brusselsSproutsPromises = [];
+for (let i = 0; i < brusselsSprouts.length; i++) {
+  brusselsSproutsPromises.push(obtainInstruction("brusselsSprouts", i));
+}
+
+Promise.all(brusselsSproutsPromises)
+  .then(steps => {
+    steps.forEach( (step) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+    });
+    document.querySelector("#brusselsSprouts").innerHTML += '<li>Brussels sprouts are ready! </li>';
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
+  .catch((err) => console.log(err));
