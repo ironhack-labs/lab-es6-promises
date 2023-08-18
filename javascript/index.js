@@ -47,17 +47,13 @@ getInstruction("mashedPotatoes", 0, (step0) => {
           document.querySelector(
             "#mashedPotatoes"
           ).innerHTML += `<li>${step4}</li>`;
-
-          getInstruction("mashedPotatoes", 5, (step5) => {
-            document.querySelector(
-              "#mashedPotatoes"
-            ).innerHTML += `<li>${step5}</li>`;
-          });
-        });
+           document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+        });   
       });
     });
-  });
+  });  
 });
+
 // Iteration 2 - using promises
 obtainInstruction("steak", 0)
   .then((step0) => {
