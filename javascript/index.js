@@ -120,7 +120,7 @@ function displayImg(id) {
 
 // Bonus 2 - Promise all
 let brussel = []
-for(let i = 0; i < 7; i++) {
+for(let i = 0; i < 8; i++) {
   brussel.push(obtainInstruction('brusselsSprouts', i))
 }
 
