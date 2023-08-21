@@ -120,7 +120,30 @@ async function makeBroccoli(){
 makeBroccoli();
 // Bonus 2 - Promise all
 // ...
-async function makeBrusselsSprouts(){
-    const 
+const p1 = obtainInstruction('brusselsSprouts', 0);
+const p2 = obtainInstruction('brusselsSprouts', 1);
+const p3 = obtainInstruction('brusselsSprouts', 2);
+const p4 = obtainInstruction('brusselsSprouts', 3);
+const p5 = obtainInstruction('brusselsSprouts', 4);
+const p6 = obtainInstruction('brusselsSprouts', 5);
+const p7 = obtainInstruction('brusselsSprouts', 4);
+const p8 = obtainInstruction('brusselsSprouts', 5);
 
-}
+Promise.all([p1,p2,p3,p4,p5,p6,p7,p8])
+.then((instructionsArray) => {
+  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  let timeArr = 1000;
+  instructionsArray.forEach((elem) => {
+    setTimeout(() => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${elem}</li>`
+    }, timeArr);
+    timeArr += 500;
+  })
+  setTimeout(() => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel Sprouts are ready!</li>`
+  }, 5000);
+})
+.catch((e) => {
+  console.log(e)
+})
+
