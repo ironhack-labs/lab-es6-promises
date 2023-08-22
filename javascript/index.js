@@ -104,21 +104,39 @@ obtainInstruction('steak', 0)
 // Iteration 3 using async/await
 async function makeBroccoli() {
   try {
-    const step0 = document.querySelector('#broccoli').innerHTML += `<li>${step0}</li>`
-    const step1 = document.querySelector('#broccoli').innerHTML += `<li>${step1}</li>`
-    const step2 = document.querySelector('#broccoli').innerHTML += `<li>${step2}</li>`
-    const step3 = document.querySelector('#broccoli').innerHTML += `<li>${step3}</li>`
-    const step4 = document.querySelector('#broccoli').innerHTML += `<li>${step4}</li>`
-    const step5 = document.querySelector('#broccoli').innerHTML += `<li>${step5}</li>`
-    const step6 = document.querySelector('#broccoli').innerHTML += `<li>${step6}</li>`
-
-    console.log(step0, step1, step2, step3, step4, step5, step6)
-  } catch (error) {
-    console.log(error)
+    const step0 = await obtainInstruction("broccoli", 0)
+    document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`;
+    const step1 = await obtainInstruction("broccoli", 1)
+    document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`;
+    const step2 = await obtainInstruction("broccoli", 2)
+    document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`;
+    const step3 = await obtainInstruction("broccoli", 3)
+    document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`;
+    const step4 = await obtainInstruction("broccoli", 4)
+    document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`;
+    const step5 = await obtainInstruction("broccoli", 5)
+    document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
+    const step6 = await obtainInstruction("broccoli", 6)
+    document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
+    document.querySelector("#broccoliImg").innerHTML += `<li>Broccoli is ready!</li>`;
+  }catch{
   }
-}
-
-makeBroccoli();
+  }
+   makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+getInstruction("brusselsSprouts", 0, (step1) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`;
+})
+getInstruction("brusselsSprouts", 1, (step2) => {
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step2}</li>`;
+})
+  getInstruction("brusselsSprouts", 2, (step3) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step3}</li>`;
+  })
+    getInstruction("brusselsSprouts", 3, (step4) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${step4}</li>`;
+    })
+      getInstruction("brusselsSprouts", 4, (step5) => {
+        document.querySelector("#brusselsSprouts").innerHTML += `<li>${step5}</li>`;
+      })
