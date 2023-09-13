@@ -19,15 +19,18 @@ Due to the asynchronous nature of JavaScript, promises and callbacks are very im
 
 ## Submission
 
-Upon completion, run the following commands:
+- Upon completion, run the following commands:
 
 ```shell
 $ git add .
 $ git commit -m "done"
 $ git push origin master
 ```
+<br>
 
-Create Pull Request so your TAs can check up your work.
+- Create a Pull Request and submit your assignment.
+
+<br>
 
 ## Instructions
 
