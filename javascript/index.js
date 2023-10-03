@@ -35,19 +35,27 @@ obtainInstruction('steak', 0)
   .then((step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
     //  ... Your code here
+    return obtainInstruction ('steak', 1);
   })
-  obtainInstruction('steak', 1)
-  .then ((step1) => {
+  .then((step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
+    return obtainInstruction ('steak', 2);
   })
-  obtainInstruction('steak', 2)
-  .then ((step2) => {
+  .then((step2) => {
     document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
+    return obtainInstruction ('steak', 3);
   })
-  obtainInstruction('steak', 3)
-  .then ((step3) => {
+  .then((step3) => {
     document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
+    return obtainInstruction ('steak', 4);
   })
+  .then((step4) => {
+    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
+    return obtainInstruction ('steak', 5);
+  })
+  
+  
+  
 
 
   .catch ((err) => {
