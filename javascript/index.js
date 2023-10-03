@@ -31,7 +31,32 @@
 // ...
 
 // Iteration 2 - using promises
-// ...
+obtainInstruction('steak', 0)
+  .then((step0) => {
+    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
+    //  ... Your code here
+  })
+  obtainInstruction('steak', 1)
+  .then ((step1) => {
+    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
+  })
+  obtainInstruction('steak', 2)
+  .then ((step2) => {
+    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
+  })
+  obtainInstruction('steak', 3)
+  .then ((step3) => {
+    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
+  })
+
+
+  .catch ((err) => {
+    console.log("you can't cook a steak, heres the McD delivery number", err);
+  });
+
+
+
+
 
 // Iteration 3 using async/await
 // ...
