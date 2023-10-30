@@ -15,6 +15,7 @@ const mashedPotatoes = [
   "pour in water",
   "mix",
   "enjoy",
+  "Mashed potato are ready!"
 ];
 
 const brusselsSprouts = [
@@ -35,5 +36,6 @@ const broccoli = [
   'once boiling, carefully lower the broccoli into the water',
   'cook for 3 to 4 minutes, or until tender',
   'drain, then leave to steam dry for a minute',
-  'enjoy'
+  'enjoy',
+  'Broccoli is ready!'
 ];
