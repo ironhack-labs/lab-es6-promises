@@ -40,6 +40,7 @@ getInstruction("mashedPotatoes", 0, step0=>{
           mashedElem.innerHTML += `<li>${step3}</li>`
           getInstruction("mashedPotatoes",4, step4=>{
           mashedElem.innerHTML += `<li>${step4}</li>`
+          mashedElem.innerHTML += `<li>Mashed potatoes are ready!</li>`
           document.getElementById("mashedPotatoesImg").removeAttribute("hidden")
           }, error=>console.log(error))
         }, error=>console.log(error))
@@ -82,6 +83,8 @@ obtainInstruction("steak", 0).then(step=>{
 })
 .then(step=>{
   steakElem.innerHTML += `<li>${step}</li>`
+}).then(()=>{
+  steakElem.innerHTML += `<li>Steak is ready</li>`
   document.getElementById("steakImg").removeAttribute("hidden")
 })
 
@@ -109,6 +112,7 @@ async function makeBroccoli(){
     broccoliElem.innerHTML += `<li>${step5}</li>`
     const step6 = await obtainInstruction("broccoli", 6);
     broccoliElem.innerHTML += `<li>${step6}</li>`
+    broccoliElem.innerHTML += `<li>Broccoli is ready!</li>`
     document.getElementById("broccoliImg").removeAttribute("hidden")
   }
   catch{
