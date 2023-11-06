@@ -172,8 +172,6 @@ async function makeBroccoli() {
     ).innerHTML += `<li>${"Broccoli is ready"}</li>`;
 
     document.querySelector("#broccoliImg").removeAttribute("hidden");
-
-    console.log("You arrived at your destination!");
   } catch (err) {
     console.log("Something went wrong:", err);
   }
@@ -198,6 +196,9 @@ Promise.all(instructionPromises)
       element.innerHTML = `Step ${index + 1}: ${instruction}`;
       document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
     });
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>${"Brussels sprouts are ready!"}</li>`;
   })
   .catch((error) => {
     console.error("Error:", error);
