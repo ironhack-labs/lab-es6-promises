@@ -142,9 +142,10 @@ const step4 = obtainInstruction('brusselsSprouts', 3)
 const step5 = obtainInstruction('brusselsSprouts', 4)
 const step6 = obtainInstruction('brusselsSprouts', 5)
 const step7 = obtainInstruction('brusselsSprouts', 6)
+const step8 = obtainInstruction('brusselsSprouts', 7)
 
 // Bonus 2 - Promise all
-Promise.all([step1, step2, step3, step4, step5, step6, step7])
+Promise.all([step1, step2, step3, step4, step5, step6, step7, step8])
   .then((values) => {
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[0]}</li>`;
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[1]}</li>`;
@@ -153,6 +154,7 @@ Promise.all([step1, step2, step3, step4, step5, step6, step7])
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[4]}</li>`;
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[5]}</li>`;
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[6]}</li>`;
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${values[7]}</li>`;
     document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussel sprouts are ready!</li>`;
     document.getElementById("brusselsSproutsImg").removeAttribute("hidden");
   })
