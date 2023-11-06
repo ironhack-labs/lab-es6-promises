@@ -81,6 +81,43 @@ getInstruction(
 
 // Iteration 2 - using promises
 // ...
+// Iteration 2 - using promises
+obtainInstruction('steak', 0)
+  .then( (step0) => {
+    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
+    return obtainInstruction('steak', 1)
+  }).
+  then( (step1) => {
+    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
+    return obtainInstruction('steak', 2)
+  }).
+  then( (step2) => {
+    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
+    return obtainInstruction('steak', 3)
+  }).
+  then( (step3) => {
+    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
+    return obtainInstruction('steak', 4)
+  }).
+  then( (step4) => {
+    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
+    return obtainInstruction('steak', 5)
+  }).
+  then( (step5) => {
+    document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
+    return obtainInstruction('steak', 6)
+  }).
+  then( (step6) => {
+    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
+    const parentElm = document.getElementById("steak");
+    const childElm = document.createElement("li");
+    parentElm.appendChild(childElm);
+    childElm.innerHTML = "Stake is ready!";
+  }).catch((err)=>{
+    console.log("Something went wrong"+ err)
+  })
+
+  // ... Your code here
 
 // Iteration 3 using async/await
 // ...
