@@ -67,6 +67,7 @@ getInstruction(
                 const childElm = document.createElement("li");
                 parentElm.appendChild(childElm);
                 childElm.innerHTML = "Mashed potatoes are ready!";
+                document.getElementById("mashedPotatoesImg").removeAttribute('hidden')
               });
             },
             (error) => console.log(error)
@@ -113,6 +114,7 @@ obtainInstruction("steak", 0)
     const childElm = document.createElement("li");
     parentElm.appendChild(childElm);
     childElm.innerHTML = "Stake is ready!";
+    document.getElementById("steakImg").removeAttribute('hidden')
   })
   .catch((err) => {
     console.log("Something went wrong" + err);
@@ -131,6 +133,7 @@ async function makeBroccoli() {
     const childElm = document.createElement("li");
     parentElm.appendChild(childElm);
     childElm.innerHTML = "Broccoli is ready!";
+    document.getElementById("broccoliImg").removeAttribute('hidden')
   } catch (error) {
     console.log(error);
   }
