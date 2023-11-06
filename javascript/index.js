@@ -67,7 +67,9 @@ getInstruction(
                 const childElm = document.createElement("li");
                 parentElm.appendChild(childElm);
                 childElm.innerHTML = "Mashed potatoes are ready!";
-                document.getElementById("mashedPotatoesImg").removeAttribute('hidden')
+                document
+                  .getElementById("mashedPotatoesImg")
+                  .removeAttribute("hidden");
               });
             },
             (error) => console.log(error)
@@ -114,7 +116,7 @@ obtainInstruction("steak", 0)
     const childElm = document.createElement("li");
     parentElm.appendChild(childElm);
     childElm.innerHTML = "Stake is ready!";
-    document.getElementById("steakImg").removeAttribute('hidden')
+    document.getElementById("steakImg").removeAttribute("hidden");
   })
   .catch((err) => {
     console.log("Something went wrong" + err);
@@ -133,12 +135,37 @@ async function makeBroccoli() {
     const childElm = document.createElement("li");
     parentElm.appendChild(childElm);
     childElm.innerHTML = "Broccoli is ready!";
-    document.getElementById("broccoliImg").removeAttribute('hidden')
+    document.getElementById("broccoliImg").removeAttribute("hidden");
   } catch (error) {
     console.log(error);
   }
 }
 
 makeBroccoli();
-// Bonus 2 - Promise all
-// ...
+
+// Bonus
+
+const makeBrusselsSprouts = () => {
+  const sproutsArr = [];
+
+  for (i = 0; i < 8; i++) {
+    sproutsArr.push(obtainInstruction("brusselsSprouts", i));
+  }
+  console.log(sproutsArr);
+  Promise.all(sproutsArr)
+    .then((response) => {
+      response.forEach((e) => {
+        document.querySelector("#brusselsSprouts").innerHTML += `<li>${e}</li>`;
+      });
+      const parentElm = document.getElementById("brusselsSprouts");
+      const childElm = document.createElement("li");
+      parentElm.appendChild(childElm);
+      childElm.innerHTML = "Brussels sprouts are ready!";
+      document.getElementById("brusselsSproutsImg").removeAttribute("hidden");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+makeBrusselsSprouts();
