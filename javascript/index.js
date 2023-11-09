@@ -126,29 +126,29 @@ return obtainInstruction("steak", 7)
 // ...
 async function makeBroccoli() {
   try {
-    await obtainInstruction("broccoli", 0);
-    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[0]}</li>`
+   const step0 = await obtainInstruction("broccoli", 0);
+    document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`
 
-    await obtainInstruction("broccoli", 1);
-    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[1]}</li>`
+   const step1 = await obtainInstruction("broccoli", 1);
+    document.querySelector("#broccoli").innerHTML += `<li>${step1}</li>`
 
-    await obtainInstruction("broccoli", 2);
-    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[2]}</li>`
+    const step2 = await obtainInstruction("broccoli", 2);
+    document.querySelector("#broccoli").innerHTML += `<li>${step2}</li>`
 
-    await obtainInstruction("broccoli", 3);
-    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[3]}</li>`
+    const step3 = await obtainInstruction("broccoli", 3);
+    document.querySelector("#broccoli").innerHTML += `<li>${step3}</li>`
 
-    await obtainInstruction("broccoli", 4);
-    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[4]}</li>`
+    const step4 = await obtainInstruction("broccoli", 4);
+    document.querySelector("#broccoli").innerHTML += `<li>${step4}</li>`
 
-    await obtainInstruction("broccoli", 5);
-    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[5]}</li>`
+    const step5 = await obtainInstruction("broccoli", 5);
+    document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`
 
-    await obtainInstruction("broccoli", 6);
-    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[6]}</li>`
+    const step6 = await obtainInstruction("broccoli", 6);
+    document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`
 
-    await obtainInstruction("broccoli", 7);
-    document.querySelector("#broccoli").innerHTML += `<li>${broccoli[7]}</li>` 
+    const step7 = await obtainInstruction("broccoli", 7);
+    document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>` 
   }
   catch(err){
     console.log(err)
@@ -158,40 +158,25 @@ async function makeBroccoli() {
 }
 makeBroccoli()
 
-
+ 
 // Bonus 2 - Promise all
-Promise.all([brusselsSprouts])
-.then((step0) => {
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step0}</li>`
-  return obtainInstruction("brusselsSprouts", 1)
-})
-.then((step1) => {
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`
-  return obtainInstruction("brusselsSprouts", 2)
-})
-.then((step2) => {
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step2}</li>`
-  return obtainInstruction("brusselsSprouts", 3)
-})
-.then((step3) => {
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step3}</li>`
-  return obtainInstruction("brusselsSprouts", 4)
-})
-.then((step4) => {
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step4}</li>`
-  return obtainInstruction("brusselsSprouts", 5)
-})
-.then((step5) =>{
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step5}</li>`
-  return obtainInstruction("brusselsSprouts", 6)
-})
-.then((step6) =>{
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step6}</li>`
-  return obtainInstruction("brusselsSprouts", 7)
-})
-.then((step7) =>{
-  document.querySelector("#brusselsSprouts").innerHTML += `<li>${step7}</li>`
-  document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-  return obtainInstruction("brusselsSprouts", 8)  
-})
-// ...
+
+const makeBrusselsSprouts = async () => {
+  const brusselPromise = [];
+  brusselsSprouts.forEach((element, i) => {
+    brusselPromise.push(obtainInstruction('brusselsSprouts', i))
+  })
+  Promise.all(brusselPromise)
+  .then((steps) => {
+    steps.forEach((element, i) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`;
+      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+    })
+  })
+}
+makeBrusselsSprouts();
+
+
+
+
+ 
