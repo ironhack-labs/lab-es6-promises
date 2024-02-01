@@ -25,7 +25,9 @@
   //   document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
   // }, (error) => console.log(error));
 
-
+  const mashedPotatoesImage = document.querySelector("#mashedPotatoesImg");
+  const steakImage = document.querySelector("#steakImg");
+  const broccoliImage = document.querySelector("#broccoliImg");
 
 // Iteration 1 - using callbacks
 getInstruction('mashedPotatoes', 0, (step0) => {
@@ -39,6 +41,7 @@ getInstruction('mashedPotatoes', 0, (step0) => {
         getInstruction('mashedPotatoes', 4, (step4) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${"Mashed potatoes are ready!"}</li>`
+          mashedPotatoesImage.removeAttribute('hidden');
         }, (error) => console.log(error));
       }, (error) => console.log(error));
     }, (error) => console.log(error));
@@ -78,6 +81,7 @@ obtainInstruction('steak', 0)
   .then((step7) => {
     document.querySelector('#steak').innerHTML += `<li>${step7}</li>`;
     document.querySelector('#steak').innerHTML += '<li>Stake is ready!</li>';
+    steakImage.removeAttribute("hidden");
   })
   .catch((error) => console.log(error));
   
@@ -100,6 +104,7 @@ async function makeBroccoli() {
     const step7 = await obtainInstruction('broccoli', 6);
     document.querySelector('#broccoli').innerHTML += `<li>${step7}</li>`;
     document.querySelector('#broccoli').innerHTML += '<li>Broccoli is ready!</li>';
+    broccoliImage.removeAttribute('hidden');
   } catch(error) {
     console.log(error);
   }
