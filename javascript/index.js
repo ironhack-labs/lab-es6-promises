@@ -27,11 +27,14 @@
 
   const mashedPotatoesImage = document.querySelector("#mashedPotatoesImg");
   const steakImage = document.querySelector("#steakImg");
+  const brusselsImage = document.querySelector("#brusselsSproutsImg");
   const broccoliImage = document.querySelector("#broccoliImg");
 
+
 // Iteration 1 - using callbacks
+
 getInstruction('mashedPotatoes', 0, (step0) => {
-  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`
+document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`
   getInstruction('mashedPotatoes', 1, (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`
     getInstruction('mashedPotatoes', 2, (step2) => {
@@ -47,6 +50,8 @@ getInstruction('mashedPotatoes', 0, (step0) => {
     }, (error) => console.log(error));
   }, (error) => console.log(error));
 }, (error) => console.log(error));
+
+
 
 // Iteration 2 - using promises
 obtainInstruction('steak', 0)
@@ -113,4 +118,27 @@ async function makeBroccoli() {
 makeBroccoli()
 
 // Bonus 2 - Promise all
-// ...
+const brusselsArray = [];
+
+function brusselsSproutsPromise(step) {
+  return new Promise((resolve, rejected) => {
+    getInstruction("brusselsSprouts", step, resolve, rejected);
+  });
+}
+
+for (let i = 0; i < brusselsSprouts.length; i++) {
+  brusselsArray.push(brusselsSproutsPromise(i));
+}
+
+Promise.all(brusselsArray)
+  .then((steps) => {
+    const brusselsSproutsOl = document.querySelector("#brusselsSprouts");
+    const brusselsSproutsImage = document.querySelector("#brusselsSproutsImg");
+    steps.forEach((step) => {
+      brusselsSproutsOl.innerHTML += `<li>${step}</li>`;
+    });
+    brusselsSproutsOl.innerHTML += '<li>Brussels sprouts are ready!</li>';
+    brusselsSproutsImage.removeAttribute('hidden');
+  })
+
+  .catch((error) => console.log(error));
