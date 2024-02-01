@@ -97,34 +97,40 @@ getInstruction(
 // Iteration 2 - using promises
 // ...
 
-obtainInstruction("steak", 0).then((step0) => {
-  document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
-});
-obtainInstruction("steak", 1).then((step1) => {
-  document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
-});
-obtainInstruction("steak", 2).then((step2) => {
-  document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
-});
-obtainInstruction("steak", 3).then((step3) => {
-  document.querySelector("#steak").innerHTML += `<li>${step3}</li>`;
-});
-obtainInstruction("steak", 4).then((step4) => {
-  document.querySelector("#steak").innerHTML += `<li>${step4}</li>`;
-});
-obtainInstruction("steak", 5).then((step5) => {
-  document.querySelector("#steak").innerHTML += `<li>${step5}</li>`;
-});
-obtainInstruction("steak", 6).then((step6) => {
-  document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
-});
-obtainInstruction("steak", 7).then((step7) => {
-  document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
-});
-// .catch((error) => console.log(error))
-// .finally(
-// () => (document.querySelector("#steak").innerHTML += `<li>ready</li>`)
-// );
+obtainInstruction("steak", 0)
+  .then((step0) => {
+    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
+    return obtainInstruction("steak", 1);
+  })
+  .then((step1) => {
+    document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
+    return obtainInstruction("steak", 2);
+  })
+  .then((step2) => {
+    document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
+    return obtainInstruction("steak", 3);
+  })
+  .then((step3) => {
+    document.querySelector("#steak").innerHTML += `<li>${step3}</li>`;
+    return obtainInstruction("steak", 4);
+  })
+  .then((step4) => {
+    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`;
+    return obtainInstruction("steak", 5);
+  })
+  .then((step5) => {
+    document.querySelector("#steak").innerHTML += `<li>${step5}</li>`;
+    return obtainInstruction("steak", 6);
+  })
+  .then((step6) => {
+    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
+    return obtainInstruction("steak", 7);
+  })
+  .then((step7) => {
+    document.querySelector("#steak").innerHTML += `<li>${step7}</li>`;
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
+  })
+  .catch((error) => console.log(error));
 
 // Iteration 3 using async/await
 // ...
