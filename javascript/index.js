@@ -29,38 +29,31 @@ getInstruction(foodType, 0, (step1) => {
 }, (error) => console.log(error));
 
 // Iteration 2 - using promises
-obtainInstruction('steak', 0)
-  .then( (step0) => {
-    document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
-    obtainInstruction('steak', 1)
-      .then( (step1) => {
-        document.querySelector("#steak").innerHTML += `<li>${step1}</li>`
-        obtainInstruction('steak', 2)
-          .then( (step2) => {
-            document.querySelector("#steak").innerHTML += `<li>${step2}</li>`
-            obtainInstruction('steak', 3)
-              .then( (step3) => {
-                document.querySelector("#steak").innerHTML += `<li>${step3}</li>`
-                obtainInstruction('steak', 4)
-                  .then( (step4) => {
-                    document.querySelector("#steak").innerHTML += `<li>${step4}</li>`
-                    obtainInstruction('steak', 5)
-                      .then( (step5) => {
-                        document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
-                        obtainInstruction('steak', 6)
-                          .then( (step6) => {
-                            document.querySelector("#steak").innerHTML += `<li>${step6}</li>`
-                            obtainInstruction('steak', 7)
-                              .then( (step7) => {
-                                document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
-                              })
-                          })
-                      })
-                  })
-              })
-          })
-      })
-  }).catch((err) => console.error(err));
+
+  const foodTypeII = "steak";
+
+  obtainInstruction(foodTypeII, 0)
+  .then((step0) => {newInstructionLi(foodTypeII, step0)
+    return(obtainInstruction(foodTypeII, 1));
+  }).then((step1) => {newInstructionLi(foodTypeII, step1)
+    return(obtainInstruction(foodTypeII, 2));
+  }).then((step2) => {newInstructionLi(foodTypeII, step2)
+    return(obtainInstruction(foodTypeII, 3));
+  }).then((step3) => {newInstructionLi(foodTypeII, step3)
+    return(obtainInstruction(foodTypeII, 4));
+  }).then((step4) => {newInstructionLi(foodTypeII, step4)
+    return(obtainInstruction(foodTypeII, 5));
+  }).then((step5) => {newInstructionLi(foodTypeII, step5)
+    return(obtainInstruction(foodTypeII, 6));
+  }).then((step6) => {newInstructionLi(foodTypeII, step6)
+    return(obtainInstruction(foodTypeII, 7));
+  }).then((step7) => {newInstructionLi(foodTypeII, step7)
+    /* document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`; */
+  }).catch(err => console.log(err)).finally( () => {
+    document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+  });
+
+
 
 // Iteration 3 using async/await
 // ...
