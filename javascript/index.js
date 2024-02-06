@@ -86,6 +86,7 @@ obtainInstruction('steak', 0)
     console.log(error);
   })
   .finally(() => {
+    document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`
     document.querySelector("#steakImg").removeAttribute("hidden");
   })
 
