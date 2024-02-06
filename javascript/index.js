@@ -38,8 +38,7 @@ getInstruction('mashedPotatoes', 0, (step0) => {
         getInstruction('mashedPotatoes', 4, (step4) => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`
           document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`
-          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
-          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden")
         }, (error) => {
           console.error(error)
         })
@@ -89,7 +88,6 @@ obtainInstruction('steak', 0)
   .then((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
     document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
-    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
     document.querySelector("#steakImg").removeAttribute("hidden");
   })
   .catch((error) => {
