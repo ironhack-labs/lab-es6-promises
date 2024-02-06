@@ -4,25 +4,28 @@
 // 🚨🚨🚨 Comment out the below code before you start working on the code
 
 // Iteration 1 - using callbacks
-getInstruction("mashedPotatoes", 0, (step1) => {
-  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
 
-    getInstruction("mashedPotatoes", 1, (step2) => {
-      document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`;
+const foodType = "mashedPotatoes";
 
-        getInstruction("mashedPotatoes", 2, (step3) => {
-          document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
+const newInstructionLi = function (food, step) {
+  document.querySelector(`#${food}`).innerHTML += `<li>${step}</li>`;
+}
 
-          getInstruction("mashedPotatoes", 3, (step4) => {
-            document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
-
-            getInstruction("mashedPotatoes", 4, (step5) => {
-              document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
-  
-            }, (error) => console.log(error));
-          }, (error) => console.log(error));
+getInstruction(foodType, 0, (step1) => {
+  newInstructionLi(foodType, step1);
+  getInstruction(foodType, 1, (step2) => {
+    newInstructionLi(foodType, step2);
+    getInstruction(foodType, 2, (step3) => {
+      newInstructionLi(foodType, step3);
+      getInstruction(foodType, 3, (step4) => {
+        newInstructionLi(foodType, step4);
+        getInstruction(foodType, 4, (step5) => {
+          newInstructionLi(foodType, step5);
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
         }, (error) => console.log(error));
+      }, (error) => console.log(error));
     }, (error) => console.log(error));
+  }, (error) => console.log(error));
 }, (error) => console.log(error));
 
 // Iteration 2 - using promises
