@@ -11,6 +11,11 @@ const newInstructionLi = function (food, step) {
   document.querySelector(`#${food}`).innerHTML += `<li>${step}</li>`;
 };
 
+const showImage = function (food, attr) {
+  document.querySelector(`#${food}Img
+`).removeAttribute(attr);
+}
+
 getInstruction(foodType, 0, (step1) => {
     newInstructionLi(foodType, step1);
     getInstruction(foodType, 1,(step2) => {
@@ -21,9 +26,8 @@ getInstruction(foodType, 0, (step1) => {
                 newInstructionLi(foodType, step4);
                 getInstruction(foodType, 4, (step5) => {
                     newInstructionLi(foodType, step5);
-                    document.querySelector(`#${foodType}`).innerHTML += `<li>Mashed potatoes are ready!</li>`;
-                    document.querySelector(`#${foodType}Img
-`).removeAttribute("hidden");
+                    newInstructionLi(foodType, "Mashed potatoes are ready!");
+                    showImage(foodType, "hidden");
                   }, (error) => console.log(error));
               },(error) => console.log(error));
           },(error) => console.log(error));
@@ -68,9 +72,8 @@ obtainInstruction(foodTypeII, 0)
   })
   .catch((err) => console.log(err))
   .finally(() => {
-    document.querySelector(`#${foodTypeII}`).innerHTML += `<li>Stake is ready!</li>`;
-    document.querySelector(`#${foodTypeII}Img
-`).removeAttribute("hidden");
+    newInstructionLi(foodTypeII, "Stake is ready!");
+    showImage(foodTypeII, "hidden");
   });
 
 // Iteration 3 using async/await
@@ -81,15 +84,13 @@ async function getInstructionBS() {
   try {
     for (let i = 0; i < broccoli.length; i++) {
       const resp = await obtainInstruction(foodTypeIII, i);
-      document.querySelector(`#${foodTypeIII}
-`).innerHTML += `<li>${resp}</li>`;
+      newInstructionLi(foodTypeIII, resp);
     }
   } catch (err) {
     console.error(err);
   } finally {
-    document.querySelector(`#${foodTypeIII}`).innerHTML += `<li>Broccoli is ready!</li>`;
-    document.querySelector(`#${foodTypeIII}Img
-`).removeAttribute("hidden");
+    newInstructionLi(foodTypeIII, "Broccoli is ready!");
+    showImage(foodTypeIII, "hidden");
   }
 }
 
@@ -107,10 +108,9 @@ for (let i = 0; i < brusselsSprouts.length; i++) {
 let instructionsArray = [];
 Promise.all(promiseArray).then((results) => {
   results.forEach(result => {
-    document.querySelector(`#${foodTypeIV}`).innerHTML += `<li>${result}</li>`;
+    newInstructionLi(foodTypeIV, result);
   });
-  document.querySelector(`#${foodTypeIV}`).innerHTML += `<li>Brussels sprouts are ready!</li>`;
-  document.querySelector(`#${foodTypeIV}Img
-`).removeAttribute("hidden");
+  newInstructionLi(foodTypeIV, "Brussels sprouts are ready!");
+  showImage(foodTypeIV, "hidden");
 });
 
