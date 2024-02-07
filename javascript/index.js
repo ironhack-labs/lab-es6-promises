@@ -21,8 +21,9 @@ getInstruction(foodType, 0, (step1) => {
                 newInstructionLi(foodType, step4);
                 getInstruction(foodType, 4, (step5) => {
                     newInstructionLi(foodType, step5);
-                    document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
-                    document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+                    document.querySelector(`#${foodType}`).innerHTML += `<li>Mashed potatoes are ready!</li>`;
+                    document.querySelector(`#${foodType}Img
+`).removeAttribute("hidden");
                   }, (error) => console.log(error));
               },(error) => console.log(error));
           },(error) => console.log(error));
@@ -67,12 +68,49 @@ obtainInstruction(foodTypeII, 0)
   })
   .catch((err) => console.log(err))
   .finally(() => {
-    document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
-    document.querySelector("#steakImg").removeAttribute("hidden");
+    document.querySelector(`#${foodTypeII}`).innerHTML += `<li>Stake is ready!</li>`;
+    document.querySelector(`#${foodTypeII}Img
+`).removeAttribute("hidden");
   });
 
 // Iteration 3 using async/await
-// ...
+
+const foodTypeIII = "broccoli";
+
+async function getInstructionBS() {
+  try {
+    for (let i = 0; i < broccoli.length; i++) {
+      const resp = await obtainInstruction(foodTypeIII, i);
+      document.querySelector(`#${foodTypeIII}
+`).innerHTML += `<li>${resp}</li>`;
+    }
+  } catch (err) {
+    console.error(err);
+  } finally {
+    document.querySelector(`#${foodTypeIII}`).innerHTML += `<li>Broccoli is ready!</li>`;
+    document.querySelector(`#${foodTypeIII}Img
+`).removeAttribute("hidden");
+  }
+}
+
+getInstructionBS();
 
 // Bonus 2 - Promise all
-// ...
+const foodTypeIV = "brusselsSprouts";
+
+let promiseArray = [];
+for (let i = 0; i < brusselsSprouts.length; i++) {
+  const resp = obtainInstruction(foodTypeIV, i);
+  promiseArray.push(resp);
+}
+
+let instructionsArray = [];
+Promise.all(promiseArray).then((results) => {
+  results.forEach(result => {
+    document.querySelector(`#${foodTypeIV}`).innerHTML += `<li>${result}</li>`;
+  });
+  document.querySelector(`#${foodTypeIV}`).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+  document.querySelector(`#${foodTypeIV}Img
+`).removeAttribute("hidden");
+});
+
