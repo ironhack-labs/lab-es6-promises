@@ -116,9 +116,10 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
-const brusselsPromises = brusselsSprouts.map((index, step) => {
-  return obtainInstruction('brusselsSprouts', step);
-});
+const brusselsPromises = [];
+for (let i = 0; i < brusselsSprouts.length; i++){
+  brusselsPromises.push(obtainInstruction('brusselsSprouts', i));
+}
 Promise.all(brusselsPromises)
   .then(steps => {
     steps.forEach((step) => {
