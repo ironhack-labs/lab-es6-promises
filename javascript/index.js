@@ -116,8 +116,8 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
-const brusselsPromises = brusselsSprouts.map((step, index) => {
-  return obtainInstruction('brusselsSprouts', index);
+const brusselsPromises = brusselsSprouts.map((index, step) => {
+  return obtainInstruction('brusselsSprouts', step);
 });
 Promise.all(brusselsPromises)
   .then(steps => {
