@@ -112,7 +112,7 @@ makeBroccoli()
 // Bonus 2 - Promise all
 let promises = []
 
-for (let step = 0; step < broccoli.length; step++) {
+for (let step = 0; step < brusselsSprouts.length; step++) {
   promises.push(obtainInstruction('brusselsSprouts', step)
 )}
 
