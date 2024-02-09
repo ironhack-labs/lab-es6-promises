@@ -1,34 +1,4 @@
-// This will print in the wrong order.
-// We added it as an example and to test that the arrays from data.js are loaded
 
-// 🚨🚨🚨 Comment out the below code before you start working on the code
-
-// Out of sync
-  // getInstruction("mashedPotatoes", 0, (step1) => {
-  //   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
-  // }, (error) => console.log(error));
-  
-  // getInstruction("mashedPotatoes", 1, (step2) => {
-  //   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`;
-  // }, (error) => console.log(error));
-  
-  // getInstruction("mashedPotatoes", 2, (step3) => {
-  //   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
-  // }, (error) => console.log(error));
-  
-  // getInstruction("mashedPotatoes", 3, (step4) => {
-  //   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
-  // }, (error) => console.log(error));
-  
-  // getInstruction("mashedPotatoes", 4, (step5) => {
-  //   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
-  //   document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
-  // }, (error) => console.log(error));
-
-
-
-// Iteration 1 - using callbacks
-// ...
 // Iteration 1 - using callbacks
 getInstruction('mashedPotatoes', 0, (step0) => {
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`
@@ -50,6 +20,9 @@ getInstruction('mashedPotatoes', 0, (step0) => {
   });
   getInstruction('mashedPotatoes', 6, (step6) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step6}</li>`
+  });
+  getInstruction('mashedPotatoes', 7, (step7) => {
+    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step7}</li>`
    
   },readyCallb);
   
@@ -59,7 +32,7 @@ function readyCallb(){
 }
 
 // Iteration 2 - using promises
-obtainInstruction('steak', 0)
+ obtainInstruction('steak', 0)
   .then( (step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`
     return obtainInstruction('steak', 1)
@@ -84,26 +57,29 @@ obtainInstruction('steak', 0)
     document.querySelector("#steak").innerHTML += `<li>${step5}</li>`
     return obtainInstruction('steak', 6)
   })
-  .finally( () => {
-    document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`
-    return obtainInstruction('steak', 7)
-  })
+  .then( (step6) => {
+    document.querySelector("#steak").innerHTML += `<li>${step6}</li>`;
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
+  });
   
 // Iteration 3 using async/await
-// ...
 async function makeBroccoli() {
-  // ... Your code here
-  console.log('Nothing in the console here: ',document.querySelector("#broccoli"));
-  try{
-    //console.log(document.querySelector("#broccoli"));
-    document.querySelector("#broccoli").innerHTML += `<li>Stake is ready!</li>`
-     return await obtainInstruction("broccoli",0);
-  }catch(err){
-    console.log(err)
+  try {
+    let index = 0;
+    let steps = [];
+    for (const b of broccoli) {
+      const step = await obtainInstruction("broccoli", index);
+      steps.push(step);
+      document.querySelector(
+        "#broccoli"
+      ).innerHTML += `<li>${steps[index]}</li>`;
+      index++;
+    }
+  } catch (err) {
+    console.log(err);
   }
-  
 }
-
+makeBroccoli();
 //Bonus 1
 const images = document.querySelectorAll('img')
 images.forEach(image=>{
@@ -113,3 +89,8 @@ images.forEach(image=>{
 
 // Bonus 2 - Promise all
 // ...
+// Promise.all([pr0, pr1, pr2])
+//   .then((values) => {
+//     // All promises resolved, proceed with displaying instructions and the final 'Brussels sprouts are ready!' message
+
+//   });
