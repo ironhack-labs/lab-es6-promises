@@ -7,6 +7,7 @@ const steak = [
   "cook steak for 30-60 seconds per side using a spoon to baste with butter",
   "rest for 10 minutes",
   "enjoy",
+  "Stake is ready!",
 ];
 
 const mashedPotatoes = [
@@ -15,25 +16,27 @@ const mashedPotatoes = [
   "pour in water",
   "mix",
   "enjoy",
+  "Mashed potatoes are ready!",
 ];
 
 const brusselsSprouts = [
-  'wash brussels sprouts',
-  'cut off base and chop in half',
-  'toss in bowl with olive oil, balsamic vinegar and salt',
-  'preheat oven to 500 F',
-  'coat baking sheet with olive oil',
-  'roast in the oven for 20 minutes',
-  'place back in bowl and add salt and pepper',
-  'enjoy'
+  "wash brussels sprouts",
+  "cut off base and chop in half",
+  "toss in bowl with olive oil, balsamic vinegar and salt",
+  "preheat oven to 500 F",
+  "coat baking sheet with olive oil",
+  "roast in the oven for 20 minutes",
+  "place back in bowl and add salt and pepper",
+  "enjoy",
 ];
 
 const broccoli = [
-  'wash broccoli in cold water',
-  'trim and cut the stalk in half, then finely slice it',
-  'fill a pot with water, add a pinch of salt and bring to the boil',
-  'once boiling, carefully lower the broccoli into the water',
-  'cook for 3 to 4 minutes, or until tender',
-  'drain, then leave to steam dry for a minute',
-  'enjoy'
+  "wash broccoli in cold water",
+  "trim and cut the stalk in half, then finely slice it",
+  "fill a pot with water, add a pinch of salt and bring to the boil",
+  "once boiling, carefully lower the broccoli into the water",
+  "cook for 3 to 4 minutes, or until tender",
+  "drain, then leave to steam dry for a minute",
+  "enjoy",
+  "Broccoli is ready!",
 ];
