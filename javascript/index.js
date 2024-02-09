@@ -66,10 +66,44 @@ obtainInstruction('steak', 0)
     document.querySelector("#steakImg").removeAttribute("hidden");
   })
 
-/* Iteration 3 using async/await
-async function makeBroccoli() {
-  // ... Your code here
-}*/
+//Iteration 3 using async/await -----------------------------------------------------
 
-// Bonus 2 - Promise all
-// ...
+async function makeBroccoli() {
+  try {
+    for (let i = 0; i < broccoli.length; i++) {
+      console.log(broccoli[i])
+      await obtainInstruction("broccoli", i);
+      document.querySelector("#broccoli").innerHTML += `<li>${broccoli[i]}</li>`;
+      
+    }
+  } catch (error) {
+    console.error('Error', error)
+  }
+
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
+  document.querySelector("#broccoli").innerHTML += `<li>"Broccoli is ready!"</li>`;
+}
+
+makeBroccoli()
+
+// Bonus 2 - Promise all -----------------------------------------------------
+
+let promises = []
+
+for (let step = 0; step < brusselsSprouts.length; step++) {
+  promises.push(obtainInstruction('brusselsSprouts', step)
+)}
+
+Promise.all(promises)
+  .then((steps) => {
+    steps.forEach((step) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>brusselsSprouts is ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+  })
