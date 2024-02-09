@@ -1,6 +1,12 @@
+//thanks Nacho!
 const addStep = (step) => {
   document.querySelector('#mashedPotatoes').innerHTML += `<li>${step}</li>`;
 }
+
+const errorCallback = function (error) {
+  console.error('Error: ', error);
+}
+
 // Iteration 1 - using callbacks
 getInstruction("mashedPotatoes", 0, (step) => {
   addStep(step);
@@ -14,11 +20,11 @@ getInstruction("mashedPotatoes", 0, (step) => {
           addStep(step);
           document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
           document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
-        }, (error) => console.log(error));
-      },(error) => console.log(error));
-    },(error) => console.log(error));
-  }, (error) => console.log(error));
-}, (error) => console.log(error));
+        }, errorCallback);
+      },errorCallback);
+    },errorCallback);
+  }, errorCallback);
+}, errorCallback);
 
 // Iteration 2 - using promises
 obtainInstruction("steak", 0)
@@ -54,11 +60,10 @@ obtainInstruction("steak", 0)
     document.querySelector("#steak").innerHTML += `<li>${instruction}</li>`;
   })
   .then(() => document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`)
-  .catch((err) => console.error(err))
+  .catch(errorCallback)
   .finally(() => {
     document.querySelector("#steakImg").removeAttribute("hidden");
   });
-
 
 // Iteration 3 using async/await
 async function makeBroccoli() {
@@ -81,7 +86,7 @@ async function makeBroccoli() {
        <li>Broccoli is ready!</li>`;
     document.querySelector('#broccoliImg').removeAttribute('hidden');
   } catch {
-    (error) => console.error(error);
+    errorCallback;
   }
 }
 
@@ -105,7 +110,7 @@ Promise.all(brusselsSproutsPromiseArray)
       document.querySelector('#brusselsSprouts').innerHTML += `<li>${instruction}</li>`;
     })
   })
-  .catch(err => console.log(err))
+  .catch(errorCallback)
   .finally(() => {
     document.querySelector('#brusselsSprouts').innerHTML += `<li>brusselsSprouts is ready!</li>`;
     document.querySelector('#brusselsSproutsImg').removeAttribute('hidden');
