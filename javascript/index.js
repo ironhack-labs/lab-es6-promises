@@ -85,8 +85,8 @@ async function makeBroccoli() {
       `<li>${step6}</li>
        <li>Broccoli is ready!</li>`;
     document.querySelector('#broccoliImg').removeAttribute('hidden');
-  } catch {
-    errorCallback;
+  } catch (error) {
+    errorCallback(error);
   }
 }
 
