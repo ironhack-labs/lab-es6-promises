@@ -144,7 +144,7 @@ Promise.all(promises)
     element.innerHTML +=  `<li>${step}</li>`;
   });
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-  document.querySelector("#steak").innerHTML += `<li>'Brussels Sprouts is ready!'</li>`;
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>'Brussels Sprouts is ready!'</li>`;
 })
 .catch((error) => {
   console.log('Error:', error )
