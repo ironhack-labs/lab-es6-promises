@@ -70,6 +70,9 @@ getInstruction(
                         document.querySelector(
                           "#mashedPotatoes"
                         ).innerHTML += `<li>${step5}</li>`;
+                        document.getElementById(
+                          "mashedPotatoesImg"
+                        ).hidden = false;
                       },
                       (err) => console.log(err)
                     );
@@ -114,7 +117,7 @@ obtainInstruction("steak", 0).then((step0) => {
                   document.querySelector(
                     "#steak"
                   ).innerHTML += `<li>${step8}</li>`;
-                  return obtainInstruction("steak", 9).then();
+                  document.getElementById("steakImg").hidden = false;
                 });
               });
             });
@@ -145,6 +148,7 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
     const step7 = await obtainInstruction("broccoli", 7);
     document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
+    document.getElementById("broccoliImg").hidden = false;
   } catch (error) {
     console.log("Something went wrong: ", error);
   }
@@ -154,3 +158,20 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
+
+const promises = brusselsSprouts.map((promise) => {
+  return obtainInstruction("brusselsSprouts", brusselsSprouts.indexOf(promise));
+});
+
+Promise.all(promises)
+  .then((responsesArr) => {
+    responsesArr.forEach((element) => {
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>${element}</li>`;
+      document.getElementById("brusselsSproutsImg").hidden = false;
+    });
+  })
+  .catch((e) => {
+    console.log(e);
+  });
