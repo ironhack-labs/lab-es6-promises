@@ -105,13 +105,6 @@ obtainInstruction('steak', 0)
 
 // Iteration 3 using async/await
 
-
-// mirar donde nacho ha definido la funcion addStep !!!!!!!!!!!
-//function addStep("broccoli", step) {
- // document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
-//}
-
-
 async function makeBroccoli() {
 
   try {
@@ -150,16 +143,16 @@ makeBroccoli();
 
 function showPromiseAllInstructions() {
 
-const promiseArr = []
+  const promiseArr = []
 
-for (let i = 0; i < brusselsSprouts.length; i++) {
-  const promise = obtainInstruction('brusselsSprouts', i)
-  promiseArr.push(promise)
-}
+  for (let i = 0; i < brusselsSprouts.length; i++) {
+    const promise = obtainInstruction('brusselsSprouts', i)
+    promiseArr.push(promise)
+  }
 
 
 
-Promise.all(promiseArr)
+  Promise.all(promiseArr)
     .then((steps) => {
       steps.forEach((step, i) => {
         if (i === brusselsSprouts.length - 1) {
@@ -172,10 +165,10 @@ Promise.all(promiseArr)
     .catch((error) => {
       console.log(error);
     })
-    .finally(() =>  {
+    .finally(() => {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
     });
 
-  }
+}
 
 showPromiseAllInstructions()
