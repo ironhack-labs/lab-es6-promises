@@ -54,10 +54,6 @@ getInstruction("mashedPotatoes", 0, (step0) => {
 
 // Iteration 2 - using promises
 
-// const errorCallback = function (error) {
-//   console.error('Error: ', error);
-// }
-
 
 obtainInstruction('steak', 0)
   .then((step0) => {
@@ -138,6 +134,7 @@ async function makeBroccoli() {
 }
 makeBroccoli();
 
+
 // Bonus 2 - Promise all
 
 
@@ -149,8 +146,6 @@ function showPromiseAllInstructions() {
     const promise = obtainInstruction('brusselsSprouts', i)
     promiseArr.push(promise)
   }
-
-
 
   Promise.all(promiseArr)
     .then((steps) => {
@@ -168,7 +163,6 @@ function showPromiseAllInstructions() {
     .finally(() => {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
     });
-
 }
 
 showPromiseAllInstructions()
