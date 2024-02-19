@@ -169,7 +169,7 @@ Promise.all([
   obtainInstruction("brusselsSprouts", 5),
   obtainInstruction("brusselsSprouts", 6),
   obtainInstruction("brusselsSprouts", 7),
-  obtainInstruction("brusselsSprouts", 7)
+ 
   
 ])
 .then((response) => {
