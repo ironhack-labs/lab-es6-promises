@@ -48,14 +48,11 @@ getInstruction('mashedPotatoes', 0, mashedPotatoes => {
         getInstruction('mashedPotatoes', 4, mashedPotatoes => {
           document.querySelector("#mashedPotatoes").innerHTML += `<li>${mashedPotatoes}</li>`
           console.log(mashedPotatoes)
-          getInstruction('mashedPotatoes', 4, mashedPotatoes => {
+         
             document.querySelector("#mashedPotatoes").innerHTML += `<li>${"Mashed potatoes are ready!"}</li>`
             document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
             console.log(mashedPotatoes)
-            
-          }, (error) => {
-            console.log(error)
-          })
+  
         }, (error) => {
           console.log(error)
         })
@@ -115,9 +112,6 @@ obtainInstruction('steak', 0)
   .then( (steak) => {
     document.querySelector("#steak").innerHTML += `<li>${steak}</li>`
    
-    return obtainInstruction('steak', 7)
-  })
-  .then( (steak) => {
     document.querySelector("#steak").innerHTML += `<li>${"Stake is ready!"}</li>`
     document.querySelector("#steakImg").removeAttribute("hidden");
   })
@@ -154,7 +148,6 @@ async function obtainInstructionBrocoli () {
     const paso6 = await obtainInstruction("broccoli", 6)
     document.querySelector("#broccoli").innerHTML += `<li>${paso6}</li>`
 
-    const paso7 = await obtainInstruction("broccoli", 6)
     document.querySelector("#broccoli").innerHTML += `<li>${"Broccoli is ready!"}</li>`
     document.querySelector("#broccoliImg").removeAttribute("hidden");
    
