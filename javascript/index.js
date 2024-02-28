@@ -156,17 +156,17 @@ async function makeBrusselsSprouts() {
       obtainInstruction("brusselsSprouts", step)
     );
 
-    await Promise.all(promises).then((cookingInstructions) => {
-      cookingInstructions.forEach((instruction) => {
-        document.querySelector(
-          "#brusselsSprouts"
-        ).innerHTML += `<li>${instruction}</li>`;
-      });
+    const cookingInstructions = await Promise.all(promises);
+
+    cookingInstructions.forEach((instruction) => {
       document.querySelector(
         "#brusselsSprouts"
-      ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
-      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+      ).innerHTML += `<li>${instruction}</li>`;
     });
+    document.querySelector(
+      "#brusselsSprouts"
+    ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   } catch (error) {
     console.log(error);
   }
