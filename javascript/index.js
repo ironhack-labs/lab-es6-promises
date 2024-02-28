@@ -136,14 +136,39 @@ async function makeBroccoli() {
     const step5 = await obtainInstruction("broccoli", 5);
     document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`;
     const step6 = await obtainInstruction("broccoli", 6);
-    document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;   
-    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready</li>`;
-  }
-  catch (error) {
+    document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`;
+    document.querySelector(
+      "#broccoli"
+    ).innerHTML += `<li>Broccoli is ready</li>`;
+    document.querySelector("#broccoliImg").removeAttribute("hidden");
+  } catch (error) {
     console.log(error);
   }
 }
-makeBroccoli()   // I need to call the async function to see the results on the web
+makeBroccoli(); // I need to call the async function to see the results on the web
 
 // Bonus 2 - Promise all
-// ...
+// difficult !
+async function makeBrusselsSprouts() {
+  try {
+    const steps = [0, 1, 2, 3, 4, 5, 6, 7];
+    const promises = steps.map((step) =>
+      obtainInstruction("brusselsSprouts", step)
+    );
+
+    await Promise.all(promises).then((cookingInstructions) => {
+      cookingInstructions.forEach((instruction) => {
+        document.querySelector(
+          "#brusselsSprouts"
+        ).innerHTML += `<li>${instruction}</li>`;
+      });
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>Brussels sprouts are ready!</li>`;
+      document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+makeBrusselsSprouts();
