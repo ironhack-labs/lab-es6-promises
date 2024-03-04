@@ -178,7 +178,7 @@ async function makeBrusselsSprouts() {
     document.querySelector('#brusselsSprouts').innerHTML += `<li>${result}</li>`
   })
 
-  document.querySelector('#broccoli').innerHTML += `<li>Sprouts are ready!</li>`
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>Sprouts are ready!</li>`
   document.querySelector('#brusselsSproutsImg').removeAttribute("hidden")
 
 }
