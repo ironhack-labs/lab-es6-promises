@@ -148,4 +148,10 @@ makeBroccoli();
 // ...
 
 // Bonus 2 - Promise all
-// ...
+
+function fetchAllSteps() {
+  const stepsPromises = [
+    obtainInstruction("Brussels Sprouts", 0),
+    obtainInstruction("Brussels Sprouts", 1),
+  ];
+}
