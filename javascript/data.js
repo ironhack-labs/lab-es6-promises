@@ -7,14 +7,16 @@ const steak = [
   "cook steak for 30-60 seconds per side using a spoon to baste with butter",
   "rest for 10 minutes",
   "enjoy",
+  "Stake is ready!"
 ];
 
 const mashedPotatoes = [
   "boil water",
-  "tear open bag of of instant potato mix and pour into bowl",
+  "tear open bag of instant potato mix and pour into bowl",
   "pour in water",
   "mix",
   "enjoy",
+  "Mashed potatoes are ready!"
 ];
 
 const brusselsSprouts = [
@@ -35,5 +37,6 @@ const broccoli = [
   'once boiling, carefully lower the broccoli into the water',
   'cook for 3 to 4 minutes, or until tender',
   'drain, then leave to steam dry for a minute',
-  'enjoy'
+  'enjoy',
+  'Broccoli is ready!'
 ];
