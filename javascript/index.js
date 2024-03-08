@@ -123,7 +123,8 @@ obtainInstruction('steak', 0)
     return obtainInstruction('steak', 8)     
     })
   .then( (step8) => {
-    document.querySelector("#steak").innerHTML += `<li>${step8}</li>`     
+    document.querySelector("#steak").innerHTML += `<li>${step8}</li>`
+    return obtainInstruction('steak', 9)      
       })
   .catch((error)=> {
     console.log(error);
@@ -157,6 +158,9 @@ async function makeBroccoli() {
 
     const step7 = await obtainInstruction('broccoli', 7)
     document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
+
+    const step8 = await obtainInstruction('broccoli', 8)
+    document.querySelector("#broccoli").innerHTML += `<li>${step8}</li>`;
   }
    catch(error){
     console.log(error);
