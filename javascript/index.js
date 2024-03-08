@@ -123,7 +123,7 @@ obtainInstruction('steak', 0)
     return obtainInstruction('steak', 8)     
     })
   .then( (step8) => {
-    document.querySelector("#steak").innerHTML += `<li>${step8} is ready!</li>`;    
+    document.querySelector("#steak").innerHTML += '<li>Steak is ready!</li>';    
       })
   .catch((error)=> {
     console.log(error);
