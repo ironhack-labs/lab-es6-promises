@@ -121,7 +121,7 @@ obtainInstruction("steak", 0)
     console.log(err);
   })
   .then((step8) => {
-    document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
     document.querySelector("#steakImg").removeAttribute("hidden");
     return obtainInstruction("steak", 9);
   })
