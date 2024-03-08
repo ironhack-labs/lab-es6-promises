@@ -60,32 +60,25 @@ getInstruction(
                               (step5) => {
                                 document.querySelector(
                                   "#mashedPotatoes"
-                                  ).innerHTML += `<li>${step5}</li>`;
+                                  ).innerHTML += '<li>Mashed potatoes are ready!"</li>';
                                   document.querySelector(
                                     "#mashedPotatoesImg"
                                     ).removeAttribute("hidden");
-                                    getInstruction(
-                                      "mashedPotatoes",
-                                       5,
-                                        (step6) => {
-                                          document.querySelector(
-                                            "#mashedPotatoes"
-                                            ).innerHTML += `<li>${step5} are ready!"</li>`; 
-                                          }, 
-                                          (error) => console.log(error)
-                                          );
-                                        },
-                                        (error) => console.log(error)
-                                        );
-                                      },
-                                      (error) => console.log(error)
-                                      );
-                                    }, (error) => console.log(error)
-                                    );
-                                  }, (error) => console.log(error)
+                                  },
+                                  (error) => console.log(error)
                                   );
-                                }, (error) => console.log(error)
+                                },
+                                (error) => console.log(error)
                                 );
+                              },
+                              (error) => console.log(error)
+                              );
+                            }, (error) => console.log(error)
+                            );
+                          }, (error) => console.log(error)
+                          ); (error) => console.log(error);
+
+
 
 // Iteration 2 - using promises
 // ...
@@ -159,7 +152,7 @@ async function makeBroccoli() {
     document.querySelector("#broccoli").innerHTML += `<li>${step7}</li>`;
 
     const step8 = await obtainInstruction('broccoli', 8)
-    document.querySelector("#broccoli").innerHTML += `<li>${step8} is ready</li>`;
+    document.querySelector("#broccoli").innerHTML += `<li>$broccoli is ready</li>`;
   }
    catch(error){
     console.log(error);
