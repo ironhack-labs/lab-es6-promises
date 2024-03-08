@@ -3,6 +3,7 @@
 
 // Callback based function
 function getInstruction(food, step, callback, errorCallback) {
+  console.log(mashedPotatoes[step])
     setTimeout(() => {
       // Get the instruction string
       let instruction;
