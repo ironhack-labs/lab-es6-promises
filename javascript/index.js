@@ -103,20 +103,16 @@
 
 // Iteration 3 using async/await
 
-    async function makeBrocoli() {
+    
 
-      try {
-        const obtainInstruction = await Promise.all(
-          broccoli.map(async (_, step) => {
-            return await obtainInstruction("brocoli", step)
-          })
-        )
-        console.log(obtainInstruction.join('\n'))
-      } catch (error){
-        console.error(error)
+      async function makeBroccoli() {
+        for (let step = 0; step < broccoli.length; step++) {
+          const instruction = await obtainInstruction('broccoli', step);
+          document.querySelector('#broccoli').innerHTML += `<li>${instruction}</li>`;
+        }
       }
-    }
+    
 
-      makeBrocoli()
+      makeBroccoli()
 // Bonus 2 - Promise all
 // ...
