@@ -4,6 +4,9 @@
 // 🚨🚨🚨 Comment out the below code before you start working on the code
 
 // Out of sync
+
+
+/*
   getInstruction("mashedPotatoes", 0, (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
   }, (error) => console.log(error));
@@ -25,7 +28,7 @@
     document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
   }, (error) => console.log(error));
 
-
+*/
 
 // Iteration 1 - using callbacks
 // ...
