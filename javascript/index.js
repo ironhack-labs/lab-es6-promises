@@ -105,36 +105,24 @@ obtainInstruction("steak", 0)
 
 // Iteration 3 using async/await
 
+const broccoli2 = [
+  'wash broccoli in cold water',
+  'trim and cut the stalk in half, then finely slice it',
+  'fill a pot with water, add a pinch of salt and bring to the boil',
+  'once boiling, carefully lower the broccoli into the water',
+  'cook for 3 to 4 minutes, or until tender',
+  'drain, then leave to steam dry for a minute',
+  'enjoy'
+];
 async function makeBroccoli() {
-  try {
-    await obtainInstruction("broccoli", 0);
-    document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`;
-  } catch (error) {
-    console.log("Something went wrong: ", error);
-  }
-}
-
-/*
-
-
-
-async function getCoffee() {
-  try {
-    await obtainDirections(0);
-    await obtainDirections(1);
-    await obtainDirections(2);
-    await obtainDirections(3);
-    
-    // This will result in a rejected Promise as direction step 4 doesn't exist:
-    await obtainDirections(4);
-    
-    console.log("You arrived at your destination!");
-  } catch(error) {
-    console.log("Something went wrong: ", error)
+  for(let i=0; i<broccoli2.length; i++) {
+    const step = await obtainInstruction("broccoli", i);
+    document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`;
   } 
+  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
 }
 
-*/
+makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
