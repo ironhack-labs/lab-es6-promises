@@ -102,7 +102,7 @@ obtainInstruction('steak', 0)
 
   });
 
-//iteration 3
+//iteration 3 Promises
 async function makeBroccoli() {
   for(let i=0; i<broccoli.length; i++) {
     const step = await obtainInstruction("broccoli", i);
@@ -116,4 +116,30 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus Iteration 5 - Promise all
-// ...
+// async function brusselsSprouts() {
+//   for(let i=0; i<brusselsSprouts.length; i++) {
+//     const step = await obtainInstruction("brusselsSprouts", i);
+//     document.querySelector("#brusselsSproutsImg").innerHTML += `<li>${step}</li>`;
+//   } 
+//   document.querySelector("#brusselsSproutsImg").innerHTML += `<li>Brussel sprouts are ready!</li>`;
+//   const brusselsSproutsImg = document.getElementById("brusselsSproutsImg");
+//   brusselsSproutsImg.removeAttribute("hidden");
+// };
+// brusselsSprouts();
+// const  promiseAll= Promise.all( [obtainInstruction] )
+//   .then((values) => console.log("values", values));
+
+
+// Promise.all(steps.map((step, index) => cookStep(step.step, step.delay)))
+//             .then(cookedSteps => {
+//                 const cookingStepsList = document.getElementById("cookingSteps");
+//                 cookedSteps.forEach(step => {
+//                     const li = document.createElement("li");
+//                     li.textContent = step;
+//                     cookingStepsList.appendChild(li);
+//                 });
+//                 // Display final message
+//                 const finalLi = document.createElement("li");
+//                 finalLi.textContent = "Brussels sprouts are ready!";
+//                 cookingStepsList.appendChild(finalLi);
+//             });
