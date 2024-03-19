@@ -135,6 +135,8 @@ Promise.all(cookingSteps)
       brusselsSproutsElement.innerHTML += `<li>${step}</li>`;
     })
     brusselsSproutsElement.innerHTML += "<li>Brussels sprouts are ready!</li>";
+    document.querySelector("#brusselsSproutsImg").style.display = 'block'
+
   })
   .catch((error) => {
 
