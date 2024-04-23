@@ -37,34 +37,3 @@ const broccoli = [
   "drain, then leave to steam dry for a minute",
   "enjoy",
 ];
-
-async function makeBrusselsSprouts() {
-  try {
-    const brusselsSproutsSteps = [
-      obtainInstruction("brusselsSprouts", 0),
-      obtainInstruction("brusselsSprouts", 1),
-      obtainInstruction("brusselsSprouts", 2),
-      obtainInstruction("brusselsSprouts", 3),
-      obtainInstruction("brusselsSprouts", 4),
-      obtainInstruction("brusselsSprouts", 5),
-      obtainInstruction("brusselsSprouts", 6),
-      obtainInstruction("brusselsSprouts", 7),
-    ];
-
-    const steps = await Promise.all(brusselsSproutsSteps);
-
-    const brusselsSproutsList = document.querySelector("#brusselsSprouts");
-
-    steps.forEach((step) => {
-      brusselsSproutsList.innerHTML += `<li>${step}</li>`;
-    });
-
-    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
-
-    brusselsSproutsList.innerHTML += `<li>Brussels sprouts are ready!</li>`;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-makeBrusselsSprouts();
