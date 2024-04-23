@@ -18,22 +18,53 @@ const mashedPotatoes = [
 ];
 
 const brusselsSprouts = [
-  'wash brussels sprouts',
-  'cut off base and chop in half',
-  'toss in bowl with olive oil, balsamic vinegar and salt',
-  'preheat oven to 500 F',
-  'coat baking sheet with olive oil',
-  'roast in the oven for 20 minutes',
-  'place back in bowl and add salt and pepper',
-  'enjoy'
+  "wash brussels sprouts",
+  "cut off base and chop in half",
+  "toss in bowl with olive oil, balsamic vinegar and salt",
+  "preheat oven to 500 F",
+  "coat baking sheet with olive oil",
+  "roast in the oven for 20 minutes",
+  "place back in bowl and add salt and pepper",
+  "enjoy",
 ];
 
 const broccoli = [
-  'wash broccoli in cold water',
-  'trim and cut the stalk in half, then finely slice it',
-  'fill a pot with water, add a pinch of salt and bring to the boil',
-  'once boiling, carefully lower the broccoli into the water',
-  'cook for 3 to 4 minutes, or until tender',
-  'drain, then leave to steam dry for a minute',
-  'enjoy'
+  "wash broccoli in cold water",
+  "trim and cut the stalk in half, then finely slice it",
+  "fill a pot with water, add a pinch of salt and bring to the boil",
+  "once boiling, carefully lower the broccoli into the water",
+  "cook for 3 to 4 minutes, or until tender",
+  "drain, then leave to steam dry for a minute",
+  "enjoy",
 ];
+
+async function makeBrusselsSprouts() {
+  try {
+    const brusselsSproutsSteps = [
+      obtainInstruction("brusselsSprouts", 0),
+      obtainInstruction("brusselsSprouts", 1),
+      obtainInstruction("brusselsSprouts", 2),
+      obtainInstruction("brusselsSprouts", 3),
+      obtainInstruction("brusselsSprouts", 4),
+      obtainInstruction("brusselsSprouts", 5),
+      obtainInstruction("brusselsSprouts", 6),
+      obtainInstruction("brusselsSprouts", 7),
+    ];
+
+    const steps = await Promise.all(brusselsSproutsSteps);
+
+    const brusselsSproutsList = document.querySelector("#brusselsSprouts");
+
+    steps.forEach((step) => {
+      brusselsSproutsList.innerHTML += `<li>${step}</li>`;
+    });
+
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+
+    brusselsSproutsList.innerHTML += `<li>Brussels sprouts are ready!</li>`;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+makeBrusselsSprouts();
