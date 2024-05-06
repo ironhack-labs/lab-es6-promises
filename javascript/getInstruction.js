@@ -8,6 +8,7 @@ function getInstruction(food, step, callback, errorCallback) {
       let instruction;
 
       if (food === "mashedPotatoes") {
+        console.log("potatoes")
         instruction = mashedPotatoes[step];
       }
       else if (food === "steak") {
