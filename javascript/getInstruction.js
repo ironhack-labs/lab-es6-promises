@@ -8,6 +8,7 @@ function getInstruction(food, step, callback, errorCallback) {
       let instruction;
 
       if (food === "mashedPotatoes") {
+        //console.log("potatoes");
         instruction = mashedPotatoes[step];
       }
       else if (food === "steak") {
@@ -24,6 +25,7 @@ function getInstruction(food, step, callback, errorCallback) {
       if (!instruction) {
         errorCallback("Instruction step does not exist!");
       } else {
+        //console.log(instruction);
         callback(instruction);
       }
 
