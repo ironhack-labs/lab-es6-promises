@@ -4,7 +4,9 @@
 // 🚨🚨🚨 Comment out the below code before you start working on the code
 
 // Out of sync
-  getInstruction("mashedPotatoes", 0, (step1) => {
+  getInstruction(
+    "mashedPotatoes", 
+    0, (step1) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
   }, (error) => console.log(error));
   
@@ -31,10 +33,22 @@
 // ...
 
 // Iteration 2 - using promises
-// ...
-
+obtainInstruction("steak", 0).then((response)=>{
+  document.querySelector("#steak").innerHTML += `<li>${response}</li>`
+  return obtainInstruction('steak', 1)
+})
+.then((response2) => {
+  document.querySelector("#steak").innerHTML += `<li>${response2}</li>`
+})
+.catch((err)=>console.log(err))
 // Iteration 3 using async/await
-// ...
+async function doTheBroccoli(){
+  try {
+    const response = await obtainInstruction
+  } catch (error) {
+    
+  }
+}
 
 // Bonus 2 - Promise all
 // ...
