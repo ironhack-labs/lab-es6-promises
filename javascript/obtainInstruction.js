@@ -11,29 +11,22 @@ function obtainInstruction(food, step) {
 
       if (food === "mashedPotatoes") {
         instruction = mashedPotatoes[step];
-      }
-      else if (food === "steak") {
+      } else if (food === "steak") {
         instruction = steak[step];
-      }
-      else if (food === "brusselsSprouts") {
+      } else if (food === "brusselsSprouts") {
         instruction = brusselsSprouts[step];
-      }
-      else if (food === "broccoli") {
+      } else if (food === "broccoli") {
         instruction = broccoli[step];
-      };
-      
+      }
 
       // Resolve or reject the promise
       if (!instruction) {
-        reject("Instruction step does not exist!")
-      }
-      else {
+        reject("Instruction step does not exist!");
+      } else {
         resolve(instruction);
       }
-
     }, Math.floor(Math.random() * 1000));
   });
 }
-
 
 /***** ^^^ DO NOT TOUCH *****/
