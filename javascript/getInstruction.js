@@ -27,7 +27,7 @@ function getInstruction(food, step, callback, errorCallback) {
         callback(instruction);
       }
 
-    }, Math.floor(Math.random() * 1000));
+    },Math.floor(Math.random() * 1000));
 }
 
 /***** ^^^ DO NOT TOUCH *****/

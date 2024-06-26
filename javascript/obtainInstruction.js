@@ -4,9 +4,11 @@
 
 // Promise based function
 function obtainInstruction(food, step) {
+  
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       // Get the instruction string
+      
       let instruction;
 
       if (food === "mashedPotatoes") {
