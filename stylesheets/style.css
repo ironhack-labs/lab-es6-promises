@@ -41,7 +41,7 @@ label {
 }
 
 ol {
-  width: 25%;
+  width: 90%;
   position: relative;
   list-style: none;
   counter-reset: li;
