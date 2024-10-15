@@ -25,7 +25,7 @@ function obtainInstruction(food, step) {
 
       // Resolve or reject the promise
       if (!instruction) {
-        reject("Instruction step does not exist!")
+        reject("Instruction step does not exist! " + step)
       }
       else {
         resolve(instruction);
