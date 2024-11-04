@@ -28,13 +28,89 @@
 
 
 // Iteration 1 - using callbacks
-// ...
+function callBack(food) {
+  function executeStep(step) {
+      getInstruction(food, step, (desc) => {
+          document.querySelector(`#${food}`).innerHTML += `<li>${desc}</li>`;
+
+          // Verifica si hay mas steps, si no muestra la imagen y un mensaje final
+          getInstruction(food, step + 1, (nextDesc) => {
+              executeStep(step + 1);
+          }, () => {
+              document.querySelector(`#${food}Img`).removeAttribute("hidden");
+              document.querySelector(`#${food}`).innerHTML += `<li>${food} is ready!</li>`;
+          });
+      });
+  }
+
+  // Comienza la secuencia desde el primer paso
+  executeStep(0);
+}
+
+callBack('mashedPotatoes');
+
 
 // Iteration 2 - using promises
-// ...
+function promises(food) {
+  let step = 0;
+
+  function handleStep() {
+      obtainInstruction(food, step)
+          .then((desc) => {
+              document.querySelector(`#${food}`).innerHTML += `<li>${desc}</li>`;
+              step++;
+              handleStep(); // Llamar a la siguiente instrucción
+          })
+          .catch(() => {
+              document.querySelector(`#${food}Img`).removeAttribute("hidden");
+          });
+  }
+
+  handleStep(); // Iniciar el proceso
+}
+
+// Llama a la función inicial
+promises('steak');
+
 
 // Iteration 3 using async/await
-// ...
+async function asyncAwait(food) {
+  try {
+      let step = 0;
+      let desc;
+      
+      while (true) {
+          desc = await obtainInstruction(food, step);
+          document.querySelector(`#${food}`).innerHTML += `<li>${desc}</li>`;
+          step++;
+      }
+  } catch (error) {
+      document.querySelector(`#${food}`).innerHTML += `<li>${food} is ready!</li>`;
+      document.querySelector(`#${food}Img`).removeAttribute("hidden");
+  }
+}
+
+asyncAwait('brusselsSprouts');
+
 
 // Bonus 2 - Promise all
-// ...
+function promiseAll(food) {
+  const stepCount = 7; // Definimos la cantidad de pasos
+  const promises = Array.from({ length: stepCount }, (_, step) => obtainInstruction(food, step));
+
+  Promise.all(promises)
+      .then((descs) => {
+          // Agregar todas las instrucciones al DOM
+          const foodElement = document.querySelector(`#${food}`);
+          foodElement.innerHTML += descs.map(desc => `<li>${desc}</li>`).join('');
+      })
+      .catch((error) => {
+          console.error('Error while obtaining instructions:', error);
+      })
+      .finally(() => {
+          // Mostrar la imagen al final
+          document.querySelector(`#${food}Img`).removeAttribute("hidden");
+      });
+}
+
+promiseAll('broccoli');
