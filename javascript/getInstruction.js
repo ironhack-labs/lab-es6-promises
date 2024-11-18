@@ -2,6 +2,8 @@
 /****** DO NOT TOUCH vvv *****/
 
 // Callback based function
+//step is an index
+
 function getInstruction(food, step, callback, errorCallback) {
     setTimeout(() => {
       // Get the instruction string
