@@ -1,7 +1,8 @@
 /* CALL THIS FUNCTION FROM OTHER FILES */
 /****** DO NOT TOUCH vvv *****/
 
-// Callback based function
+/* function getInstruction that uses callbacks to asynchronously retrieve instruction steps for any food. 
+It uses setTimeout to mimic an asynchronous operation: each function execution time is randomized to mimic how promise function would execute, so steps will come out of order*/
 function getInstruction(food, step, callback, errorCallback) {
     setTimeout(() => {
       // Get the instruction string

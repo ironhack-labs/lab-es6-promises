@@ -1,3 +1,5 @@
+//four arrays with steps to preparing 4 different foods: mashed potatoes, steak, brussels sprouts and broccoli 
+
 const steak = [
   "season steak generously with salt, pepper and garlic powder",
   "place in zip lock bag",

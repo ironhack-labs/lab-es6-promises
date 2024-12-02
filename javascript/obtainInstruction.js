@@ -2,7 +2,8 @@
 
 /****** DO NOT TOUCH vvv *****/
 
-// Promise based function
+/* Promise based function: function obtainInstruction uses promises to asynchronously retrieve instruction steps for any food. 
+It also uses setTimeout to mimic an asynchronous operation */
 function obtainInstruction(food, step) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
