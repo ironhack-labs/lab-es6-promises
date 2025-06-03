@@ -137,3 +137,24 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
+const arrayOfPromisses = [
+  obtainInstruction("brusselsSprouts", 0),
+  obtainInstruction("brusselsSprouts", 1),
+  obtainInstruction("brusselsSprouts", 2),
+  obtainInstruction("brusselsSprouts", 3),
+  obtainInstruction("brusselsSprouts", 4),
+  obtainInstruction("brusselsSprouts", 5),
+  obtainInstruction("brusselsSprouts", 6),
+  obtainInstruction("brusselsSprouts", 7),
+];
+Promise.all(arrayOfPromisses)
+  .then((res) => {
+    res.forEach((oneStep) => {
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>${oneStep} </li>`;
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
