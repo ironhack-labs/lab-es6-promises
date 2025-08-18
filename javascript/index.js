@@ -104,26 +104,25 @@ getInstruction(
 obtainInstruction("steak", 0)
   .then((step0) => {
     document.querySelector("#steak").innerHTML += `<li>${step0}</li>`;
-    //  ... Your code here
+    return obtainInstruction("steak", 1);
   })
   .then((step1) => {
     document.querySelector("#steak").innerHTML += `<li>${step1}</li>`;
-    return obtainInstruction("steak", 1);
+    return obtainInstruction("steak", 2);
   })
   .then((step2) => {
     document.querySelector("#steak").innerHTML += `<li>${step2}</li>`;
-    return obtainInstruction("steak", 2);
+    return obtainInstruction("steak", 3);
   })
   .then((step3) => {
     document.querySelector("#steak").innerHTML += `<li>${step3}</li>`;
-    return obtainInstruction("steak", 3);
+    return obtainInstruction("steak", 4);
   })
   .then((step4) => {
     const list = document.querySelector("#steak");
     list.innerHTML += `<li>${step4}</li>`;
     list.innerHTML += `<li>Steak is ready!</li>`;
     document.querySelector("#steak").removeAttribute("hidden");
-    return obtainInstruction("steak", 4);
   })
   .catch((err) => {
     console.log(err);
@@ -135,24 +134,26 @@ obtainInstruction("steak", 0)
 
 async function makeBroccoli() {
   try {
-    const myInstruction1 = await obtainInstruction("steak", 0);
-    console.log(Instruction1);
+    const myInstruction1 = await obtainInstruction("brocoli", 0);
+    document.querySelector("#brocoli").innerHTML += `<li>${step0}</li>`;
 
-    const Instruction2 = await obtainInstruction("steak", 1);
-    console.log(Instruction2);
+    const Instruction2 = await obtainInstruction("brocoli", 1);
+    document.querySelector("#brocoli").innerHTML += `<li>${step1}</li>`;
 
-    const Instruction3 = await obtainInstruction("steak", 2);
-    console.log(Instruction3);
+    const Instruction3 = await obtainInstruction("brocoli", 2);
+    document.querySelector("#brocoli").innerHTML += `<li>${step2}</li>`;
 
-    const Instruction4 = await obtainInstruction("steak", 3);
-    console.log(Instruction4);
+    const Instruction4 = await obtainInstruction("brocoli", 3);
+    document.querySelector("#brocoli").innerHTML += `<li>${step3}</li>`;
 
-    const Instruction5 = await obtainInstruction("steak", 4);
-    console.log(Instruction5);
+    const Instruction5 = await obtainInstruction("brocoli", 4);
+    document.querySelector("#brocoli").innerHTML += `<li>${step5}</li>`;
   } catch (error) {
     console.log(error);
   }
 }
+
+makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
