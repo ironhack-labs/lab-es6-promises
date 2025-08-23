@@ -16,6 +16,9 @@ li {
   color: #545454;
   /* text-transform: capitalize; */
 }
+li.li-bold{
+  font-weight: bold;
+}
 
 label {
   line-height: 50px;
