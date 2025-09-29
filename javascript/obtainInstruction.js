@@ -9,6 +9,7 @@ function obtainInstruction(food, step) {
       // Get the instruction string
       let instruction;
 
+      
       if (food === "mashedPotatoes") {
         instruction = mashedPotatoes[step];
       }
