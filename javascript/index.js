@@ -34,7 +34,7 @@ getInstruction(
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
     getInstruction(
       "mashedPotatoes",
-      0,
+      1,
       (step1) => {
         document.querySelector(
           "#mashedPotatoes"
