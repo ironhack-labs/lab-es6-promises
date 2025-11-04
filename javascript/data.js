@@ -1,4 +1,5 @@
-const steak = [
+
+  const steak = [
   "season steak generously with salt, pepper and garlic powder",
   "place in zip lock bag",
   "cook in sous vide at 120 F for 1-2 hours",
