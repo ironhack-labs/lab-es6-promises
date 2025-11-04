@@ -5,9 +5,9 @@
 function getInstruction(food, step, callback, errorCallback) {
     setTimeout(() => {
       // Get the instruction string
-      let instruction;
+      let instruction; // yemegin yapilisindaki o anki adimi temsilen
 
-      if (food === "mashedPotatoes") {
+      if (food === "mashedPotatoes") { //burada condition ile verilen yemegin tarifinin hangi adimini istiyorsak onu elde ediyoruz if bloklari ile
         instruction = mashedPotatoes[step];
       }
       else if (food === "steak") {
@@ -21,7 +21,7 @@ function getInstruction(food, step, callback, errorCallback) {
       };
 
       // Invoke the provided callback or errorCallback
-      if (!instruction) {
+      if (!instruction) { //instruction yoksa error donmesi lazim iceride erroru yaziyoruz
         errorCallback("Instruction step does not exist!");
       } else {
         callback(instruction);
