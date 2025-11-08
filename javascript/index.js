@@ -29,8 +29,8 @@
 getInstruction(
 	'mashedPotatoes',
 	0,
-	(step0) => {
-		document.querySelector('#mashedPotatoes').innerHTML += `<li>${step0}</li>`
+	(step1) => {
+		document.querySelector('#mashedPotatoes').innerHTML += `<li>${step1}</li>`
 		getInstruction(
 			'mashedPotatoes',
 			1,
@@ -145,7 +145,7 @@ Promise.all([step0, step1, step2, step3, step4, step5, step6, step7])
 				).innerHTML += `<li>${v}</li>`)
 		)
 	)
-	.then(
+	.finally(
 		() =>
 			(document.querySelector(
 				'#brusselsSprouts'
