@@ -1,40 +1,131 @@
-// This will print in the wrong order.
-// We added it as an example and to test that the arrays from data.js are loaded
+// 🚨 Iteration 0: deja comentado el código "Out of sync" del starter.
+// (Si lo has borrado, da igual.)
 
-// 🚨🚨🚨 Comment out the below code before you start working on the code
+// Helpers
+const addStep = (selector, text) => {
+  document.querySelector(selector).innerHTML += `<li>${text}</li>`;
+};
 
-// Out of sync
-  getInstruction("mashedPotatoes", 0, (step1) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
-  }, (error) => console.log(error));
-  
-  getInstruction("mashedPotatoes", 1, (step2) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step2}</li>`;
-  }, (error) => console.log(error));
-  
-  getInstruction("mashedPotatoes", 2, (step3) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step3}</li>`;
-  }, (error) => console.log(error));
-  
-  getInstruction("mashedPotatoes", 3, (step4) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step4}</li>`;
-  }, (error) => console.log(error));
-  
-  getInstruction("mashedPotatoes", 4, (step5) => {
-    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step5}</li>`;
-    document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
-  }, (error) => console.log(error));
+const showImg = (imgSelector) => {
+  document.querySelector(imgSelector).removeAttribute("hidden");
+};
 
+// ==========================
+// Iteration 1 - callbacks (mashedPotatoes)
+// ==========================
+getInstruction(
+  "mashedPotatoes",
+  0,
+  (step0) => {
+    addStep("#mashedPotatoes", step0);
 
+    getInstruction(
+      "mashedPotatoes",
+      1,
+      (step1) => {
+        addStep("#mashedPotatoes", step1);
 
-// Iteration 1 - using callbacks
-// ...
+        getInstruction(
+          "mashedPotatoes",
+          2,
+          (step2) => {
+            addStep("#mashedPotatoes", step2);
 
-// Iteration 2 - using promises
-// ...
+            getInstruction(
+              "mashedPotatoes",
+              3,
+              (step3) => {
+                addStep("#mashedPotatoes", step3);
 
-// Iteration 3 using async/await
-// ...
+                getInstruction(
+                  "mashedPotatoes",
+                  4,
+                  (step4) => {
+                    addStep("#mashedPotatoes", step4);
+                    addStep("#mashedPotatoes", "Mashed potatoes are ready!");
+                    showImg("#mashedPotatoesImg");
+                  },
+                  (error) => console.log(error)
+                );
+              },
+              (error) => console.log(error)
+            );
+          },
+          (error) => console.log(error)
+        );
+      },
+      (error) => console.log(error)
+    );
+  },
+  (error) => console.log(error)
+);
 
-// Bonus 2 - Promise all
-// ...
+// ==========================
+// Iteration 2 - promises then() (steak)
+// ==========================
+obtainInstruction("steak", 0)
+  .then((step0) => {
+    addStep("#steak", step0);
+    return obtainInstruction("steak", 1);
+  })
+  .then((step1) => {
+    addStep("#steak", step1);
+    return obtainInstruction("steak", 2);
+  })
+  .then((step2) => {
+    addStep("#steak", step2);
+    return obtainInstruction("steak", 3);
+  })
+  .then((step3) => {
+    addStep("#steak", step3);
+    return obtainInstruction("steak", 4);
+  })
+  .then((step4) => {
+    addStep("#steak", step4);
+    return obtainInstruction("steak", 5);
+  })
+  .then((step5) => {
+    addStep("#steak", step5);
+    return obtainInstruction("steak", 6);
+  })
+  .then((step6) => {
+    addStep("#steak", step6);
+    return obtainInstruction("steak", 7);
+  })
+  .then((step7) => {
+    addStep("#steak", step7);
+    addStep("#steak", "Steak is ready!");
+    showImg("#steakImg");
+  })
+  .catch((error) => console.log(error));
+
+// ==========================
+// Iteration 3 - async/await (broccoli)
+// ==========================
+async function makeBroccoli() {
+  try {
+    for (let i = 0; i < broccoli.length; i++) {
+      const step = await obtainInstruction("broccoli", i);
+      addStep("#broccoli", step);
+    }
+    addStep("#broccoli", "Broccoli is ready!");
+    showImg("#broccoliImg");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+makeBroccoli();
+
+// ==========================
+// Bonus - Promise.all() (brusselsSprouts)
+// ==========================
+Promise.all(
+  brusselsSprouts.map((_, i) => obtainInstruction("brusselsSprouts", i))
+)
+  .then((steps) => {
+    steps.forEach((step) => addStep("#brusselsSprouts", step));
+    addStep("#brusselsSprouts", "Brussels sprouts are ready!");
+    showImg("#brusselsSproutsImg");
+  })
+  .catch((error) => console.log(error));
