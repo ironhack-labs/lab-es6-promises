@@ -28,13 +28,41 @@
 
 
 // Iteration 1 - using callbacks
-// ...
+
+getInstruction('mashedPotatoes', 0, (step0) => {
+  document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`;
+  getInstruction('mashedPotatoes', 1, (step1) => {
+    document.querySelector("#mashedPotatoes").innerHTML += `<li>${step1}</li>`;
+    document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
+  });
+});
 
 // Iteration 2 - using promises
-// ...
+obtainInstruction('steak', 0)
+  .then((step0) => {
+    document.querySelector("#steak").innerHTML += <li>${step0}</li>;
+    return obtainInstruction('steak', 1);
+  })
+  .then((step1) => {
+    document.querySelector("#steak").innerHTML += <li>${step1}</li>;
+    return obtainInstruction('steak', 2);
+  })
+  
+  .finally(() => {
+    document.querySelector("#steak").innerHTML += <li>Stake is ready!</li>;
+  });
 
 // Iteration 3 using async/await
-// ...
+async function makeBroccoli() {
+  const step0 = await obtainInstruction('broccoli', 0);
+  document.querySelector("#broccoli").innerHTML += <li>${step0}</li>;
+  
+  const step1 = await obtainInstruction('broccoli', 1);
+  document.querySelector("#broccoli").innerHTML += <li>${step1}</li>;
+  
+  // ... continue awaiting each step
+  document.querySelector("#broccoli").innerHTML += <li>Broccoli is ready!</li>;
+}
 
 // Bonus 2 - Promise all
 // ...
