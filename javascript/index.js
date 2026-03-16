@@ -96,7 +96,7 @@ const makeBroccoli = async () => {
     const step5 = await obtainInstruction('broccoli', 5)
     document.querySelector("#broccoli").innerHTML += `<li>${step5}</li>`
 
-    const step6 = await obtainInstruction('broccoli', 0)
+    const step6 = await obtainInstruction('broccoli', 6)
     document.querySelector("#broccoli").innerHTML += `<li>${step6}</li>`
     document.querySelector("#broccoliImg").removeAttribute("hidden");
   }
@@ -120,8 +120,9 @@ const step4 = obtainInstruction("brusselsSprouts", 3)
 const step5 = obtainInstruction("brusselsSprouts", 4)
 const step6 = obtainInstruction("brusselsSprouts", 5)
 const step7 = obtainInstruction("brusselsSprouts", 6)
+const step8 = obtainInstruction("brusselsSprouts", 7)
 
-const arrayOfSteps = [step1, step2, step3, step4, step5, step6, step7]
+const arrayOfSteps = [step1, step2, step3, step4, step5, step6, step7, step8]
 
 Promise.all(arrayOfSteps)
   .then((responseArr) => {
@@ -140,6 +141,8 @@ Promise.all(arrayOfSteps)
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${resultSix}</li>`
     const resultSeven = responseArr[6];
     document.querySelector("#brusselsSprouts").innerHTML += `<li>${resultSeven}</li>`
+    const resultEight = responseArr[7];
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${resultEight}</li>`
     document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   })
   .catch((err) => {
