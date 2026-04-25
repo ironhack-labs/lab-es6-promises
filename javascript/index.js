@@ -81,9 +81,7 @@ obtainInstruction('steak', 0)
   })
 
 // Iteration 3 using async/await
-// ...
 async function makeBroccoli() {
-  // ... Your code here
   try {
     for(let step = 0; step < 7; step++) {
       const stepText = await obtainInstruction('broccoli', step);
@@ -99,7 +97,6 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
 async function makeBrusselsSprouts() {
   const stepPromises = [];
 
