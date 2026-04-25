@@ -34,10 +34,13 @@ getInstruction("mashedPotatoes", 0, (step) => {
     document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`;
     getInstruction("mashedPotatoes", 2, (step) => {
       document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`;
-      getInstruction("mashedPotatoes", 4, (step) => {
+      getInstruction("mashedPotatoes", 3, (step) => {
         document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`;
-        document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
-        document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+        getInstruction("mashedPotatoes", 4, (step) => {
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>${step}</li>`;
+          document.querySelector("#mashedPotatoes").innerHTML += `<li>Mashed potatoes are ready!</li>`;
+          document.querySelector("#mashedPotatoesImg").removeAttribute("hidden");
+        }, (error) => console.log(error));
       }, (error) => console.log(error));
     }, (error) => console.log(error));
   }, (error) => console.log(error));
@@ -68,8 +71,7 @@ obtainInstruction('steak', 0)
                             obtainInstruction('steak', 7)
                               .then( (step) => {
                                 document.querySelector("#steak").innerHTML += `<li>${step}</li>`;
-                                document.querySelector("#steak").innerHTML += `<li>Stake is ready!</li>`;
-                                // Should probably be "Steak is ready!"
+                                document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`;
                                 document.querySelector("#steakImg").removeAttribute("hidden");
                               })
                           })
