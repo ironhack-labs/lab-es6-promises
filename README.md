@@ -110,6 +110,7 @@ getInstruction('mashedPotatoes', 0, (step0) => {
   document.querySelector("#mashedPotatoes").innerHTML += `<li>${step0}</li>`
   // ... Your code here
     // ...
+    console.log(step0)
 });
 ```
 
