@@ -1,6 +1,6 @@
 /* CALL THIS FUNCTION FROM OTHER FILES LIKE */
 
-/****** DO NOT TOUCH vvv *****/
+/****** DO NOT TOUCH *****/
 
 // Promise based function
 function obtainInstruction(food, step) {
@@ -36,4 +36,4 @@ function obtainInstruction(food, step) {
 }
 
 
-/***** ^^^ DO NOT TOUCH *****/
+/***** DO NOT TOUCH *****/
