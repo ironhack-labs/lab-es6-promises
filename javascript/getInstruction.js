@@ -1,5 +1,5 @@
 /* CALL THIS FUNCTION FROM OTHER FILES */
-/****** DO NOT TOUCH vvv *****/
+/****** DO NOT TOUCH *****/
 
 // Callback based function
 function getInstruction(food, step, callback, errorCallback) {
@@ -30,4 +30,4 @@ function getInstruction(food, step, callback, errorCallback) {
     }, Math.floor(Math.random() * 1000));
 }
 
-/***** ^^^ DO NOT TOUCH *****/
+/***** DO NOT TOUCH *****/
