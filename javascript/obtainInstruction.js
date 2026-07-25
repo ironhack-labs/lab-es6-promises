@@ -29,7 +29,8 @@ function obtainInstruction(food, step) {
       }
       else {
         resolve(instruction);
-      }
+      } document.querySelector("#steakImg").removeAttribute("hidden");
+      document.querySelector("#broccoliImg").removeAttribute("hidden");
 
     }, Math.floor(Math.random() * 1000));
   });

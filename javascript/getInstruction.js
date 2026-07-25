@@ -25,7 +25,7 @@ function getInstruction(food, step, callback, errorCallback) {
         errorCallback("Instruction step does not exist!");
       } else {
         callback(instruction);
-      }
+      } document.querySelector("#mashedPotatoesImg").removeAttribute("hidden")
 
     }, Math.floor(Math.random() * 1000));
 }
